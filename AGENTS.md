@@ -1,0 +1,18 @@
+# Afterimage agent contract
+
+Read `README.md` and the relevant document under `docs/` before changing code.
+
+## Non-negotiable
+
+- Preserve original IP. Do not copy games, their prose, visual identity, assets, role names, or UI.
+- Never commit secrets, Firebase config, service account files, tokens, or raw licensed music/SFX.
+- Keep the engine deterministic and independent from Firebase/UI.
+- Run the scoped tests, lint, and typecheck before requesting merge.
+- Keep PRs small and single-purpose; document tests and contract changes.
+
+## Collaboration
+
+- Claim only one ticket at a time.
+- Respect ownership boundaries in `docs/SWARM_PILOT.md`.
+- Escalate a cross-package contract change instead of silently editing another agent's area.
+

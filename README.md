@@ -21,3 +21,36 @@ See [the GDD](docs/GDD.md), [the architecture](docs/ARCHITECTURE.md), and [the s
 
 Planning and foundation only. No Firebase project, production credentials, proprietary source assets, or music files belong in this repository.
 
+## Local development
+
+Use Node 24 (`nvm use` if available) and npm 11. Install from the repository root:
+
+```sh
+npm install
+npm run dev
+```
+
+Vite serves the neutral client shell at the local URL printed in the terminal.
+The three packages under `packages/` are intentionally empty TypeScript modules.
+They contain no gameplay, protocol contracts, or UI primitives yet.
+
+## Validation
+
+Run from the repository root:
+
+```sh
+npm run lint
+npm run typecheck
+npm test
+npm run build
+```
+
+`npm run check` runs all four in sequence. Scope a command with, for example,
+`npm run typecheck --workspace @afterimage/engine`. Each workspace has explicit
+lint, typecheck, test, and build scripts. Empty packages currently permit zero
+tests; the client has a render smoke test. Builds write ignored `dist/` outputs.
+Preview the built client with `npm run preview --workspace @afterimage/client`.
+
+Tooling choices, ownership coordination, and the pending lockfile/validation
+limitation are recorded in [ADR 0001](docs/adr/0001-typescript-workspace.md).
+

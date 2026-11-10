@@ -20,9 +20,11 @@ jobs:
       # validated by the local integration step.
       - run: npm ci
       - name: Test local benchmark receipt tooling
-        run: node --test tools/benchmark-pilot.test.mjs
+        run: node --test tools/benchmark-pilot.test.mjs tools/prepare-parallel100.test.mjs
       - name: Validate frozen design and linked task metadata
         run: node tools/validate-pilot100.mjs --require-issues
+      - name: Validate independent 100-task preparation
+        run: node tools/prepare-parallel100.mjs --require-issues --workload-only
       - run: npm run lint
       - run: npm run typecheck
       - run: npm test

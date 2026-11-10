@@ -1,0 +1,41 @@
+{
+  "id": "B065",
+  "title": "Project sealed and open Crew vote activity without early choice leaks",
+  "category": "engine-leaf",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_BENCHMARK.md, docs/PILOT100_READY.md, docs/PILOT100_DOMAIN_CONTRACTS.md and the task sourceRefs before editing. This is an independent leaf in the B001–B100 cohort, not an integration or completed feature claim. Implement only the owned source and tests, using the exact pinned API section in PILOT100_DOMAIN_CONTRACTS. No imports from unmerged A/B modules, no manifests/barrels/App.tsx/shared task metadata edits and no new dependencies. Locally declare the contract's shared structural types; package engine/protocol production stays ES2022-only and pure, with no Firebase, browser, Node, UI, credentials, wall clock or global randomness. Use existing deterministic engine RNG only where the contract permits. Never turn a trusted verifier input into a claim of cryptographic verification. Unspecified rules remain explicit named decision-required results; no worker invents policies. Preserve existing T01–T10 API/tests. Run scoped lint/typecheck/tests, then node tools/benchmark-pilot.mjs --profile full. Return a handoff with paths, API, actual checks, benchmark receipt references and limitations. No commits, pushes, PRs, child agents, deployment, credential access, task-issue mutation or budget changes. Implement crewVoteView exactly as frozen in section B065 of docs/PILOT100_DOMAIN_CONTRACTS.md. S2 hides every other player’s candidate until deadline/resolution. A recipient retains their own submitted candidate; generic castCount never proves alignment. Unsealed or resolved voting may show the vote ledger. Return detached allowlisted data; require unique voters and bounded IDs.",
+  "ownership": [
+    "packages/engine/src/parallel100/sealed-vote-view.ts",
+    "packages/engine/tests/parallel100/sealed-vote-view.test.ts"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Sealed unresolved projection exposes castCount and the recipient’s own vote while disclosedVotes stays empty.",
+    "Resolved sealed and unsealed projections disclose exact allowed records with timeout provenance.",
+    "Search serialized sealed projection for opponent candidate IDs; malformed/duplicate records fail with no payload echo and no input mutation.",
+    "The exported implementation matches the frozen local structural API, preserves legacy APIs, and changes only declared ownership; no unresolved rule is silently decided.",
+    "Scoped lint, typecheck and meaningful tests pass, followed by node tools/benchmark-pilot.mjs --profile full; handoff records actual outcomes and receipt references without claiming App/provider integration."
+  ],
+  "status": "ready",
+  "sourceRefs": [
+    "docs/PILOT100_READY.md",
+    "docs/PILOT100_DOMAIN_CONTRACTS.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "preparationCohort": "afterimage-parallel100",
+  "contract": {
+    "path": "docs/PILOT100_DOMAIN_CONTRACTS.md",
+    "export": "crewVoteView"
+  },
+  "replacesScopeFrom": [
+    "A009",
+    "A022",
+    "A067"
+  ],
+  "issue": 198,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/198"
+}

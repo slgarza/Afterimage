@@ -2,7 +2,7 @@ import { spawn, spawnSync } from 'node:child_process';
 import { createHash, randomUUID } from 'node:crypto';
 import {
   closeSync, existsSync, fsyncSync, linkSync, lstatSync, mkdirSync, openSync,
-  readFileSync, readlinkSync, realpathSync, renameSync, unlinkSync, writeFileSync,
+  readFileSync, readdirSync, readlinkSync, realpathSync, renameSync, unlinkSync, writeFileSync,
 } from 'node:fs';
 import { dirname, extname, isAbsolute, relative, resolve, sep } from 'node:path';
 import process from 'node:process';
@@ -119,9 +119,8 @@ function snapshot(root, environment) {
   const status = git(root, ['status', '--porcelain=v1', '-z', '--untracked-files=all'], environment);
   const diff = git(root, ['diff', '--binary', '--full-index', '--no-ext-diff', '--no-textconv', 'HEAD', '--'], environment);
   const tasks = [];
-  for (let number = 1; number <= 100; number += 1) {
-    const id = `A${String(number).padStart(3, '0')}`;
-    tasks.push({ id, sha256: sha256(regularFile(resolve(root, 'swarm/tasks', `${id}.json`))) });
+  for (const filename of readdirSync(resolve(root, 'swarm/tasks')).filter((name) => /^[A-Z][A-Z0-9_-]*\.json$/.test(name)).sort()) {
+    tasks.push({ id: filename.slice(0, -5), sha256: sha256(regularFile(resolve(root, 'swarm/tasks', filename))) });
   }
   const sourceRoot = resolve(root, 'docs/design');
   const sourceBytes = regularFile(resolve(sourceRoot, 'SOURCE-MANIFEST.json'));
@@ -146,22 +145,34 @@ function snapshot(root, environment) {
       return { path, sha256: sha256(stat.isSymbolicLink() ? `symlink:${readlinkSync(absolute)}` : regularFile(absolute)) };
     });
   const tooling = ['tools/benchmark-pilot.mjs', 'tools/benchmark-pilot.test.mjs',
-    'tools/validate-pilot100.mjs', 'package.json', 'package-lock.json'].filter((path) => existsSync(resolve(root, path)))
+    'tools/validate-pilot100.mjs', 'tools/prepare-parallel100.mjs', 'tools/prepare-parallel100.test.mjs',
+    'package.json', 'package-lock.json'].filter((path) => existsSync(resolve(root, path)))
+    .map((path) => ({ path, sha256: sha256(regularFile(resolve(root, path))) }));
+  const preparation = ['swarm.toml', 'swarm/pilot100.json', 'swarm/parallel100.json',
+    'AGENTS.md', 'docs/SWARM_BENCHMARK.md', 'docs/PILOT100_READY.md',
+    'docs/PILOT100_UI_CONTRACTS.md', 'docs/PILOT100_DOMAIN_CONTRACTS.md']
+    .filter((path) => existsSync(resolve(root, path)))
     .map((path) => ({ path, sha256: sha256(regularFile(resolve(root, path))) }));
   return {
     commit_sha: commit, dirty: status.length !== 0, dirty_diff_sha256: sha256(diff),
     status_sha256: sha256(status), task_files: tasks, task_manifest_sha256: sha256(JSON.stringify(tasks)),
-    design_manifest_sha256: sha256(sourceBytes), design_files: design, untracked_files: untracked, tooling_files: tooling,
+    design_manifest_sha256: sha256(sourceBytes), design_files: design, untracked_files: untracked,
+    tooling_files: tooling, preparation_files: preparation,
   };
 }
 
-export function profileCommands(profile) {
+export function profileCommands(profile, { parallelCohort = false } = {}) {
   const metadata = { id: 'metadata', argv: [process.execPath, 'tools/validate-pilot100.mjs', '--require-issues'] };
   const tests = { id: 'benchmark-tests', argv: [process.execPath, '--test', 'tools/benchmark-pilot.test.mjs'] };
   const baseline = { id: 'baseline', argv: ['npm', 'run', 'check'] };
-  if (profile === 'metadata') return [metadata];
+  const metadataCommands = [metadata];
+  if (parallelCohort) {
+    metadataCommands.push({ id: 'parallel-metadata', argv: [process.execPath, 'tools/prepare-parallel100.mjs', '--require-issues', '--workload-only'] });
+    tests.argv.push('tools/prepare-parallel100.test.mjs');
+  }
+  if (profile === 'metadata') return metadataCommands;
   if (profile === 'baseline') return [baseline];
-  if (profile === 'full') return [metadata, tests, baseline];
+  if (profile === 'full') return [...metadataCommands, tests, baseline];
   throw new BenchmarkError('benchmark_profile_invalid');
 }
 
@@ -217,7 +228,7 @@ function captureCommand(argv, root, environment, abortSignal) {
 
 export async function runBenchmark({ root = DEFAULT_ROOT, profile = 'full', output, signal, environment = process.env } = {}) {
   root = realpathSync(root);
-  const commands = profileCommands(profile);
+  const commands = profileCommands(profile, { parallelCohort: existsSync(resolve(root, 'swarm/parallel100.json')) });
   const childEnv = childEnvironment(environment);
   const outputPath = outputLocation(root, output, childEnv);
   const clockStart = process.hrtime.bigint();

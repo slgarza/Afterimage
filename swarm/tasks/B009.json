@@ -1,0 +1,38 @@
+{
+  "id": "B009",
+  "title": "Show public room code, capacity and guarded copy/share requests",
+  "category": "client-ui",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_BENCHMARK.md, docs/DESIGN_RECONCILIATION.md, docs/PILOT100_READY.md and your frozen export contract in docs/PILOT100_UI_CONTRACTS.md before coding. Implement only your owned leaf module using installed React/TypeScript/testing dependencies. Export the exact named component and readonly props/types from index.tsx; keep module-local styles and tests inside that directory. Do not import an unmerged A/B task, edit App.tsx/shared barrels/manifests/task metadata or silently change another contract. This is controlled recipient-safe presentation, not an authority or complete application. Authority state/capabilities and semantic callbacks are supplied; no Firebase/native/store/network calls, secret caching, clock-driven game transitions, asset generation or fabricated success. Use original neutral-frost chrome, semantic HTML/keyboard access and honest unavailable media/provider states. Overlay leaves supply content to the separately composed modal host; do not claim global focus blocking in a content-only leaf. No commits, pushes, PRs, child agents, credentials, cloud deployment or budget changes. Preserve concise handoff, observed validation/failures and unknown costs under the benchmark policy. Render the public in-room code and connected/configured count with semantic copy/share actions. Host adapters own clipboard/share outcomes; the component must not call browser APIs or claim copying succeeded without feedback. Own only apps/client/src/pilot100/lobby-header/; provide index.tsx exporting LobbyHeader, LobbyHeaderProps and any named local types documented for B009. This task consumes part of A032; do not double-count it as a second implementation of that broad work. Run scoped React tests/lint/typecheck and node tools/benchmark-pilot.mjs --profile full; report actual results and unresolved application integration.",
+  "ownership": [
+    "apps/client/src/pilot100/lobby-header"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Only enabled copy/share controls emit requests and feedback is supplied rather than fabricated.",
+    "Long room names/codes remain readable and controls carry accessible names.",
+    "Counts remain connected/configured and never become role,passcode or hidden-identity summaries.",
+    "Exact frozen export/readonly props are implemented and scoped lint/typecheck/meaningful React tests plus node tools/benchmark-pilot.mjs --profile full pass; only owned files change."
+  ],
+  "status": "ready",
+  "sourceRefs": [
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/PILOT100_UI_CONTRACTS.md",
+    "docs/PILOT100_READY.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "preparationCohort": "afterimage-parallel100",
+  "contract": {
+    "path": "docs/PILOT100_UI_CONTRACTS.md",
+    "export": "LobbyHeader"
+  },
+  "replacesScopeFrom": [
+    "A032"
+  ],
+  "issue": 142,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/142"
+}

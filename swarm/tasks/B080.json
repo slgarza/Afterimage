@@ -1,0 +1,42 @@
+{
+  "id": "B080",
+  "title": "Revoke stale recipient subscriptions and spectator private channels",
+  "category": "protocol-leaf",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_BENCHMARK.md, docs/PILOT100_READY.md, docs/PILOT100_DOMAIN_CONTRACTS.md and the task sourceRefs before editing. This is an independent leaf in the B001–B100 cohort, not an integration or completed feature claim. Implement only the owned source and tests, using the exact pinned API section in PILOT100_DOMAIN_CONTRACTS. No imports from unmerged A/B modules, no manifests/barrels/App.tsx/shared task metadata edits and no new dependencies. Locally declare the contract's shared structural types; package engine/protocol production stays ES2022-only and pure, with no Firebase, browser, Node, UI, credentials, wall clock or global randomness. Use existing deterministic engine RNG only where the contract permits. Never turn a trusted verifier input into a claim of cryptographic verification. Unspecified rules remain explicit named decision-required results; no worker invents policies. Preserve existing T01–T10 API/tests. Run scoped lint/typecheck/tests, then node tools/benchmark-pilot.mjs --profile full. Return a handoff with paths, API, actual checks, benchmark receipt references and limitations. No commits, pushes, PRs, child agents, deployment, credential access, task-issue mutation or budget changes. Implement subscriptionCapabilities exactly as frozen in section B080 of docs/PILOT100_DOMAIN_CONTRACTS.md. An authenticated room member on the current connection generation may watch public state; only an active member may access later role-scoped diagnostics or write chat. Inactive spectators retain public watching. Missing/revoked membership or generation mismatch requires subscription revocation with every capability denied. privateDiagnostics is a capability ceiling; operation recipient/phase checks still apply.",
+  "ownership": [
+    "packages/protocol/src/parallel100/subscription-capabilities.ts",
+    "packages/protocol/tests/parallel100/subscription-capabilities.test.ts"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Current active member gets public/action ceilings, while a permanent spectator retains public viewing only.",
+    "A stale generation or missing membership revokes all capabilities and cannot reuse a reconnect subscription.",
+    "Malformed/duplicate IDs and unsafe generations reject; the API does not simulate authentication or return roles.",
+    "The exported implementation matches the frozen local structural API, preserves legacy APIs, and changes only declared ownership; no unresolved rule is silently decided.",
+    "Scoped lint, typecheck and meaningful tests pass, followed by node tools/benchmark-pilot.mjs --profile full; handoff records actual outcomes and receipt references without claiming App/provider integration."
+  ],
+  "status": "ready",
+  "sourceRefs": [
+    "docs/PILOT100_READY.md",
+    "docs/PILOT100_DOMAIN_CONTRACTS.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/SOURCE-MANIFEST.json",
+    "docs/design/RULES-SPEC-v1.md"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "preparationCohort": "afterimage-parallel100",
+  "contract": {
+    "path": "docs/PILOT100_DOMAIN_CONTRACTS.md",
+    "export": "subscriptionCapabilities"
+  },
+  "replacesScopeFrom": [
+    "A064",
+    "A071",
+    "A073"
+  ],
+  "issue": 213,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/213"
+}

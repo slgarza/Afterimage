@@ -60,6 +60,13 @@ capabilities use honest unavailable/no-op states until their actual delivery.
 
 ## First bounded pilot
 
+**Updated preparation:** the owner subsequently requested another 100 tasks and
+preparation for a 100-worker cohort without starting it. The
+[B001-B100 runbook](PILOT100_READY.md) freezes independent leaf contracts and
+reserves the corresponding A scope. This staged A plan is preserved as design
+history; do not dispatch overlapping A implementations alongside B. B preparation
+does not clear G0/G1/G2, budget, quota, release or AFK-comparison gates.
+
 The first candidate cohort is **A001, A004 and A026**: versioned engine types,
 the six exact incident matrices and neutral-frost/modal foundations. They have
 separate ownership and derive directly from the supplied design. This is a

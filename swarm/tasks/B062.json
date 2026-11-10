@@ -1,0 +1,39 @@
+{
+  "id": "B062",
+  "title": "Complete missing authority choices with audited seeded legal actions",
+  "category": "engine-leaf",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_BENCHMARK.md, docs/PILOT100_READY.md, docs/PILOT100_DOMAIN_CONTRACTS.md and the task sourceRefs before editing. This is an independent leaf in the B001–B100 cohort, not an integration or completed feature claim. Implement only the owned source and tests, using the exact pinned API section in PILOT100_DOMAIN_CONTRACTS. No imports from unmerged A/B modules, no manifests/barrels/App.tsx/shared task metadata edits and no new dependencies. Locally declare the contract's shared structural types; package engine/protocol production stays ES2022-only and pure, with no Firebase, browser, Node, UI, credentials, wall clock or global randomness. Use existing deterministic engine RNG only where the contract permits. Never turn a trusted verifier input into a claim of cryptographic verification. Unspecified rules remain explicit named decision-required results; no worker invents policies. Preserve existing T01–T10 API/tests. Run scoped lint/typecheck/tests, then node tools/benchmark-pilot.mjs --profile full. Return a handoff with paths, API, actual checks, benchmark receipt references and limitations. No commits, pushes, PRs, child agents, deployment, credential access, task-issue mutation or budget changes. Implement completeTimedOutActions exactly as frozen in section B062 of docs/PILOT100_DOMAIN_CONTRACTS.md. After a separate trusted deadline gate, visit pending actors in supplied fixed seat order, use one existing nextRandom draw per actor and select floor(random*legalOptions.length). Validate the entire pending list before consuming RNG. Empty legal options is decision-required D-ELIGIBLE-POOL for votes, otherwise invalid-input; never choose an ineligible default.",
+  "ownership": [
+    "packages/engine/src/parallel100/timeout-completion.ts",
+    "packages/engine/tests/parallel100/timeout-completion.test.ts"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Replaying a pending batch yields identical option choices and exactly advanced RNG plus kind-specific audit reasons.",
+    "No pending actors consumes no RNG; accepted choices always belong to that actor’s supplied legal set.",
+    "A duplicate actor/option, empty legal set or malformed RNG fails atomically; no client wall clock or hidden authority override is accepted.",
+    "The exported implementation matches the frozen local structural API, preserves legacy APIs, and changes only declared ownership; no unresolved rule is silently decided.",
+    "Scoped lint, typecheck and meaningful tests pass, followed by node tools/benchmark-pilot.mjs --profile full; handoff records actual outcomes and receipt references without claiming App/provider integration."
+  ],
+  "status": "ready",
+  "sourceRefs": [
+    "docs/PILOT100_READY.md",
+    "docs/PILOT100_DOMAIN_CONTRACTS.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "preparationCohort": "afterimage-parallel100",
+  "contract": {
+    "path": "docs/PILOT100_DOMAIN_CONTRACTS.md",
+    "export": "completeTimedOutActions"
+  },
+  "replacesScopeFrom": [
+    "A015"
+  ],
+  "issue": 195,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/195"
+}

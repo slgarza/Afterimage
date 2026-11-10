@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-11-10T23:40:59Z",
+  "measurement_kind": "parallel100_preparation",
+  "repository": "slgarza/Afterimage",
+  "cohort": "afterimage-parallel100",
+  "prepared_from_commit": "4097fe2b448b2de8e7cb8654ee42919293327c4f",
+  "workload_definition_sha256": "202384f5cbc39191b4da13388f9e68b0da92fea794ca4e5a9bcbbab0b7dde4f0",
+  "design_manifest_sha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "contract_files": [
+    {
+      "path": "docs/PILOT100_UI_CONTRACTS.md",
+      "sha256": "25f05e0140c89ab896ec93baa3b98700fa11fdc7297fb97a8e112212ccc6153b"
+    },
+    {
+      "path": "docs/PILOT100_DOMAIN_CONTRACTS.md",
+      "sha256": "4ff5f53197aae5bc48b81b71cf23778f2d3749e7ceb3d8950e75d13e0b329359"
+    }
+  ],
+  "inventory": {
+    "new_tasks": 100,
+    "task_ids": "B001-B100",
+    "real_open_distinct_issues": 100,
+    "issue_range": [
+      134,
+      233
+    ],
+    "issue_label": "parallel100",
+    "all_issue_bodies_verified_against_published_receipts": true,
+    "ready_on_local_prerequisites": 100,
+    "unmerged_task_dependencies": 0,
+    "overlapping_owned_path_pairs": 0,
+    "feature_candidates": 97,
+    "supporting_tasks": 3,
+    "reserved_original_A_task_scopes": 76,
+    "duplicates_parent_feature_credit": false
+  },
+  "readiness": {
+    "local_workload_prepared": true,
+    "live_execution_enabled": false,
+    "launch_readiness_verified": false,
+    "provider_capacity_verified": false,
+    "budget_increase_authorized": false,
+    "budget_migration_applied": false,
+    "afk_protocol_frozen": false,
+    "app_wiring_completed": false,
+    "live_collision_experiment_completed": false
+  },
+  "preparation_clock": {
+    "whole_preparation_duration_seconds": null,
+    "instrumented_segment_started_at_utc": "2026-11-10T23:26:32Z",
+    "instrumented_segment_ended_at_utc": "2026-11-10T23:40:59Z",
+    "instrumented_segment_duration_seconds": 866.905226078,
+    "definition": "Recorded preparation segment through this report generation. Initial inspection/planning before instrumentation and subsequent publication/CI are excluded; not swarm delivery time."
+  },
+  "issue_publication": {
+    "started_at_utc": "2026-11-10T23:33:54.993766+00:00",
+    "finished_at_utc": "2026-11-10T23:36:14.593691+00:00",
+    "duration_seconds": 139.5999147179973,
+    "new_issues_created": 100,
+    "failed_api_operations": 0,
+    "receipt_sha256": "83817daa91253f5e9312c82e91a4316a2727358d6a07d75280d1731444f222b9"
+  },
+  "github_inventory_check": {
+    "duration_seconds": 3.519291656994028,
+    "receipt_sha256": "5a375144b4a3b95165bc92335e4cd0f15ce56434f63042a46093a2f530571344"
+  },
+  "local_validation_attempts": [
+    {
+      "receipt_id": "b1ff0c22-2c2d-44af-9e0d-e32f1c3f89c7",
+      "receipt_sha256": "cc1ff7734db6b1ae0ad9274c1f4060f5836088f7e863eb87ee84b1b369f9304d",
+      "status": "failed",
+      "failure_code": "command_failed",
+      "duration_seconds": 5.086269594,
+      "started_at_utc": "2026-11-10T23:37:42.548Z",
+      "finished_at_utc": "2026-11-10T23:37:47.634Z",
+      "source_commit_sha": "4097fe2b448b2de8e7cb8654ee42919293327c4f",
+      "source_tree_dirty": true,
+      "source_unchanged_during_validation": true,
+      "task_files_frozen": 213,
+      "phases": [
+        {
+          "id": "metadata",
+          "status": "passed",
+          "exit_code": 0,
+          "duration_seconds": 0.087872914
+        },
+        {
+          "id": "parallel-metadata",
+          "status": "passed",
+          "exit_code": 0,
+          "duration_seconds": 0.121003864
+        },
+        {
+          "id": "benchmark-tests",
+          "status": "passed",
+          "exit_code": 0,
+          "duration_seconds": 2.507970855
+        },
+        {
+          "id": "baseline",
+          "status": "failed",
+          "exit_code": 1,
+          "duration_seconds": 2.202030357
+        }
+      ]
+    },
+    {
+      "receipt_id": "e98a2264-9e59-4e6e-94f6-500b82744a43",
+      "receipt_sha256": "9f0b5e11739f84275df462323f86d85ffc6cab99ab0d8536901b3312f6a9174a",
+      "status": "passed",
+      "failure_code": null,
+      "duration_seconds": 38.155798754,
+      "started_at_utc": "2026-11-10T23:38:27.587Z",
+      "finished_at_utc": "2026-11-10T23:39:05.742Z",
+      "source_commit_sha": "4097fe2b448b2de8e7cb8654ee42919293327c4f",
+      "source_tree_dirty": true,
+      "source_unchanged_during_validation": true,
+      "task_files_frozen": 213,
+      "phases": [
+        {
+          "id": "metadata",
+          "status": "passed",
+          "exit_code": 0,
+          "duration_seconds": 0.103190185
+        },
+        {
+          "id": "parallel-metadata",
+          "status": "passed",
+          "exit_code": 0,
+          "duration_seconds": 0.121570417
+        },
+        {
+          "id": "benchmark-tests",
+          "status": "passed",
+          "exit_code": 0,
+          "duration_seconds": 2.507676301
+        },
+        {
+          "id": "baseline",
+          "status": "passed",
+          "exit_code": 0,
+          "duration_seconds": 35.243871961
+        }
+      ]
+    }
+  ],
+  "contract_type_checks": {
+    "checked_interfaces": 100,
+    "diagnostics": 0,
+    "actual_workspace_configs_used": true,
+    "virtual_files_only": true,
+    "duration_seconds": null,
+    "duration_missing_reason": "Preparation agents reported the checks; no separate monotonic contract-check timer was captured."
+  },
+  "preparation_contributors": {
+    "coordinator": 1,
+    "delegated_preparation_agents": 3,
+    "application_coding_workers_launched": 0
+  },
+  "budget_snapshot": {
+    "legacy_policy_table_present": false,
+    "configured_model_limit_cents": 1800,
+    "configured_infrastructure_limit_cents": 700,
+    "retained_model_allocations_cents": 1800,
+    "retained_infrastructure_allocations_cents": 670,
+    "unallocated_model_allowance_cents": 0,
+    "unallocated_infrastructure_allowance_cents": 30,
+    "minimum_100_worker_infrastructure_reserve_cents": 3100,
+    "minimum_cumulative_infrastructure_limit_for_cohort_cents": 3770,
+    "snapshot_read_only": true,
+    "these_are_invoices": false,
+    "authorization_for_increase": false
+  },
+  "new_paid_worker_runs": 0,
+  "accepted_merged_feature_prs": 0,
+  "actual_live_concurrency": null,
+  "merged_green_prs_per_hour": null,
+  "actual_billed_cost_usd": null,
+  "merged_green_prs_per_dollar": null,
+  "afk_result": null,
+  "contest_win_proven": false,
+  "known_preparation_failures": [
+    {
+      "stage": "documentation patch",
+      "outcome": "rejected missing context line; no files changed",
+      "correction": "applied focused patch with real context"
+    },
+    {
+      "stage": "read-only legacy ledger inspection",
+      "outcome": "budget_policy table absent; no writes",
+      "correction": "inspected schema and preserved legacy allocation totals"
+    },
+    {
+      "stage": "preparation tool tests",
+      "outcome": "14 passed,2failed after result field changed to unknown",
+      "correction": "updated stale assertions and added A/B issue reuse check;17passed"
+    },
+    {
+      "stage": "read-only GitHub inventory",
+      "outcome": "installed gh does not support --slurp",
+      "correction": "used explicit bounded page requests"
+    },
+    {
+      "stage": "full local validation",
+      "outcome": "first attempt failed lint on two unused destructured bookkeeping fields plus unused lint directive",
+      "correction": "removed fields from an object copy; full validation passed on the retained retry"
+    }
+  ],
+  "interventions": [
+    "Independent review corrected engine RNG import path before workload freeze.",
+    "Independent review tightened terminal-role privacy, result return routes and connection-state preservation before freeze.",
+    "Coordinator fixed validator bookkeeping lint and kept both failed/passed validation receipts."
+  ],
+  "exclusions": [
+    "No public raw logs, credentials, billing account details or runtime databases.",
+    "Preparation PRs and bookkeeping are excluded from feature delivery counts.",
+    "No image build, gateway deployment, compatibility probe, Modal worker or AFK run was started.",
+    "Current UI remains a development shell; approved modules and authority integration are later work."
+  ],
+  "controller_validation": {
+    "unit_tests_passed": 154,
+    "duration_seconds": 18.507,
+    "ruff": "passed",
+    "python_compilation": "passed",
+    "independent_migration_tests_passed": 17,
+    "migration_applied_to_target": false,
+    "review_link": "https://github.com/slgarza/swarm-control/pull/2"
+  },
+  "budget_proposal": {
+    "proposed_cumulative_model_limit_cents": 20000,
+    "proposed_cumulative_infrastructure_limit_cents": 5000,
+    "future_model_allowance_cents": 18200,
+    "future_infrastructure_allowance_cents": 4330,
+    "authorization_created": false,
+    "applied": false,
+    "meaning": "Unapproved cumulative admission proposal, not provider billing or an account-wide spending cap. Separate owner approval and execution release remain required."
+  }
+}

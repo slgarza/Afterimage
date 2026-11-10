@@ -1,0 +1,38 @@
+{
+  "id": "B013",
+  "title": "Display supplied public round, lead and authority-relative deadline",
+  "category": "client-ui",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_BENCHMARK.md, docs/DESIGN_RECONCILIATION.md, docs/PILOT100_READY.md and your frozen export contract in docs/PILOT100_UI_CONTRACTS.md before coding. Implement only your owned leaf module using installed React/TypeScript/testing dependencies. Export the exact named component and readonly props/types from index.tsx; keep module-local styles and tests inside that directory. Do not import an unmerged A/B task, edit App.tsx/shared barrels/manifests/task metadata or silently change another contract. This is controlled recipient-safe presentation, not an authority or complete application. Authority state/capabilities and semantic callbacks are supplied; no Firebase/native/store/network calls, secret caching, clock-driven game transitions, asset generation or fabricated success. Use original neutral-frost chrome, semantic HTML/keyboard access and honest unavailable media/provider states. Overlay leaves supply content to the separately composed modal host; do not claim global focus blocking in a content-only leaf. No commits, pushes, PRs, child agents, credentials, cloud deployment or budget changes. Preserve concise handoff, observed validation/failures and unknown costs under the benchmark policy. Render a quiet HUD with current round,Shift Lead,one incident and an injected remaining-time value. Component never calls a clock,advances phases or requests deadline resolution. Null time means awaiting authority; urgency uses text/icon as well as styling. Own only apps/client/src/pilot100/match-header/; provide index.tsx exporting MatchHeader, MatchHeaderProps and any named local types documented for B013. This task consumes part of A036; do not double-count it as a second implementation of that broad work. Run scoped React tests/lint/typecheck and node tools/benchmark-pilot.mjs --profile full; report actual results and unresolved application integration.",
+  "ownership": [
+    "apps/client/src/pilot100/match-header"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Countdown shows the supplied nonnegative value without an internal game timer or phase callback.",
+    "Null deadline is distinct from zero/expired and does not claim advancement.",
+    "Menu is labelled and urgency remains legible without colour/flashing or excessive live announcements.",
+    "Exact frozen export/readonly props are implemented and scoped lint/typecheck/meaningful React tests plus node tools/benchmark-pilot.mjs --profile full pass; only owned files change."
+  ],
+  "status": "ready",
+  "sourceRefs": [
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/PILOT100_UI_CONTRACTS.md",
+    "docs/PILOT100_READY.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "preparationCohort": "afterimage-parallel100",
+  "contract": {
+    "path": "docs/PILOT100_UI_CONTRACTS.md",
+    "export": "MatchHeader"
+  },
+  "replacesScopeFrom": [
+    "A036"
+  ],
+  "issue": 146,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/146"
+}

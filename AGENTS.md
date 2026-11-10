@@ -18,4 +18,7 @@ for every preparation, implementation, validation, repair and integration attemp
 - Claim only one ticket at a time.
 - Respect ownership boundaries in `docs/SWARM_PILOT.md`.
 - Escalate a cross-package contract change instead of silently editing another agent's area.
+- For B001-B100, follow `docs/PILOT100_READY.md` and the frozen UI/domain contract.
+  Dispatch only the manifest's B task IDs; overlapping A scope must be replanned
+  after B delivery. A green module PR does not establish App integration.
 

@@ -50,6 +50,13 @@ test('profiles are fixed and full also measures the nonrecursive unit-test comma
   assert.throws(() => profileCommands('deploy'), /benchmark_profile_invalid/);
 });
 
+test('the parallel cohort adds linked metadata and preparation tests to the full profile', () => {
+  const commands = profileCommands('full', { parallelCohort: true });
+  assert.deepEqual(commands.map((phase) => phase.id), ['metadata', 'parallel-metadata', 'benchmark-tests', 'baseline']);
+  assert.deepEqual(commands[1].argv.slice(1), ['tools/prepare-parallel100.mjs', '--require-issues', '--workload-only']);
+  assert.equal(commands[2].argv.at(-1), 'tools/prepare-parallel100.test.mjs');
+});
+
 test('child environment removes credentials and runtime injection while retaining required paths', () => {
   const safe = childEnvironment({ PATH: '/usr/bin', HOME: '/synthetic', LANG: 'en_US.UTF-8',
     CODEX_API_KEY: 'synthetic secret', GH_TOKEN: 'synthetic secret', AWS_SECRET_ACCESS_KEY: 'synthetic secret',
@@ -185,6 +192,20 @@ test('a source change during validation is recorded and cannot claim an unchange
   const result = await runBenchmark({ root, profile: 'metadata' });
   assert.equal(result.receipt.phases[0].status, 'passed');
   assert.equal(result.receipt.source_unchanged, false);
+  assert.equal(result.receipt.status, 'failed');
+  assert.equal(result.receipt.failure_code, 'source_changed_during_validation');
+});
+
+test('additional B task definitions and tracked preparation contracts are frozen in receipts', async (context) => {
+  const root = fixture(context, `import {writeFileSync} from 'node:fs'; writeFileSync('docs/PILOT100_UI_CONTRACTS.md','changed contract');`);
+  writeFileSync(join(root, 'swarm/tasks/B001.json'), JSON.stringify({ id: 'B001', fixture: true }));
+  writeFileSync(join(root, 'docs/PILOT100_UI_CONTRACTS.md'), 'frozen contract');
+  execFileSync('git', ['add', '.'], { cwd: root, stdio: 'ignore' });
+  execFileSync('git', ['commit', '-qm', 'add synthetic task and contract'], { cwd: root, stdio: 'ignore' });
+  const result = await runBenchmark({ root, profile: 'metadata' });
+  assert.equal(result.receipt.source_snapshot.task_files.length, 101);
+  assert.equal(result.receipt.source_snapshot.task_files.at(-1).id, 'B001');
+  assert.equal(result.receipt.source_snapshot.preparation_files[0].path, 'docs/PILOT100_UI_CONTRACTS.md');
   assert.equal(result.receipt.status, 'failed');
   assert.equal(result.receipt.failure_code, 'source_changed_during_validation');
 });

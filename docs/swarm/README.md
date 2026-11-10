@@ -9,8 +9,9 @@ follow the source-linked tasks and measured reports.
 | --- | --- |
 | Production app | Foundation components and tests; the new complete game is not implemented yet |
 | Design | Owner-supplied Rules v1, screen flows and visual/audio/monetization contracts imported with source hashes |
-| Backlog | 100 task definitions: 11 ready on local prerequisites, 89 blocked by actual dependencies or named gates |
-| Next pilot | A001, A004 and A026 prepared as a three-worker cohort; not launched |
+| Original backlog | A001-A100: 11 initially ready, 89 blocked; preserved scope must consume B modules without duplicating work |
+| Additional prepared cohort | B001-B100: 100 independent, source-linked module tasks with frozen contracts and disjoint ownership |
+| Next pilot | 100-worker preparation only; live disabled, budget migration and real provider capacity still gated |
 | Historical pilot | Ten reviewed, merged PRs documented separately below |
 | Contest proof | 100 useful simultaneous agents and an efficiency win over a strong AFK baseline remain unproven |
 | Billing | Unknown/unreconciled amounts remain `null`; budget reservations are not invoices |
@@ -21,6 +22,10 @@ preparation. Local plans and browser fixtures do not establish agent concurrency
 
 ## Review the backlog and its source
 
+- [Parallel100 issues](https://github.com/slgarza/Afterimage/issues?q=is%3Aissue+label%3Aparallel100),
+  [B task/issue index](../PARALLEL100_TASKS.md),
+  [preparation and launch runbook](../PILOT100_READY.md) and
+  [frozen cohort manifest](../../swarm/parallel100.json).
 - [Pilot100 GitHub issues](https://github.com/slgarza/Afterimage/issues?q=is%3Aissue+label%3Apilot100)
   and [complete task/issue index](../PILOT100_TASKS.md).
 - [Execution guide](../PILOT100_BACKLOG.md) and [batch manifest](../../swarm/pilot100.json),
@@ -36,6 +41,7 @@ preparation. Local plans and browser fixtures do not establish agent concurrency
 
 | Evidence | What it establishes |
 | --- | --- |
+| [Parallel100 preparation report](parallel100-preparation-2026-11-10.md) / [JSON](parallel100-preparation-2026-11-10.json) | Second 100-task inventory, static independence, local checks and launch blockers; no live run |
 | [Preparation report](preparation-2026-11-10.md) / [JSON](preparation-2026-11-10.json) | Task/issue inventory, source coverage and measured local validation; not a live cohort |
 | [Historical ten-agent report](pilot10-2026-11-10.md) / [JSON](pilot10-2026-11-10.json) | The completed earlier assisted pilot and its stated measurement limits |
 | [Benchmark policy and operator runbook](../SWARM_BENCHMARK.md) | Required evidence for every attempt, full delivery clocks, independent acceptance and reconciled cost |

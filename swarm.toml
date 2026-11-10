@@ -4,7 +4,7 @@ version = 1
 repository = "slgarza/Afterimage"
 base_branch = "main"
 tasks_dir = "swarm/tasks"
-instructions = ["README.md", "AGENTS.md", "docs/SWARM_PILOT.md", "docs/ARCHITECTURE.md", "docs/PILOT10_CONTRACTS.md", "docs/DESIGN_RECONCILIATION.md", "docs/PILOT100_BACKLOG.md", "docs/design/SWARM-BRIEF-v0.md", "docs/design/RULES-SPEC-v1.md", "docs/SWARM_BENCHMARK.md"]
+instructions = ["README.md", "AGENTS.md", "docs/SWARM_PILOT.md", "docs/ARCHITECTURE.md", "docs/PILOT10_CONTRACTS.md", "docs/DESIGN_RECONCILIATION.md", "docs/PILOT100_BACKLOG.md", "docs/PILOT100_READY.md", "docs/design/SWARM-BRIEF-v0.md", "docs/design/RULES-SPEC-v1.md", "docs/SWARM_BENCHMARK.md"]
 
 [validation]
 install = [["npm", "ci", "--no-audit", "--no-fund"]]
@@ -15,6 +15,7 @@ required_checks = ["checks"]
 worker_app = "afterimage-swarm-pilot"
 gateway_app = "afterimage-swarm-gateway"
 gateway_ledger = "afterimage-pilot-budget-v1"
+gateway_concurrency = 100
 openai_secret = "afterimage-openai"
 environment = "main"
 image = "node:24.6.0-bookworm-slim"
@@ -25,6 +26,6 @@ network_domains = ["github.com", "api.github.com", "codeload.github.com", "raw.g
 # Preserve the completed pilot's cumulative allowance and original .swarm ledger.
 # Extraction does not authorize another paid run. Completed tasks stay merged.
 live_enabled = false
-max_live_agents = 10
+max_live_agents = 100
 model_limit_cents = 1800
 infra_limit_cents = 700

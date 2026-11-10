@@ -1,0 +1,41 @@
+{
+  "id": "B077",
+  "title": "Guard atomic authority mutations against stale and overflow revisions",
+  "category": "protocol-leaf",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_BENCHMARK.md, docs/PILOT100_READY.md, docs/PILOT100_DOMAIN_CONTRACTS.md and the task sourceRefs before editing. This is an independent leaf in the B001–B100 cohort, not an integration or completed feature claim. Implement only the owned source and tests, using the exact pinned API section in PILOT100_DOMAIN_CONTRACTS. No imports from unmerged A/B modules, no manifests/barrels/App.tsx/shared task metadata edits and no new dependencies. Locally declare the contract's shared structural types; package engine/protocol production stays ES2022-only and pure, with no Firebase, browser, Node, UI, credentials, wall clock or global randomness. Use existing deterministic engine RNG only where the contract permits. Never turn a trusted verifier input into a claim of cryptographic verification. Unspecified rules remain explicit named decision-required results; no worker invents policies. Preserve existing T01–T10 API/tests. Run scoped lint/typecheck/tests, then node tools/benchmark-pilot.mjs --profile full. Return a handoff with paths, API, actual checks, benchmark receipt references and limitations. No commits, pushes, PRs, child agents, deployment, credential access, task-issue mutation or budget changes. Implement revisionPrecondition exactly as frozen in section B077 of docs/PILOT100_DOMAIN_CONTRACTS.md. Require equal safe nonnegative integers and an incrementable actual revision. Unequal revisions return stale; Number.MAX_SAFE_INTEGER cannot advance. The function is used inside an eventual storage transaction, not a substitute for compare-and-swap or an external lock.",
+  "ownership": [
+    "packages/protocol/src/parallel100/revision-precondition.ts",
+    "packages/protocol/tests/parallel100/revision-precondition.test.ts"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Equal0 and representative large safe revisions produce exactly+1 with no coercion.",
+    "Stale/future expected revisions reject and do not disclose room contents.",
+    "Negative/fractional/NaN/unsafe values and MAX_SAFE overflow reject without mutation or treating truthy strings as numbers.",
+    "The exported implementation matches the frozen local structural API, preserves legacy APIs, and changes only declared ownership; no unresolved rule is silently decided.",
+    "Scoped lint, typecheck and meaningful tests pass, followed by node tools/benchmark-pilot.mjs --profile full; handoff records actual outcomes and receipt references without claiming App/provider integration."
+  ],
+  "status": "ready",
+  "sourceRefs": [
+    "docs/PILOT100_READY.md",
+    "docs/PILOT100_DOMAIN_CONTRACTS.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/SOURCE-MANIFEST.json",
+    "docs/design/RULES-SPEC-v1.md"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": false,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "preparationCohort": "afterimage-parallel100",
+  "contract": {
+    "path": "docs/PILOT100_DOMAIN_CONTRACTS.md",
+    "export": "revisionPrecondition"
+  },
+  "replacesScopeFrom": [
+    "A058",
+    "A060"
+  ],
+  "issue": 210,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/210"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "B038",
+  "title": "Show only supplied approved asset/audio attribution records",
+  "category": "client-ui",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_BENCHMARK.md, docs/DESIGN_RECONCILIATION.md, docs/PILOT100_READY.md and your frozen export contract in docs/PILOT100_UI_CONTRACTS.md before coding. Implement only your owned leaf module using installed React/TypeScript/testing dependencies. Export the exact named component and readonly props/types from index.tsx; keep module-local styles and tests inside that directory. Do not import an unmerged A/B task, edit App.tsx/shared barrels/manifests/task metadata or silently change another contract. This is controlled recipient-safe presentation, not an authority or complete application. Authority state/capabilities and semantic callbacks are supplied; no Firebase/native/store/network calls, secret caching, clock-driven game transitions, asset generation or fabricated success. Use original neutral-frost chrome, semantic HTML/keyboard access and honest unavailable media/provider states. Overlay leaves supply content to the separately composed modal host; do not claim global focus blocking in a content-only leaf. No commits, pushes, PRs, child agents, credentials, cloud deployment or budget changes. Preserve concise handoff, observed validation/failures and unknown costs under the benchmark policy. Render reviewed manifest-derived credits supplied as data. Never hardcode an unselected music track or license claim. Host owns URL opening; blank/unapproved entries produce an honest empty state rather than downloading media. Own only apps/client/src/pilot100/credits/; provide index.tsx exporting CreditsView, CreditsViewProps and any named local types documented for B038. This task consumes part of A045, A092; do not double-count it as a second implementation of that broad work. Run scoped React tests/lint/typecheck and node tools/benchmark-pilot.mjs --profile full; report actual results and unresolved application integration.",
+  "ownership": [
+    "apps/client/src/pilot100/credits"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Empty credits accurately state that no approved entries are available.",
+    "Each provided title/creator/license is safely rendered without inferred licensing.",
+    "Source requests emit the record ID only when sourceUrl is present; the view does not navigate or fetch URLs.",
+    "Exact frozen export/readonly props are implemented and scoped lint/typecheck/meaningful React tests plus node tools/benchmark-pilot.mjs --profile full pass; only owned files change."
+  ],
+  "status": "ready",
+  "sourceRefs": [
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/AUDIO-SPEC-v0.md",
+    "docs/PILOT100_UI_CONTRACTS.md",
+    "docs/PILOT100_READY.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "preparationCohort": "afterimage-parallel100",
+  "contract": {
+    "path": "docs/PILOT100_UI_CONTRACTS.md",
+    "export": "CreditsView"
+  },
+  "replacesScopeFrom": [
+    "A045",
+    "A092"
+  ],
+  "issue": 171,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/171"
+}

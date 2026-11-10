@@ -105,6 +105,20 @@ Python tests belong to the separate repository; this project's CI checks the gam
 
 ## Next implementation backlog
 
+**Prepared next experiment:** [B001-B100](docs/PARALLEL100_TASKS.md) provide 100
+independent module tasks on one frozen source base, with exact
+[UI](docs/PILOT100_UI_CONTRACTS.md) and
+[domain](docs/PILOT100_DOMAIN_CONTRACTS.md) contracts. See the
+[preparation and launch runbook](docs/PILOT100_READY.md). The profile now opts
+into 100-worker/100-gateway capacity while live execution stays disabled and the
+original cumulative budget is preserved. No 100-agent cohort has run. These leaves
+decompose existing A scope; they do not double the feature count or connect App.
+
+```sh
+node tools/prepare-parallel100.mjs --require-issues
+node tools/benchmark-pilot.mjs --profile full
+```
+
 [A001-A100](docs/PILOT100_TASKS.md) implement the retrieved full design pack with
 explicit scope, acceptance, dependencies and source hashes. The
 [backlog guide](docs/PILOT100_BACKLOG.md) explains staged execution, concrete edge

@@ -123,8 +123,19 @@ With the image cached it took 16.687 seconds end to end; this is infrastructure
 validation, not a coding-agent throughput benchmark. The environment reported
 Node 24.6.0, npm 11.16.0, Codex CLI 0.166.0 and Git 2.39.5.
 
-At this verification point, model execution remained blocked on configuring
-`afterimage-openai`. No model-written change or merged PR is claimed by S01.
+An authenticated `gpt-6.1-sol` run of P06 then completed successfully on the same
+base commit. The agent produced five files within `packages/ui`, including typed
+theme tokens and three contrast/palette tests. The independent runner's full
+repository checks passed, the downloaded patch matched the checked digest,
+recovery had no errors, and the Sandbox was terminated. Total worker cycle:
+55.557 seconds (agent process: 41.921 seconds). Event-reported usage was 122,061
+input tokens (101,475 cached; 20,565 cache-write tokens also reported), 2,369
+output tokens and 256 reasoning-output tokens. These counters are recorded as
+reported; they are not a billing calculation. Provider costs remain unverified.
+
+This establishes one real agent's worker cycle. PR integration and CI time must
+be measured separately; it is not evidence of 100 concurrent agents or an AFK
+comparison. Runtime evidence remains in ignored `.swarm/modal-runs/`.
 
 Coordination note for P09 (root/CI ownership): the existing GitHub workflow runs
 the JavaScript workspace checks only. Add the Python regression command to CI

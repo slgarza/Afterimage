@@ -1,0 +1,18 @@
+{
+  "id": "T05",
+  "title": "Build accessible reusable button and text-field controls",
+  "ownership": [
+    "packages/ui/src/controls",
+    "packages/ui/tests/controls.test.tsx"
+  ],
+  "dependsOn": [],
+  "prompt": "Read README.md, AGENTS.md, docs/GDD.md, docs/ARCHITECTURE.md, docs/SWARM_PILOT.md, and docs/PILOT10_CONTRACTS.md before editing. The shared conventions and the matching task section in PILOT10_CONTRACTS.md are the exact approved API and behavior. Work only inside this task ownership. Do not import another T01-T10 implementation, edit shared barrels/configuration, install dependencies, add network services/assets, or invent game rules. Export from the owned module or a folder-local entrypoint. DOM tests use a per-file jsdom directive, explicit afterEach(cleanup), and Vitest assertions without assuming jest-dom. Run scoped tests, lint, and typecheck; the repository must pass npm run check. Report changed files, commands and results, API additions, and limitations. Do not commit, push, open PRs, or spawn other agents. Implement and locally export ActionButton, ActionButtonProps, TextField, and TextFieldProps exactly as T05 specifies. A native ActionButton defaults to type=button, respects explicit type and native attributes, and combines disabled with busy while retaining its accessible name and aria-busy state. TextField is controlled through onValueChange(string), has a visible associated label, and links nonempty hint/error messages through deterministic id-hint/id-error IDs and aria-describedby; aria-invalid reflects error presence. Use the existing ../theme.js tokens and retain visible native focus. Inline styles avoid unsupported CSS distribution changes. Add jsdom interaction tests with explicit cleanup for click/disabled/busy, submit type, labels, hints/errors and controlled input. Do not edit packages/ui/src/index.ts, manifests or config.",
+  "acceptance": [
+    "A folder-local entrypoint exports both typed native controls with the exact documented props and no game semantics.",
+    "Busy/disabled button behavior and field label/message/invalid relationships are correct and keyboard focus remains visible.",
+    "DOM interaction tests cover enabled and prevented actions, submit type, controlled updates, disabled inputs, and hint/error combinations with explicit cleanup.",
+    "Existing theme tokens are reused without new assets or shared-file edits; scoped lint/typecheck/tests and full npm run check pass."
+  ],
+  "status": "ready",
+  "issue": 12
+}

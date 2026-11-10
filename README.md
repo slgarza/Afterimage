@@ -31,8 +31,10 @@ npm run dev
 ```
 
 Vite serves the neutral client shell at the local URL printed in the terminal.
-The three packages under `packages/` are intentionally empty TypeScript modules.
-They contain no gameplay, protocol contracts, or UI primitives yet.
+The engine provides deterministic RNG/replay primitives; the UI package provides
+semantic theme tokens. The ten-agent pilot extends these foundations under
+[explicit contracts](docs/PILOT10_CONTRACTS.md). Complete gameplay and Firebase
+integration are still pending.
 
 ## Validation
 

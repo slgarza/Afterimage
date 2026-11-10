@@ -1,12 +1,16 @@
 {
   "id": "P03",
   "title": "Deterministic engine state and seeded RNG",
-  "ownership": ["packages/engine"],
+  "ownership": [
+    "packages/engine"
+  ],
   "dependsOn": [],
-  "prompt": "Implement only the first deterministic engine foundation defined by RULES-SPEC-v1.md. Keep it pure TypeScript with no UI, browser, Capacitor, or Firebase imports. Add focused unit tests that prove equal seed plus equal inputs creates equal results.",
+  "prompt": "Completed generic deterministic engine foundation: seeded RNG, immutable bounded draw reducer and event replay. This is not a complete game-rule specification. Keep production code free of browser, Node, Firebase and UI dependencies.",
   "acceptance": [
     "The engine exports a small typed state/RNG surface with no platform dependencies.",
     "Tests prove deterministic output for identical seeds and inputs.",
     "The package lint, typecheck, test and build scripts pass."
-  ]
+  ],
+  "status": "merged",
+  "pullRequest": 5
 }

@@ -14,8 +14,16 @@
   ],
   "scripts": {
     "lint": "eslint . --max-warnings 0",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc --project tsconfig.test.json",
     "test": "vitest run",
     "build": "tsc"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0"
   }
 }

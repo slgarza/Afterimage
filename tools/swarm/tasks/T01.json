@@ -1,0 +1,19 @@
+{
+  "id": "T01",
+  "title": "Validate public room and Link commands at the protocol boundary",
+  "ownership": [
+    "packages/protocol/src/commands.ts",
+    "packages/protocol/tests/commands.test.ts",
+    "packages/protocol/package.json"
+  ],
+  "dependsOn": [],
+  "prompt": "Read README.md, AGENTS.md, docs/GDD.md, docs/ARCHITECTURE.md, docs/SWARM_PILOT.md, and docs/PILOT10_CONTRACTS.md before editing. The shared conventions and the matching task section in PILOT10_CONTRACTS.md are the exact approved API and behavior. Work only inside this task ownership. Do not import another T01-T10 implementation, edit shared barrels/configuration, install dependencies, add network services/assets, or invent game rules. Export from the owned module or a folder-local entrypoint. DOM tests use a per-file jsdom directive, explicit afterEach(cleanup), and Vitest assertions without assuming jest-dom. Run scoped tests, lint, and typecheck; the repository must pass npm run check. Report changed files, commands and results, API additions, and limitations. Do not commit, push, open PRs, or spawn other agents. Implement PublicCommand, CommandParseResult, and parseCommand(input: unknown) for join-room, rename-player, nominate-link, and cast-link-vote using the exact fields in the T01 contract. Require canonical six-character room codes, bounded IDs, canonical Unicode display names, safe nonnegative revisions, two distinct nominees, and boolean votes. Reject unknown/missing keys, symbol keys, invalid objects and authority fields such as actorId, role, and seed. Return a fresh allowlisted command or {ok:false,error:{code:\"invalid_command\",path}} with a schema-only path and no echoed input. Actor authentication and game eligibility are separate concerns. Add focused runtime boundary tests. The sole manifest exception is removing --passWithNoTests from packages/protocol/package.json test script; make no other manifest or lockfile change.",
+  "acceptance": [
+    "All four exact command variants validate into fresh objects and expose the documented discriminated result and public types.",
+    "Malformed input, noncanonical values, duplicate nominees, invalid revisions, unknown or authority-bearing fields are rejected without leaking submitted values in errors.",
+    "Boundary tests cover valid variants, Unicode name/code limits, malformed records and arrays, and safe error paths.",
+    "Only the test script loses --passWithNoTests in the owned protocol manifest; scoped lint/typecheck/tests and full npm run check pass."
+  ],
+  "status": "ready",
+  "issue": 8
+}

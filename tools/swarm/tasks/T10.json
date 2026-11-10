@@ -1,0 +1,17 @@
+{
+  "id": "T10",
+  "title": "Persist a minimal nonsecret session hint through an injected storage port",
+  "ownership": [
+    "apps/client/src/features/session-hint"
+  ],
+  "dependsOn": [],
+  "prompt": "Read README.md, AGENTS.md, docs/GDD.md, docs/ARCHITECTURE.md, docs/SWARM_PILOT.md, and docs/PILOT10_CONTRACTS.md before editing. The shared conventions and the matching task section in PILOT10_CONTRACTS.md are the exact approved API and behavior. Work only inside this task ownership. Do not import another T01-T10 implementation, edit shared barrels/configuration, install dependencies, add network services/assets, or invent game rules. Export from the owned module or a folder-local entrypoint. DOM tests use a per-file jsdom directive, explicit afterEach(cleanup), and Vitest assertions without assuming jest-dom. Run scoped tests, lint, and typecheck; the repository must pass npm run check. Report changed files, commands and results, API additions, and limitations. Do not commit, push, open PRs, or spawn other agents. Implement and locally export SessionHint, SessionHintStorage, SESSION_HINT_KEY (afterimage.session-hint.v1), loadSessionHint, saveSessionHint and clearSessionHint exactly as T10 specifies. Inject getItem/setItem/removeItem; use no browser globals. Persist only JSON {version:1,roomCode,playerId} with canonical valid values. Save ignores extra input properties, returns false for invalid data/storage errors, and leaves valid existing data unchanged when validation fails. Load returns a fresh hint or null; malformed JSON/schema/version/extra fields causes best-effort removal of only this key. Handle read/write/remove exceptions without throwing. Clear returns whether removal succeeded. Never persist roles/tokens, use time/network, or treat this hint as authentication. Test exact shape, roundtrip, corrupt/unknown data, exceptions, other-key preservation and secret exclusion with an in-memory storage fake.",
+  "acceptance": [
+    "The exact storage-port API persists only versioned canonical roomCode/playerId data under the dedicated key and returns documented outcomes.",
+    "Invalid/corrupt/unknown loaded data is rejected and best-effort cleared; storage failures are nonfatal and invalid saves preserve prior data.",
+    "Tests cover roundtrip, exact field allowlist, versions/schema/format errors, read/write/remove exceptions, unrelated keys and secret exclusion.",
+    "No global storage, clock, network, authority claims or cross-worker imports; scoped lint/typecheck/tests and full npm run check pass."
+  ],
+  "status": "ready",
+  "issue": 17
+}

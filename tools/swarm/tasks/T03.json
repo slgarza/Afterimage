@@ -1,0 +1,18 @@
+{
+  "id": "T03",
+  "title": "Add a pure deterministic lobby membership reducer",
+  "ownership": [
+    "packages/engine/src/lobby.ts",
+    "packages/engine/tests/lobby.test.ts"
+  ],
+  "dependsOn": [],
+  "prompt": "Read README.md, AGENTS.md, docs/GDD.md, docs/ARCHITECTURE.md, docs/SWARM_PILOT.md, and docs/PILOT10_CONTRACTS.md before editing. The shared conventions and the matching task section in PILOT10_CONTRACTS.md are the exact approved API and behavior. Work only inside this task ownership. Do not import another T01-T10 implementation, edit shared barrels/configuration, install dependencies, add network services/assets, or invent game rules. Export from the owned module or a folder-local entrypoint. DOM tests use a per-file jsdom directive, explicit afterEach(cleanup), and Vitest assertions without assuming jest-dom. Run scoped tests, lint, and typecheck; the repository must pass npm run check. Report changed files, commands and results, API additions, and limitations. Do not commit, push, open PRs, or spawn other agents. Implement LobbyPlayer, LobbyState, LobbyEvent, LobbyReadiness, createLobbyState, reduceLobby, and getLobbyReadiness exactly as T03 specifies. Start with revision zero and an empty ordered roster. Support join, leave, rename, and set-connected. Join appends a connected player; validate canonical IDs/names, reject duplicate IDs and an eleventh player, but allow duplicate display names. Other events require an existing ID. Each accepted event returns new state and increments revision once; failures throw without mutation. Readiness returns playerCount, availableSlots, and hasMinimumPlayers; disconnected members count. Do not infer host election, start authorization, roles or round rules. Keep production code platform-free and put tests under packages/engine/tests. Cover replay, frozen inputs, order, 4/5/10/11 boundaries, Unicode, missing members and failures.",
+  "acceptance": [
+    "The exact lobby API implements ordered immutable membership changes and one revision increment per accepted event.",
+    "Invalid membership changes fail without mutation; ten-player capacity and minimum-five readiness match the contract and count disconnected members.",
+    "Tests establish deterministic replay, frozen-input safety, IDs versus duplicate names, roster ordering, format/capacity limits and connection updates.",
+    "Engine production remains free of Node/DOM/Firebase/UI dependencies; scoped lint/typecheck/tests and full npm run check pass."
+  ],
+  "status": "ready",
+  "issue": 10
+}

@@ -1,0 +1,17 @@
+{
+  "id": "T06",
+  "title": "Implement an accessible local create-or-join room form",
+  "ownership": [
+    "apps/client/src/features/room-entry"
+  ],
+  "dependsOn": [],
+  "prompt": "Read README.md, AGENTS.md, docs/GDD.md, docs/ARCHITECTURE.md, docs/SWARM_PILOT.md, and docs/PILOT10_CONTRACTS.md before editing. The shared conventions and the matching task section in PILOT10_CONTRACTS.md are the exact approved API and behavior. Work only inside this task ownership. Do not import another T01-T10 implementation, edit shared barrels/configuration, install dependencies, add network services/assets, or invent game rules. Export from the owned module or a folder-local entrypoint. DOM tests use a per-file jsdom directive, explicit afterEach(cleanup), and Vitest assertions without assuming jest-dom. Run scoped tests, lint, and typecheck; the repository must pass npm run check. Report changed files, commands and results, API additions, and limitations. Do not commit, push, open PRs, or spawn other agents. Implement RoomEntryForm and its exact props from T06, exported by a folder-local entrypoint. Default to Create; provide accessible Create/Join mode controls and native form submission supporting Enter. Both modes require displayName; Join also requires roomCode. Trim names and trim/uppercase codes, validate shared canonical conventions, and invoke exactly one onCreate or onJoin callback with only allowed normalized fields. Errors are visible, associated and preserve input; switching modes clears stale errors. Use collision-free IDs. busy prevents mode changes and every submission, including directly dispatched submit events. No network/storage or cross-worker imports; callbacks only express intent. Test both flows, Enter, normalization, Unicode/length limits, invalid codes, associated errors and busy behavior using jsdom and explicit cleanup.",
+  "acceptance": [
+    "Create and Join forms emit only the documented normalized payload through the corresponding callback; Create does not require a code.",
+    "Keyboard submission, accessible mode controls, unique label IDs and field-specific associated errors behave correctly without losing input.",
+    "Tests cover both paths, normalization and Unicode boundaries, rejected submissions, mode error reset, and busy guard including direct submit.",
+    "No backend, storage, game authority or dependency on another worker module; scoped lint/typecheck/tests and full npm run check pass."
+  ],
+  "status": "ready",
+  "issue": 13
+}

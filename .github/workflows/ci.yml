@@ -23,3 +23,9 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r tools/swarm/requirements-pilot.txt
+      - run: python -m unittest discover -s tools/swarm -p 'test_*.py'
+      - run: ruff check --isolated tools/swarm/modal*.py tools/swarm/pilot*.py tools/swarm/probe_gateway.py tools/swarm/test_*.py

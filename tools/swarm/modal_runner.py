@@ -13,8 +13,11 @@ from concurrent.futures import ThreadPoolExecutor
 from contextlib import contextmanager
 from datetime import UTC, datetime
 from pathlib import Path
+from threading import Barrier
+from urllib.parse import urlparse
 
 from modal_worker import valid_path
+from pilot_state import Ledger, batch_summary, common_state, verify_github_tasks
 
 ROOT = Path(__file__).resolve().parents[2]
 REPOSITORY = "https://github.com/slgarza/Afterimage.git"
@@ -63,10 +66,14 @@ def load_task(task_id):
         )
     ):
         raise ValueError(f"{task_id}: missing acceptance criteria")
-    if task.get("dependsOn", []):
-        raise ValueError(
-            f"{task_id}: dependent tasks need a verified integration ledger; not supported yet"
-        )
+    dependencies = task.get("dependsOn", [])
+    if not isinstance(dependencies, list) or any(
+        not isinstance(dep, str)
+        or not re.fullmatch(r"[A-Z][A-Z0-9_-]{1,39}", dep)
+        or not (ROOT / "tools/swarm/tasks" / f"{dep}.json").is_file()
+        for dep in dependencies
+    ):
+        raise ValueError(f"{task_id}: missing or invalid dependency metadata")
     return task
 
 
@@ -117,8 +124,8 @@ def prompt_for(task):
     )
 
 
-def codex_command(model):
-    return [
+def codex_command(model, gateway_url=None):
+    command = [
         "codex",
         "exec",
         "--json",
@@ -131,6 +138,8 @@ def codex_command(model):
         "-c",
         'approval_policy="never"',
         "-c",
+        "features.multi_agent=false",
+        "-c",
         'shell_environment_policy.exclude=["CODEX_API_KEY","OPENAI_API_KEY"]',
         "--cd",
         "/workspace/repo",
@@ -138,18 +147,37 @@ def codex_command(model):
         "/artifacts/last-message.txt",
         "-",
     ]
+    if gateway_url:
+        settings = {
+            "model_provider": "afterimage",
+            "model_providers.afterimage.name": "Afterimage pilot",
+            "model_providers.afterimage.base_url": gateway_url.rstrip("/") + "/v1",
+            "model_providers.afterimage.env_key": "CODEX_API_KEY",
+            "model_providers.afterimage.wire_api": "responses",
+            "model_providers.afterimage.supports_websockets": False,
+            "model_providers.afterimage.requires_openai_auth": False,
+            "model_providers.afterimage.capabilities.remote_compaction": "unsupported",
+            "model_providers.afterimage.request_max_retries": 2,
+            "model_providers.afterimage.stream_max_retries": 1,
+            "model_context_window": 32768,
+            "features.enable_request_compression": False,
+            "web_search": "disabled",
+        }
+        for key, value in settings.items():
+            command[-1:-1] = ["-c", f"{key}={json.dumps(value)}"]
+    return command
 
 
 @contextmanager
 def controller_lock(state):
-    """A single dispatcher per checkout; prevents concurrent duplicate batches locally."""
+    """A single dispatcher across all worktrees sharing this repository."""
     state.mkdir(parents=True, exist_ok=True)
     with (state / "modal-controller.lock").open("a") as handle:
         try:
             fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             raise ValueError(
-                "another Modal dispatcher is active for this checkout"
+                "another Modal dispatcher is active for this repository"
             ) from None
         try:
             yield
@@ -163,7 +191,16 @@ def consume(process, directory, name):
     def drain(stream, path):
         with path.open("w") as output:
             for line in stream:
-                output.write(redact(line))
+                sanitized = redact(line)
+                if path.suffix == ".jsonl":
+                    try:
+                        event = json.loads(sanitized)
+                        if isinstance(event, dict):
+                            event["swarm_received_at"] = now()
+                            sanitized = json.dumps(event) + "\n"
+                    except json.JSONDecodeError:
+                        pass
+                output.write(sanitized)
                 output.flush()
 
     with ThreadPoolExecutor(max_workers=2) as pool:
@@ -175,7 +212,7 @@ def consume(process, directory, name):
     return process.returncode
 
 
-def execute_task(task, args, base_sha, batch, image, app, secret):
+def execute_task(task, args, base_sha, batch, image, app, secret, barrier=None):
     import modal
 
     started = time.monotonic()
@@ -208,10 +245,22 @@ def execute_task(task, args, base_sha, batch, image, app, secret):
         sandbox = modal.Sandbox.create(
             app=app,
             image=image,
-            timeout=args.timeout + 600,
+            timeout=args.timeout + 900,
             runtime="vm",
             cpu=(0.5, 2.0),
             memory=(512, 2048),
+            outbound_domain_allowlist=[
+                "github.com",
+                "api.github.com",
+                "codeload.github.com",
+                "raw.githubusercontent.com",
+                "registry.npmjs.org",
+                *(
+                    [urlparse(args.gateway_url).hostname]
+                    if getattr(args, "gateway_url", None)
+                    else []
+                ),
+            ],
             tags={"batch": batch.name, "ticket": task["id"], "mode": args.command},
         )
         report.update(sandbox_id=sandbox.object_id, status="preparing")
@@ -222,10 +271,16 @@ def execute_task(task, args, base_sha, batch, image, app, secret):
         if consume(process, directory, "prepare") != 0:
             raise RuntimeError("repository setup failed; see install/prepare logs")
         if args.command == "run":
+            if barrier is not None:
+                report.update(status="ready", ready_at=now())
+                write_json(directory / "report.json", report)
+                barrier.wait(timeout=300)
             report.update(status="working", agent_started_at=now())
             write_json(directory / "report.json", report)
             process = sandbox.exec(
-                *codex_command(args.model), secrets=[secret], timeout=args.timeout
+                *codex_command(args.model, args.gateway_url),
+                secrets=[secret],
+                timeout=args.timeout,
             )
             process.stdin.write(prompt_for(task) + "\n")
             process.stdin.write_eof()
@@ -265,7 +320,11 @@ def execute_task(task, args, base_sha, batch, image, app, secret):
                 )
     except Exception as error:  # noqa: BLE001 - provider failures must still recover and terminate
         report.update(status="failed", error=redact(f"{type(error).__name__}: {error}"))
+        if barrier is not None:
+            barrier.abort()
     finally:
+        if report.get("agent_started_at") and not report.get("agent_finished_at"):
+            report["agent_finished_at"] = now()
         if sandbox is not None:
             # Also recover partially completed work after errors/timeouts, before termination.
             recovery_errors = []
@@ -361,20 +420,58 @@ def main():
     parser.add_argument("tasks", nargs="+")
     parser.add_argument("--workers", type=int, default=1)
     parser.add_argument(
-        "--timeout", type=int, default=600, help="agent time limit in seconds"
+        "--timeout", type=int, default=300, help="agent time limit in seconds"
     )
     parser.add_argument("--model", help="explicit OpenAI model ID for a real agent run")
     parser.add_argument("--environment", default="main")
     parser.add_argument(
         "--base", default="origin/main", help="reviewed commit or local Git ref"
     )
+    parser.add_argument(
+        "--model-budget",
+        type=float,
+        help="explicit remaining pilot model allowance in USD",
+    )
+    parser.add_argument("--gateway-url", help="deployed bounded gateway HTTPS URL")
+    parser.add_argument(
+        "--synchronized", action="store_true", help="start one full cohort together"
+    )
+    parser.add_argument(
+        "--retry",
+        action="store_true",
+        help="explicitly retry a reviewed failed attempt",
+    )
     args = parser.parse_args()
-    if not 30 <= args.timeout <= 1800:
-        parser.error("timeout must be between 30 and 1800 seconds")
+    if not 30 <= args.timeout <= 300:
+        parser.error("pilot timeout must be between 30 and 300 seconds")
     if args.command == "run" and not args.model:
         parser.error("run requires --model")
     tasks = [load_task(task) for task in args.tasks]
     validate_batch(tasks, args.workers)
+    if args.synchronized and len(tasks) != args.workers:
+        parser.error("a synchronized cohort needs exactly one task per worker")
+    if args.command != "plan" and (len(tasks) > 10 or args.workers > 10):
+        parser.error("this budget authorization is for at most 10 agents")
+    if args.command == "run":
+        if args.model_budget is None:
+            parser.error(
+                "run requires --model-budget within the remaining pilot allowance"
+            )
+        if args.model != "gpt-6.1-sol":
+            parser.error("the priced pilot supports only gpt-6.1-sol")
+        parsed = urlparse(args.gateway_url or "")
+        if (
+            parsed.scheme != "https"
+            or not parsed.hostname
+            or not parsed.hostname.endswith(".modal.run")
+            or parsed.path not in ("", "/")
+            or parsed.username
+            or parsed.password
+            or parsed.port
+            or parsed.query
+            or parsed.fragment
+        ):
+            parser.error("run requires the deployed gateway HTTPS modal.run origin")
     base_sha = subprocess.check_output(
         ["git", "rev-parse", "--verify", f"{args.base}^{{commit}}"], cwd=ROOT, text=True
     ).strip()
@@ -392,24 +489,14 @@ def main():
         return 0
     import modal
 
-    with controller_lock(ROOT / ".swarm"):
+    state = common_state(ROOT)
+    with controller_lock(state):
+        ledger = Ledger(state / "control.sqlite3")
+        if args.command == "run":
+            verify_github_tasks(tasks, ROOT, base_sha)
         app = modal.App.lookup(
             APP, environment_name=args.environment, create_if_missing=False
         )
-        secret = None
-        if args.command == "run":
-            secret = modal.Secret.from_name(
-                SECRET,
-                environment_name=args.environment,
-                required_keys=["CODEX_API_KEY"],
-            )
-            try:
-                # Fail before building an image or provisioning any worker.
-                secret.hydrate()
-            except modal.exception.NotFoundError:
-                raise ValueError(
-                    f"Modal secret {SECRET!r} is missing; run tools/swarm/setup_openai.py first"
-                ) from None
         image = (
             modal.Image.from_registry("node:24.6.0-bookworm-slim", add_python="3.12")
             .apt_install("git", "ripgrep", "ca-certificates")
@@ -419,18 +506,117 @@ def main():
                 "/opt/swarm/modal_worker.py",
             )
         )
-        batch = ROOT / ".swarm/modal-runs" / ("batch-" + uuid.uuid4().hex[:12])
+        batch = state / "modal-runs" / ("batch-" + uuid.uuid4().hex[:12])
         batch.mkdir(parents=True)
+        plan.update(
+            model_budget_usd=args.model_budget if args.command == "run" else 0,
+            total_pilot_budget_usd=25,
+            infrastructure_reserve_usd=7,
+            synchronized=args.synchronized,
+        )
         write_json(batch / "plan.json", plan)
         print(f"Evidence: {batch}", flush=True)
-        with ThreadPoolExecutor(max_workers=min(args.workers, len(tasks))) as pool:
-            futures = [
-                pool.submit(
-                    execute_task, task, args, base_sha, batch, image, app, secret
+        gateway = None
+        tokens = {}
+        reports = []
+        if args.command == "run":
+            from decimal import Decimal
+
+            amount = Decimal(str(args.model_budget)) * 100
+            if (
+                not amount.is_finite()
+                or amount != amount.to_integral_value()
+                or not 0 < amount <= 1800
+            ):
+                raise ValueError(
+                    "model budget requires positive whole cents, at most USD18"
                 )
-                for task in tasks
-            ]
-            reports = [future.result() for future in futures]
+            gateway = {
+                name: modal.Function.from_name(
+                    "afterimage-swarm-gateway", name, environment_name=args.environment
+                )
+                for name in ("create_run", "run_status", "stop_run")
+            }
+            ledger.claim(
+                tasks,
+                batch.name,
+                base_sha,
+                retry=args.retry,
+                budget_cents=int(amount),
+                infra_cents=100 + 30 * len(tasks),
+            )
+        else:
+            ledger.allocate(batch.name, 0, infra_cents=100 + 30 * len(tasks))
+        try:
+            if gateway:
+                admission = gateway["create_run"].remote(
+                    batch.name, [task["id"] for task in tasks], args.model_budget, 1800
+                )
+                tokens = admission.pop("tokens")
+                write_json(batch / "budget-start.json", admission)
+            barrier = (
+                Barrier(len(tasks))
+                if args.synchronized and args.command == "run"
+                else None
+            )
+            with ThreadPoolExecutor(max_workers=min(args.workers, len(tasks))) as pool:
+                futures = [
+                    pool.submit(
+                        execute_task,
+                        task,
+                        args,
+                        base_sha,
+                        batch,
+                        image,
+                        app,
+                        modal.Secret.from_dict({"CODEX_API_KEY": tokens[task["id"]]})
+                        if tokens
+                        else None,
+                        barrier,
+                    )
+                    for task in tasks
+                ]
+                reports = [future.result() for future in futures]
+        finally:
+            tokens.clear()
+            if gateway:
+                try:
+                    write_json(
+                        batch / "budget-end.json",
+                        gateway["stop_run"].remote(batch.name),
+                    )
+                except Exception as error:  # noqa: BLE001 - preserve provider cleanup failure evidence
+                    write_json(
+                        batch / "budget-stop-error.json",
+                        {
+                            "error_type": type(error).__name__,
+                            "expires_in_at_most_seconds": 1800,
+                        },
+                    )
+                for task in tasks:
+                    path = batch / task["id"] / "report.json"
+                    outcome = (
+                        json.loads(path.read_text())
+                        if path.exists()
+                        else {"status": "launch_failed"}
+                    )
+                    if outcome["status"] in {
+                        "starting",
+                        "preparing",
+                        "ready",
+                        "working",
+                        "checking",
+                    }:
+                        outcome["status"] = "interrupted"
+                    ledger.finish(
+                        task["id"],
+                        batch.name,
+                        "awaiting_integration"
+                        if outcome["status"] == "validated"
+                        else outcome["status"],
+                        path,
+                    )
+            write_json(batch / "summary.json", batch_summary(batch))
         return (
             0
             if all(

@@ -1,119 +1,122 @@
-# Modal worker pilot (S01)
+# Bounded ten-agent Modal pilot
 
-S01 owns only `tools/swarm/`: implement one bounded cloud-worker cycle and its
-evidence. Gameplay contracts and existing P03 work are outside this ticket.
+Each ticket runs a separate Codex process in a Modal VM with its own checkout of
+one exact base commit. The controller validates disjoint ownership and open
+GitHub issues, verifies merged dependencies, and atomically claims work in the
+SQLite ledger shared by this repository's Git worktrees. Duplicate work, stale
+P03/P05/P06 assignments, and concurrent local dispatchers are rejected.
 
-## What is implemented
+## Start and review
 
-One ticket runs in one Modal VM Sandbox, using a pinned Node 24/npm 11/Codex
-image. The runner checks out an exact Git commit, installs the committed lockfile,
-starts a real `codex exec --json` process, runs the repository checks, downloads
-the patch and evidence, and terminates the Sandbox. The model is explicit.
-
-The trusted helper never receives API credentials. The named Modal secret
-`afterimage-openai` supplies `CODEX_API_KEY` only to the Codex process; its shell
-environment excludes that key. No GitHub or local ChatGPT credentials are sent
-to Modal. This is a controlled pilot over reviewed repository code, not a
-credential isolation guarantee against adversarial agent code. Harden the model
-boundary with a credential proxy before accepting untrusted tasks at scale.
-
-The integrator alone reviews, commits, pushes, opens PRs and merges. A runner
-result of `validated` means local worker checks passed, not that a PR merged.
-CI and independent review still gate delivery. `smoke_passed` is infrastructure
-evidence and is never counted as an agent's delivered feature.
-
-## Setup and first run
-
-Install `modal==1.6.3` in a Python 3.12 virtual environment. Authenticate Modal
-with `modal token set` or `modal setup`. In the commands below, use that
-environment's `python`.
+Use Python3.12 with `tools/swarm/requirements-pilot.txt`, Node24 and npm11.
+Modal workspace authentication and the `afterimage-openai` secret already exist.
+Deploy the gateway, then run the bounded compatibility probe once:
 
 ```sh
-python tools/swarm/setup_openai.py
+modal deploy tools/swarm/pilot_gateway.py
+python tools/swarm/probe_gateway.py --gateway-url https://YOUR-GATEWAY.modal.run
+```
+
+Obtain the origin with `modal.Function.from_name("afterimage-swarm-gateway", "gateway").get_web_url()`. Use that origin below. Do not print or
+persist tokens returned by the gateway administration functions.
+
+```sh
 git fetch origin main:refs/remotes/origin/main
-python tools/swarm/modal_runner.py plan P06
-python tools/swarm/modal_runner.py smoke P06
-python tools/swarm/modal_runner.py run P06 --model gpt-6.1-sol --timeout 600
+python tools/swarm/modal_runner.py plan T01 T02 T03 T04 T05 T06 T07 T08 T09 T10 --workers 10 --synchronized
+python tools/swarm/modal_runner.py run T01 T02 T03 T04 T05 T06 T07 T08 T09 T10 --workers 10 --synchronized --model gpt-6.1-sol --timeout 300 --model-budget 17.00 --gateway-url https://YOUR-GATEWAY.modal.run
 ```
 
-Setup prompts for a project OpenAI key without echo and stores it directly in
-Modal's `main` environment. It verifies API authentication, not inference quota
-or model billing. Use a dedicated API project with an appropriate spend limit.
-It does not overwrite an existing secret. If the plugin connection is available,
-the OpenAI Developers integration can provide project/API setup instead.
+The paid pilot admits at most ten tasks. `plan` can describe future cohorts up
+to 100 without launching them. A synchronized batch requires exactly one task
+per worker; all prepared checkouts cross a barrier before their agents start.
+A failed preparation aborts the barrier. Workers have 300 seconds of agent time
+and at most 1200 seconds total for installation, coordination, checks and recovery.
+Each VM requests 0.5 CPU/512 MiB and is capped at 2 CPU/2048 MiB. Outbound domains
+are limited to GitHub, npm and the gateway. No GitHub/local ChatGPT credential
+or real OpenAI key reaches a worker. The trusted gateway holds the project key;
+workers receive only individual expiring budget credentials.
 
-The runner uses the existing `afterimage-swarm-pilot` App; it does not replace
-the deployment. Each worker requests 0.5 CPU/512 MiB, capped at 2 CPU/2048 MiB,
-with an agent timeout plus 600 seconds for setup/checks/recovery. Image build
-time is additional. Worker time/resource bounds are not dollar spend caps.
+## Budget and state
 
-## Evidence and recovery
+This user's cumulative USD25 authorization is split into USD18 model allowance
+and USD7 infrastructure reserve. Each compatibility probe reserves USD0.50 for models; the cohort may use only
+the remaining cumulative allowance (USD17.50 after one probe, USD17 after two).
+The VM ceiling costs about USD0.111 per worker at the checked Modal resource
+rates; admission reserves USD0.30 per cohort worker plus USD1 overhead. SQLite records both model and
+infrastructure allocations before provisioning, including smoke runs. Allocations
+are not reset/refunded automatically after failure. Worker/model limits and the
+conservative infrastructure reserve are admission controls, not provider invoice
+verification. Export safe gateway status and reconcile both providers' billing.
+The gateway's independent durable per-request accounting is documented in
+[GATEWAY.md](GATEWAY.md). Never create another gateway run to evade an exhausted
+allowance. Later 25/50/100 stages require new budgets and reviewed ready backlog.
 
-Outputs are under ignored `.swarm/modal-runs/batch-*/<ticket>/`:
+Evidence lives in the original repository's ignored `.swarm/modal-runs/batch-*/`:
+manifest, timestamped agent events, reports, exact patches, SHA256 digests, logs,
+budget start/end reports and summary. Logs redact key-shaped values and should
+remain private. `validated` means the worker's checks passed; it is not a merged
+PR. Process overlap and overlap after first completed command are reported
+separately, and neither implies uninterrupted useful coding.
 
-- `manifest.json`: task, branch and exact base commit.
-- `agent.jsonl`: Codex event stream; `report.json` includes event token usage,
-  agent start/end times, wall time, Sandbox ID and termination outcome.
-- `changes.patch` and `changes.json`: tracked, deleted, binary and new files,
-  including partial work after failure, with ownership checks and patch digest.
-- `checks.log`, `install.log`, toolchain `versions.json`, process logs and the
-  agent's final handoff.
-
-Logs redact OpenAI key-shaped strings. Treat local artifacts as private;
-review before publishing. Cost fields remain `null` until reconciled with
-provider billing. Wall time is not evidence of continuous productive activity.
-No result is recorded as merged by this runner.
-
-If artifact retrieval fails, the report states `needs_recovery` or `failed`;
-the Sandbox is still terminated to bound cost. Provider loss can therefore lose
-unretrieved work. Durable checkpoints are a later scale requirement. Inspect
-`sandbox_terminated` and the Sandbox ID after interrupted runs.
-
-Do not use the older `swarm.mjs release` on a dirty worktree: its forced removal
-can delete uncommitted work. Recover/commit a reviewed diff first. This runner
-does not invoke that command.
-
-## Parallelism and the path to 100
-
-`--workers N` is a concurrency ceiling (1–100), not an instruction to create
-idle containers. Each worker needs a different task. A batch rejects duplicate
-tickets, overlapping ownership and unresolved dependencies. A file lock excludes
-another dispatcher in the same checkout. This is a single-dispatcher pilot;
-other checkouts/machines and the older local CLI must not dispatch concurrently.
+For each validated patch, inspect the complete diff and acceptance tests. Then
+integrate sequentially so each candidate includes every prior merged change:
 
 ```sh
-python tools/swarm/modal_runner.py plan P05 P06 --workers 100
-python tools/swarm/modal_runner.py run P05 P06 --workers 2 --model gpt-6.1-sol
+python tools/swarm/pilot_integrate.py plan ARTIFACT_DIR
+python tools/swarm/pilot_integrate.py prepare ARTIFACT_DIR
+python tools/swarm/pilot_integrate.py publish ARTIFACT_DIR --reviewed-patch-sha REVIEWED_SHA256
+# Wait for GitHub Actions on the exact published head.
+python tools/swarm/pilot_integrate.py merge ARTIFACT_DIR --reviewed-patch-sha REVIEWED_SHA256
 ```
 
-The first command correctly reports at most **two** active agents. Do not use
-P03 as fresh work: PR #5 already implements it. P05 overlaps existing bootstrap
-work and needs its remaining acceptance scope reviewed before dispatch.
+Prepare creates a fresh worktree, applies the checked patch, rechecks ownership
+and secrets, runs npmci/full checks and Python tests, and binds validation to
+the exact Git tree/base. Publish and merge require semantic review acknowledgment;
+merge checks current main and successful CI on the exact head. GitHub guards the
+head SHA atomically; its API has no atomic base-SHA condition. This pilot therefore
+uses one integrator and checks main immediately before merge. Do not merge
+concurrently through another client. A changed base requires a fresh validated
+attempt, preserving prior artifacts. A failed or unmerged patch is not delivery.
 
-Still required before a qualifying 100-agent run:
+Failed workers retain partial patches when retrieval succeeds and are terminated.
+Inspect failed termination/recovery reports; provider loss can still lose unreceived
+work. No automatic retry, credit reset, or stale-lock stealing is allowed. `--retry`
+only permits an explicitly reviewed failed task with remaining cumulative budget.
+Never use legacy `swarm.mjs release` on a dirty worktree: it forcibly removes it.
 
-1. Enough useful, independently verifiable ready tickets, with explicit specs
-   and a dependency graph; reconcile already implemented/bootstrap work first.
-2. A durable shared scheduler with atomic claims, expiring leases, heartbeats,
-   retries, cancellation and checkpoints. Smaller ownership boundaries must
-   still allow legitimate concurrent changes to the same codebase.
-3. A verified merged-commit ledger and integration queue that retests combined
-   changes, rebases or assigns conflicts to repair, and confirms GitHub CI.
-4. API project RPM/TPM capacity and actual Modal account concurrency capacity;
-   handle 429s and capacity failures without counting queued agents as working.
-5. A comparable AFK baseline on the same initial commit, backlog and acceptance
-   tests. Count merged green PRs, feature completion, reverts, intervention and
-   full infrastructure/model spend, not scaffolding or PR splitting.
-6. Apply the existing 10 → 25 → 50 → 100 gates in `docs/SWARM_PILOT.md`, retaining
-   timestamped evidence of at least 100 concurrently productive agents.
+## Before scaling
+
+10→25 requires at least 80% merged green and no credential/IP breach. 25→50 also
+requires observable conflicts and repair ownership. 100 requires a real backlog,
+account RPM/TPM and Modal capacity, global distributed scheduling/heartbeats,
+durable checkpoints, collision/repair evidence, and 100 concurrently useful agents.
+The current local pilot lock does not coordinate other clones/machines.
+
+Benchmark the same initial commit/backlog/acceptance tests against an AFK pipeline.
+Include CI/merge time, interventions, reverts, and reconciled model/infrastructure
+cost per merged green PR. Disjoint tickets test dispatch initially; this is not
+yet proof of same-file collision handling or a qualifying 100-agent submission.
 
 ## Validation
 
 ```sh
-python -m unittest discover -s tools/swarm -p 'test_modal_*.py' -v
-python -m py_compile tools/swarm/modal_runner.py tools/swarm/modal_worker.py tools/swarm/setup_openai.py
+python -m unittest discover -s tools/swarm -p 'test_*.py'
 npm run check
 ```
+
+CI runs the Python suite with pinned dependencies as well as all workspace checks.
+
+## Gateway compatibility evidence
+
+The first live probe rejected the CLI request shape before any model call; its
+run was stopped and Sandbox terminated. After adding strict namespaced local-tool
+support, the second probe passed on 2026-11-10: two model requests, one completed
+shell command, READY, clean workspace and confirmed cleanup. Conservative model
+accounting was USD0.054613 (not an invoice). Both USD0.50 allocations remain in
+the cumulative ledger; this cohort therefore receives USD17.00. The full local
+Python suite passes 68 tests including the compatibility and admission regressions.
+
+## Historical one-agent evidence (S01)
 
 Verified on 2026-11-10: 12 offline regression tests, scoped Ruff lint, Python
 compilation, and the repository's lint/typecheck/tests/build all pass. The live
@@ -136,12 +139,3 @@ reported; they are not a billing calculation. Provider costs remain unverified.
 This establishes one real agent's worker cycle. PR integration and CI time must
 be measured separately; it is not evidence of 100 concurrent agents or an AFK
 comparison. Runtime evidence remains in ignored `.swarm/modal-runs/`.
-
-Coordination note for P09 (root/CI ownership): the existing GitHub workflow runs
-the JavaScript workspace checks only. Add the Python regression command to CI
-as that ticket's scoped follow-up; S01 runs those tests locally and does not
-silently edit the workflow.
-
-References: [Codex automation](https://learn.chatgpt.com/docs/non-interactive-mode),
-[Modal Sandboxes](https://modal.com/docs/guide/sandboxes),
-[Sandbox resources](https://modal.com/docs/guide/sandbox-resources).

@@ -74,7 +74,8 @@ dispatch; a different clone/machine or the legacy CLI is outside its locking sco
 Run instructions and remaining scale requirements: [Modal pilot](../tools/swarm/MODAL.md).
 
 Post-pilot coordination: the controller owns event-stream receipt logging, the
-delivery report and task status reconciliation. The T05 review added a panel
+delivery report, task status reconciliation, and excluding ignored `.swarm/`
+runtime worktrees from the root linter. The T05 review added a panel
 background and a failing-before/passing-after contrast regression before PR25
 merged. That repair is attributed separately from the worker's preserved patch.
 No shared gameplay contract changed during integration.

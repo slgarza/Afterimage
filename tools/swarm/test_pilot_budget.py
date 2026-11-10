@@ -664,17 +664,28 @@ class HTTPTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(response.status_code, 415)
         self.assertFalse(self.calls)
 
-    async def test_count_failure_does_not_generate_and_keeps_reservation(self):
+    async def test_count_rate_limit_preserves_429_code_and_full_reservation(self):
         self.mode = "count_error"
         response = await self.client.post(
             "/v1/responses", headers=self.headers, content=payload()
         )
         self.assertEqual(response.status_code, 429)
+        self.assertEqual(response.json()["error"]["code"], "upstream_count_rate_limit")
         self.assertEqual(len(self.calls), 1)
+        self.assertTrue(self.calls[0].url.path.endswith("/input_tokens"))
         self.assertNotIn("private upstream details", response.text)
         report = await self.service.status("http", time.time())
-        self.assertGreater(report["retained_usd"], 0)
+        prepared, upper = prepare_request(payload())
+        expected = cost_micro(upper, prepared["max_output_tokens"]) / 1_000_000
+        self.assertEqual(report["retained_usd"], expected)
+        self.assertEqual(report["maximum_charged_usd"], expected)
+        self.assertEqual(report["reserved_usd"], 0)
+        self.assertEqual(report["committed_usd"], 0)
         self.assertEqual(report["tasks"]["A"]["count_errors"], 1)
+        self.assertEqual(report["tasks"]["A"]["count_requests"], 1)
+        self.assertEqual(report["tasks"]["A"]["errors"], 1)
+        self.assertEqual(report["tasks"]["A"]["completed"], 0)
+        self.assertFalse(report["tasks"]["A"]["inflight"])
 
     async def test_upstream_error_is_sanitized_and_incomplete_keeps_reservation(self):
         self.mode = "upstream_error"

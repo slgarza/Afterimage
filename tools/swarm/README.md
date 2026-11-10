@@ -46,3 +46,23 @@ Tasks live in `tools/swarm/tasks/<ID>.json`:
 
 Runtime state is in `.swarm/`, intentionally ignored by Git. It records
 leases, worktrees and validation reports for the final contest evidence.
+
+## Daytona provider adapter
+
+`daytona_runner.py` is the cloud-execution boundary. It has no model credential
+and cannot commit, push, open a PR, or modify `main`. It creates one ephemeral
+sandbox, records the sandbox id/output/exit status under `.swarm/daytona-runs`,
+then destroys the sandbox.
+
+On Sergio's Mac only, run it through the Keychain-backed wrapper:
+
+```sh
+tools/swarm/run_daytona.sh smoke
+tools/swarm/run_daytona.sh prepare P03
+```
+
+`smoke` verifies the image has Node, npm and Git. `prepare` also proves a worker
+can clone the public repository and create an isolated task branch. It does not
+launch Codex yet: a cloud-safe model/runtime credential is a separate required
+boundary and must be injected through Daytona secrets, never committed or
+passed in task prompts.

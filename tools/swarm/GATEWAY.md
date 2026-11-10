@@ -61,7 +61,13 @@ base URL. That environment variable holds only the task credential. Use a
 bounded context (32768 tokens for this pilot), disable remote compaction and
 web search, and send uncompressed JSON. Streaming Responses, function tools,
 custom tools, text tool results, and stateless encrypted reasoning replay are
-supported. Hosted tools, namespaces, images, files, conversations, response-ID
+supported. Codex 0.166's `additional_tools` developer input items and one level
+of `functions`/`clock` namespaces are accepted, with at most 64 local
+function/custom definitions across the entire request. Nested namespaces and
+hosted tools remain forbidden at every level. The gateway strips
+`client_metadata` telemetry and `collaboration` tool definitions, even if the
+CLI advertises them with multi-agent mode disabled; replayed collaboration
+calls are rejected. Hosted tools, images, files, conversations, response-ID
 chaining, background mode, compressed bodies, and other API endpoints are
 rejected before inference. Output is clamped to 4096 tokens including reasoning.
 
@@ -128,7 +134,7 @@ provide access to Modal or the real OpenAI key.
 ## Validation
 
 Install the same pinned HTTP test dependencies in the local or CI Python
-environment; the standard-library subset deliberately skips the four HTTP
+environment; the standard-library subset deliberately skips the five HTTP
 tests when these packages are absent:
 
 ```sh
@@ -141,14 +147,21 @@ python -m py_compile tools/swarm/pilot_budget.py tools/swarm/pilot_gateway.py
 ruff check --isolated tools/swarm/pilot_budget.py tools/swarm/pilot_gateway.py tools/swarm/test_pilot_budget.py
 ```
 
-The 23 standard-library tests cover money validation, ten task quotas,
+The 26 standard-library tests cover money validation, ten task quotas,
 concurrency, persistent locks, interrupted writes, restarts, cancellation,
 single-use runs, request bounds, forbidden remote tools/context, and incremental
-SSE accounting. Four additional offline HTTP tests run when `modal==1.6.3`,
+SSE accounting. They also cover the initial Codex request and tool-result
+replay shapes, stripped telemetry/collaboration definitions, and rejection of
+paid tools hidden inside additional tool items or namespaces. Five additional
+offline HTTP tests run when `modal==1.6.3`,
 `fastapi==0.115.12`, and `httpx==0.28.1` are installed. They use a simulated
 upstream and in-memory ledger; no tests read an API key or make model calls.
-All 27 tests, scoped Ruff, and compilation passed locally. Deployment and live
-Codex compatibility must be validated by the dispatcher before the ten-agent run.
+All 31 tests, scoped Ruff, and compilation passed locally. Codex 0.166 also
+completed a two-request localhost SSE simulation: both real CLI request shapes
+passed the policy, the local printf command executed, and Codex returned READY.
+The simulation used a dummy credential and made no model calls. Deployment and
+live Codex compatibility must be validated by the dispatcher before the
+ten-agent run.
 
 Sources: [Sol pricing](https://developers.openai.com/api/docs/models/gpt-6.1-sol),
 [cache-write semantics](https://developers.openai.com/api/docs/guides/prompt-caching),

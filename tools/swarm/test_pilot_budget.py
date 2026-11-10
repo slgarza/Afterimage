@@ -56,6 +56,87 @@ def completed(inputs=100, outputs=20, **changes):
     }
 
 
+def codex_wire_input(after_tool=False):
+    """Synthetic fixture of CLI 0.166 field shapes; no captured user prompts."""
+    items = [
+        {
+            "type": "additional_tools",
+            "id": "tools_fixture",
+            "role": "developer",
+            "tools": [
+                {
+                    "type": "namespace",
+                    "name": "functions",
+                    "description": "Local tools",
+                    "tools": [
+                        {
+                            "type": "custom",
+                            "name": "exec",
+                            "description": "Execute local JavaScript",
+                            "format": {"type": "text"},
+                        },
+                        {
+                            "type": "function",
+                            "name": "wait",
+                            "parameters": {},
+                            "strict": False,
+                        },
+                    ],
+                },
+                {
+                    "type": "namespace",
+                    "name": "clock",
+                    "description": "Clock",
+                    "tools": [
+                        {
+                            "type": "function",
+                            "name": "sleep",
+                            "parameters": {},
+                            "strict": False,
+                        },
+                    ],
+                },
+                {
+                    "type": "namespace",
+                    "name": "collaboration",
+                    "description": "Disabled",
+                    "tools": [
+                        {"type": "function", "name": "spawn_agent", "parameters": {}},
+                    ],
+                },
+            ],
+        },
+        {
+            "type": "message",
+            "id": "msg_fixture",
+            "role": "user",
+            "content": [
+                {"type": "input_text", "text": "Execute printf, then READY."},
+            ],
+        },
+    ]
+    if after_tool:
+        items.extend(
+            [
+                {
+                    "type": "custom_tool_call",
+                    "id": "ctc_fixture",
+                    "call_id": "call_fixture",
+                    "name": "exec",
+                    "namespace": "functions",
+                    "input": "text('gateway-ready');",
+                },
+                {
+                    "type": "custom_tool_call_output",
+                    "id": "out_fixture",
+                    "call_id": "call_fixture",
+                    "output": "gateway-ready",
+                },
+            ]
+        )
+    return items
+
+
 class BudgetTests(unittest.TestCase):
     def setUp(self):
         self.run, self.tokens = new_run("pilot-1", ["A", "B"], now=100)
@@ -191,6 +272,55 @@ class BudgetTests(unittest.TestCase):
 
 
 class RequestTests(unittest.TestCase):
+    def test_codex_first_and_tool_round_trip_shapes_strip_telemetry_and_collaboration(
+        self,
+    ):
+        for after_tool in (False, True):
+            body, _ = prepare_request(
+                payload(
+                    input=codex_wire_input(after_tool),
+                    client_metadata={"session_id": "private-session"},
+                )
+            )
+            self.assertNotIn("client_metadata", body)
+            self.assertEqual(
+                [tool["name"] for tool in body["input"][0]["tools"]],
+                ["functions", "clock"],
+            )
+            if after_tool:
+                self.assertEqual(body["input"][-2]["namespace"], "functions")
+
+    def test_additional_namespaces_cannot_hide_paid_or_nested_remote_tools(self):
+        for kind in (
+            "web_search",
+            "mcp",
+            "file_search",
+            "code_interpreter",
+            "image_generation",
+            "namespace",
+        ):
+            items = codex_wire_input()
+            items[0]["tools"][0]["tools"] = [{"type": kind, "name": "hidden"}]
+            with self.subTest(kind=kind), self.assertRaises(PolicyError):
+                prepare_request(payload(input=items))
+        for namespace in ("collaboration", "unknown"):
+            items = codex_wire_input(True)
+            items[-2]["namespace"] = namespace
+            with self.assertRaises(PolicyError):
+                prepare_request(payload(input=items))
+        items = codex_wire_input()
+        items[0]["role"] = "user"
+        with self.assertRaises(PolicyError):
+            prepare_request(payload(input=items))
+
+    def test_tool_count_is_bounded_across_additional_and_top_level_definitions(self):
+        items = codex_wire_input()
+        tools = [
+            {"type": "function", "name": str(i), "parameters": {}} for i in range(62)
+        ]
+        with self.assertRaisesRegex(PolicyError, "invalid_tool_count"):
+            prepare_request(payload(input=items, tools=tools))
+
     def test_clamps_model_tier_output_and_disables_storage(self):
         body, upper = prepare_request(
             payload(max_output_tokens=999999, store=True, service_tier="priority")
@@ -495,6 +625,25 @@ class HTTPTests(unittest.IsolatedAsyncioTestCase):
             self.assertNotIn("openai-project", call.headers)
             self.assertNotIn(self.created["tokens"]["A"], call.content.decode())
         self.assertEqual(report["rate_limits"]["x-ratelimit-limit-tokens"], "1000000")
+
+    async def test_codex_shapes_send_same_sanitized_input_to_counter_and_inference(
+        self,
+    ):
+        for after_tool in (False, True):
+            response = await self.client.post(
+                "/v1/responses",
+                headers=self.headers,
+                content=payload(
+                    input=codex_wire_input(after_tool),
+                    client_metadata={"session_id": "private-session"},
+                ),
+            )
+            self.assertEqual(response.status_code, 200)
+            counted_body = json.loads(self.calls[-2].content)
+            generated_body = json.loads(self.calls[-1].content)
+            self.assertEqual(counted_body["input"], generated_body["input"])
+            self.assertNotIn("client_metadata", generated_body)
+            self.assertNotIn("collaboration", json.dumps(generated_body))
 
     async def test_unauthenticated_forbidden_and_compressed_requests_make_no_provider_call(
         self,

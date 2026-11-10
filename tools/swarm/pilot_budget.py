@@ -51,6 +51,7 @@ TOP_FIELDS = {
     "truncation",
     "previous_response_id",
     "background",
+    "client_metadata",
 }
 COUNT_FIELDS = {
     "model",
@@ -359,9 +360,10 @@ def _text_content(content):
 
 def _inputs(value):
     if isinstance(value, str):
-        return
+        return 0
     if not isinstance(value, list) or len(value) > 512:
         raise PolicyError("invalid_input")
+    tool_count = 0
     for item in value:
         if not isinstance(item, dict):
             raise PolicyError("invalid_input")
@@ -375,15 +377,34 @@ def _inputs(value):
             _text_content(item.get("content"))
         elif kind in {"function_call", "custom_tool_call"}:
             _keys(
-                item, {"type", "id", "call_id", "name", "arguments", "input", "status"}
+                item,
+                {
+                    "type",
+                    "id",
+                    "call_id",
+                    "name",
+                    "arguments",
+                    "input",
+                    "status",
+                    "namespace",
+                },
             )
             if not isinstance(
                 item.get("arguments" if kind == "function_call" else "input"), str
             ):
                 raise PolicyError("invalid_tool_input")
+            _call_namespace(item)
         elif kind in {"function_call_output", "custom_tool_call_output"}:
-            _keys(item, {"type", "id", "call_id", "output", "status"})
+            _keys(
+                item, {"type", "id", "call_id", "output", "status", "name", "namespace"}
+            )
             _text_content(item.get("output"))
+            _call_namespace(item)
+        elif kind == "additional_tools":
+            _keys(item, {"type", "id", "role", "tools"})
+            if item.get("role") != "developer":
+                raise PolicyError("invalid_tools_role")
+            tool_count += _tools(item.get("tools"))
         elif kind == "reasoning":
             _keys(
                 item,
@@ -406,13 +427,48 @@ def _inputs(value):
                 raise PolicyError("invalid_reasoning")
         else:
             raise PolicyError("unsupported_input_type")
+    return tool_count
 
 
-def _tools(tools):
+def _call_namespace(item):
+    if item.get("namespace") not in (None, "functions", "clock"):
+        raise PolicyError("invalid_namespace")
+    if isinstance(item.get("name"), str) and item["name"].startswith("collaboration."):
+        raise PolicyError("invalid_namespace")
+
+
+def _without_collaboration(tools):
+    if not isinstance(tools, list):
+        return tools  # The regular validator rejects malformed definitions.
+    return [
+        tool
+        for tool in tools
+        if not (
+            isinstance(tool, dict)
+            and tool.get("type") == "namespace"
+            and tool.get("name") == "collaboration"
+        )
+    ]
+
+
+def _tools(tools, *, nested=False):
     if not isinstance(tools, list) or len(tools) > 64:
         raise PolicyError("invalid_tools")
+    total = 0
     for tool in tools:
-        if not isinstance(tool, dict) or tool.get("type") not in ("function", "custom"):
+        if not isinstance(tool, dict):
+            raise PolicyError("local_tools_only")
+        if tool.get("type") == "namespace" and not nested:
+            _keys(tool, {"type", "name", "description", "tools"})
+            if tool.get("name") not in ("functions", "clock") or not isinstance(
+                tool.get("description"), str
+            ):
+                raise PolicyError("invalid_namespace")
+            if not tool.get("tools"):
+                raise PolicyError("invalid_namespace")
+            total += _tools(tool["tools"], nested=True)
+            continue
+        if tool.get("type") not in ("function", "custom"):
             raise PolicyError("local_tools_only")
         if tool["type"] == "function":
             _keys(tool, {"type", "name", "description", "parameters", "strict"})
@@ -420,6 +476,10 @@ def _tools(tools):
             _keys(tool, {"type", "name", "description", "format"})
         if not isinstance(tool.get("name"), str):
             raise PolicyError("invalid_tool_name")
+        total += 1
+    if total > 64:
+        raise PolicyError("invalid_tool_count")
+    return total
 
 
 def _node_count(value, depth=0):
@@ -455,8 +515,16 @@ def prepare_request(raw):
         raise PolicyError("stateless_requests_only")
     if body.get("stream", True) is not True:
         raise PolicyError("stream_required")
-    _inputs(body.get("input"))
-    _tools(body.get("tools", []))
+    # CLI 0.166 may advertise collaboration even with multi_agent disabled.
+    # Never expose those definitions to the model for a one-worker ticket.
+    if "tools" in body:
+        body["tools"] = _without_collaboration(body["tools"])
+    if isinstance(body.get("input"), list):
+        for item in body["input"]:
+            if isinstance(item, dict) and item.get("type") == "additional_tools":
+                item["tools"] = _without_collaboration(item.get("tools"))
+    if _inputs(body.get("input")) + _tools(body.get("tools", [])) > 64:
+        raise PolicyError("invalid_tool_count")
     if body.get("include", []) not in ([], ["reasoning.encrypted_content"]):
         raise PolicyError("unsupported_include")
     if body.get("tool_choice", "auto") not in ("auto", "none", "required"):
@@ -487,6 +555,8 @@ def prepare_request(raw):
     )
     body.pop("previous_response_id", None)
     body.pop("background", None)
+    # Session/installation telemetry is not required for inference or accounting.
+    body.pop("client_metadata", None)
     try:
         encoded = json.dumps(body, ensure_ascii=False, separators=(",", ":")).encode(
             "utf-8"

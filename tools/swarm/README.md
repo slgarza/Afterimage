@@ -1,5 +1,8 @@
 # Local swarm control plane
 
+For the bounded Modal/Codex worker, setup, evidence and scale requirements, see
+[the Modal pilot](MODAL.md). The local CLI below does not start model workers.
+
 This is the first safety rail for the Telnyx X Prize pilot. It is deliberately
 small: a task file produces one branch, one isolated git worktree, and one
 ownership lease. Workers edit only there. The integrator alone validates,
@@ -25,9 +28,10 @@ The generated `SWARM-TASK.md` is the worker handoff. A worker must not commit,
 push, create a PR, or touch main. After a worker reports back, the integrator
 runs `validate`, inspects the diff, and performs the GitHub actions.
 
-`release` removes the worktree and lease but deliberately preserves its local
-branch so the integrator can inspect, commit and push the worker's diff. A later
-`prepare` for the same task reuses that branch.
+`release` forcibly removes the worktree and lease, preserving only its local
+branch and committed history. **Recover or commit the worker's changes before
+release:** uncommitted files are deleted by this command. A later `prepare` for
+the same task reuses the branch, but cannot restore that deleted working diff.
 
 ## Task schema
 

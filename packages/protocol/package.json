@@ -15,7 +15,7 @@
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit && tsc --project tsconfig.test.json",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run",
     "build": "tsc"
   }
 }

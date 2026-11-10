@@ -1,6 +1,6 @@
 # ADR 0001: TypeScript workspace foundation
 
-Status: accepted tooling decision; installation and validation pending registry access.
+Status: accepted; installation and validation completed on 2026-11-10.
 
 ## Scope and coordination
 
@@ -28,7 +28,7 @@ or features. No public gameplay contract is introduced.
 - CI installs dependencies and runs lint, typecheck, test, and build on pushes
   and pull requests with read-only repository permissions.
 
-## Reproducibility follow-up
+## Original reproducibility limitation (resolved)
 
 The bootstrap environment cannot resolve `registry.npmjs.org`, and its npm cache
 lacks React and ESLint. A real dependency lockfile cannot be generated here.
@@ -58,3 +58,12 @@ Attempted with Node 24.18.0 and npm 11.16.0:
 A dependency-free Node check also parsed all five package manifests and
 TypeScript configurations and confirmed every required package script exists.
 These static checks do not substitute for the blocked toolchain checks.
+
+## Follow-up validation: 2026-11-10
+
+Registry access was restored, a real `package-lock.json` was committed, and CI
+now installs with `npm ci`. All workspaces pass lint, typecheck, tests and build
+locally and on GitHub Actions. The [completed ten-agent pilot](../swarm/pilot10-2026-11-10.md)
+has 291 TypeScript tests. The earlier failures above describe the bootstrap
+environment, not the current repository. Runtime components remain independent
+from Firebase; production deployment is still outside this decision.

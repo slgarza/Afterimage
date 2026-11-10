@@ -40,11 +40,13 @@ A swarm on an empty repository produces overlapping scaffolds and fake velocity.
 Move 10 → 25 only when at least 80% of pilot PRs merge green and no credential/IP breach occurs. Move 25 → 50 only when the merge queue and dashboard identify conflicts and repair ownership. Reach 100+ only when every active agent, task, branch, CI state, and merge is observable.
 
 
-## Active batch: T01–T10
+## Completed batch: T01–T10
 
 The earlier P01–P10 table describes initial work areas, not ten fresh tasks.
 P03 is merged in PR5; P06 in PR7; P05 is superseded by the merged client scaffold.
-The executable backlog is now `tools/swarm/tasks/T01.json` through `T10.json`.
+The first executable cohort was `tools/swarm/tasks/T01.json` through `T10.json`.
+All ten are now marked merged and reference PR21–PR30; they must not be dispatched
+again. See the [delivery report](swarm/pilot10-2026-11-10.md).
 [The exact contracts](PILOT10_CONTRACTS.md) narrow ownership before dispatch.
 
 Coordination decision: the controller owns the root test dependencies/lockfile,
@@ -70,3 +72,9 @@ combined checks, followed by green GitHub Actions before sequential merge.
 The local durable scheduler is shared by Git worktrees. Only this controller may
 dispatch; a different clone/machine or the legacy CLI is outside its locking scope.
 Run instructions and remaining scale requirements: [Modal pilot](../tools/swarm/MODAL.md).
+
+Post-pilot coordination: the controller owns event-stream receipt logging, the
+delivery report and task status reconciliation. The T05 review added a panel
+background and a failing-before/passing-after contrast regression before PR25
+merged. That repair is attributed separately from the worker's preserved patch.
+No shared gameplay contract changed during integration.

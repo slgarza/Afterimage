@@ -12,6 +12,7 @@
     "Tests cover both paths, normalization and Unicode boundaries, rejected submissions, mode error reset, and busy guard including direct submit.",
     "No backend, storage, game authority or dependency on another worker module; scoped lint/typecheck/tests and full npm run check pass."
   ],
-  "status": "ready",
-  "issue": 13
+  "status": "merged",
+  "issue": 13,
+  "pullRequest": 26
 }

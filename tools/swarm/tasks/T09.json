@@ -12,6 +12,7 @@
     "DOM tests exercise public rendering, waiting/resolution, malformed references, text escaping and polite atomic status semantics.",
     "No choice controls, private rules, inferred phases or cross-worker imports; scoped lint/typecheck/tests and full npm run check pass."
   ],
-  "status": "ready",
-  "issue": 16
+  "status": "merged",
+  "issue": 16,
+  "pullRequest": 29
 }

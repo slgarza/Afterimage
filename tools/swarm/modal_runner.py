@@ -190,7 +190,8 @@ def consume(process, directory, name):
 
     def drain(stream, path):
         with path.open("w") as output:
-            for line in stream:
+
+            def persist(line):
                 sanitized = redact(line)
                 if path.suffix == ".jsonl":
                     try:
@@ -202,6 +203,17 @@ def consume(process, directory, name):
                         pass
                 output.write(sanitized)
                 output.flush()
+
+            # Modal streams yield chunks: a chunk can contain several events,
+            # or split a JSON object or credential in the middle of a line.
+            pending = ""
+            for chunk in stream:
+                pending += chunk
+                while "\n" in pending:
+                    line, pending = pending.split("\n", 1)
+                    persist(line + "\n")
+            if pending:
+                persist(pending)
 
     with ThreadPoolExecutor(max_workers=2) as pool:
         stdout = pool.submit(drain, process.stdout, directory / f"{name}.jsonl")

@@ -12,6 +12,7 @@
     "Tests cover 0/0, intermediate and 5/5 states, accessible value semantics, malformed marks, and no computed winner.",
     "The component is pure presentation without side effects or cross-worker imports; scoped lint/typecheck/tests and full npm run check pass."
   ],
-  "status": "ready",
-  "issue": 15
+  "status": "merged",
+  "issue": 15,
+  "pullRequest": 28
 }

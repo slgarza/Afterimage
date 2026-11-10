@@ -15,6 +15,7 @@
     "Tests cover fixed outputs and RNG, deterministic replay, duplicates, frozen inputs, exact advancement, and invalid/edge counts.",
     "No engine barrel/configuration or platform dependency changes; scoped lint/typecheck/tests and full npm run check pass."
   ],
-  "status": "ready",
-  "issue": 11
+  "status": "merged",
+  "issue": 11,
+  "pullRequest": 24
 }

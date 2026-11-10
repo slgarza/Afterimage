@@ -19,21 +19,25 @@ See [the GDD](docs/GDD.md), [the architecture](docs/ARCHITECTURE.md), and [the s
 
 ## Status
 
-Planning and foundation only. No Firebase project, production credentials, proprietary source assets, or music files belong in this repository.
+Foundation components implemented; complete gameplay and Firebase integration remain pending.
+The [first ten-agent Modal pilot](docs/swarm/pilot10-2026-11-10.md) delivered ten
+reviewed PRs with passing CI. No Firebase project, production credentials,
+proprietary source assets, or music files belong in this repository.
 
 ## Local development
 
 Use Node 24 (`nvm use` if available) and npm 11. Install from the repository root:
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
 Vite serves the neutral client shell at the local URL printed in the terminal.
-The engine provides deterministic RNG/replay primitives; the UI package provides
-semantic theme tokens. The ten-agent pilot extends these foundations under
-[explicit contracts](docs/PILOT10_CONTRACTS.md). Complete gameplay and Firebase
+The engine provides deterministic RNG/replay, lobby and deck primitives. The UI
+and client include tested controls, room entry, roster, board and Transmission
+components under [explicit contracts](docs/PILOT10_CONTRACTS.md). These components
+are not yet connected into the client shell; complete gameplay and Firebase
 integration are still pending.
 
 ## Validation
@@ -49,10 +53,10 @@ npm run build
 
 `npm run check` runs all four in sequence. Scope a command with, for example,
 `npm run typecheck --workspace @afterimage/engine`. Each workspace has explicit
-lint, typecheck, test, and build scripts. Empty packages currently permit zero
-tests; the client has a render smoke test. Builds write ignored `dist/` outputs.
+lint, typecheck, test, and build scripts. All four workspaces have tests;
+the completed pilot passes 291 tests. Builds write ignored `dist/` outputs.
 Preview the built client with `npm run preview --workspace @afterimage/client`.
 
-Tooling choices, ownership coordination, and the pending lockfile/validation
+Tooling choices, ownership coordination, and the resolved bootstrap installation
 limitation are recorded in [ADR 0001](docs/adr/0001-typescript-workspace.md).
 

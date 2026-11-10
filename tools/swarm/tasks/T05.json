@@ -13,6 +13,7 @@
     "DOM interaction tests cover enabled and prevented actions, submit type, controlled updates, disabled inputs, and hint/error combinations with explicit cleanup.",
     "Existing theme tokens are reused without new assets or shared-file edits; scoped lint/typecheck/tests and full npm run check pass."
   ],
-  "status": "ready",
-  "issue": 12
+  "status": "merged",
+  "issue": 12,
+  "pullRequest": 25
 }

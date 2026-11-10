@@ -12,6 +12,7 @@
     "Tests cover roundtrip, exact field allowlist, versions/schema/format errors, read/write/remove exceptions, unrelated keys and secret exclusion.",
     "No global storage, clock, network, authority claims or cross-worker imports; scoped lint/typecheck/tests and full npm run check pass."
   ],
-  "status": "ready",
-  "issue": 17
+  "status": "merged",
+  "issue": 17,
+  "pullRequest": 30
 }

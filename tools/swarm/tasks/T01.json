@@ -14,6 +14,7 @@
     "Boundary tests cover valid variants, Unicode name/code limits, malformed records and arrays, and safe error paths.",
     "Only the test script loses --passWithNoTests in the owned protocol manifest; scoped lint/typecheck/tests and full npm run check pass."
   ],
-  "status": "ready",
-  "issue": 8
+  "status": "merged",
+  "issue": 8,
+  "pullRequest": 21
 }

@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-10T21:07:49.533748+00:00",
+  "repository": "https://github.com/slgarza/Afterimage",
+  "batch_id": "batch-8d3aa952ff1f",
+  "base_sha": "a190f7544729655b881f500bba0b6f47fddba34a",
+  "model": "gpt-6.1-sol",
+  "scope": "Ten original foundation tasks in one synchronized Modal cohort; coordinator preparation PRs are excluded from delivery counts.",
+  "delivery": {
+    "merged_green_prs": 10,
+    "without_coordinator_code_repair": 9,
+    "coordinator_code_repairs": 1,
+    "measurement_start": "2026-11-10T20:36:44.918638+00:00",
+    "last_merge_at": "2026-11-10T21:07:22Z",
+    "elapsed_seconds": 1837.081,
+    "merged_green_prs_per_hour": 19.596,
+    "clock_definition": "First worker creation through last feature PR merge, including review, combined validation, and CI; excludes prior controller implementation, probes and predispatch admission."
+  },
+  "workers": {
+    "requested_workers": 10,
+    "distinct_task_count": 10,
+    "validated_workers": 10,
+    "sessions_with_completed_commands": 10,
+    "total_completed_commands": 72,
+    "total_changed_files_across_tasks": 21,
+    "batch_started_at": "2026-11-10T20:36:44.918638+00:00",
+    "batch_finished_at": "2026-11-10T20:39:18.012630+00:00",
+    "batch_wall_seconds": 153.093992,
+    "batch_wall_definition": "Earliest worker lifecycle start through latest worker lifecycle finish; excludes probes and PR integration.",
+    "summed_worker_wall_seconds": 1196.953,
+    "median_worker_wall_seconds": 118.817,
+    "nonzero_intermediate_command_exits": 6,
+    "intermediate_command_outcome_note": "Nonzero exits can include normal search misses as well as command/test failures. They are not automatically repair iterations or failed final tasks."
+  },
+  "concurrency": {
+    "process_peak": 10,
+    "all_ten_processes_overlap_start": "2026-11-10T20:36:51.169730+00:00",
+    "all_ten_processes_overlap_end": "2026-11-10T20:38:09.413092+00:00",
+    "all_ten_processes_overlap_seconds": 78.243362,
+    "command_proven_session_peak": 10,
+    "all_ten_command_proven_sessions_overlap_start": "2026-11-10T20:37:56.982554+00:00",
+    "all_ten_command_proven_sessions_overlap_end": "2026-11-10T20:38:09.413092+00:00",
+    "all_ten_command_proven_sessions_overlap_seconds_lower_bound": 12.430538,
+    "command_proven_session_definition": "Session interval begins at its first timestamped completed command receipt and ends at recorded agent exit. Each session demonstrably performed a shell command; this does not assert simultaneous CPU execution.",
+    "timing_limitation": "First command completions lack receipt timestamps. Some later JSONL events are timestamped. The first timestamped completed command supplies a conservative late start; no timestamps were inferred or retrofitted.",
+    "exact_first_command_overlap_seconds": null
+  },
+  "budget": {
+    "authorized_total_usd": 25,
+    "model_admission_allowance_workers_usd": 17.0,
+    "model_admission_allowance_probes_usd": 1.0,
+    "infrastructure_allowance_usd": 7,
+    "worker_gateway_state": "stopped",
+    "worker_model_charge_ceiling_usd": 5.367561,
+    "probe_model_charge_ceiling_usd": 0.054613,
+    "workers_plus_probes_model_charge_ceiling_usd": 5.422174,
+    "worker_retained_usd": 0.0,
+    "worker_reserved_usd": 0.0,
+    "worker_gateway_ledger_locked": false,
+    "worker_gateway_requests": 88,
+    "worker_gateway_completed": 88,
+    "worker_gateway_error_count": 0,
+    "worker_gateway_inflight_count": 0,
+    "model_ceiling_definition": "Conservative gateway reservation/settlement accounting; cached inputs are not discounted. Not an OpenAI invoice or verified billed cost.",
+    "billing_verified": false,
+    "actual_model_cost_usd": null,
+    "actual_total_infrastructure_cost_usd": null,
+    "actual_total_cost_usd": null
+  },
+  "vm_compute_upper_bound": {
+    "sandbox_cpu_cap_cores": 2,
+    "sandbox_memory_cap_gib": 2,
+    "sandbox_cpu_rate_usd_per_core_hour": 0.1419,
+    "sandbox_memory_rate_usd_per_gib_hour": 0.024,
+    "max_vm_compute_rate_usd_per_hour": 0.3318,
+    "worker_lifecycle_seconds": 1196.953,
+    "probe_lifecycle_seconds": 43.74,
+    "workers_upper_usd": 0.110319169,
+    "probes_upper_usd": 0.00403137,
+    "workers_plus_probes_upper_usd": 0.114350539,
+    "formula": "Summed full recorded lifecycle seconds * (2 * 0.1419 + 2 * 0.024) / 3600.",
+    "scope": "VM CPU and memory compute upper estimate only, assuming configured caps throughout each entire recorded lifecycle. Excludes gateway functions, image builds, networking, storage and other charges. Not total infrastructure cost or an invoice.",
+    "rate_source": "pilot10-evidence/modal-rates.json observed 2026-11-10T20:32:09.238051+00:00",
+    "rounding": "USD upper estimates rounded upward to nine decimal places."
+  },
+  "token_usage": {
+    "source": "Codex turn.completed usage; report totals independently matched to event streams and gateway input/output totals.",
+    "workers": {
+      "input_tokens": 1814997,
+      "cached_input_tokens": 1570857,
+      "cache_write_input_tokens": 243876,
+      "output_tokens": 34208,
+      "reasoning_output_tokens": 1163
+    },
+    "probes": {
+      "input_tokens": 19675,
+      "cached_input_tokens": 9784,
+      "cache_write_input_tokens": 9885,
+      "output_tokens": 46,
+      "reasoning_output_tokens": 0
+    },
+    "workers_plus_probes": {
+      "input_tokens": 1834672,
+      "cached_input_tokens": 1580641,
+      "cache_write_input_tokens": 253761,
+      "output_tokens": 34254,
+      "reasoning_output_tokens": 1163
+    },
+    "interpretation": "Cached and cache-write token counts are reported input components; do not add them to input_tokens. Reasoning output is reported separately and not added to output_tokens."
+  },
+  "cleanup": {
+    "all_ten_sandboxes_terminated": true,
+    "all_probe_sandboxes_terminated": true,
+    "all_gateway_runs_stopped": true,
+    "worker_terminal_error_count": 0,
+    "worker_agent_error_events": 0,
+    "worker_recovery_error_count": 0,
+    "failed_probe_count": 1,
+    "probe_cleanup_error_count": 1,
+    "probe_note": "The first probe failed before any model request, with a missing final-message artifact; its sandbox and gateway were stopped. The second probe passed.",
+    "gateway_application_stopped": true,
+    "gateway_application_tasks_at_stop": 0,
+    "gateway_stop_observed_at": "2026-11-10T21:02:38.441338+00:00"
+  },
+  "deliveries": [
+    {
+      "task": "T01",
+      "issue": 8,
+      "pr": 21,
+      "url": "https://github.com/slgarza/Afterimage/pull/21",
+      "merged_at": "2026-11-10T20:42:46Z",
+      "merged_sha": "25115264aff5e9e35f08840df883f0fa37d5fbe8",
+      "green_head_sha": "1315c6d8ef4243d13cbb311210f41502dbdb5578",
+      "worker_patch_sha256": "3dcdf1b95f34a467834daa59d343af98e835733aa65f9eab243e1331dbd210c7",
+      "coordinator_repair_sha256": null
+    },
+    {
+      "task": "T02",
+      "issue": 9,
+      "pr": 22,
+      "url": "https://github.com/slgarza/Afterimage/pull/22",
+      "merged_at": "2026-11-10T20:45:17Z",
+      "merged_sha": "be906bf4d5766823ce34481afcb1701294a7c37c",
+      "green_head_sha": "e7352fc21b0cc8a26ed7634e56a37eb51cabd490",
+      "worker_patch_sha256": "9d0ad9d2d3ef52490daa7470ffccbbfa1640a654fa6af041ad8735b27730d26b",
+      "coordinator_repair_sha256": null
+    },
+    {
+      "task": "T03",
+      "issue": 10,
+      "pr": 23,
+      "url": "https://github.com/slgarza/Afterimage/pull/23",
+      "merged_at": "2026-11-10T20:47:49Z",
+      "merged_sha": "53a56b03b874012ed6786909a1e9707c8a1f1e49",
+      "green_head_sha": "a2066c500471e94adf82e1a939b71f34b17056fe",
+      "worker_patch_sha256": "63975159c464f324ccc9d93439df0ce70388441acd11f36f21f3c5d21c2564aa",
+      "coordinator_repair_sha256": null
+    },
+    {
+      "task": "T04",
+      "issue": 11,
+      "pr": 24,
+      "url": "https://github.com/slgarza/Afterimage/pull/24",
+      "merged_at": "2026-11-10T20:50:28Z",
+      "merged_sha": "6daa429b44f3d74708ed606d208712df1a034c9a",
+      "green_head_sha": "92a3295a7aa64c3801f4a487da8355ef2a913ab1",
+      "worker_patch_sha256": "4080460b7bd887ad61f14346f8d7c4806a3a70e38a73be5b6f666a5d7bca028b",
+      "coordinator_repair_sha256": null
+    },
+    {
+      "task": "T05",
+      "issue": 12,
+      "pr": 25,
+      "url": "https://github.com/slgarza/Afterimage/pull/25",
+      "merged_at": "2026-11-10T20:53:18Z",
+      "merged_sha": "e0298309719657123e7a88529df54b0802f917d3",
+      "green_head_sha": "dcc8002275663608474cf40acd7c833d69ad260a",
+      "worker_patch_sha256": "2d6e34a74dfd5455af2448ebcb3a94eafa82d57717ba0faa768124af5a97b2c5",
+      "coordinator_repair_sha256": "6dc4183ddad3cb7e05a824dfeff17a56f17e20b6b14df3007af9bdc6ef5a15aa"
+    },
+    {
+      "task": "T06",
+      "issue": 13,
+      "pr": 26,
+      "url": "https://github.com/slgarza/Afterimage/pull/26",
+      "merged_at": "2026-11-10T20:56:11Z",
+      "merged_sha": "7e4d3837718822024e3b82a4c603cdf61fb53357",
+      "green_head_sha": "1b0f492bcfcf4188455ba77381b145dde98d4dbf",
+      "worker_patch_sha256": "a313f94d43331fb6b8d48a940092ecfe3f231db0c2e3d5942fa11b719ca64cf1",
+      "coordinator_repair_sha256": null
+    },
+    {
+      "task": "T07",
+      "issue": 14,
+      "pr": 27,
+      "url": "https://github.com/slgarza/Afterimage/pull/27",
+      "merged_at": "2026-11-10T20:58:54Z",
+      "merged_sha": "d45bc534f6515b53b25cae8cceae78b4a8f5ea13",
+      "green_head_sha": "90996ec1bc32791a974067cfe28b0a5a6184c7cf",
+      "worker_patch_sha256": "74ee3e86b6a4d9813e38eb7a667cbeb5e8321941b5190cffbccdff2f240d744c",
+      "coordinator_repair_sha256": null
+    },
+    {
+      "task": "T08",
+      "issue": 15,
+      "pr": 28,
+      "url": "https://github.com/slgarza/Afterimage/pull/28",
+      "merged_at": "2026-11-10T21:01:51Z",
+      "merged_sha": "05d5a644b0e0b95423966725e5a0ea125866b1d5",
+      "green_head_sha": "67a92f389c0adf565979764bf7a00266d1cb6ab2",
+      "worker_patch_sha256": "dab98408b27e7e0a9df44b74b11c3b8ab5f9875781be88d1c48756c459a6f785",
+      "coordinator_repair_sha256": null
+    },
+    {
+      "task": "T09",
+      "issue": 16,
+      "pr": 29,
+      "url": "https://github.com/slgarza/Afterimage/pull/29",
+      "merged_at": "2026-11-10T21:04:37Z",
+      "merged_sha": "49fb814a603338ab4d693688d0c7ed20d8cf17af",
+      "green_head_sha": "ea3258505e560c285dfb41809f1c9c0c6b889f43",
+      "worker_patch_sha256": "177c24eadd71f767ee47d532c012acd6137da9019f50c77103aa00001af5bcb9",
+      "coordinator_repair_sha256": null
+    },
+    {
+      "task": "T10",
+      "issue": 17,
+      "pr": 30,
+      "url": "https://github.com/slgarza/Afterimage/pull/30",
+      "merged_at": "2026-11-10T21:07:22Z",
+      "merged_sha": "e3fbdda43271f6a5e74b5fd713647af58cf7b01f",
+      "green_head_sha": "a8dd5dee008f8d32cbe10899d81cd07ec8505566",
+      "worker_patch_sha256": "1afd2cf9dc287b40aa1bde48635a9a4a5b1f8c410c3f5d1ffd77e20d57548c32",
+      "coordinator_repair_sha256": null
+    }
+  ],
+  "review_repair": {
+    "task": "T05",
+    "reason": "TextField used light text on a transparent wrapper over the light client host.",
+    "fix": "Add matching panel background; a contrast regression fails before the repair and passes after.",
+    "worker_artifact_preserved": true,
+    "combined_validation_passed": true
+  },
+  "evidence_limitations": [
+    "Some original event chunks contained multiple JSON lines and lacked per-event timestamps. The concurrency proof uses only timestamped completed commands and is a conservative lower bound; original logs were not rewritten.",
+    "The model figure is a conservative rate-based accounting ceiling, not an invoice. VM compute excludes gateway, image building, network, storage and other costs; full cost per PR remains unverified.",
+    "Ownership was disjoint; simultaneous same-file edits and conflict repair were not exercised.",
+    "No AFK comparison or 25/50/100-agent cohort has been run. This is not yet a qualifying 100-agent submission.",
+    "Modules are foundation components; complete gameplay, client wiring and Firebase authority remain separate backlog."
+  ],
+  "next_stage_requirements": [
+    "Review at least 25 useful ready tickets and their dependencies.",
+    "Reduce serial integration/CI delay and record repair ownership.",
+    "Set a new cumulative stage budget without deleting prior accounting.",
+    "Run the same initial commit/backlog/acceptance criteria through an AFK baseline before making efficiency claims."
+  ],
+  "raw_credentials_or_command_logs_published": false,
+  "validation": {
+    "combined_typescript_tests": 291,
+    "controller_tests_at_dispatch": 68,
+    "controller_tests_after_event_logging_fix": 70
+  }
+}

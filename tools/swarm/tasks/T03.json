@@ -13,6 +13,7 @@
     "Tests establish deterministic replay, frozen-input safety, IDs versus duplicate names, roster ordering, format/capacity limits and connection updates.",
     "Engine production remains free of Node/DOM/Firebase/UI dependencies; scoped lint/typecheck/tests and full npm run check pass."
   ],
-  "status": "ready",
-  "issue": 10
+  "status": "merged",
+  "issue": 10,
+  "pullRequest": 23
 }

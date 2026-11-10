@@ -12,6 +12,7 @@
     "DOM tests cover empty and 4/5/10 rosters, null/unknown identities, duplicate names, input ordering, disconnects and text escaping.",
     "No hidden data, actions, shared-file edits or cross-worker imports; scoped lint/typecheck/tests and full npm run check pass."
   ],
-  "status": "ready",
-  "issue": 14
+  "status": "merged",
+  "issue": 14,
+  "pullRequest": 27
 }

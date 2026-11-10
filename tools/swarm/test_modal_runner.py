@@ -186,6 +186,76 @@ class PlanningTests(unittest.TestCase):
 
 
 class LifecycleTests(unittest.TestCase):
+    def test_chunked_events_are_individually_timestamped_and_split_keys_redacted(self):
+        process = SimpleNamespace(
+            stdout=iter(
+                [
+                    '{"type":"thread.started"}\n{"type":"item.',
+                    (
+                        'completed","item":{"type":"command_execution"}}\n'
+                        '{"type":"turn.completed"}\n{"type":"final'
+                    ),
+                    '_event"}',
+                ]
+            ),
+            stderr=iter(
+                [
+                    "warning credential=sk-" + "x" * 8,
+                    "x" * 22 + " failure\ntrailing sk-" + "y" * 7,
+                    "y" * 23,
+                ]
+            ),
+            returncode=7,
+            wait=lambda: None,
+        )
+        timestamp = "2026-11-10T20:00:00+00:00"
+        with (
+            tempfile.TemporaryDirectory() as temporary,
+            patch.object(runner, "now", return_value=timestamp),
+        ):
+            directory = Path(temporary)
+            self.assertEqual(runner.consume(process, directory, "agent"), 7)
+            events = [
+                json.loads(line)
+                for line in (directory / "agent.jsonl").read_text().splitlines()
+            ]
+            self.assertEqual(
+                [event["type"] for event in events],
+                [
+                    "thread.started",
+                    "item.completed",
+                    "turn.completed",
+                    "final_event",
+                ],
+            )
+            self.assertTrue(
+                all(event["swarm_received_at"] == timestamp for event in events)
+            )
+            self.assertEqual(
+                (directory / "agent.stderr.log").read_text(),
+                "warning credential=[REDACTED_OPENAI_KEY] failure\n"
+                "trailing [REDACTED_OPENAI_KEY]",
+            )
+
+    def test_plain_text_and_partial_eof_output_are_preserved(self):
+        process = SimpleNamespace(
+            stdout=iter(["not JSON\n[1,", "2]\ntrai", "ling text"]),
+            stderr=iter(["first\r", "\nlast partial"]),
+            returncode=0,
+            wait=lambda: None,
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            self.assertEqual(runner.consume(process, directory, "prepare"), 0)
+            self.assertEqual(
+                (directory / "prepare.jsonl").read_text(),
+                "not JSON\n[1,2]\ntrailing text",
+            )
+            self.assertEqual(
+                (directory / "prepare.stderr.log").read_bytes(),
+                b"first\r\nlast partial",
+            )
+
     def test_failed_setup_still_recovers_artifacts_and_terminates(self):
         class Process:
             stdout = ()

@@ -13,6 +13,7 @@
     "Tests verify serialized output and container isolation for every exposed nested object/array and multiple recipients.",
     "No authentication, gameplay rules or cross-worker imports are added; scoped lint/typecheck/tests and full npm run check pass."
   ],
-  "status": "ready",
-  "issue": 9
+  "status": "merged",
+  "issue": 9,
+  "pullRequest": 22
 }

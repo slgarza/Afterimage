@@ -8,6 +8,12 @@ P03/P05/P06 assignments, and concurrent local dispatchers are rejected.
 
 ## Start and review
 
+The first T01–T10 cohort is complete: [results and PR links](../../docs/swarm/pilot10-2026-11-10.md).
+The examples below document its invocation; those merged tasks are now rejected
+by admission. A new cohort needs new reviewed tasks and a new authorized budget.
+All pilot VMs are terminated and the gateway app was stopped after the run;
+deploy the gateway again only when preparing the next authorized cohort.
+
 Use Python3.12 with `tools/swarm/requirements-pilot.txt`, Node24 and npm11.
 Modal workspace authentication and the `afterimage-openai` secret already exist.
 Deploy the gateway, then run the bounded compatibility probe once:
@@ -114,7 +120,11 @@ support, the second probe passed on 2026-11-10: two model requests, one complete
 shell command, READY, clean workspace and confirmed cleanup. Conservative model
 accounting was USD0.054613 (not an invoice). Both USD0.50 allocations remain in
 the cumulative ledger; this cohort therefore receives USD17.00. The full local
-Python suite passes 68 tests including the compatibility and admission regressions.
+Python suite passed 68 tests at dispatch. The event-stream fix adds two regressions
+for a total of 70: every complete JSON event receives a timestamp even when Modal
+combines or splits lines across chunks, and split credential-shaped strings are
+redacted. Original pilot logs remain unchanged; its concurrency timing is a
+documented lower bound.
 
 ## Historical one-agent evidence (S01)
 

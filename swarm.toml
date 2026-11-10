@@ -1,0 +1,30 @@
+version = 1
+
+[project]
+repository = "slgarza/Afterimage"
+base_branch = "main"
+tasks_dir = "swarm/tasks"
+instructions = ["README.md", "AGENTS.md", "docs/SWARM_PILOT.md", "docs/ARCHITECTURE.md", "docs/PILOT10_CONTRACTS.md"]
+
+[validation]
+install = [["npm", "ci", "--no-audit", "--no-fund"]]
+checks = [["npm", "run", "check"]]
+required_checks = ["checks"]
+
+[runtime]
+worker_app = "afterimage-swarm-pilot"
+gateway_app = "afterimage-swarm-gateway"
+gateway_ledger = "afterimage-pilot-budget-v1"
+openai_secret = "afterimage-openai"
+environment = "main"
+image = "node:24.6.0-bookworm-slim"
+setup_commands = ["npm install --global npm@11.16.0 @openai/codex@0.166.0"]
+network_domains = ["github.com", "api.github.com", "codeload.github.com", "raw.githubusercontent.com", "registry.npmjs.org"]
+
+[budget]
+# Preserve the completed pilot's cumulative allowance and original .swarm ledger.
+# Extraction does not authorize another paid run. Completed tasks stay merged.
+live_enabled = false
+max_live_agents = 10
+model_limit_cents = 1800
+infra_limit_cents = 700

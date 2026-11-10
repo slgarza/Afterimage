@@ -44,7 +44,7 @@ Move 10 → 25 only when at least 80% of pilot PRs merge green and no credential
 
 The earlier P01–P10 table describes initial work areas, not ten fresh tasks.
 P03 is merged in PR5; P06 in PR7; P05 is superseded by the merged client scaffold.
-The first executable cohort was `tools/swarm/tasks/T01.json` through `T10.json`.
+The first executable cohort was `swarm/tasks/T01.json` through `T10.json`.
 All ten are now marked merged and reference PR21–PR30; they must not be dispatched
 again. See the [delivery report](swarm/pilot10-2026-11-10.md).
 [The exact contracts](PILOT10_CONTRACTS.md) narrow ownership before dispatch.
@@ -71,7 +71,10 @@ combined checks, followed by green GitHub Actions before sequential merge.
 
 The local durable scheduler is shared by Git worktrees. Only this controller may
 dispatch; a different clone/machine or the legacy CLI is outside its locking scope.
-Run instructions and remaining scale requirements: [Modal pilot](../tools/swarm/MODAL.md).
+The controller now lives in [swarm-control](https://github.com/slgarza/swarm-control).
+Run instructions and scale requirements live in that repository. Afterimage is
+a target project configured by [`swarm.toml`](../swarm.toml); its completed tasks
+remain under `swarm/tasks/`.
 
 Post-pilot coordination: the controller owns event-stream receipt logging, the
 delivery report, task status reconciliation, and excluding ignored `.swarm/`
@@ -79,3 +82,16 @@ runtime worktrees from the root linter. The T05 review added a panel
 background and a failing-before/passing-after contrast regression before PR25
 merged. That repair is attributed separately from the worker's preserved patch.
 No shared gameplay contract changed during integration.
+
+## Controller extraction
+
+The user authorized moving the swarm implementation to its own repository. This
+coordination change moves controller code/tests/operations out of Afterimage,
+updates CI to validate the game workspaces, and retains project-specific contracts,
+task metadata and the original delivery report here. No gameplay API changed.
+
+The original ignored `.swarm/` directory, Git worktrees, artifacts and budget
+ledger remain on the operator's machine. The new controller resolves that same
+Git common directory; extraction does not reset allocations or completed claims.
+The project profile disables live execution and retains the original cloud app,
+secret-name and gateway-ledger identifiers. No new paid run accompanies migration.

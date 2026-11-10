@@ -60,3 +60,18 @@ Preview the built client with `npm run preview --workspace @afterimage/client`.
 Tooling choices, ownership coordination, and the resolved bootstrap installation
 limitation are recorded in [ADR 0001](docs/adr/0001-typescript-workspace.md).
 
+
+## Swarm integration
+
+The reusable controller lives in [slgarza/swarm-control](https://github.com/slgarza/swarm-control).
+Afterimage contains only its project configuration (`swarm.toml`), tasks under
+`swarm/tasks/`, contracts and pilot report. Install the controller from its own
+repository, then inspect this target without cloud resources:
+
+```sh
+swarm-control plan T01 --project /path/to/Afterimage/swarm.toml --base HEAD
+```
+
+T01–T10 are completed and live execution is disabled. The original local `.swarm/`
+evidence and cumulative budget ledger stay in place. Controller development and
+Python tests belong to the separate repository; this project's CI checks the game.

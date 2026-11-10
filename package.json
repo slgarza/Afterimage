@@ -3,9 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=24 <25", "npm": ">=11 <12" },
+  "engines": {
+    "node": ">=24 <25",
+    "npm": ">=11 <12"
+  },
   "packageManager": "npm@11.16.0",
-  "workspaces": ["packages/*", "apps/*"],
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "scripts": {
     "dev": "npm run dev --workspace @afterimage/client",
     "lint": "eslint . --max-warnings 0",
@@ -16,9 +22,12 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.9",
     "@types/node": "^24.0.0",
     "eslint": "^9.39.0",
     "globals": "^16.5.0",
+    "jsdom": "26.1.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.0",
     "vitest": "^4.0.0"

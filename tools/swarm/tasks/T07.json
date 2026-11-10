@@ -1,0 +1,17 @@
+{
+  "id": "T07",
+  "title": "Render a public lobby roster with identity and connection status",
+  "ownership": [
+    "apps/client/src/features/lobby-view"
+  ],
+  "dependsOn": [],
+  "prompt": "Read README.md, AGENTS.md, docs/GDD.md, docs/ARCHITECTURE.md, docs/SWARM_PILOT.md, and docs/PILOT10_CONTRACTS.md before editing. The shared conventions and the matching task section in PILOT10_CONTRACTS.md are the exact approved API and behavior. Work only inside this task ownership. Do not import another T01-T10 implementation, edit shared barrels/configuration, install dependencies, add network services/assets, or invent game rules. Export from the owned module or a folder-local entrypoint. DOM tests use a per-file jsdom directive, explicit afterEach(cleanup), and Vitest assertions without assuming jest-dom. Run scoped tests, lint, and typecheck; the repository must pass npm run check. Report changed files, commands and results, API additions, and limitations. Do not commit, push, open PRs, or spawn other agents. Implement and locally export LobbyRoster and its props per T07: readonly public players {id,displayName,connected}, currentPlayerId:string|null and hostPlayerId:string|null. Preserve roster order in a semantic list, show count out of ten, text labels for the matching current player/host, and textual Connected/Disconnected status on every row. Empty state must explain waiting; below five, state exactly how many more players are needed; otherwise state minimum count reached without authorizing game start. Disconnected members count; duplicate names remain distinct by ID; null/unknown identity IDs add no labels. Render names as React text. No actions, roles or game calculations. Test empty/4/5/10, order, identity labels, disconnects, duplicate names and HTML-like names with per-file jsdom and explicit cleanup.",
+  "acceptance": [
+    "The public roster renders an ordered semantic list, count, individual connection text, and correct current-player/host labels.",
+    "Waiting/minimum-player messages are concrete and count disconnected members without claiming start authorization.",
+    "DOM tests cover empty and 4/5/10 rosters, null/unknown identities, duplicate names, input ordering, disconnects and text escaping.",
+    "No hidden data, actions, shared-file edits or cross-worker imports; scoped lint/typecheck/tests and full npm run check pass."
+  ],
+  "status": "ready",
+  "issue": 14
+}

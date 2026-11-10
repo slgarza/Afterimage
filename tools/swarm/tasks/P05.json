@@ -1,12 +1,15 @@
 {
   "id": "P05",
   "title": "Neutral client shell contract",
-  "ownership": ["apps/client"],
+  "ownership": [
+    "apps/client"
+  ],
   "dependsOn": [],
   "prompt": "Establish a minimal production client shell from the approved screen-flow direction. Do not migrate hardcoded game logic from ui-prototype and do not add Firebase or assets. Keep the work narrowly focused on an accessible renderable shell and its tests.",
   "acceptance": [
     "The client renders a named, accessible neutral app shell.",
     "A render smoke test covers the shell's primary landmark.",
     "The package lint, typecheck, test and build scripts pass."
-  ]
+  ],
+  "status": "superseded"
 }

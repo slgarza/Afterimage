@@ -39,3 +39,34 @@ A swarm on an empty repository produces overlapping scaffolds and fake velocity.
 
 Move 10 → 25 only when at least 80% of pilot PRs merge green and no credential/IP breach occurs. Move 25 → 50 only when the merge queue and dashboard identify conflicts and repair ownership. Reach 100+ only when every active agent, task, branch, CI state, and merge is observable.
 
+
+## Active batch: T01–T10
+
+The earlier P01–P10 table describes initial work areas, not ten fresh tasks.
+P03 is merged in PR5; P06 in PR7; P05 is superseded by the merged client scaffold.
+The executable backlog is now `tools/swarm/tasks/T01.json` through `T10.json`.
+[The exact contracts](PILOT10_CONTRACTS.md) narrow ownership before dispatch.
+
+Coordination decision: the controller owns the root test dependencies/lockfile,
+Python CI, UI React/DOM compilation support, and separate protocol/UI test typechecks.
+These shared changes land before the cohort. T01 alone may remove the protocol's
+zero-tests allowance. Other workers may not edit manifests, shared barrels, or
+App.tsx. The integrator later connects reviewed modules in a separate ticket.
+Engine production remains ES2022-only. Tests may use Node/DOM tooling separately.
+
+The user's USD25 authorization covers this ten-agent pilot: a cumulative USD18
+model allowance (USD0.50 compatibility probe plus USD17.50 cohort), and USD7
+reserved for Modal. Persisted admission allocates infrastructure conservatively
+before each launch; VM CPU/memory and lifetime are bounded. Reservations are
+conservative limits, not provider invoices; reconcile billing for the final metric.
+No 25/50/100-agent paid batch is authorized by this allowance.
+
+A synchronized launch waits until all ten checkouts are ready, then starts ten
+separate Codex processes. Event timestamps and completed commands distinguish
+live processes from sessions that have actually executed work. Neither count
+proves continuous useful activity. Patches require semantic review and full
+combined checks, followed by green GitHub Actions before sequential merge.
+
+The local durable scheduler is shared by Git worktrees. Only this controller may
+dispatch; a different clone/machine or the legacy CLI is outside its locking scope.
+Run instructions and remaining scale requirements: [Modal pilot](../tools/swarm/MODAL.md).

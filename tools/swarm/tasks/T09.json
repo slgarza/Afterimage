@@ -1,0 +1,17 @@
+{
+  "id": "T09",
+  "title": "Render public Transmission outcomes and concrete waiting status",
+  "ownership": [
+    "apps/client/src/features/transmission-view"
+  ],
+  "dependsOn": [],
+  "prompt": "Read README.md, AGENTS.md, docs/GDD.md, docs/ARCHITECTURE.md, docs/SWARM_PILOT.md, and docs/PILOT10_CONTRACTS.md before editing. The shared conventions and the matching task section in PILOT10_CONTRACTS.md are the exact approved API and behavior. Work only inside this task ownership. Do not import another T01-T10 implementation, edit shared barrels/configuration, install dependencies, add network services/assets, or invent game rules. Export from the owned module or a folder-local entrypoint. DOM tests use a per-file jsdom directive, explicit afterEach(cleanup), and Vitest assertions without assuming jest-dom. Run scoped tests, lint, and typecheck; the repository must pass npm run check. Report changed files, commands and results, API additions, and limitations. Do not commit, push, open PRs, or spawn other agents. Implement and locally export TransmissionView, its props, and local Transmission/Outcome types exactly as T09 specifies. Props contain a nullable Transmission with exactly three distinct outcome IDs, resolvedOutcomeId:string|null and caller-supplied statusText. Render public title/scenario/outcome labels as React text, a concrete waiting message for null data, and visible Resolved outcome text only on the matching outcome. Throw RangeError for duplicate/count-invalid outcomes, unknown resolution IDs, or a resolved ID with no Transmission. Present statusText in role=status with aria-live=polite and aria-atomic=true. No choices, hidden state, HTML injection, phase inference or result calculation. Test waiting, all three outcomes, resolution, invalid references, live status, escaping and extra private fixture properties omitted from DOM, using jsdom and explicit cleanup.",
+  "acceptance": [
+    "Exports the exact public-only types/props and renders waiting, public scenario and exactly three outcomes with valid resolution labeling.",
+    "Invalid outcome counts/IDs and unresolved references throw RangeError; no private property or HTML injection reaches the DOM.",
+    "DOM tests exercise public rendering, waiting/resolution, malformed references, text escaping and polite atomic status semantics.",
+    "No choice controls, private rules, inferred phases or cross-worker imports; scoped lint/typecheck/tests and full npm run check pass."
+  ],
+  "status": "ready",
+  "issue": 16
+}

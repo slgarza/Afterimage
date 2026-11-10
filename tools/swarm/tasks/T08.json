@@ -1,0 +1,17 @@
+{
+  "id": "T08",
+  "title": "Render accessible public Stability and Corruption meters",
+  "ownership": [
+    "apps/client/src/features/board-view"
+  ],
+  "dependsOn": [],
+  "prompt": "Read README.md, AGENTS.md, docs/GDD.md, docs/ARCHITECTURE.md, docs/SWARM_PILOT.md, and docs/PILOT10_CONTRACTS.md before editing. The shared conventions and the matching task section in PILOT10_CONTRACTS.md are the exact approved API and behavior. Work only inside this task ownership. Do not import another T01-T10 implementation, edit shared barrels/configuration, install dependencies, add network services/assets, or invent game rules. Export from the owned module or a folder-local entrypoint. DOM tests use a per-file jsdom directive, explicit afterEach(cleanup), and Vitest assertions without assuming jest-dom. Run scoped tests, lint, and typecheck; the repository must pass npm run check. Report changed files, commands and results, API additions, and limitations. Do not commit, push, open PRs, or spawn other agents. Implement and locally export BoardView and its props from T08. Accept only integer stability/corruption marks between zero and five; throw RangeError otherwise. Render separately labeled Stability and Corruption values, visible numeric counts out of five, and named accessible meter/progress semantics with zero/five bounds. Meaning must survive without color; hide redundant decorative markers from accessibility announcements. Do not calculate or announce a winner, mutate state, add effects, or invoke callbacks even at 5/5. Test zero, middle values, 5/5, accessible names/value bounds, invalid marks and absence of winner claims. Use the supplied DOM test tools with per-file jsdom and explicit cleanup.",
+  "acceptance": [
+    "Both public metrics have visible labels/numeric counts and correctly named accessible meter/progress values and bounds.",
+    "Invalid marks throw RangeError, visual meaning is not color-only, and decorative marks avoid duplicate announcements.",
+    "Tests cover 0/0, intermediate and 5/5 states, accessible value semantics, malformed marks, and no computed winner.",
+    "The component is pure presentation without side effects or cross-worker imports; scoped lint/typecheck/tests and full npm run check pass."
+  ],
+  "status": "ready",
+  "issue": 15
+}

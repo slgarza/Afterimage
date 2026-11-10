@@ -1,0 +1,20 @@
+{
+  "id": "T04",
+  "title": "Add deterministic shuffle and ordered deck extraction helpers",
+  "ownership": [
+    "packages/engine/src/deck.ts",
+    "packages/engine/tests/deck.test.ts"
+  ],
+  "dependsOn": [
+    "P03"
+  ],
+  "prompt": "Read README.md, AGENTS.md, docs/GDD.md, docs/ARCHITECTURE.md, docs/SWARM_PILOT.md, and docs/PILOT10_CONTRACTS.md before editing. The shared conventions and the matching task section in PILOT10_CONTRACTS.md are the exact approved API and behavior. Work only inside this task ownership. Do not import another T01-T10 implementation, edit shared barrels/configuration, install dependencies, add network services/assets, or invent game rules. Export from the owned module or a folder-local entrypoint. DOM tests use a per-file jsdom directive, explicit afterEach(cleanup), and Vitest assertions without assuming jest-dom. Run scoped tests, lint, and typecheck; the repository must pass npm run check. Report changed files, commands and results, API additions, and limitations. Do not commit, push, open PRs, or spawn other agents. P03 must already be integrated and green in the immutable base. Read packages/engine/src/index.ts and use its exact API: nextRandom(rng) returns the readonly tuple [number, RngState]. Import nextRandom and type RngState from ./index.js without editing it. Implement shuffle<T>(items,rng):{items:T[],rng:RngState} with descending Fisher-Yates and exactly max(0,n-1) advances, and draw<T>(deck,count):{drawn:T[],remaining:T[]} with ordered slicing. Validate counts as safe integers from zero through deck length, rejecting others with RangeError. Preserve input arrays, RNG, and opaque item references; do not use global randomness, time or platform services. Test fixed order/RNG fixtures, repeatability, multiset preservation, frozen inputs, exact advancement and all extraction boundaries. Export only from deck.ts; tests belong under tests/.",
+  "acceptance": [
+    "Uses the existing tuple-based P03 RNG API and the exact descending Fisher-Yates algorithm with explicit next RNG state.",
+    "Shuffle and draw preserve inputs and item values/references; empty/singleton shuffles consume no advances, and extraction preserves order.",
+    "Tests cover fixed outputs and RNG, deterministic replay, duplicates, frozen inputs, exact advancement, and invalid/edge counts.",
+    "No engine barrel/configuration or platform dependency changes; scoped lint/typecheck/tests and full npm run check pass."
+  ],
+  "status": "ready",
+  "issue": 11
+}

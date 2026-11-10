@@ -1,0 +1,18 @@
+{
+  "id": "T02",
+  "title": "Project public and recipient-only snapshots without leaking game secrets",
+  "ownership": [
+    "packages/protocol/src/snapshots.ts",
+    "packages/protocol/tests/snapshots.test.ts"
+  ],
+  "dependsOn": [],
+  "prompt": "Read README.md, AGENTS.md, docs/GDD.md, docs/ARCHITECTURE.md, docs/SWARM_PILOT.md, and docs/PILOT10_CONTRACTS.md before editing. The shared conventions and the matching task section in PILOT10_CONTRACTS.md are the exact approved API and behavior. Work only inside this task ownership. Do not import another T01-T10 implementation, edit shared barrels/configuration, install dependencies, add network services/assets, or invent game rules. Export from the owned module or a folder-local entrypoint. DOM tests use a per-file jsdom directive, explicit afterEach(cleanup), and Vitest assertions without assuming jest-dom. Run scoped tests, lint, and typecheck; the repository must pass npm run check. Report changed files, commands and results, API additions, and limitations. Do not commit, push, open PRs, or spawn other agents. Implement the exact AuthoritativeSnapshotState, PublicSnapshot, PrivateSnapshot, RecipientSnapshot and projectSnapshot(state, viewerId) contract in T02. The public allowlist is roomCode, revision, public player identity/connection, board, public Transmission/outcomes, and Link. Only the matching member receives private {playerId,faction,roleId}; a null viewer receives no private data and an unknown non-null viewer throws without secret details. The caller authenticates identity. Build each returned object/array from explicit fields, including nested board, players and outcomes. Never expose seeds, deck order, private choices, other members' roles/factions, or unexpected properties. Detach all returned containers from authoritative inputs. Test multiple viewers, spectator/unknown viewer, serialized secret absence, nested unexpected fields, and mutation isolation.",
+  "acceptance": [
+    "Exports the exact readonly projection types and function described in T02, with correct member, spectator, and unknown-viewer behavior.",
+    "Only explicitly allowed public fields and the current member private fields appear; seeds, deck, private choices, other roles and unknown nested fields never survive.",
+    "Tests verify serialized output and container isolation for every exposed nested object/array and multiple recipients.",
+    "No authentication, gameplay rules or cross-worker imports are added; scoped lint/typecheck/tests and full npm run check pass."
+  ],
+  "status": "ready",
+  "issue": 9
+}

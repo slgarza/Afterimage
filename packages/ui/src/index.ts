@@ -1,2 +1,2 @@
-// Reserved for the ui package's future public API.
-export {};
+export { theme } from './theme.js';
+export type { ThemeTokens } from './theme.js';

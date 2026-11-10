@@ -145,7 +145,19 @@ class PlanningTests(unittest.TestCase):
     def test_plan_does_not_claim_100_agents_for_one_task(self):
         output = io.StringIO()
         with (
-            patch("sys.argv", ["modal_runner.py", "plan", "P06", "--workers", "100"]),
+            # CI may have only the checked-out commit, without origin/main.
+            patch(
+                "sys.argv",
+                [
+                    "modal_runner.py",
+                    "plan",
+                    "P06",
+                    "--workers",
+                    "100",
+                    "--base",
+                    "HEAD",
+                ],
+            ),
             redirect_stdout(output),
         ):
             self.assertEqual(runner.main(), 0)

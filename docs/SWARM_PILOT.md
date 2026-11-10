@@ -55,7 +55,7 @@ App.tsx. The integrator later connects reviewed modules in a separate ticket.
 Engine production remains ES2022-only. Tests may use Node/DOM tooling separately.
 
 The user's USD25 authorization covers this ten-agent pilot: a cumulative USD18
-model allowance (USD0.50 compatibility probe plus USD17.50 cohort), and USD7
+model allowance (two USD0.50 compatibility probes plus USD17 cohort), and USD7
 reserved for Modal. Persisted admission allocates infrastructure conservatively
 before each launch; VM CPU/memory and lifetime are bounded. Reservations are
 conservative limits, not provider invoices; reconcile billing for the final metric.

@@ -1,0 +1,12 @@
+{
+  "id": "P03",
+  "title": "Deterministic engine state and seeded RNG",
+  "ownership": ["packages/engine"],
+  "dependsOn": [],
+  "prompt": "Implement only the first deterministic engine foundation defined by RULES-SPEC-v1.md. Keep it pure TypeScript with no UI, browser, Capacitor, or Firebase imports. Add focused unit tests that prove equal seed plus equal inputs creates equal results.",
+  "acceptance": [
+    "The engine exports a small typed state/RNG surface with no platform dependencies.",
+    "Tests prove deterministic output for identical seeds and inputs.",
+    "The package lint, typecheck, test and build scripts pass."
+  ]
+}

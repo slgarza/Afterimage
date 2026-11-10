@@ -28,6 +28,8 @@ Read the [canonical Rules v1](docs/design/RULES-SPEC-v1.md),
 ## Status
 
 Foundation components implemented; complete gameplay and Firebase integration remain pending.
+Use the [public swarm evidence index](docs/swarm/README.md) for the current
+demo/pilot/contest status, task issues, preparation measurements and review links.
 The [first ten-agent Modal pilot](docs/swarm/pilot10-2026-11-10.md) delivered ten
 reviewed PRs with passing CI. No Firebase project, production credentials,
 proprietary source assets, or music files belong in this repository.
@@ -65,6 +67,23 @@ lint, typecheck, test, and build scripts. All four workspaces have tests;
 the completed pilot passes 291 tests. Builds write ignored `dist/` outputs.
 Preview the built client with `npm run preview --workspace @afterimage/client`.
 
+Every swarm activity, including backlog preparation, implementation, review,
+repairs and integration, must record its outcome, elapsed time, validation and
+known cost. Follow the [benchmark policy](docs/SWARM_BENCHMARK.md). Local check
+receipts measure the commands that actually ran; a successful full validation
+profile does not demonstrate 100 live coding agents or an AFK efficiency win.
+
+For recorded swarm validation after all task issues are linked, run:
+
+```sh
+node tools/benchmark-pilot.mjs --profile full
+```
+
+This runs backlog metadata validation and `npm run check`, recording command
+durations and exit codes in a new private `.swarm/benchmarks/` receipt. It retains
+failed attempts, does not save raw command output and leaves unmeasured model
+usage, billing, deliveries and agent concurrency unknown.
+
 Tooling choices, ownership coordination, and the resolved bootstrap installation
 limitation are recorded in [ADR 0001](docs/adr/0001-typescript-workspace.md).
 
@@ -91,3 +110,7 @@ explicit scope, acceptance, dependencies and source hashes. The
 [backlog guide](docs/PILOT100_BACKLOG.md) explains staged execution, concrete edge
 decisions and external delivery gates. Validate with
 `node tools/validate-pilot100.mjs`; live execution remains disabled.
+Preserve preparation and execution receipts under the ignored `.swarm/`
+directory, including failed attempts and unknown measurements. Report delivery
+throughput from accepted merged green PRs over the full delivery clock; dollar
+rates additionally require reconciled eligible cost.

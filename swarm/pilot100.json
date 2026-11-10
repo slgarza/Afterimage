@@ -1,12 +1,17 @@
 {
   "version": 1,
   "id": "afterimage-pilot100",
-  "status": "prepared-issues-pending",
+  "status": "issues-published",
   "sourceCommit": "b90519426a0bcec2b4f95c3f219f247678edd92d",
   "designSourceStatus": "Retrieved and reconciled against eleven owner-provided source documents",
   "designManifest": "docs/design/SOURCE-MANIFEST.json",
   "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
   "backlogDefinitionSha256": "85d0499e12cab2f3bc3475d8e04533b9c3a3620392200a25cd74d6906be4a2a7",
+  "benchmarkPolicy": {
+    "path": "docs/SWARM_BENCHMARK.md",
+    "sha256": "e6f38ebf9faccaa73e9ae46a70bed3ed0cfa3c4b63a925f82f34f4cf7c6a344d",
+    "requiredForAllStages": true
+  },
   "guide": "docs/PILOT100_BACKLOG.md",
   "taskIndex": "docs/PILOT100_TASKS.md",
   "taskIds": [
@@ -135,8 +140,8 @@
   ],
   "featureCandidates": 85,
   "supportingTasks": 15,
-  "issuesPublished": false,
-  "linkedIssues": 0,
+  "issuesPublished": true,
+  "linkedIssues": 100,
   "liveExecutionAuthorized": false,
   "notes": [
     "Tasks are staged; 100 backlog items do not establish 100 useful simultaneous agents.",

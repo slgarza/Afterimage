@@ -25,5 +25,7 @@
   ],
   "blockedBy": [],
   "countsAsFeatureDelivery": true,
-  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 37,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/37"
 }

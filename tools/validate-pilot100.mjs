@@ -18,6 +18,15 @@ const strings = (value) => Array.isArray(value) && value.every(nonempty);
 const safePath = (value) => nonempty(value) && !value.startsWith('/') && !value.includes('\\')
   && !value.split('/').some((part) => ['', '.', '..', '.git', '.swarm'].includes(part));
 
+const batch = JSON.parse(readFileSync(resolve(root, 'swarm/pilot100.json')));
+const policyHash = createHash('sha256')
+  .update(readFileSync(resolve(root, 'docs/SWARM_BENCHMARK.md'))).digest('hex');
+if (batch.benchmarkPolicy?.path !== 'docs/SWARM_BENCHMARK.md'
+  || batch.benchmarkPolicy?.sha256 !== policyHash
+  || batch.benchmarkPolicy?.requiredForAllStages !== true) {
+  fail('benchmark', 'the mandatory policy must be present and bound by its actual digest');
+}
+
 const sources = JSON.parse(sourceManifestBytes);
 if (sources.version !== 1 || !Array.isArray(sources.files) || sources.files.length !== 11) {
   fail('design', 'expected the eleven frozen source documents');

@@ -19,6 +19,8 @@ jobs:
       # The committed lockfile is the contract: CI installs exactly the graph
       # validated by the local integration step.
       - run: npm ci
+      - name: Test local benchmark receipt tooling
+        run: node --test tools/benchmark-pilot.test.mjs
       - run: npm run lint
       - run: npm run typecheck
       - run: npm test

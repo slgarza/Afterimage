@@ -72,6 +72,7 @@ swarm-control plan A001 A004 A026 --project swarm.toml --workers 3 --synchronize
 npm run check
 # After real GitHub issues are linked:
 node tools/validate-pilot100.mjs --require-issues
+node tools/benchmark-pilot.mjs --profile full
 ```
 
 The free local plan reports potential concurrency and creates no cloud resources.
@@ -102,6 +103,12 @@ and never commits raw licensed tracks/SFX.
 
 ## Publication and evidence
 
+Apply the [swarm benchmark policy](SWARM_BENCHMARK.md) to all work on this
+backlog, including preparation, planning, implementation, reviews, repairs and
+integration. Preserve each attempt and its measured duration, validation outcome,
+intervention and known usage/cost; missing evidence remains unknown. Record the
+frozen source/task definition separately from later issue-link bookkeeping.
+
 Publish one issue per task ID and store its real number/URL in the matching JSON.
 Issue bodies include scope, acceptance, dependencies, sources and named gates.
 The source-linked backlog definition is reviewable before execution; task
@@ -118,3 +125,12 @@ attempts, repair attribution, cleanup and reconciled actual billing. Use the sam
 frozen initial backlog and acceptance contract for a strong AFK comparison. Real
 useful overlap and superior merged green PRs/hour and PRs/dollar still require a
 measured live run; browser fixtures, plans and the 100-task count do not prove it.
+
+The local benchmark tool's `--profile full` runs linked-backlog validation,
+its own unit tests and `npm run check` sequentially, stopping on failure and recording real exit
+codes/durations in a new ignored `.swarm/benchmarks/` receipt. Metadata-only and
+baseline-only profiles are available for scoped local measurements. Raw command
+output is hashed/counted rather than saved. Its tests run in CI with
+`node --test tools/benchmark-pilot.test.mjs`. Neither that profile nor the tool's
+synthetic tests create agent sessions, accepted deliveries or provider invoices.
+Keep those measurements separate from end-to-end cohort and paired AFK results.

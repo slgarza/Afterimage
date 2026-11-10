@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { createEngineState, nextRandom, reduceEngine, replayEngine } from './index.js';
+import { createEngineState, nextRandom, reduceEngine, replayEngine } from '../src/index.js';
 
 describe('deterministic engine primitives', () => {
   it('returns the same random sequence for identical seeds', () => {

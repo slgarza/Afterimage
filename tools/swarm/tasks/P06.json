@@ -1,0 +1,12 @@
+{
+  "id": "P06",
+  "title": "Typed UI theme tokens",
+  "ownership": ["packages/ui"],
+  "dependsOn": [],
+  "prompt": "Add only reusable, typed visual tokens for the approved charcoal and neutral-frost chrome. Do not add application screens, copied visual identity, or image assets. Keep the package independently consumable.",
+  "acceptance": [
+    "The UI package exports typed theme tokens with no app dependency.",
+    "The token names express semantic intent rather than raw asset paths.",
+    "The package lint, typecheck, test and build scripts pass."
+  ]
+}

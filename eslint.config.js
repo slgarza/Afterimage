@@ -15,6 +15,10 @@ export default tseslint.config(
     languageOptions: { globals: globals.node },
   },
   {
+    files: ['tools/**/*.mjs'],
+    languageOptions: { globals: globals.node },
+  },
+  {
     files: ['packages/engine/src/**/*.ts'],
     rules: {
       'no-restricted-imports': ['error', {

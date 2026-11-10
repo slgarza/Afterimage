@@ -8,7 +8,7 @@ instructions = ["README.md", "AGENTS.md", "docs/SWARM_PILOT.md", "docs/ARCHITECT
 
 [validation]
 install = [["npm", "ci", "--no-audit", "--no-fund"]]
-checks = [["npm", "run", "check"]]
+checks = [["node", "tools/benchmark-pilot.mjs", "--profile", "full"]]
 required_checks = ["checks"]
 
 [runtime]

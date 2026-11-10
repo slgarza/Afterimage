@@ -141,6 +141,13 @@ the result. Issue creation and this receipt belong to preparation, not feature
 delivery. The profile's existing disabled live flag and durable budget remain
 unchanged; a local plan is not authorization for a paid cohort.
 
+The target's configured final check is this same full benchmark profile. The
+trusted worker helper and local integrator therefore measure the final checks
+automatically; `npm run check` is included once inside that profile. The controller
+recovers the bounded private `benchmarks.json` receipt bundle before terminating
+the worker. Counts and hashes may be summarized; original receipt contents stay
+private and worker-reported measurements do not replace independent acceptance.
+
 The initial `docs/swarm/preparation-2026-11-10.md` and companion JSON may report
 the verified 100-issue inventory, source/screen coverage, current ready/blocked
 counts, measured local-check durations and sanitized receipt hashes/links. The

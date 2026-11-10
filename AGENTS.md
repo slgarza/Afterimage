@@ -1,6 +1,8 @@
 # Afterimage agent contract
 
 Read `README.md` and the relevant document under `docs/` before changing code.
+Read and follow [the swarm evidence and benchmark policy](docs/SWARM_BENCHMARK.md)
+for every preparation, implementation, validation, repair and integration attempt.
 
 ## Non-negotiable
 
@@ -9,6 +11,7 @@ Read `README.md` and the relevant document under `docs/` before changing code.
 - Keep the engine deterministic and independent from Firebase/UI.
 - Run the scoped tests, lint, and typecheck before requesting merge.
 - Keep PRs small and single-purpose; document tests and contract changes.
+- Preserve per-attempt private evidence and measured time/outcomes, including failures, retries, interventions and repairs; report unknown cost as unknown and never commit raw logs or credentials.
 
 ## Collaboration
 

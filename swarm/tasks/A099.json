@@ -1,0 +1,41 @@
+{
+  "id": "A099",
+  "title": "Verify modal focus, reserved ad space and accessible private-media feedback",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Independently exercise all 24 derived screen surfaces with keyboard input, a 320px viewport, large text, Reduce Motion and Music/SFX/Haptics preferences. Verify that glass modals make the entire game background inert and blurred, with correct focus return. Check hold/conceal private DOM lifecycles, absence of role leaks through live regions, visible alternatives to audio/color, and stable dock geometry through modals/cinematics. Use injected ad/media fixtures and approved screen cases, without initializing SDKs or loading raw licensed audio. Capture only synthetic or sanitized evidence.",
+  "ownership": [
+    "e2e/accessibility-privacy.spec.ts",
+    "e2e/media-dock.spec.ts",
+    "e2e/fixtures/accessibility.ts"
+  ],
+  "dependsOn": [
+    "A048",
+    "A050",
+    "A082",
+    "A085",
+    "A088",
+    "A089",
+    "A091",
+    "A094"
+  ],
+  "acceptance": [
+    "No background game control or CTA stays interactive beneath a blocking glass modal; focus is trapped and restored.",
+    "Reserved ad space and bottom safe area prevent layout jumps or hidden controls across every free-app surface.",
+    "Backgrounding/navigation removes or conceals private content, which never appears in public announcements or storage.",
+    "Material feedback has visible/semantic counterparts; Reduce Motion and disabled audio preserve clarity without autoplay."
+  ],
+  "status": "blocked",
+  "category": "acceptance",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/VISUAL-SYSTEM-v0.md#gate-de-mockups",
+    "docs/design/AUDIO-SPEC-v0.md",
+    "docs/design/MONETIZATION-SPEC-v0.md#persistent-banner-dock"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": false,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 132,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/132"
+}

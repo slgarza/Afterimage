@@ -1,0 +1,37 @@
+{
+  "id": "A031",
+  "title": "Implement the blocking Create Lobby configuration modal",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md and the exact referenced imported design sections before editing. RULES-SPEC-v1.md is canonical for production mechanics: six-node Repair/Sabotage tracks, one-person crew votes, Route/Gate operations, deterministic powers and silent spectators. SCREEN-FLOW prototype 5/5 scores and hardcoded transitions are UX references only. Preserve historical T01–T10 APIs/tests; implement the new view version in new game-v1 modules instead of silently changing legacy five-mark boards or command parsers. Use black/charcoal/neutral-frost chrome and full-colour approved expressive content through semantic asset keys. Modal-first means the complete game background is uniformly blur/dim/desaturated and inert; the fixed platform banner dock remains mounted outside that game viewport. No visible accounts/login, telemetry, credentials, live Firebase, ad SDK or unreviewed asset downloads. Keep local presentation distinct from authority: clients display server/solo-engine phases and deadlines, never compute secret outcomes, choose timeout targets, advance multiplayer on a local clock or reveal another alignment. Use injected semantic media/ad/purchase ports; no direct SDK playback or billing calls from UI. Edit only ownership, use original fixtures, run scoped tests/lint/typecheck and npm run check. DOM tests use jsdom, explicit afterEach(cleanup), Vitest and current Testing Library. Report results and contract changes; do not commit, push, open PRs, deploy or spend on providers. Create Lobby is a blocking scrollable glass modal over the unchanged directory. Collect editable lobby name, configured players5–10, timer stepper30/60/90/120, Fill empty seats with bots plus difficulty, Show in lobby directory and Require passcode with conditional masked field. Create emits the exact v1 lobby configuration and waits for service acknowledgment. Cancel preserves directory state; immutable/active-match settings cannot be edited through this form. The backend owns passcode hashing, visibility and host identity; never persist raw passcodes or guess SDK endpoints. Declare this presentation module readonly props locally from the documented fields and accept injected callbacks/asset lookups; do not import an unfinished server implementation. A035/A048 adapt canonical production DTOs and parsed intents into these props.",
+  "ownership": [
+    "apps/client/src/features/game-v1/create-lobby/index.tsx",
+    "apps/client/src/features/game-v1/create-lobby/create-lobby.test.tsx"
+  ],
+  "dependsOn": [
+    "A026"
+  ],
+  "acceptance": [
+    "Every listed approved configuration field is present; limits/timer steps and conditional passcode input are enforced accessibly.",
+    "Create sends one allowlisted request, prevents duplicates while pending and enters a room only after authoritative success.",
+    "Cancel returns to the same directory state; the entire background is blur/dim/inert while configuration is open.",
+    "Raw passcodes, hashes, actor overrides and private fields never appear in logs/storage/public labels or error text."
+  ],
+  "status": "blocked",
+  "category": "client-ui-v1",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md"
+  ],
+  "screenIds": [
+    "S08"
+  ],
+  "designSections": [
+    "SCREEN-FLOW: 5a. Create lobby"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 64,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/64"
+}

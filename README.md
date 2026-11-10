@@ -6,9 +6,17 @@ An original cross-platform social-deduction game about restoring a collapsing ne
 
 ## Product in one minute
 
-Five to ten players enter a room as either **Archivists**, trying to stabilize shared memories, or **The Static**, infiltrators trying to corrupt them. Every round the table chooses a pair of players to resolve a Transmission. Their choice changes a public stability/corruption board while private roles and incomplete information fuel deduction.
+Five to ten players enter as **Archivists**, **Static operatives** or **The Null**.
+Direct player-card votes select a two-person Repair Crew; complementary private
+Route/Gate diagnostics drive a deterministic incident outcome. Archivists win
+at six Repair or by disconnecting The Null; Static wins at six Sabotage.
+Solo uses fair bots and local authority; multiplayer uses verified server authority.
+These are the implementation targets, not completed gameplay.
 
-See [the GDD](docs/GDD.md), [the architecture](docs/ARCHITECTURE.md), and [the swarm pilot](docs/SWARM_PILOT.md).
+Read the [canonical Rules v1](docs/design/RULES-SPEC-v1.md),
+[screen flow](docs/design/SCREEN-FLOW-v0.md),
+[source reconciliation](docs/DESIGN_RECONCILIATION.md),
+[architecture](docs/ARCHITECTURE.md) and [swarm pilot](docs/SWARM_PILOT.md).
 
 ## Planned stack
 
@@ -20,6 +28,8 @@ See [the GDD](docs/GDD.md), [the architecture](docs/ARCHITECTURE.md), and [the s
 ## Status
 
 Foundation components implemented; complete gameplay and Firebase integration remain pending.
+Use the [public swarm evidence index](docs/swarm/README.md) for the current
+demo/pilot/contest status, task issues, preparation measurements and review links.
 The [first ten-agent Modal pilot](docs/swarm/pilot10-2026-11-10.md) delivered ten
 reviewed PRs with passing CI. No Firebase project, production credentials,
 proprietary source assets, or music files belong in this repository.
@@ -57,6 +67,23 @@ lint, typecheck, test, and build scripts. All four workspaces have tests;
 the completed pilot passes 291 tests. Builds write ignored `dist/` outputs.
 Preview the built client with `npm run preview --workspace @afterimage/client`.
 
+Every swarm activity, including backlog preparation, implementation, review,
+repairs and integration, must record its outcome, elapsed time, validation and
+known cost. Follow the [benchmark policy](docs/SWARM_BENCHMARK.md). Local check
+receipts measure the commands that actually ran; a successful full validation
+profile does not demonstrate 100 live coding agents or an AFK efficiency win.
+
+For recorded swarm validation after all task issues are linked, run:
+
+```sh
+node tools/benchmark-pilot.mjs --profile full
+```
+
+This runs backlog metadata validation and `npm run check`, recording command
+durations and exit codes in a new private `.swarm/benchmarks/` receipt. It retains
+failed attempts, does not save raw command output and leaves unmeasured model
+usage, billing, deliveries and agent concurrency unknown.
+
 Tooling choices, ownership coordination, and the resolved bootstrap installation
 limitation are recorded in [ADR 0001](docs/adr/0001-typescript-workspace.md).
 
@@ -75,3 +102,15 @@ swarm-control plan T01 --project /path/to/Afterimage/swarm.toml --base HEAD
 T01–T10 are completed and live execution is disabled. The original local `.swarm/`
 evidence and cumulative budget ledger stay in place. Controller development and
 Python tests belong to the separate repository; this project's CI checks the game.
+
+## Next implementation backlog
+
+[A001-A100](docs/PILOT100_TASKS.md) implement the retrieved full design pack with
+explicit scope, acceptance, dependencies and source hashes. The
+[backlog guide](docs/PILOT100_BACKLOG.md) explains staged execution, concrete edge
+decisions and external delivery gates. Validate with
+`node tools/validate-pilot100.mjs`; live execution remains disabled.
+Preserve preparation and execution receipts under the ignored `.swarm/`
+directory, including failed attempts and unknown measurements. Report delivery
+throughput from accepted merged green PRs over the full delivery clock; dollar
+rates additionally require reconciled eligible cost.

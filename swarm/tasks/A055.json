@@ -1,0 +1,29 @@
+{
+  "id": "A055",
+  "title": "Keep service failures fixed and free of private room information",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Define the fixed ServiceFailureV1 allowlist for invalid_request,unauthenticated,not_member,not_found,room_full,room_closed,invalid_passcode,revision_conflict,request_conflict,phase_conflict,deadline_not_reached,action_not_allowed,rate_limited,not_supported,internal. Public failures contain only ok:false,a fixed code and an independently validated optional requestId; map unknown errors to internal. Error output never includes passcode/hash,auth claims,seed,roles,Route/Gate diagnostics/choices,vote identity during S2,raw input,stack or cause. Do not expose whether a hidden room exists to an unauthorized caller; A051 determines any uniform join denial. No provider status code mapping belongs in this pure module.",
+  "ownership": [
+    "packages/protocol/src/service-errors.ts",
+    "packages/protocol/tests/service-errors.test.ts"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Only fixed declared codes/allowed metadata are serializable; arbitrary error messages and nested provider data are excluded.",
+    "Malformed request IDs and hostile getters/toString cannot leak input or execute through error conversion.",
+    "Synthetic failures containing passcodes,seed,Null/Static identity,private choices and sealed votes never appear in output.",
+    "Tests cover every fixed code and unknown/native/provider-style errors without network or SDK dependencies."
+  ],
+  "status": "ready",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md#product-non-negotiables",
+    "docs/design/RULES-SPEC-v1.md#1-table-and-roles",
+    "docs/design/RULES-SPEC-v1.md#4-the-deterministic-crew-operation",
+    "docs/design/RULES-SPEC-v1.md#6-track-moments-and-powers"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 71,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/71"
+}

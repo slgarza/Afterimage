@@ -1,0 +1,32 @@
+{
+  "id": "A082",
+  "title": "Define semantic audio and haptic events with silent test adapters",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Define AudioEventV1, music-scene and haptic intents for UI navigation, vote opening/casting/timeouts, bot votes, Crew confirmation/deployment, Repair/Sabotage/Anomaly outcomes, all twelve City Moments, the last-ten-second warning, achievements and match win/loss. AudioPort and HapticsPort accept semantic keys and safe event/revision identities, never private game data or raw file paths. Include silent no-op adapters for tests and web previews, plus an explicit event-deduplication contract. Keep Music, SFX and Haptics preferences separate. An adapter maps engine domain events into media intents without importing playback APIs into the engine.",
+  "ownership": [
+    "packages/protocol/src/media-events-v1.ts",
+    "packages/protocol/tests/media-events-v1.test.ts",
+    "apps/client/src/media/ports.ts",
+    "apps/client/src/media/ports.test.ts"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Every material source cue and all twelve City Moments have typed semantic mappings and a required visual counterpart.",
+    "Events contain no private choices, role maps, seed, deck order or chat content.",
+    "No-op ports work without audio files, native SDKs or external requests.",
+    "Tests verify event identities and mappings deterministically without relying on playback timing."
+  ],
+  "status": "ready",
+  "category": "audio",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/AUDIO-SPEC-v0.md",
+    "docs/design/MOMENT-SPEC-v0.md"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 82,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/82"
+}

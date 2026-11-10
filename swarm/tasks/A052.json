@@ -1,0 +1,36 @@
+{
+  "id": "A052",
+  "title": "Bootstrap a provider-free authoritative service workspace",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Add the pure functions/service workspace and its test/build/lint/typecheck commands to the current npm graph using existing approved Node/TypeScript tooling. Provide injectable repository, verified-identity, clock, scheduler and projection seams without Firebase SDKs, Firebase config, callable registrations or emulator initialization. Root manifest/lock/lint are the explicit coordination exception. The service can run deterministic in-memory tests while G4 remains blocked. Do not install Firebase packages or touch browser SDK/configuration here; those belong to the later gated provider bootstrap in A072. Engine production must remain ES2022-only and contain no service imports.",
+  "ownership": [
+    "functions/package.json",
+    "functions/tsconfig.json",
+    "functions/tsconfig.test.json",
+    "functions/src/index.ts",
+    "functions/tests/bootstrap.test.ts",
+    "package.json",
+    "package-lock.json",
+    "eslint.config.js"
+  ],
+  "dependsOn": [
+    "A051"
+  ],
+  "acceptance": [
+    "npm ci and npm run check include a nonempty pure authority workspace with explicit appropriate production/test type environments.",
+    "The workspace compiles and tests without network services, Firebase SDKs, credentials or a project.",
+    "Only declared root tooling changes occur, preserving existing scripts/dependencies and engine isolation.",
+    "Ports accept injected fakes and have no global provider initialization, deploy command or cloud side effect."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md#workstream-gates",
+    "docs/design/ROADMAP.md#arquitectura-objetivo",
+    "docs/ARCHITECTURE.md#authority-boundary"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": false,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 100,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/100"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "A076",
+  "title": "Implement fair seeded bot decisions from recipient-visible observations",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Implement a pure reference bot policy that receives only observeMatchV1 output, getLegalActionsV1 results and explicit RNG state. Select an available intent for the current bot and return the advanced RNG explicitly. Archivist and Null bots cannot inspect allies or authoritative secrets; Static operative bots receive only their permitted Ghost Channel information. Support the reviewed baseline temperament through an injected policy selector without inventing advanced difficulty behavior or a new mode. Human and bot intents must pass the same legal-action validation. Do not use a wall clock, networking, hidden state or another player's private diagnostic to choose an action.",
+  "ownership": [
+    "packages/engine/src/v1/bots/policy.ts",
+    "packages/engine/tests/v1/bots/policy.test.ts"
+  ],
+  "dependsOn": [
+    "A002",
+    "A025"
+  ],
+  "acceptance": [
+    "Identical observation, legal-action and RNG inputs produce the same intent and next RNG.",
+    "Every emitted vote, Route, Gate or power target is legal for the actor and phase; waiting players and silent spectators emit no action.",
+    "Changing hidden roles, seed or choices outside the permitted observation cannot change a bot decision.",
+    "Tests cover Archivists, Static operatives and The Null, including cooldown, Jam, Disconnect, sealed voting, operation privacy and terminal states."
+  ],
+  "status": "blocked",
+  "category": "bots",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/GDD-v0.md#plataformas-y-modos"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 74,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/74"
+}

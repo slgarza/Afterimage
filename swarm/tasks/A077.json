@@ -1,0 +1,39 @@
+{
+  "id": "A077",
+  "title": "Drive a complete offline Solo match through a local authority adapter",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Create a local Solo authority that implements the same semantic session port as the multiplayer adapter, with one human and bots filling a table of 5–10 players. Inject the seed, clock, scheduler and fair bot policy. Use the real reducer and deadline fallback rather than the prototype round script. Implement cancellation and disposal, emit recipient views and versioned events, and recover approved local session checkpoints without exposing hidden state to rendering. The menu must follow the timing policy recorded in source reconciliation rather than adding a pause rule. Solo requires no Firebase connection, credentials or external requests. Consume the canonical types-only AuthorityPortV1 owned by A056; do not define a competing session transport interface. A077 supplies the local Solo implementation, A035 binds it to client state, and the separately gated A075 supplies the Firebase implementation.",
+  "ownership": [
+    "apps/client/src/runtime/solo-authority.ts",
+    "apps/client/src/runtime/solo-authority.test.ts"
+  ],
+  "dependsOn": [
+    "A003",
+    "A014",
+    "A015",
+    "A024",
+    "A025",
+    "A056",
+    "A076",
+    "A078"
+  ],
+  "acceptance": [
+    "A fixed seed and recorded actions replay to the same legal terminal outcome using the v1 matrices and six-node tracks.",
+    "Bots act through legal intents; neither hardcoded Repair/Sabotage sequences nor other players' private information reaches rendering.",
+    "Deadlines and timeouts use injected authority time and audited deterministic fallbacks, not component animation callbacks.",
+    "Disposal cancels scheduled work, and late callbacks cannot revive a previous private session."
+  ],
+  "status": "blocked",
+  "category": "solo",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/SCREEN-FLOW-v0.md#4-single-player-setup",
+    "swarm/tasks/A056.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 75,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/75"
+}

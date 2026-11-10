@@ -1,0 +1,41 @@
+{
+  "id": "A034",
+  "title": "Implement hold-to-reveal private role and recipient-only Ghost information",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md and the exact referenced imported design sections before editing. RULES-SPEC-v1.md is canonical for production mechanics: six-node Repair/Sabotage tracks, one-person crew votes, Route/Gate operations, deterministic powers and silent spectators. SCREEN-FLOW prototype 5/5 scores and hardcoded transitions are UX references only. Preserve historical T01–T10 APIs/tests; implement the new view version in new game-v1 modules instead of silently changing legacy five-mark boards or command parsers. Use black/charcoal/neutral-frost chrome and full-colour approved expressive content through semantic asset keys. Modal-first means the complete game background is uniformly blur/dim/desaturated and inert; the fixed platform banner dock remains mounted outside that game viewport. No visible accounts/login, telemetry, credentials, live Firebase, ad SDK or unreviewed asset downloads. Keep local presentation distinct from authority: clients display server/solo-engine phases and deadlines, never compute secret outcomes, choose timeout targets, advance multiplayer on a local clock or reveal another alignment. Use injected semantic media/ad/purchase ports; no direct SDK playback or billing calls from UI. Edit only ownership, use original fixtures, run scoped tests/lint/typecheck and npm run check. DOM tests use jsdom, explicit afterEach(cleanup), Vitest and current Testing Library. Report results and contract changes; do not commit, push, open PRs, deploy or spend on providers. Implement a private blocking glass popup over a fully concealed game background. Hold-to-reveal supports pointer and keyboard, releases/cancels safely and shows only the authenticated/local-human recipient role, own win objective and allowed knowledge. Static operatives may see the approved Ghost Channel allies supplied by their recipient view; The Null does not receive allied identities. Do not infer Resonance, identify The Null through layout/timing, or show another player alignment. Clear private DOM on conceal, page background, recipient/session change or spectator conversion. Enter City Board is available only after deliberate reveal acknowledgment. Declare this presentation module readonly props locally from the documented fields and accept injected callbacks/asset lookups; do not import an unfinished server implementation. A035/A048 adapt canonical production DTOs and parsed intents into these props. The canonical producer contracts are A025 observeMatchV1/getLegalActionsV1 and A056 versioned recipient DTOs (A067 projects multiplayer views); public/private/legal fields must originate there, never raw hidden MatchStateV1. A004 owns exact I01–I06 option labels and all36 semantic icon keys.",
+  "ownership": [
+    "apps/client/src/features/game-v1/role-reveal/index.tsx",
+    "apps/client/src/features/game-v1/role-reveal/role-reveal.test.tsx"
+  ],
+  "dependsOn": [
+    "A026"
+  ],
+  "acceptance": [
+    "Before deliberate hold, after release/cancel/background and after recipient changes, private role/Ghost details are absent from DOM and live regions.",
+    "Archivist, Static operative and The Null fixtures expose exactly their allowed own knowledge with matching reveal layout/timing.",
+    "Pointer/keyboard hold and cancellation work accessibly; spectator conversion immediately removes the ability to reveal a role.",
+    "Role/private identity never enters URLs, local persistence, analytics, public event feed or ad/media payloads."
+  ],
+  "status": "blocked",
+  "category": "client-ui-v1",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "swarm/tasks/A004.json",
+    "swarm/tasks/A025.json",
+    "swarm/tasks/A067.json",
+    "swarm/tasks/A056.json"
+  ],
+  "screenIds": [
+    "S12"
+  ],
+  "designSections": [
+    "SCREEN-FLOW: 7. Role reveal; RULES-SPEC-v1: 1. Table and roles, 6. Disconnect / spectator"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 67,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/67"
+}

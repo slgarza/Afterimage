@@ -1,0 +1,38 @@
+{
+  "id": "A086",
+  "title": "Define the 48-achievement catalogue against objective versioned match events",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Translate the supplied catalogue of 16 easy, 20 medium and 12 hard/secret achievements into stable definitions with a condition, approved event source, localized copy, difficulty, secrecy and semantic art key. Resolve contradictory or undefined conditions through the design-decision record before enabling them: Consensus currently requires one voter to vote for both Crew members, and older Blackout/final-vote conditions need canonical v1 meanings. Keep all 48 source identities traceable without replacing their conditions arbitrarily. Integrate only separately approved ImageGen badge metadata; do not introduce generic rarity colors or copied badges. Catalogue validation must distinguish deferred definitions from enabled ones. This task also owns ingestion of the separately approved 48-badge art delivery into assets/achievements. Verify every file against its reviewed manifest/hash and required full-colour/locked presentation variants. Do not generate images in the coding worker or substitute generic badges; keep supplied art unavailable until the external approval evidence exists.",
+  "ownership": [
+    "packages/protocol/src/achievements/catalog-v1.ts",
+    "packages/protocol/tests/achievements/catalog-v1.test.ts",
+    "assets/achievement-art.json",
+    "assets/achievements"
+  ],
+  "dependsOn": [
+    "A024",
+    "A079"
+  ],
+  "acceptance": [
+    "Exactly 48 stable entries remain traceable to their supplied names and the 16/20/12 difficulty distribution.",
+    "Every enabled condition is objectively testable from approved versioned events or a final authoritative summary.",
+    "Contradictory or undefined entries remain explicitly blocked pending review; no fabricated unlock predicate can silently pass.",
+    "Secret copy stays concealed until a verified unlock, and art records require provenance and approval.",
+    "All 48 approved badge assets have exact catalogue-key mappings, provenance, hashes and accessible labels; unapproved files cannot become shipping art."
+  ],
+  "status": "blocked",
+  "category": "achievements",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/ACHIEVEMENTS-SPEC-v0.md"
+  ],
+  "blockedBy": [
+    "D-ACHIEVEMENT-RECONCILIATION",
+    "D-APPROVED-ACHIEVEMENT-ART"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 124,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/124"
+}

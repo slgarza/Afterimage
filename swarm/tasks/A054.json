@@ -1,0 +1,36 @@
+{
+  "id": "A054",
+  "title": "Validate versioned lobby and Rules v1 service requests",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement the A051 versioned service envelope (version:1,requestId,intent) with exact own data keys and detached results. Delegate gameplay intent to parseMatchIntentV1 from A002: start-match, crew-vote(candidateId), operation-choice(optionId), power-target(powerId,targetId), containment-vote(candidateId), request-advance with the approved expectedRevision fields. Validate the separate exact lobby create/join/profile/ready/settings intents frozen in A051, including 5-10 seats,timer enum30/60/90/120,registered avatar key,visibility,bot settings and optional transient passcode input. Do not allow actor,role,seed,deadline,resolved outcome,alignment or arbitrary bot-control overrides. Preserve old parseCommand as baseline v0 only; do not use its nomination/approve union for new gameplay. A declared protocol root-barrel export exception publishes only these reviewed APIs.",
+  "ownership": [
+    "packages/protocol/src/service-request.ts",
+    "packages/protocol/tests/service-request.test.ts",
+    "packages/protocol/src/index.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A002",
+    "A051",
+    "A078"
+  ],
+  "acceptance": [
+    "All approved lobby and Rules v1 match intents validate through one exact versioned request envelope with bounded canonical request identity.",
+    "Single-candidate crew voting and Route/Gate semantic option intents are accepted; legacy approval/nomination or repair/sabotage outcome overrides are rejected.",
+    "Unknown/symbol/accessor fields, malformed values and forged authority fields fail without executing getters or echoing secrets/passcodes.",
+    "Tests cover enum/size/revision boundaries, duplicate aliases, detached data and preservation of existing package exports."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md#3-round-state-machine",
+    "docs/design/RULES-SPEC-v1.md#4-the-deterministic-crew-operation",
+    "docs/design/SCREEN-FLOW-v0.md#5a-create-lobby",
+    "docs/design/SCREEN-FLOW-v0.md#6-lobby-room",
+    "docs/design/SWARM-BRIEF-v0.md#product-non-negotiables"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 70,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/70"
+}

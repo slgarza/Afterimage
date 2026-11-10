@@ -1,0 +1,36 @@
+{
+  "id": "A071",
+  "title": "Enforce private diagnostic sealed-vote and spectator access rules",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. After G4, implement Firestore rules for approved authority/private/public read-model paths and verify them with emulator client contexts. Deny every client write to roles,seed,incident matrices,deadline,checkpoint,private choices/votes,power effects,receipts and outbox; mutations use authority handlers. Active verified members can read only approved public room and their own current private view. S2 sealed votes and operator complementary diagnostics never live in broadly readable documents. Permanent spectators retain only the city/map/final reveal view and cannot read old diagnostics/Ghost documents or write chat/reactions. Revoked/left actors and outsiders with copied codes are denied. Rules code contains no Firebase project configuration; Admin SDK authority still requires handler validation. Firebase gate G4 is externally blocked by D-FIREBASE-PROJECT: Sergio must create/provide the project before any Firebase worker, SDK/configuration or provider adapter is implemented. Do not create/configure a project, discover credentials or make live calls. Once that gate is satisfied, this ticket still uses demo/loopback emulators and injected clients only; no project IDs, app config, tokens or service accounts are committed.",
+  "ownership": [
+    "functions/firestore.rules",
+    "functions/tests/security/firestore-rules.test.ts"
+  ],
+  "dependsOn": [
+    "A051",
+    "A052",
+    "A072"
+  ],
+  "acceptance": [
+    "Outsiders and one participant guessing another recipient path cannot read roles,Route/Gate diagnostics,choices,sealed votes or operative allies.",
+    "Direct writes cannot alter deadlines,tracks,roles,host authority,private state or gameplay outcomes.",
+    "Permanent spectators lose private/chat/reaction/action access immediately while approved public watching/final reveal remains available.",
+    "Emulator tests cover reads,queries/listing,revocation and phase-specific private document removal after the external project gate."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md#1-table-and-roles",
+    "docs/design/RULES-SPEC-v1.md#4-the-deterministic-crew-operation",
+    "docs/design/RULES-SPEC-v1.md#6-track-moments-and-powers",
+    "docs/design/RULES-SPEC-v1.md#disconnect--spectator",
+    "docs/design/SWARM-BRIEF-v0.md#workstream-gates"
+  ],
+  "blockedBy": [
+    "D-FIREBASE-PROJECT"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 116,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/116"
+}

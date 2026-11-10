@@ -1,0 +1,31 @@
+{
+  "id": "A051",
+  "title": "Specify the supplied-design multiplayer transport and authority boundaries",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Write the multiplayer ADR and exact versioned request/reply, persisted room and recipient-view contracts from the supplied design. Distinguish invisible temporary session identity from duplicate-allowed alias and configurable semantic avatar key; no visible account/login. Specify create settings (name,5-10 seats,30/60/90/120 timer,bot-fill/difficulty,visibility,optional passcode hash), host permissions, ready/kick, directory allowlists, deadline generation, request idempotency, revisions, public/private projection and temporary reconnect versus permanent Rules Disconnect. Host requests can advance only after server-checked deadline/phase; local menus cannot pause. Declare provider-independent ports and the D-FIREBASE-PROJECT adapter gate. Use existing baseline canonical IDs/names unless the approved new schema changes them explicitly. Record real source inconsistencies rather than deciding game rules: notably untriggered Ghost Resonance in GDD/ROADMAP versus Rules v1 initial-only ally knowledge, and host-loss/failover details absent from Screen Flow. Do not add a login model, choose unapproved core rules or configure Firebase.",
+  "ownership": [
+    "docs/adr/0002-service-authority.md",
+    "docs/SERVICE_CONTRACTS.md"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "The ADR traces every multiplayer setting and authority/privacy invariant to exact supplied source sections, including the invisible identity/alias/avatar distinction.",
+    "SERVICE_CONTRACTS fixes versioned lobby/match request, persistence, observer and error shapes, server deadline/revision/idempotency behavior and package boundaries.",
+    "The contract separates unconnected transport presence from permanent silent spectator status, hides passcode/hash/hidden authority, and distinguishes host controller from rotating Shift Lead.",
+    "Conflicting or missing source behavior is recorded as a narrow explicit decision with references; D-FIREBASE-PROJECT remains external and no SDK/configuration/deployment is introduced."
+  ],
+  "status": "ready",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md#product-non-negotiables",
+    "docs/design/SWARM-BRIEF-v0.md#workstream-gates",
+    "docs/design/SCREEN-FLOW-v0.md#5a-create-lobby",
+    "docs/design/GDD-v0.md#autoridad-y-timer-online",
+    "docs/design/RULES-SPEC-v1.md#3-round-state-machine",
+    "docs/design/GDD-v0.md#roles"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": false,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 68,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/68"
+}

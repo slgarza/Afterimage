@@ -1,0 +1,36 @@
+{
+  "id": "A069",
+  "title": "Verify invisible anonymous sessions through a gated Firebase adapter",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. After G4, adapt trusted Firebase request auth context to the existing verified temporary actor port using approved anonymous session semantics and emulator users. There is no visible login/signup/account/profile model. Trust only server-verified context,not body actorId,alias/avatar,manually trusted headers or a room/session hint. Revalidate revoked/rotated sessions and distinguish network reconnect from permanent game Disconnect through authoritative membership. Do not persist/print tokens,raw claims or project configuration; do not assign roles or choose a new authentication token scheme. Firebase gate G4 is externally blocked by D-FIREBASE-PROJECT: Sergio must create/provide the project before any Firebase worker, SDK/configuration or provider adapter is implemented. Do not create/configure a project, discover credentials or make live calls. Once that gate is satisfied, this ticket still uses demo/loopback emulators and injected clients only; no project IDs, app config, tokens or service accounts are committed.",
+  "ownership": [
+    "functions/src/auth/firebase-actor.ts",
+    "functions/tests/auth/firebase-actor.test.ts"
+  ],
+  "dependsOn": [
+    "A051",
+    "A052",
+    "A053",
+    "A072"
+  ],
+  "acceptance": [
+    "Synthetic anonymous emulator sessions map to distinct verified actors even when aliases/avatars repeat.",
+    "Forged/missing/revoked identity and copied local hints cannot claim another participant or bypass silent-spectator restrictions.",
+    "Session rotation/reconnection follows the reviewed generation binding and clears stale authority context.",
+    "No account UI/product fields or production credentials/configuration are added; tests obey the external project gate and loopback demo preflight."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md#product-non-negotiables",
+    "docs/design/SWARM-BRIEF-v0.md#workstream-gates",
+    "docs/design/SCREEN-FLOW-v0.md#2-alias--avatar",
+    "docs/design/GDD-v0.md#plataformas-y-modos"
+  ],
+  "blockedBy": [
+    "D-FIREBASE-PROJECT"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 114,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/114"
+}

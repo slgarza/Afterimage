@@ -1,0 +1,41 @@
+{
+  "id": "A037",
+  "title": "Submit one Repair Crew vote by directly tapping an eligible player card",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md and the exact referenced imported design sections before editing. RULES-SPEC-v1.md is canonical for production mechanics: six-node Repair/Sabotage tracks, one-person crew votes, Route/Gate operations, deterministic powers and silent spectators. SCREEN-FLOW prototype 5/5 scores and hardcoded transitions are UX references only. Preserve historical T01–T10 APIs/tests; implement the new view version in new game-v1 modules instead of silently changing legacy five-mark boards or command parsers. Use black/charcoal/neutral-frost chrome and full-colour approved expressive content through semantic asset keys. Modal-first means the complete game background is uniformly blur/dim/desaturated and inert; the fixed platform banner dock remains mounted outside that game viewport. No visible accounts/login, telemetry, credentials, live Firebase, ad SDK or unreviewed asset downloads. Keep local presentation distinct from authority: clients display server/solo-engine phases and deadlines, never compute secret outcomes, choose timeout targets, advance multiplayer on a local clock or reveal another alignment. Use injected semantic media/ad/purchase ports; no direct SDK playback or billing calls from UI. Edit only ownership, use original fixtures, run scoped tests/lint/typecheck and npm run check. DOM tests use jsdom, explicit afterEach(cleanup), Vitest and current Testing Library. Report results and contract changes; do not commit, push, open PRs, deploy or spend on providers. Implement direct-card voting using server/local-engine supplied eligible targets and canVote. One tap emits crew-vote{candidateId,expectedRevision}; keyboard-accessible card controls and an equivalent glass selection dialog use that same single intent. There is no Cast vote, Continue, two-person nomination or approve/reject Link vote. Show pending/locked local selection without a second confirmation gate. Jammed/cooldown/disconnected restrictions come from authority; Shift Lead is not arbitrarily excluded. S2 sealed-vote state withholds other selections until the approved public release. At display timeout disable stale interaction and await recorded authority timeout vote. Declare this presentation module readonly props locally from the documented fields and accept injected callbacks/asset lookups; do not import an unfinished server implementation. A035/A048 adapt canonical production DTOs and parsed intents into these props. The canonical producer contracts are A025 observeMatchV1/getLegalActionsV1 and A056 versioned recipient DTOs (A067 projects multiplayer views); public/private/legal fields must originate there, never raw hidden MatchStateV1. A004 owns exact I01–I06 option labels and all36 semantic icon keys.",
+  "ownership": [
+    "apps/client/src/features/game-v1/repair-vote/index.tsx",
+    "apps/client/src/features/game-v1/repair-vote/repair-vote.test.tsx"
+  ],
+  "dependsOn": [
+    "A026"
+  ],
+  "acceptance": [
+    "A card tap or equivalent keyboard/dialog selection submits exactly one eligible candidate with current revision and no second gate.",
+    "Pending/locked/stale/unauthorized states cannot duplicate votes, and unreachable or ineligible targets never emit an intent.",
+    "Normal public vote feedback and sealed-vote feedback differ exactly as the supplied view permits, with no hidden choices leaked.",
+    "Timeout, tie/draw and crew-selection results are presented from authority; the client never chooses a random target or breaks a tie."
+  ],
+  "status": "blocked",
+  "category": "client-ui-v1",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "swarm/tasks/A004.json",
+    "swarm/tasks/A025.json",
+    "swarm/tasks/A067.json",
+    "swarm/tasks/A056.json"
+  ],
+  "screenIds": [
+    "S14"
+  ],
+  "designSections": [
+    "RULES-SPEC-v1: Crew vote ties, Eligibility; SCREEN-FLOW: 8. Match, 9. Repair Crew emergency"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 78,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/78"
+}

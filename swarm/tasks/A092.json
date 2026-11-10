@@ -1,0 +1,39 @@
+{
+  "id": "A092",
+  "title": "Validate selected media provenance and derive Credits from approved manifests",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Define an audio manifest that is empty by default, with exact track source, per-file license evidence, attribution, digest, loop points, loudness target and associated events. Derive Credits data from approved visual/audio manifests rather than blanket license statements. Tallbeard and Kenney are candidate sources; each selected file requires its own provenance/license review. This coding task neither downloads raw licensed music/SFX nor approves assets. Unselected media remains unavailable or silent, and release validation cannot claim a completed mix review without evidence. Add an idempotent staging command for owner-selected, per-file approved audio delivery: validate its manifest/hash/license evidence, then copy approved input files into ignored build staging only. The worker neither selects/downloads tracks nor commits raw licensed music/SFX. Empty development manifests remain silent and valid; release reports must distinguish missing approved delivery/mix review from passing tooling tests. Any .gitignore change is limited to generated audio staging paths.",
+  "ownership": [
+    "assets/audio/manifest.json",
+    "apps/client/src/media/credits.ts",
+    "apps/client/src/media/credits.test.ts",
+    "tools/check-media-provenance.mjs",
+    "tools/check-media-provenance.test.mjs",
+    "tools/stage-approved-audio.mjs",
+    "tools/stage-approved-audio.test.mjs",
+    ".gitignore"
+  ],
+  "dependsOn": [
+    "A079"
+  ],
+  "acceptance": [
+    "The empty or pending audio manifest is valid for development and makes no ownership or license claim.",
+    "Unapproved entries, missing per-file license/attribution, digest mismatches and escaping paths fail release validation.",
+    "Credits list only verified selected assets with required source, creator and license copy, without private account data.",
+    "Synthetic manifest tests cover mixed licenses, candidate/approved status and deterministic Credits ordering.",
+    "Synthetic staging tests prove only approved matching-hash inputs enter ignored build output; no raw audio or private paths are committed and absent delivery is reported explicitly."
+  ],
+  "status": "blocked",
+  "category": "provenance",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/AUDIO-SPEC-v0.md#implementation-contract-for-swarm",
+    "docs/design/VISUAL-SYSTEM-v0.md#motion-y-audio"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": false,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 94,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/94"
+}

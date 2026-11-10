@@ -1,0 +1,272 @@
+{
+  "report_format_version": 1,
+  "report_kind": "preparation_and_local_validation",
+  "report_date": "2026-11-10",
+  "display_timezone": "America/Mexico_City",
+  "is_live_swarm_run": false,
+  "target_repository": "slgarza/Afterimage",
+  "prepared_definition_commit": "4d35d7d0df4e13c230b5b628edb2c16a7ff58eea",
+  "measured_input_commit": "ed61f328de6a1f0b31c7f36222a959d9c4d6e06a",
+  "source": {
+    "frozen_documents": 11,
+    "design_manifest_sha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+    "backlog_definition_sha256": "85d0499e12cab2f3bc3475d8e04533b9c3a3620392200a25cd74d6906be4a2a7",
+    "benchmark_policy_sha256": "601f373798a79146ae7dd72b7e0ede7227712b68cd070e5986337b13f6886957",
+    "original_source_bytes": 100330,
+    "screen_surfaces": 24
+  },
+  "work": {
+    "tasks_created": 100,
+    "verified_open_github_issues": 100,
+    "ready_for_local_implementation": 11,
+    "blocked_by_dependencies_or_gates": 89,
+    "feature_candidates": 85,
+    "supporting_tasks": 15,
+    "new_modal_worker_runs": 0,
+    "accepted_feature_prs": 0,
+    "all_100_useful_live_sessions_verified": false
+  },
+  "initial_candidate_cohort": [
+    {
+      "task_id": "A001",
+      "issue_url": "https://github.com/slgarza/Afterimage/issues/34"
+    },
+    {
+      "task_id": "A004",
+      "issue_url": "https://github.com/slgarza/Afterimage/issues/36"
+    },
+    {
+      "task_id": "A026",
+      "issue_url": "https://github.com/slgarza/Afterimage/issues/59"
+    }
+  ],
+  "controller_validation": {
+    "repository": "slgarza/swarm-control",
+    "commit": "b645c0d36b03d20f5ea21519778032e11dc70347",
+    "public_pr": "https://github.com/slgarza/swarm-control/pull/2",
+    "status": "passed",
+    "started_at_utc": "2026-11-10T23:06:46.100070+00:00",
+    "finished_at_utc": "2026-11-10T23:07:02.249127+00:00",
+    "duration_seconds": 16.149023,
+    "unit_tests_passed": 135,
+    "phases": [
+      {
+        "argv": [
+          ".venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_*.py"
+        ],
+        "duration_seconds": 16.054479,
+        "exit_code": 0
+      },
+      {
+        "argv": [
+          ".venv/bin/ruff",
+          "check",
+          "--isolated",
+          "swarm_control",
+          "tests",
+          "examples"
+        ],
+        "duration_seconds": 0.023948,
+        "exit_code": 0
+      },
+      {
+        "argv": [
+          ".venv/bin/python",
+          "-m",
+          "compileall",
+          "-q",
+          "swarm_control",
+          "examples"
+        ],
+        "duration_seconds": 0.069705,
+        "exit_code": 0
+      }
+    ],
+    "private_receipt_sha256": "24155e0d2c6aaee2f716cc0b2098864608b5e7b0d87cfe0b878ffd840dc7dcbb"
+  },
+  "clocks": {
+    "full_preparation_elapsed_seconds": null,
+    "full_preparation_clock_reason": "The earlier preparation start was not instrumented; no duration is invented retroactively.",
+    "issue_publication": {
+      "definition": "Observed span between first and last of 100 GitHub issue createdAt timestamps; excludes earlier planning, label setup and the final local checkpoint.",
+      "source": "GitHub server createdAt",
+      "precision_seconds": 1,
+      "first_created_at_utc": "2026-11-10T22:45:46+00:00",
+      "last_created_at_utc": "2026-11-10T22:51:01+00:00",
+      "observed_span_seconds": 315.0
+    },
+    "local_validation": {
+      "definition": "Local validation after output-path admission through commands and final source snapshot; includes intermediate checkpoints, excludes final receipt write; not swarm delivery time.",
+      "started_at_utc": "2026-11-10T23:03:34.051Z",
+      "finished_at_utc": "2026-11-10T23:04:12.197Z",
+      "monotonic_duration_seconds": 38.146396
+    }
+  },
+  "local_validation": {
+    "status": "passed",
+    "input_was_clean": true,
+    "source_unchanged": true,
+    "runtime": {
+      "node": "v24.6.0",
+      "platform": "linux",
+      "architecture": "x64"
+    },
+    "phases": [
+      {
+        "id": "metadata",
+        "command": [
+          "node",
+          "tools/validate-pilot100.mjs",
+          "--require-issues"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "started_at_utc": "2026-11-10T23:03:34.124Z",
+        "finished_at_utc": "2026-11-10T23:03:34.249Z",
+        "duration_seconds": 0.124415
+      },
+      {
+        "id": "benchmark-tests",
+        "command": [
+          "node",
+          "--test",
+          "tools/benchmark-pilot.test.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "started_at_utc": "2026-11-10T23:03:34.253Z",
+        "finished_at_utc": "2026-11-10T23:03:36.532Z",
+        "duration_seconds": 2.278497
+      },
+      {
+        "id": "baseline",
+        "command": [
+          "npm",
+          "run",
+          "check"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "started_at_utc": "2026-11-10T23:03:36.537Z",
+        "finished_at_utc": "2026-11-10T23:04:12.146Z",
+        "duration_seconds": 35.609616
+      }
+    ],
+    "workspace_tests_passed": 291,
+    "benchmark_tool_tests_passed": 9,
+    "baseline_includes": [
+      "lint",
+      "typecheck",
+      "workspace tests",
+      "build"
+    ]
+  },
+  "free_plan": {
+    "started_at_utc": "2026-11-10T23:08:46.928014+00:00",
+    "finished_at_utc": "2026-11-10T23:08:47.069166+00:00",
+    "duration_seconds": 0.141119,
+    "exit_code": 0,
+    "tasks": [
+      "A001",
+      "A004",
+      "A026"
+    ],
+    "maximum_active_agents": 3,
+    "live_execution_enabled": false,
+    "readiness": "local plan only; open-issue, budget and provider admission still apply",
+    "controller_commit": "b645c0d36b03d20f5ea21519778032e11dc70347",
+    "controller_dirty": false
+  },
+  "billing": {
+    "gross_usd": null,
+    "actual_billed_usd": null,
+    "contest_eligible_usd": null,
+    "confirmed_internal_token_exemption_usd": null,
+    "reconciliation_status": "unmeasured",
+    "budget_policy_changed": false,
+    "runtime_identifiers_changed": false
+  },
+  "delivery_rates": {
+    "merged_green_feature_prs_per_hour": null,
+    "merged_green_feature_prs_per_eligible_dollar": null,
+    "reason": "Preparation is not a measured feature-delivery cohort; no paired AFK run or reconciled billing exists."
+  },
+  "evidence": {
+    "local_validation_receipt_sha256": "360750696de50313b0e5a1913c36d5e99c6bb24ca07f5110bf6c3edb9b90a00c",
+    "private_issue_inventory_sha256": "8d68ede739e7b5caa9da24925ff5b68da362e760107256065f642ba5d74a9c42",
+    "original_private_evidence_retained": true,
+    "public_task_index": "https://github.com/slgarza/Afterimage/blob/main/docs/PILOT100_TASKS.md",
+    "issues": "https://github.com/slgarza/Afterimage/issues?q=is%3Aissue%20label%3Apilot100",
+    "preparation_pr": "https://github.com/slgarza/Afterimage/pull/33",
+    "final_pr_checks": "https://github.com/slgarza/Afterimage/pull/33/checks"
+  },
+  "interventions": [
+    {
+      "kind": "owner_design_source_location",
+      "duration_seconds": null
+    },
+    {
+      "kind": "changed_ssh_address_recovered_by_known_host_key",
+      "duration_seconds": null
+    },
+    {
+      "kind": "owner_requested_measurement_and_github_visibility",
+      "duration_seconds": null
+    },
+    {
+      "kind": "legacy_github_cli_pr_edit_recovered_via_rest",
+      "duration_seconds": null,
+      "scope": "PR metadata only; source push had succeeded"
+    }
+  ],
+  "limitations": [
+    "This report describes source/backlog preparation and local verification, not 100 live coding agents or a contest win.",
+    "The production client remains the foundation; the remote UI prototype is a design reference and was not copied or deployed.",
+    "Original full preparation timing and provider billing are unknown.",
+    "Rule edge decisions, approved media, native configuration and the owner-created Firebase project remain explicit gates.",
+    "The code/issue preparation and its supporting PR are excluded from accepted game-feature delivery counts."
+  ],
+  "local_validation_attempts": [
+    {
+      "run_id": "9a468273-6308-4f26-8d1b-edca40c212ae",
+      "input_commit": "26c77dba11f22731ed2feac8724dfa4545ff3c4e",
+      "status": "passed",
+      "started_at_utc": "2026-11-10T22:55:16.355Z",
+      "finished_at_utc": "2026-11-10T22:55:55.225Z",
+      "duration_seconds": 38.870287,
+      "source_unchanged": true,
+      "private_receipt_sha256": "cc5c28fc74fddc9dbc17360d487b8ea8f5347ebcc0050c46e8f972975ba4f32e"
+    },
+    {
+      "run_id": "eb2ca775-1f01-45b7-8ba4-8815d3cabfe4",
+      "input_commit": "ed61f328de6a1f0b31c7f36222a959d9c4d6e06a",
+      "status": "passed",
+      "started_at_utc": "2026-11-10T23:03:34.051Z",
+      "finished_at_utc": "2026-11-10T23:04:12.197Z",
+      "duration_seconds": 38.146396,
+      "source_unchanged": true,
+      "private_receipt_sha256": "360750696de50313b0e5a1913c36d5e99c6bb24ca07f5110bf6c3edb9b90a00c"
+    }
+  ],
+  "prior_free_plan_measurement": {
+    "started_at_utc": "2026-11-10T22:57:32.700673+00:00",
+    "finished_at_utc": "2026-11-10T22:57:32.850899+00:00",
+    "duration_seconds": 0.150205,
+    "exit_code": 0,
+    "tasks": [
+      "A001",
+      "A004",
+      "A026"
+    ],
+    "maximum_active_agents": 3,
+    "live_execution_enabled": false,
+    "readiness": "local plan only; open-issue, budget and provider admission still apply"
+  }
+}

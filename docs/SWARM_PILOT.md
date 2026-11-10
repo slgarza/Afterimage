@@ -1,5 +1,10 @@
 # Swarm pilot
 
+The new [A001-A100 backlog](PILOT100_BACKLOG.md) follows the retrieved complete
+design pack and starts with a bounded A001/A004/A026 candidate cohort. The earlier
+pilot history and cumulative budget below remain intact; new task creation does
+not authorize another paid run.
+
 ## Why not 100 agents now
 
 A swarm on an empty repository produces overlapping scaffolds and fake velocity. The first run is a 10-agent pilot over independently verifiable work. It establishes real throughput, conflict, test, and merge metrics before scaling.

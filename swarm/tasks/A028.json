@@ -1,0 +1,38 @@
+{
+  "id": "A028",
+  "title": "Build Launch and the single-Play Home navigation",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md and the exact referenced imported design sections before editing. RULES-SPEC-v1.md is canonical for production mechanics: six-node Repair/Sabotage tracks, one-person crew votes, Route/Gate operations, deterministic powers and silent spectators. SCREEN-FLOW prototype 5/5 scores and hardcoded transitions are UX references only. Preserve historical T01–T10 APIs/tests; implement the new view version in new game-v1 modules instead of silently changing legacy five-mark boards or command parsers. Use black/charcoal/neutral-frost chrome and full-colour approved expressive content through semantic asset keys. Modal-first means the complete game background is uniformly blur/dim/desaturated and inert; the fixed platform banner dock remains mounted outside that game viewport. No visible accounts/login, telemetry, credentials, live Firebase, ad SDK or unreviewed asset downloads. Keep local presentation distinct from authority: clients display server/solo-engine phases and deadlines, never compute secret outcomes, choose timeout targets, advance multiplayer on a local clock or reveal another alignment. Use injected semantic media/ad/purchase ports; no direct SDK playback or billing calls from UI. Edit only ownership, use original fixtures, run scoped tests/lint/typecheck and npm run check. DOM tests use jsdom, explicit afterEach(cleanup), Vitest and current Testing Library. Report results and contract changes; do not commit, push, open PRs, deploy or spend on providers. Implement Launch city-signal introduction and Home with nearly-black radial depth, centered approved abstract logo, a Solo/Multiplayer segmented selection and one Play button. Home has no city illustration, dashboard cards, currencies or competing play CTAs. Glass bottom navigation selects Home, How to Play, Achievements or Settings and sits above the persistent banner reserve. Selected mode determines destination; return preserves mode. Emit semantic tap/navigation events through an injected port and wait for user gesture before any web audio. Use actual approved assets or an explicitly unavailable asset state; do not recreate a logo or ship unreviewed art.",
+  "ownership": [
+    "apps/client/src/features/game-v1/home/index.tsx",
+    "apps/client/src/features/game-v1/home/home.test.tsx"
+  ],
+  "dependsOn": [
+    "A026"
+  ],
+  "acceptance": [
+    "Launch enters onboarding/Home without login, account or paywall; Home exposes one Play action governed by the selected mode.",
+    "Solo and Multiplayer targets are unambiguous and bottom navigation preserves selection/history without duplicate Home CTAs.",
+    "Home follows neutral-frost composition and safe-area/banner geometry, with accessible selection beyond colour alone.",
+    "Navigation emits semantic events once per explicit action; no autoplay or direct media SDK calls occur."
+  ],
+  "status": "blocked",
+  "category": "client-ui-v1",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md"
+  ],
+  "screenIds": [
+    "S01",
+    "S04"
+  ],
+  "designSections": [
+    "SCREEN-FLOW: 1. Launch / city signal, 3. Home; VISUAL-SYSTEM: Patrón Home aprobado"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 61,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/61"
+}

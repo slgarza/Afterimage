@@ -1,0 +1,35 @@
+{
+  "id": "A084",
+  "title": "Add opt-in native haptic feedback through the platform adapter",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Implement the injected native HapticsPort using the reviewed Capacitor adapter supplied by native bootstrap. Use light feedback for selection/menu actions, medium for vote lock/Crew confirmation, and heavy feedback only for resolution/match end with explicit opt-in. Never vibrate continuously for a timer. Respect independent preference changes, platform support and background state. Retain the no-op port for web or unsupported platforms. UI must not call the native SDK directly, and no app identifiers or credential values belong in source.",
+  "ownership": [
+    "apps/client/src/media/native-haptics.ts",
+    "apps/client/src/media/native-haptics.test.ts"
+  ],
+  "dependsOn": [
+    "A082",
+    "A085",
+    "A095"
+  ],
+  "acceptance": [
+    "Each semantic haptic event maps to the source intensity; unsupported platforms safely do nothing.",
+    "Disabling Haptics suppresses all output, and heavy feedback requires explicit opt-in.",
+    "Timers and repeated render/revision delivery cannot produce continuous or duplicate vibration.",
+    "Injected platform tests cover failure, preference changes and teardown without a device or production service."
+  ],
+  "status": "blocked",
+  "category": "platform",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/AUDIO-SPEC-v0.md#haptics"
+  ],
+  "blockedBy": [
+    "D-NATIVE-APP-CONFIG"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748",
+  "issue": 123,
+  "issueUrl": "https://github.com/slgarza/Afterimage/issues/123"
+}

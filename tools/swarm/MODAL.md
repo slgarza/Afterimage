@@ -126,6 +126,11 @@ Node 24.6.0, npm 11.16.0, Codex CLI 0.166.0 and Git 2.39.5.
 At this verification point, model execution remained blocked on configuring
 `afterimage-openai`. No model-written change or merged PR is claimed by S01.
 
+Coordination note for P09 (root/CI ownership): the existing GitHub workflow runs
+the JavaScript workspace checks only. Add the Python regression command to CI
+as that ticket's scoped follow-up; S01 runs those tests locally and does not
+silently edit the workflow.
+
 References: [Codex automation](https://learn.chatgpt.com/docs/non-interactive-mode),
 [Modal Sandboxes](https://modal.com/docs/guide/sandboxes),
 [Sandbox resources](https://modal.com/docs/guide/sandbox-resources).

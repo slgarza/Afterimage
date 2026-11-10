@@ -1,0 +1,29 @@
+{
+  "id": "A006",
+  "title": "Assign exact roles and initial private Ghost Channel knowledge",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. Implement assignRolesV1 from the Rules v1 table:5→3Archivists/1Static operative/1Null;6→4/1/1;7→4/2/1;8→5/2/1;9→5/3/1;10→6/3/1. Use injected private seeded RNG and return explicit next RNG. Static operatives initially know only other Static operatives; they do not receive The Null. Archivists and The Null initially know no allies. Keep knowledge separate from complete authority assignments. Never invent extra role abilities, reveal by seat/avatar/timing or include roles in public events.",
+  "ownership": [
+    "packages/engine/src/v1/roles.ts",
+    "packages/engine/tests/v1/roles.test.ts"
+  ],
+  "dependsOn": [
+    "A001"
+  ],
+  "acceptance": [
+    "Every supported table size receives the exact canonical counts with exactly one The Null and one role per unique member.",
+    "Initial knowledge fixtures prove that an operative sees operative allies, while no other role or operative identifies The Null.",
+    "Repeated seeded setup is deterministic, leaves inputs unchanged and rejects impossible roster sizes/duplicate identities atomically.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "blocked",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "A033",
+  "title": "Present the authoritative match-entry cinematic without advancing the game",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md and the exact referenced imported design sections before editing. RULES-SPEC-v1.md is canonical for production mechanics: six-node Repair/Sabotage tracks, one-person crew votes, Route/Gate operations, deterministic powers and silent spectators. SCREEN-FLOW prototype 5/5 scores and hardcoded transitions are UX references only. Preserve historical T01–T10 APIs/tests; implement the new view version in new game-v1 modules instead of silently changing legacy five-mark boards or command parsers. Use black/charcoal/neutral-frost chrome and full-colour approved expressive content through semantic asset keys. Modal-first means the complete game background is uniformly blur/dim/desaturated and inert; the fixed platform banner dock remains mounted outside that game viewport. No visible accounts/login, telemetry, credentials, live Firebase, ad SDK or unreviewed asset downloads. Keep local presentation distinct from authority: clients display server/solo-engine phases and deadlines, never compute secret outcomes, choose timeout targets, advance multiplayer on a local clock or reveal another alignment. Use injected semantic media/ad/purchase ports; no direct SDK playback or billing calls from UI. Edit only ownership, use original fixtures, run scoped tests/lint/typecheck and npm run check. DOM tests use jsdom, explicit afterEach(cleanup), Vitest and current Testing Library. Report results and contract changes; do not commit, push, open PRs, deploy or spend on providers. Implement the required brief two-second transition between Solo setup/filled lobby and private Role Reveal: fade the previous scene, show City signal acquired / Entering the blackout with a restrained signal loader, and emit semantic crossfade/stinger requests. Keep the banner dock mounted and stable. Presentation waits for the appropriate local-engine or server start acknowledgment and cannot create match authority; an animation completing before acknowledgment remains waiting. Reduced Motion preserves the clear mode boundary without flashing/shake. Dispose stale transitions on navigation.",
+  "ownership": [
+    "apps/client/src/features/game-v1/match-entry/index.tsx",
+    "apps/client/src/features/game-v1/match-entry/match-entry.test.tsx"
+  ],
+  "dependsOn": [
+    "A026"
+  ],
+  "acceptance": [
+    "The player sees an unmistakable setup-to-gameplay handoff and enters reveal only after start acknowledgment.",
+    "Transition semantics request the specified music-bed crossfade/stinger through the injected port exactly once.",
+    "Persistent dock and safe viewport do not blink, remount or reflow during scene fades.",
+    "Reduced Motion, slow/failed acknowledgment, cancellation and repeated start signals are tested with controlled clocks."
+  ],
+  "status": "blocked",
+  "category": "client-ui-v1",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/AUDIO-SPEC-v0.md",
+    "docs/design/MONETIZATION-SPEC-v0.md"
+  ],
+  "screenIds": [
+    "S11"
+  ],
+  "designSections": [
+    "SCREEN-FLOW: Match-entry transition (required)"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

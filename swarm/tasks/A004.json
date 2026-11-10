@@ -1,0 +1,27 @@
+{
+  "id": "A004",
+  "title": "Encode the six canonical incident matrices and semantic option keys",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. Create the exact I01–I06 catalog from Rules v1§5, retaining all six incident names, their three named Routes and Gates, the specified safe/corrupt pair and Anomaly effect descriptor. Each of the36 options has its canonical semantic icon key, label and stable option ID; engine contains no image paths or binary art. Export typed catalog access and strict validation for3×3 matrices: exactly one Repair pair, one Sabotage pair and seven Anomaly pairs. Do not author substitute incidents, add random outcomes or copy prototype three-outcome Transmission content. Catalog version is explicit and frozen to the source manifest.",
+  "ownership": [
+    "packages/engine/src/v1/incidents.ts",
+    "packages/engine/tests/v1/incidents.test.ts"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "I01 Core Bypass+Ground Bridge yields Repair, Reservoir+Phase Lock yields Sabotage and North Relay+Ground Bridge yields Anomaly.",
+    "All54 incident pair combinations match the six published matrices exactly and every incident has3 Routes,3 Gates and unique semantic keys.",
+    "Catalog entries preserve original named labels and Anomaly descriptors without importing assets, UI code or private server state.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "ready",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

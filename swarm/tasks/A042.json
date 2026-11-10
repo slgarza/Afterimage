@@ -1,0 +1,40 @@
+{
+  "id": "A042",
+  "title": "Apply the silent-spectator presentation immediately after Disconnect",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md and the exact referenced imported design sections before editing. RULES-SPEC-v1.md is canonical for production mechanics: six-node Repair/Sabotage tracks, one-person crew votes, Route/Gate operations, deterministic powers and silent spectators. SCREEN-FLOW prototype 5/5 scores and hardcoded transitions are UX references only. Preserve historical T01–T10 APIs/tests; implement the new view version in new game-v1 modules instead of silently changing legacy five-mark boards or command parsers. Use black/charcoal/neutral-frost chrome and full-colour approved expressive content through semantic asset keys. Modal-first means the complete game background is uniformly blur/dim/desaturated and inert; the fixed platform banner dock remains mounted outside that game viewport. No visible accounts/login, telemetry, credentials, live Firebase, ad SDK or unreviewed asset downloads. Keep local presentation distinct from authority: clients display server/solo-engine phases and deadlines, never compute secret outcomes, choose timeout targets, advance multiplayer on a local clock or reveal another alignment. Use injected semantic media/ad/purchase ports; no direct SDK playback or billing calls from UI. Edit only ownership, use original fixtures, run scoped tests/lint/typecheck and npm run check. DOM tests use jsdom, explicit afterEach(cleanup), Vitest and current Testing Library. Report results and contract changes; do not commit, push, open PRs, deploy or spend on providers. Implement the authoritative active-to-spectator UI transition: affected public signal fractures/leaves active cards, then a spectator may watch city/map and final reveal but cannot vote, enter Crew, use chat/reactions, act, view private diagnostics or reveal their own role. Conceal/dispose existing private panels and pending controls immediately on status change. Preserve network-disconnect recovery as a separate condition; it must not create permanent game Disconnect. If The Null is disconnected, render the authority terminal Archivist result rather than infer a target alignment locally. Declare this presentation module readonly props locally from the documented fields and accept injected callbacks/asset lookups; do not import an unfinished server implementation. A035/A048 adapt canonical production DTOs and parsed intents into these props. The canonical producer contracts are A025 observeMatchV1/getLegalActionsV1 and A056 versioned recipient DTOs (A067 projects multiplayer views); public/private/legal fields must originate there, never raw hidden MatchStateV1. A004 owns exact I01–I06 option labels and all36 semantic icon keys.",
+  "ownership": [
+    "apps/client/src/features/game-v1/spectator/index.tsx",
+    "apps/client/src/features/game-v1/spectator/spectator.test.tsx"
+  ],
+  "dependsOn": [
+    "A026"
+  ],
+  "acceptance": [
+    "Spectator conversion instantly removes every action/reveal/diagnostic path including keyboard shortcuts, stale dialogs and queued callbacks.",
+    "City/map and eventual full final reveal remain viewable while chat/reactions and active Crew/vote membership stay disabled.",
+    "Public fracture animation/status never reveals target alignment during an ongoing match.",
+    "Network offline/reconnect cannot silently create permanent spectator status or restore old action authority."
+  ],
+  "status": "blocked",
+  "category": "client-ui-v1",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/MOMENT-SPEC-v0.md",
+    "swarm/tasks/A004.json",
+    "swarm/tasks/A025.json",
+    "swarm/tasks/A067.json",
+    "swarm/tasks/A056.json"
+  ],
+  "screenIds": [
+    "S19"
+  ],
+  "designSections": [
+    "SCREEN-FLOW: 10. Resolution / Anomaly; RULES-SPEC-v1: Disconnect / spectator"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

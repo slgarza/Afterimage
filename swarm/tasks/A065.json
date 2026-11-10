@@ -1,0 +1,41 @@
+{
+  "id": "A065",
+  "title": "Advance expired multiplayer phases once with seeded deadline completion",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement the host/server-controlled phase advance handler and trusted scheduler port. A public request-advance requires the verified host; internal authority callbacks use a separate trusted scheduler capability,never a body-supplied server actor. Check exact match/phase generation,server deadline and expected revision under the same transaction. Invoke completeDeadlineV1 and the canonical reducer to synthesize valid seeded missing crew votes,Route/Gate choices and power targets with timeout_vote/timeout_operation/target audit,then advance once. Persist checkpoint,events,receipt and publication outbox atomically; duplicate/late jobs or competing host requests cannot consume RNG/apply effects twice. Do not add Continue UI,client clock authority,provider scheduler configuration or any global pause. Store private timeout choices internally and project only allowed public evidence.",
+  "ownership": [
+    "functions/src/handlers/advance-deadline.ts",
+    "functions/tests/handlers/advance-deadline.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A003",
+    "A014",
+    "A015",
+    "A024",
+    "A051",
+    "A053",
+    "A054",
+    "A055",
+    "A058",
+    "A059",
+    "A060"
+  ],
+  "acceptance": [
+    "Only verified host requests or trusted internal authority callbacks can trigger a phase transition after the engine-validated deadline.",
+    "Missing eligible votes,operator options and target selections are completed deterministically from the committed seed/action sequence and audit reason.",
+    "Duplicate jobs,stale phases and racing requests yield one transition with stable checkpoint/RNG/event/receipt results.",
+    "Tests cover early/late callbacks,host spoofing,backgrounded clients and timeout private data absent from public responses."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/GDD-v0.md#autoridad-y-timer-online",
+    "docs/design/SCREEN-FLOW-v0.md#5a-create-lobby",
+    "docs/design/RULES-SPEC-v1.md#deadline-rule",
+    "docs/design/RULES-SPEC-v1.md#disconnect--spectator",
+    "docs/design/SWARM-BRIEF-v0.md#product-non-negotiables"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

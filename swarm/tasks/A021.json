@@ -1,0 +1,35 @@
+{
+  "id": "A021",
+  "title": "Resolve once-per-match Containment with Null victory or permanent Disconnect",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. At R5 make the once-per-game Containment protocol available to the approved active electorate. D-CONTAINMENT must freeze target eligibility, threshold/ties, Jammed-voter interaction, trigger/deadline and retry/spent behavior not specified by the source. Use one-target votes, authority-only resolution and the canonical Disconnect helper: targeting The Null wins immediately for Archivists; otherwise the chosen target becomes a permanent silent spectator and the protocol is spent, subject to the approved Safeguard interaction. Do not substitute a Witness game or invent a majority/tie rule.",
+  "ownership": [
+    "packages/engine/src/v1/containment.ts",
+    "packages/engine/tests/v1/containment.test.ts"
+  ],
+  "dependsOn": [
+    "A008",
+    "A016",
+    "A019",
+    "A023"
+  ],
+  "acceptance": [
+    "Approved Containment vote fixtures choose exactly one lawful target once and record protocol consumption atomically.",
+    "A lawful unprotected Null target yields immediate ARCHIVISTS_WIN; an ordinary target loses all live-action/diagnostic authority.",
+    "Invalid/replayed/stale votes and protection/tie/deadline edge cases follow the explicit decision record with no hidden role leaks.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "blocked",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json",
+    "docs/design/MOMENT-SPEC-v0.md"
+  ],
+  "blockedBy": [
+    "D-CONTAINMENT"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

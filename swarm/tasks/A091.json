@@ -1,0 +1,34 @@
+{
+  "id": "A091",
+  "title": "Coordinate twelve City Moments with bounded motion and semantic feedback",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Implement a complete typed twelve-entry CityMoment registry and an injected-clock presentation coordinator for rise-bloom, scan-sweep, shield-expand, descend-impact, fog-roll, implosion and signal-cut. Ordinary nodes last 1.0–1.6 seconds, major powers last 1.8–2.6 seconds, and terminal nodes lead directly into Match End. Drive presentation from semantic engine events rather than score inference. Deduplicate revisions, retain persistent board-effect references and emit approved audio/haptic intents. Presentation may briefly block game input but cannot pause authority deadlines or request advancement. Reduce Motion preserves icon, title, text and audio through safe opacity/static feedback.",
+  "ownership": [
+    "apps/client/src/media/city-moment-registry.ts",
+    "apps/client/src/media/city-moment-player.ts",
+    "apps/client/src/media/city-moment-player.test.ts"
+  ],
+  "dependsOn": [
+    "A016",
+    "A024",
+    "A079",
+    "A082",
+    "A085"
+  ],
+  "acceptance": [
+    "All six Repair and six Sabotage nodes resolve to the exact source event title, asset key, animation preset, audio cue and board consequence.",
+    "Durations remain within the source ranges; terminal moments continue without a Continue button or score-only feedback.",
+    "Duplicate or reordered events cannot replay a moment or mutate authoritative state.",
+    "Reduce Motion, missing approved media and disposal remain readable/safe and release input locks promptly."
+  ],
+  "status": "blocked",
+  "category": "media",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/MOMENT-SPEC-v0.md"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

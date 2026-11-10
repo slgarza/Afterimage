@@ -1,0 +1,31 @@
+{
+  "id": "A085",
+  "title": "Persist accessibility, media and language preferences without creating an account",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Define a versioned, allowlisted local store for Music, SFX, Haptics, System/Dark/Light appearance, System/es/en language and Reduce Motion. Provide matching English/Spanish copy keys for the new UI ports, with deterministic fallback and validated interpolation. Keep alias/avatar hints separate from authenticated identity; preferences must contain no roles, match snapshots, receipts or chat. Recover corrupt storage safely and distinguish explicit user choices from system defaults. Translation must preserve canonical IDs, counts, action legality and six-node win conditions.",
+  "ownership": [
+    "apps/client/src/preferences/store.ts",
+    "apps/client/src/preferences/store.test.ts",
+    "apps/client/src/i18n/en.ts",
+    "apps/client/src/i18n/es.ts",
+    "apps/client/src/i18n/translate.ts",
+    "apps/client/src/i18n/translate.test.ts"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Every specified Settings option persists locally, and valid user overrides take precedence over system defaults.",
+    "Corrupt or unavailable storage returns safe defaults without throwing or exposing submitted data.",
+    "English and Spanish keys have parity; interpolation cannot insert markup or alter game/protocol identifiers.",
+    "Changes to language, appearance, Music/SFX/Haptics or Reduce Motion notify subscribers; disposal removes listeners."
+  ],
+  "status": "ready",
+  "category": "preferences",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/SCREEN-FLOW-v0.md#support-screens-how-to-play-achievements-settings"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

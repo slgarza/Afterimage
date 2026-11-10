@@ -1,0 +1,42 @@
+{
+  "id": "A070",
+  "title": "Expose configured lobby directory and membership callable adapters",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. After G4, expose bounded emulator callable adapters for create/list/join/read/update lobby and temporary presence. Authenticate through A069,decode exact A054 lobby intent,inject repository/clock/passcode/code sources,and return only A057 public views/fixed failures. read-lobby verifies current membership independently; directory visibility is not authentication. Host-only settings/kick/timer rules remain pre-match and alias/avatar stay presentation. Preserve empty-directory and hidden-room/code paths without leaking passcode/hash,role or private sessions. This task ships lobby operations independently of full match projection A067; gameplay routes belong A075. Explicit service index ownership wires only reviewed callables. Firebase gate G4 is externally blocked by D-FIREBASE-PROJECT: Sergio must create/provide the project before any Firebase worker, SDK/configuration or provider adapter is implemented. Do not create/configure a project, discover credentials or make live calls. Once that gate is satisfied, this ticket still uses demo/loopback emulators and injected clients only; no project IDs, app config, tokens or service accounts are committed.",
+  "ownership": [
+    "functions/src/callables/lobby.ts",
+    "functions/src/handlers/read-lobby.ts",
+    "functions/tests/callables/lobby.test.ts",
+    "functions/tests/handlers/read-lobby.test.ts",
+    "functions/src/index.ts"
+  ],
+  "dependsOn": [
+    "A051",
+    "A052",
+    "A057",
+    "A061",
+    "A062",
+    "A063",
+    "A064",
+    "A068",
+    "A069"
+  ],
+  "acceptance": [
+    "Configured create,directory/code/passcode join,profile/readiness/settings and member reads work through real emulator transport into pure handlers.",
+    "Missing identity,oversized/unknown payloads,private-room guessing and unauthorized host changes cannot mutate state or expose secrets.",
+    "The lobby path does not depend on complete game reducers/private diagnostics and never reveals factions before start.",
+    "Integration tests cover visible/invisible rooms,duplicate aliases/configured timer and cleanup while preserving existing exports and never deploying."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SCREEN-FLOW-v0.md#5-multiplayer-entry",
+    "docs/design/SCREEN-FLOW-v0.md#5a-create-lobby",
+    "docs/design/SCREEN-FLOW-v0.md#6-lobby-room",
+    "docs/design/SWARM-BRIEF-v0.md#workstream-gates"
+  ],
+  "blockedBy": [
+    "D-FIREBASE-PROJECT"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

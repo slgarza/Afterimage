@@ -1,0 +1,31 @@
+{
+  "id": "A009",
+  "title": "Record direct one-person Repair Crew votes under authority checks",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. Export castCrewVoteV1 for one authenticated active non-Jammed actor selecting exactly one eligible candidate in VOTE_OPEN with a current revision. Source Screen Flow locks the local vote after tap: reject a second changed vote unless an approved future contract explicitly revises that behavior. All effects are pure; service handles request idempotency and authenticated identity. Do not nominate a pair, accept boolean approval or let Shift Lead appoint Crew. Retain authoritative vote data for S2 sealed/public projection without putting private targets into generic events.",
+  "ownership": [
+    "packages/engine/src/v1/votes.ts",
+    "packages/engine/tests/v1/votes.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A008"
+  ],
+  "acceptance": [
+    "Each eligible actor can cast one canonical candidate vote; accepted actions advance revision once without changing other votes.",
+    "Wrong phase/revision, absent or Jammed/spectator actor and ineligible target are rejected without state/RNG mutation.",
+    "The reducer emits semantic vote activity without bypassing sealed-vote privacy or creating an extra Cast/Continue gate.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "blocked",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json",
+    "docs/design/SCREEN-FLOW-v0.md"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

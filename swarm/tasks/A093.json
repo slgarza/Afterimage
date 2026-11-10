@@ -1,0 +1,31 @@
+{
+  "id": "A093",
+  "title": "Verify canonical rules with independent exhaustive engine fixtures",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Build independent fixtures from frozen Rules v1 rather than using production outcome/tally helpers as test oracles. Exhaust all 54 incident pairs and role tables for 5–10 players. Cover ties, cooldown, Jam, seeded timeouts, S2 sealed votes, S4/S5 silent spectators and Null victory, Safeguard, approved Containment and R6/S6 terminal states. Include frozen-input immutability and complete fixed-transcript replay checks. Represent genuine design gaps as explicit unsupported/blocker cases instead of filling them with guessed expectations.",
+  "ownership": [
+    "packages/engine/tests/acceptance/rules-v1.acceptance.test.ts",
+    "packages/engine/tests/acceptance/fixtures/v1-transcripts.ts"
+  ],
+  "dependsOn": [
+    "A003",
+    "A024",
+    "A025"
+  ],
+  "acceptance": [
+    "All six incidents and nine pairs per incident agree with independent safe/corrupt/Anomaly tables, without random outcome selection.",
+    "Acceptance covers all nine canonical examples plus roster, eligibility, privacy and replay boundaries.",
+    "The test oracle never calls the production resolver to derive its expected result.",
+    "Malformed, stale and post-terminal scenarios preserve authority and expose only safe errors; all workspace checks pass."
+  ],
+  "status": "blocked",
+  "category": "acceptance",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/RULES-SPEC-v1.md#7-engine-acceptance-examples"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": false,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

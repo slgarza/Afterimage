@@ -1,0 +1,35 @@
+{
+  "id": "A097",
+  "title": "Verify the complete offline Solo journey with real engine outcomes",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Drive Launch, Alias, Home and Solo setup through match entry, hold-to-reveal, direct voting, Route/Gate operation, City Moments and Match End using one human and fair bots through the actual SoloAuthority. Use an approved fixed transcript/seed and clock control at the authority boundary, not component timers or the prototype outcome script. Verify six-node victory, Again/Back to Setup/Exit navigation, privacy, settings and absence of external requests. The game loop has no Cast/Continue gate, and browser presentation cannot act as authority.",
+  "ownership": [
+    "e2e/solo-match.spec.ts",
+    "e2e/fixtures/solo-transcript.ts"
+  ],
+  "dependsOn": [
+    "A048",
+    "A050",
+    "A077",
+    "A091",
+    "A093",
+    "A094"
+  ],
+  "acceptance": [
+    "A complete legal Solo match reaches the approved Match End with all required screens and automatic phase pacing.",
+    "Operation-pair results and the winner match an independent canonical fixture rather than a hardcoded demo script.",
+    "Bot decisions use only legal observations, and human private content does not persist across sessions.",
+    "Browser failures clean up ports/timers, and no Firebase, ad, store or other service connection is attempted."
+  ],
+  "status": "blocked",
+  "category": "acceptance",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/RULES-SPEC-v1.md"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": false,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

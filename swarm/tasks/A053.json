@@ -1,0 +1,29 @@
+{
+  "id": "A053",
+  "title": "Bind an invisible verified session to a player independently of alias",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement the pure verified-session boundary from an injected trusted verifier. Temporary principal/session ID and session generation identify a player; repeated aliases and avatar changes never authenticate or merge identities. A copied room code/session hint/alias/avatar cannot claim another player. Validate verifier output into a detached canonical actor and reject malformed, expired or mismatched session results with fixed failures. Provider token verification belongs later to A069 and is G4-gated; this task uses synthetic trusted verifier results only. Do not add account profiles, login UI, JWT formats or credential persistence.",
+  "ownership": [
+    "functions/src/auth/actor.ts",
+    "functions/tests/auth/actor.test.ts"
+  ],
+  "dependsOn": [
+    "A051",
+    "A052"
+  ],
+  "acceptance": [
+    "Two participants with the same alias remain distinct verified actors and can use different configurable avatar keys.",
+    "Untrusted body actor IDs, copied aliases/room hints and a stale session generation cannot authorize another player.",
+    "Malformed verifier data and exceptions return fixed privacy-safe failures without tokens or raw claims.",
+    "Tests cover identity changes and session revalidation with no provider SDK, browser storage or network calls."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md#product-non-negotiables",
+    "docs/design/SCREEN-FLOW-v0.md#2-alias--avatar",
+    "docs/design/GDD-v0.md#plataformas-y-modos"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "A062",
+  "title": "Join by code or an opt-in lobby directory without bypassing passcodes",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement bounded opt-in lobby listing and authenticated join-by-code using the approved directory projector,passcode verifier and atomic roster updates. Directory discovery never authenticates a member; invisible rooms are joinable only by an authorized code/passcode flow and never listed. Bind a participant to verified session identity,not alias; duplicate aliases are valid and avatar keys distinguish them. Enforce configured capacity5-10,room-open status and idempotency; concurrent final-slot joins cannot overfill. An existing disconnected network session uses A064 revalidation rather than a second player entry. Do not expose passcode existence or room private state beyond the approved uniform denial policy.",
+  "ownership": [
+    "functions/src/handlers/join-room.ts",
+    "functions/src/handlers/list-lobbies.ts",
+    "functions/tests/handlers/join-room.test.ts",
+    "functions/tests/handlers/list-lobbies.test.ts"
+  ],
+  "dependsOn": [
+    "A051",
+    "A053",
+    "A054",
+    "A055",
+    "A057",
+    "A058",
+    "A059",
+    "A061"
+  ],
+  "acceptance": [
+    "Visible open rooms alone appear in bounded directory pages,with no passcode/hash,role or private session data.",
+    "Valid code/passcode joins create one distinct verified seat while allowing repeated aliases/avatars.",
+    "Concurrent final-slot joins respect configured capacity and retries do not consume another seat.",
+    "Tests cover invisible rooms,wrong/missing passcodes,closed/full rooms,uniform denial,listing pagination and detached public replies."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SCREEN-FLOW-v0.md#5-multiplayer-entry",
+    "docs/design/SCREEN-FLOW-v0.md#5a-create-lobby",
+    "docs/design/SCREEN-FLOW-v0.md#6-lobby-room",
+    "docs/design/ROADMAP.md#alcance-mvp"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

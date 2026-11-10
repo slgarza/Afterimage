@@ -1,0 +1,37 @@
+{
+  "id": "A061",
+  "title": "Create configured lobbies with private passcodes and unique room codes",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement provider-free lobby creation from verified temporary actor plus the approved create request. Validate name,5-10 seats,timer30/60/90/120,bot-fill/difficulty,opt-in visibility,alias/avatar and optional passcode. Allocate a canonical room code using an injected trusted code source and atomic create-if-absent with bounded collision retries. Preserve duplicate aliases and add the creator/host once. Store only salted password-hash/verifier material through the reviewed server-side hashing seam; never store/return/log the plaintext passcode or expose its hash in recipient/directory DTOs. Configuration remains a lobby operation; no seed,role or hidden outcome is accepted from clients. Use only memory/injected ports while Firebase is gated.",
+  "ownership": [
+    "functions/src/handlers/create-room.ts",
+    "functions/src/lobby/passcodes.ts",
+    "functions/tests/handlers/create-room.test.ts",
+    "functions/tests/lobby/passcodes.test.ts"
+  ],
+  "dependsOn": [
+    "A051",
+    "A053",
+    "A054",
+    "A055",
+    "A057",
+    "A058",
+    "A059"
+  ],
+  "acceptance": [
+    "Successful creation persists exact validated host configuration,creator seat and one unique room code with a public safe lobby response.",
+    "Concurrent code collisions/retries cannot overwrite a room or duplicate creator membership.",
+    "Invalid seats/timer/settings/avatar/passcode and repository/hash failures create no partial room.",
+    "Tests verify hashing/verifier isolation,duplicate aliases,visibility and omission of passcode/hash/hidden state from replies."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SCREEN-FLOW-v0.md#5a-create-lobby",
+    "docs/design/SCREEN-FLOW-v0.md#2-alias--avatar",
+    "docs/design/GDD-v0.md#autoridad-y-timer-online",
+    "docs/design/SWARM-BRIEF-v0.md#product-non-negotiables"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

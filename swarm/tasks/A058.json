@@ -1,0 +1,32 @@
+{
+  "id": "A058",
+  "title": "Provide atomic versioned room transactions and a memory repository",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Define the approved versioned StoredRoom lobby/match transaction port,including internal session bindings,immutable settings,match checkpoint,event sequence,idempotency receipts and recipient-publication outbox. Implement a deterministic in-memory adapter with create-if-absent and atomic compare/validate/write semantics. Concurrent same-room operations serialize/conflict; room state,accepted event,request receipt and outbox revision commit together. Reads/results are detached and failed callbacks leave every component unchanged. Different rooms must not share mutable data. The trusted clock/seed/verifier are injected service ports; no Firestore,filesystem persistence,credentials or process-global singleton store.",
+  "ownership": [
+    "functions/src/storage/room-repository.ts",
+    "functions/src/storage/memory-room-repository.ts",
+    "functions/tests/storage/room-repository.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A051",
+    "A052"
+  ],
+  "acceptance": [
+    "Room mutations and associated request/event/projection metadata commit atomically or not at all.",
+    "Concurrent final-slot joins,starts/actions and duplicate create requests cannot overwrite state or lose revisions.",
+    "Failed callbacks preserve previous state and outbox; returned containers cannot mutate storage.",
+    "The contract and memory adapter run without any Firebase project/SDK and expose no provider document objects to clients."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md#workstream-gates",
+    "docs/design/GDD-v0.md#autoridad-y-timer-online",
+    "docs/design/RULES-SPEC-v1.md#3-round-state-machine",
+    "docs/ARCHITECTURE.md#authority-boundary"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

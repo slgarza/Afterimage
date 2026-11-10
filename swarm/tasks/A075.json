@@ -1,0 +1,55 @@
+{
+  "id": "A075",
+  "title": "Connect match callables deadline callbacks and recipient publication in emulators",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. After G4, register bounded emulator callable routes for start-match,ordinary match intent and host request-advance around A066/A074/A065 alongside lobby callables. Trusted scheduled deadline callbacks use a separate injected server capability,not a public actor override; do not provision a cloud scheduler. Preserve request identity/revision/phase generation,validate server auth/payloads,and publish A067 views through A073 only from confirmed commits. A lost response or projection failure recovers from the idempotency/outbox state without rerunning an action or timeout. Expose the actual complete path for tap-one-player voting,Route/Gate choices,track powers,automatic City Moment/next-round progression and terminal result/spectator views. The online timer continues while a client menu/background is local. Explicit service index wiring publishes only reviewed routes; no live config/deployment. Firebase gate G4 is externally blocked by D-FIREBASE-PROJECT: Sergio must create/provide the project before any Firebase worker, SDK/configuration or provider adapter is implemented. Do not create/configure a project, discover credentials or make live calls. Once that gate is satisfied, this ticket still uses demo/loopback emulators and injected clients only; no project IDs, app config, tokens or service accounts are committed. When configured multiplayer seats include bots, invoke the approved A076 fair bot policy only through a trusted server capability and its A025 recipient/legal-action observation, never a client-supplied bot actor or hidden full-state policy. Bot actions pass through the same revision/idempotency/deadline transaction path; do not implement another bot policy. Complete the matching browser FirebaseAuthority implementation of the published A056 AuthorityPortV1 rather than stopping at server routes. Use A072 pinned SDKs and the owner-provided runtime initialization/emulator configuration only after G4; no project/app configuration or credentials are tracked. Bind invisible verified session context,create/list/join/read/update calls,canonical submit and revisioned recipient subscriptions to the actual emulator callable/read-model endpoints. Decode every incoming view through A056,invoke A035 lifecycle coordination without duplicating client cache authority,and dispose listeners/pending callbacks on room or identity generation changes. Fail explicitly if capability/configuration is unavailable; never substitute fake online rooms or make Firebase a prerequisite for Solo. Browser tests inject SDK transport/auth/subscription seams and verify endpoint/payload mapping,stale-callback suppression and disposal; emulator integration proves the real UI session port reaches the same authoritative service.",
+  "ownership": [
+    "functions/src/callables/match.ts",
+    "functions/tests/callables/match.test.ts",
+    "functions/tests/acceptance/match-authority.acceptance.test.ts",
+    "functions/src/index.ts",
+    "apps/client/src/runtime/firebase-authority.ts",
+    "apps/client/src/runtime/firebase-authority.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A002",
+    "A003",
+    "A035",
+    "A051",
+    "A052",
+    "A056",
+    "A065",
+    "A066",
+    "A067",
+    "A068",
+    "A069",
+    "A070",
+    "A071",
+    "A072",
+    "A073",
+    "A074",
+    "A076",
+    "A078"
+  ],
+  "acceptance": [
+    "Authenticated emulator clients can create/start the exact Rules v1 match and submit crew votes,operator choices,powers and host-only advance through real transport.",
+    "Server deadline callbacks fill missing eligible actions deterministically and race safely with clients without duplicate revisions/events.",
+    "Each committed transition publishes correct phase/private/spectator/result views; stale retries and projection failures cannot restore revoked data.",
+    "Integration tests cover unauthorized/early/terminal actions,menu/background continuity,lost responses and permanent Disconnect/Null win with bounded emulator cleanup and no live calls.",
+    "The actual browser FirebaseAuthority implements the shared typed port,uses the matching emulator endpoints,strictly decodes recipient views and releases subscriptions on identity/room/dispose; missing live capability leaves Solo usable and never fabricates multiplayer."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md#workstream-gates",
+    "docs/design/RULES-SPEC-v1.md#3-round-state-machine",
+    "docs/design/RULES-SPEC-v1.md#deadline-rule",
+    "docs/design/RULES-SPEC-v1.md#disconnect--spectator",
+    "docs/design/GDD-v0.md#autoridad-y-timer-online"
+  ],
+  "blockedBy": [
+    "D-FIREBASE-PROJECT"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

@@ -6,9 +6,17 @@ An original cross-platform social-deduction game about restoring a collapsing ne
 
 ## Product in one minute
 
-Five to ten players enter a room as either **Archivists**, trying to stabilize shared memories, or **The Static**, infiltrators trying to corrupt them. Every round the table chooses a pair of players to resolve a Transmission. Their choice changes a public stability/corruption board while private roles and incomplete information fuel deduction.
+Five to ten players enter as **Archivists**, **Static operatives** or **The Null**.
+Direct player-card votes select a two-person Repair Crew; complementary private
+Route/Gate diagnostics drive a deterministic incident outcome. Archivists win
+at six Repair or by disconnecting The Null; Static wins at six Sabotage.
+Solo uses fair bots and local authority; multiplayer uses verified server authority.
+These are the implementation targets, not completed gameplay.
 
-See [the GDD](docs/GDD.md), [the architecture](docs/ARCHITECTURE.md), and [the swarm pilot](docs/SWARM_PILOT.md).
+Read the [canonical Rules v1](docs/design/RULES-SPEC-v1.md),
+[screen flow](docs/design/SCREEN-FLOW-v0.md),
+[source reconciliation](docs/DESIGN_RECONCILIATION.md),
+[architecture](docs/ARCHITECTURE.md) and [swarm pilot](docs/SWARM_PILOT.md).
 
 ## Planned stack
 
@@ -75,3 +83,11 @@ swarm-control plan T01 --project /path/to/Afterimage/swarm.toml --base HEAD
 T01–T10 are completed and live execution is disabled. The original local `.swarm/`
 evidence and cumulative budget ledger stay in place. Controller development and
 Python tests belong to the separate repository; this project's CI checks the game.
+
+## Next implementation backlog
+
+[A001-A100](docs/PILOT100_TASKS.md) implement the retrieved full design pack with
+explicit scope, acceptance, dependencies and source hashes. The
+[backlog guide](docs/PILOT100_BACKLOG.md) explains staged execution, concrete edge
+decisions and external delivery gates. Validate with
+`node tools/validate-pilot100.mjs`; live execution remains disabled.

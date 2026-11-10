@@ -1,0 +1,37 @@
+{
+  "id": "A026",
+  "title": "Build neutral-frost shell primitives and a genuinely blocking glass modal",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md and the exact referenced imported design sections before editing. RULES-SPEC-v1.md is canonical for production mechanics: six-node Repair/Sabotage tracks, one-person crew votes, Route/Gate operations, deterministic powers and silent spectators. SCREEN-FLOW prototype 5/5 scores and hardcoded transitions are UX references only. Preserve historical T01–T10 APIs/tests; implement the new view version in new game-v1 modules instead of silently changing legacy five-mark boards or command parsers. Use black/charcoal/neutral-frost chrome and full-colour approved expressive content through semantic asset keys. Modal-first means the complete game background is uniformly blur/dim/desaturated and inert; the fixed platform banner dock remains mounted outside that game viewport. No visible accounts/login, telemetry, credentials, live Firebase, ad SDK or unreviewed asset downloads. Keep local presentation distinct from authority: clients display server/solo-engine phases and deadlines, never compute secret outcomes, choose timeout targets, advance multiplayer on a local clock or reveal another alignment. Use injected semantic media/ad/purchase ports; no direct SDK playback or billing calls from UI. Edit only ownership, use original fixtures, run scoped tests/lint/typecheck and npm run check. DOM tests use jsdom, explicit afterEach(cleanup), Vitest and current Testing Library. Report results and contract changes; do not commit, push, open PRs, deploy or spend on providers. Create v1 tokens matching void #070707, charcoal #1B1B1B, frost #F0F0F0, muted #A6A6A6 and neutral glass/edge. Provide accessible button/stepper/segmented-control and a blocking dialog/sheet host. One overlay locks city, HUD, avatar cards, navigation and background CTA together; trap focus, label the dialog, restore focus and disable hidden background pointer/keyboard activation. A Shell reserves injected adaptive banner height plus safe-area before first paint and positions all game overlays above it. Keep assets/typography behind reviewed registries; no font downloads or changes to legacy theme. Use local module exports; package-barrel wiring remains coordinator-owned.",
+  "ownership": [
+    "packages/ui/src/game-v1/tokens.ts",
+    "packages/ui/src/game-v1/primitives.tsx",
+    "packages/ui/src/game-v1/modal.tsx",
+    "packages/ui/tests/game-v1-modal.test.tsx",
+    "apps/client/src/features/game-v1/shell/index.tsx",
+    "apps/client/src/features/game-v1/shell/shell.test.tsx"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Exact neutral tokens and responsive safe-area layout are defined in new v1 modules without changing existing controls/theme contracts.",
+    "An open blocking dialog uniformly locks every game-background surface for pointer, keyboard and assistive navigation, traps/restores focus and has one clear primary intention.",
+    "Banner reserve is stable before/after load/failure, navigation sits above it, and modal geometry never covers the platform dock or essential targets.",
+    "Reduced Motion/forced-colors and missing backdrop-filter remain legible; DOM tests prove interaction lock rather than relying on screenshots.",
+    "Nested menu/settings/detail navigation keeps one clear active glass action surface rather than competing stacked panels or background CTA focus."
+  ],
+  "status": "ready",
+  "category": "client-ui-v1",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/MONETIZATION-SPEC-v0.md"
+  ],
+  "screenIds": [],
+  "designSections": [
+    "SCREEN-FLOW: modal-first; VISUAL-SYSTEM: Paleta, Capas y glass, Navegación y foco"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": false,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

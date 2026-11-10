@@ -1,0 +1,39 @@
+{
+  "id": "A056",
+  "title": "Decode versioned lobby and match views at the transport boundary",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Define the approved versioned lobby/match recipient DTO types and strict unknown-input decoder from A051/MatchStateV1 public vocabulary. Validate explicit own data fields,canonical identity/name/avatar keys,safe revisions,Repair/Sabotage0-6,canonical phase/deadline,seat references,Route/Gate semantic IDs and allowed public/recipient branches. Lobby views cannot contain factions; match private descriptors belong only to the declared authenticated recipient. Preserve current T02/v0 types rather than silently widening them. Reject unknown fields,extra hidden state,accessors and corrupt relationships with fixed safe failures; this decoder does not authenticate a viewer or calculate legal actions. Publish through the explicitly owned protocol root barrel. Also define the types-only AuthorityPortV1 contract in the explicitly owned protocol module. Freeze its capability/unavailable status, allowed setup/lobby operations, canonical MatchIntentV1 submission and operation receipts, versioned recipient/event subscription, cancellation/generation and dispose semantics from A051. SoloAuthority and FirebaseAuthority implement this same published interface; the type module imports no provider/browser/Node code and does not own rendering or actor/seed/deadline authority. Local bootstrap seed/clock injection remains private to the Solo implementation, outside renderer-facing intent. Compile-time synthetic adapters and published declaration checks prove both sources can implement the contract independently, so A077 need not import a later A035 implementation.",
+  "ownership": [
+    "packages/protocol/src/recipient-view-v1.ts",
+    "packages/protocol/src/recipient-decoder.ts",
+    "packages/protocol/tests/recipient-decoder.test.ts",
+    "packages/protocol/src/index.ts",
+    "packages/protocol/src/authority-port-v1.ts",
+    "packages/protocol/tests/authority-port-v1.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A002",
+    "A051",
+    "A078"
+  ],
+  "acceptance": [
+    "Valid supplied-design lobby,active match,silent spectator and terminal reveal shapes decode into detached readonly-compatible V1 data.",
+    "Malformed versions/revisions/0-6 tracks,invalid identity/phase/semantic keys and extra authority properties are rejected safely.",
+    "No seed,deck,passcode/hash,unapproved ally identity,other-operator choice/diagnostic or sealed vote leaks via accepted data or errors.",
+    "Tests cover all view variants,mutation isolation,host/seat references,accessor failures and baseline v0 compatibility.",
+    "A types-only published AuthorityPortV1 describes canonical submit/subscribe/dispose and explicit capability availability; fake Solo/multiplayer implementations compile without Firebase/browser SDKs or hidden state exposed to rendering."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md#1-table-and-roles",
+    "docs/design/RULES-SPEC-v1.md#3-round-state-machine",
+    "docs/design/RULES-SPEC-v1.md#4-the-deterministic-crew-operation",
+    "docs/design/RULES-SPEC-v1.md#6-track-moments-and-powers",
+    "docs/design/SCREEN-FLOW-v0.md#5a-create-lobby",
+    "docs/design/SCREEN-FLOW-v0.md#11-match-end--afterimage"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "A066",
+  "title": "Start the Rules v1 match atomically from the configured lobby",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement verified host-only start using the exact Rules v1 initializer/role table and configured lobby5-10 seats,timer,ready/bot-fill settings. Invoke createMatchV1 with a trusted injected server seed,approved incident catalog and validated roster; invisible client identity cannot supply role,faction,Null,seed,deck or outcome. Consume the approved A076 server-side bot roster/policy port where bot-fill is enabled; do not create a second bot implementation or fabricate filled seats. Commit one initial match/checkpoint,canonical round deadline,role/knowledge assignment and operation receipt atomically. Repeated/concurrent starts do not reshuffle roles or reset the timer. Return a commit receipt only; A067/A073 handle recipient projection afterward. Explicit engine root-barrel ownership publishes only the already integrated APIs consumed here and preserves baseline exports.",
+  "ownership": [
+    "functions/src/handlers/start-match.ts",
+    "functions/tests/handlers/start-match.test.ts",
+    "packages/engine/src/index.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A003",
+    "A006",
+    "A007",
+    "A008",
+    "A014",
+    "A051",
+    "A053",
+    "A054",
+    "A055",
+    "A058",
+    "A059",
+    "A060",
+    "A076",
+    "A078"
+  ],
+  "acceptance": [
+    "Only the verified host can start an eligible configured5-10-seat lobby and exact canonical faction/Static/Null counts are preserved.",
+    "Server-controlled seed/catalog and timer establish one replayable initial match; clients cannot override hidden authority or pause it.",
+    "Concurrent starts,retries and initialization/persistence failures cannot duplicate or partially assign a match.",
+    "Tests verify lobby-to-match atomicity,ready/bot roster validation,private output exclusion and shared exports limited to reviewed APIs."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md#1-table-and-roles",
+    "docs/design/RULES-SPEC-v1.md#3-round-state-machine",
+    "docs/design/GDD-v0.md#autoridad-y-timer-online",
+    "docs/design/SCREEN-FLOW-v0.md#6-lobby-room",
+    "docs/design/SWARM-BRIEF-v0.md#product-non-negotiables"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

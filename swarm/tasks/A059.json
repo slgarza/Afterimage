@@ -1,0 +1,30 @@
+{
+  "id": "A059",
+  "title": "Make actor and host requests idempotent across ambiguous retries",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement transactional idempotency bound to verified actor/session,room,requestId and canonical V1 intent. Same identity+payload returns its original safe operation receipt without a second event/revision/RNG advance; reused ID with a different payload is request_conflict. Host deadline/start requests and ordinary votes/operations/powers obey the same authority boundary; a copied ID cannot retrieve another actor receipt. Store only approved bounded internal receipt fields and apply injected retention policy from A051. An ambiguous response is reconciled using the same identity rather than silently resubmitting as a new operation. Never publish private choices from the stored receipt.",
+  "ownership": [
+    "functions/src/authority/idempotency.ts",
+    "functions/tests/authority/idempotency.test.ts"
+  ],
+  "dependsOn": [
+    "A054",
+    "A055",
+    "A058"
+  ],
+  "acceptance": [
+    "Concurrent identical requests commit at most one mutation and receive the original allowed response.",
+    "Payload/actor/session/room identity differences cannot reuse another protected receipt.",
+    "Lost responses and projection failures do not consume RNG or apply timeout/power/track effects twice.",
+    "Tests cover concurrency,expiry boundaries,request conflicts and sanitized replies for votes,operations,start and advance."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/GDD-v0.md#autoridad-y-timer-online",
+    "docs/design/SCREEN-FLOW-v0.md#5a-create-lobby",
+    "docs/design/RULES-SPEC-v1.md#deadline-rule"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "A064",
+  "title": "Recover temporary network sessions without undoing permanent Disconnect",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement verified temporary network reconnect/presence with session generations and injected trusted time. Revalidate membership from invisible session proof rather than alias/avatar/room hint. Treat transient transport loss separately from Rules permanent Disconnect: network recovery does not restore a permanently removed player active/vote/Crew/chat/private-diagnostic rights. Expired old disconnect callbacks cannot replace a new connection generation. The online match keeps its authoritative deadline while any client is backgrounded; missed activity is completed by A065,not a local pause. Apply the documented safe retained/cleared session behavior; host failover policy remains a narrow explicit source decision,not automatic election.",
+  "ownership": [
+    "functions/src/handlers/presence.ts",
+    "functions/tests/handlers/presence.test.ts"
+  ],
+  "dependsOn": [
+    "A051",
+    "A053",
+    "A055",
+    "A058",
+    "A060"
+  ],
+  "acceptance": [
+    "Refresh/background/network return restores the same verified participant without a duplicate seat or an account/login flow.",
+    "Copied aliases,room codes or session hints cannot take over another participant.",
+    "A power-Disconnected participant remains a silent spectator after reconnect and receives no private diagnostics or action authority.",
+    "Tests cover stale generations,late callbacks,deadline continuity,failed revalidation and private-state isolation with injected clocks."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/GDD-v0.md#autoridad-y-timer-online",
+    "docs/design/SCREEN-FLOW-v0.md#estados-que-los-mocks-deben-cubrir",
+    "docs/design/RULES-SPEC-v1.md#disconnect--spectator",
+    "docs/design/SWARM-BRIEF-v0.md#product-non-negotiables"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

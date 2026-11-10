@@ -4,7 +4,7 @@ version = 1
 repository = "slgarza/Afterimage"
 base_branch = "main"
 tasks_dir = "swarm/tasks"
-instructions = ["README.md", "AGENTS.md", "docs/SWARM_PILOT.md", "docs/ARCHITECTURE.md", "docs/PILOT10_CONTRACTS.md"]
+instructions = ["README.md", "AGENTS.md", "docs/SWARM_PILOT.md", "docs/ARCHITECTURE.md", "docs/PILOT10_CONTRACTS.md", "docs/DESIGN_RECONCILIATION.md", "docs/PILOT100_BACKLOG.md", "docs/design/SWARM-BRIEF-v0.md", "docs/design/RULES-SPEC-v1.md"]
 
 [validation]
 install = [["npm", "ci", "--no-audit", "--no-fund"]]

@@ -1,0 +1,31 @@
+{
+  "id": "A016",
+  "title": "Advance six-node tracks atomically and terminate exact win conditions",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. Apply one canonical operation result once: Repair increments Repair by1, Sabotage increments Sabotage by1, Anomaly advances neither. Enforce0–6 tracks and record the exact semantic node event from MOMENT-SPEC. R6 City Restored ends immediately in ARCHIVISTS_WIN; S6 City Lost ends immediately in STATIC_WIN. Do not retain five-point legacy/demo logic or infer outcomes from alignment. Terminal states reject subsequent scoring; Null Disconnect victory is supplied by the dedicated reducer and cannot be overwritten.",
+  "ownership": [
+    "packages/engine/src/v1/tracks.ts",
+    "packages/engine/tests/v1/tracks.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A013"
+  ],
+  "acceptance": [
+    "Every node R1–R6/S1–S6 emits its matching semantic identity once, not just a score delta.",
+    "The two six-point thresholds yield the exact canonical winner immediately; Anomaly never advances either track.",
+    "Replayed results, invalid bounds and post-terminal effects cannot duplicate a node or replace a declared winner.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "blocked",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json",
+    "docs/design/MOMENT-SPEC-v0.md"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

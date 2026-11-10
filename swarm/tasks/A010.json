@@ -1,0 +1,32 @@
+{
+  "id": "A010",
+  "title": "Resolve top-two Crew votes using the canonical deterministic tie policy",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. Count single-target votes and select the two highest totals. At either tied seat, prioritize the tied eligible candidate with the longest time since Crew service, then a server-seeded visible draw if still tied; stable seat order defines input ordering so map iteration cannot affect a draw. Lead never breaks ties. Record an allowlisted public draw explanation without the seed/RNG or roles. Preserve the one-round cooldown constraint. D-ELIGIBLE-POOL must define continuation when legal candidates fall below two; never silently waive a restriction to manufacture a Crew.",
+  "ownership": [
+    "packages/engine/src/v1/vote-resolution.ts",
+    "packages/engine/tests/v1/vote-resolution.test.ts"
+  ],
+  "dependsOn": [
+    "A008",
+    "A009"
+  ],
+  "acceptance": [
+    "First-seat and second-seat ties obey vote total, longest-since-Crew and seeded draw in that exact order.",
+    "Identical vote/history/RNG inputs produce the same two distinct eligible members and exact RNG advancement.",
+    "Public draw events explain the actual candidate tie/winner without exposing private role or future random state.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "blocked",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [
+    "D-ELIGIBLE-POOL"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

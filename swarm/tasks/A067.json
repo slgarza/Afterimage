@@ -1,0 +1,43 @@
+{
+  "id": "A067",
+  "title": "Project phase-correct Route Gate Ghost and spectator recipient views",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement authenticated versioned match recipient reads from observeMatchV1/getLegalActionsV1 and explicit V1 allowlists. Publish canonical phase/round/Shift Lead,operational roles,deadline,Repair/Sabotage0-6,public effects/City Moment and terminal result. Operator assignment is public; Route Operator alone receives safe/corrupt Route diagnostics and permitted Route keys,Gate Operator alone receives its Gate equivalents. Neither receives the other choice/diagnostic or a UI proof of alignment. Static operatives alone receive initial operative ally identities; never include The Null among them or reveal any allies to The Null. S2 sealed crew votes expose no voter/choice/totals before the engine permits reveal. A permanent Disconnect removes all action/chat/reaction/diagnostic/Ghost access while retaining the approved city/map/final reveal spectator view. Full role reveal occurs only at Match End or the winning Null Disconnect. Do not implement undefined later Ghost Resonance; raise the source conflict. Use A057 for early lobby views,authenticate membership before projection,and preserve old T02/v0 compatibility. The protocol root-barrel exception only exports reviewed projector APIs; no storage document is returned directly.",
+  "ownership": [
+    "packages/protocol/src/match-snapshots.ts",
+    "packages/protocol/tests/match-snapshots.test.ts",
+    "packages/protocol/src/index.ts",
+    "functions/src/handlers/read-snapshot.ts",
+    "functions/tests/handlers/read-snapshot.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A025",
+    "A051",
+    "A053",
+    "A055",
+    "A056",
+    "A057",
+    "A058",
+    "A078"
+  ],
+  "acceptance": [
+    "Every recipient receives exact engine-approved public phase/action/result fields and only their own authorized private role/Route-or-Gate/operative knowledge.",
+    "Serialized views reveal no seed,deck,other operator choice/diagnostic,Null ally identity,pre-end alignment or S2 sealed-vote data.",
+    "Permanent silent spectators cannot regain action/private/chat authority through refresh,read APIs or stale sessions; terminal reveal remains canonical.",
+    "Synthetic multi-recipient tests cover all phases,operator swaps,sealed/unsealed transitions,Disconnect/Null win,extra hidden properties and detached data without requiring a Firebase project."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md#1-table-and-roles",
+    "docs/design/RULES-SPEC-v1.md#4-the-deterministic-crew-operation",
+    "docs/design/RULES-SPEC-v1.md#6-track-moments-and-powers",
+    "docs/design/RULES-SPEC-v1.md#disconnect--spectator",
+    "docs/design/SCREEN-FLOW-v0.md#7-role-reveal",
+    "docs/design/SCREEN-FLOW-v0.md#8-match-city-board",
+    "docs/design/GDD-v0.md#roles"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

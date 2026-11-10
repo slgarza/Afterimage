@@ -1,0 +1,32 @@
+{
+  "id": "A057",
+  "title": "Project public lobby and opt-in directory entries without secrets",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement explicit public lobby and opt-in directory projectors using the new V1 DTO. Room view includes approved host/seat/readiness,duplicate-allowed alias and semantic avatar fields,capacity/bot-fill and configured timer metadata. Directory output includes only approved public summary fields for opted-in open rooms and bounded listing cursors; invisible/private/closed rooms do not appear. Expose only a passcode-required boolean where allowed, never passcode/hash or verifier metadata. Do not invent roles for pre-game players,perform matchmaking,assign bots/roles or treat the code as authorization. Both projections are detached allowlists; caller authentication/visibility filtering remains enforced by service handlers.",
+  "ownership": [
+    "packages/protocol/src/lobby-snapshots.ts",
+    "packages/protocol/tests/lobby-snapshots.test.ts",
+    "packages/protocol/src/index.ts"
+  ],
+  "dependsOn": [
+    "A051",
+    "A056",
+    "A078"
+  ],
+  "acceptance": [
+    "A pre-role lobby with zero through ten members is representable without fabricated faction/role values.",
+    "Repeated aliases retain distinct player IDs/avatar keys and canonical seat/readiness/capacity information.",
+    "Hidden room documents,passcodes/hashes,auth claims,seeds and future match state cannot leak to directory or lobby projections.",
+    "Tests cover visible/invisible/closed summaries,empty/filled seats,approved timer settings and deep mutation isolation."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SCREEN-FLOW-v0.md#5-multiplayer-entry",
+    "docs/design/SCREEN-FLOW-v0.md#5a-create-lobby",
+    "docs/design/SCREEN-FLOW-v0.md#6-lobby-room",
+    "docs/design/ROADMAP.md#alcance-mvp"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

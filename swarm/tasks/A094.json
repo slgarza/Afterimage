@@ -1,0 +1,31 @@
+{
+  "id": "A094",
+  "title": "Add a reproducible local browser runner and synthetic port fixture",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Install and lock a reviewed browser acceptance runner with a bounded loopback Vite server and a real Chromium harness. Use current primary documentation to select compatible versions during implementation. Add scripts without replacing workspace unit tests. Never contact live Firebase, ad or store services, and fail clearly rather than silently skipping required tests when a browser is missing. Inject synthetic ports at a declared test boundary and clean up server/browser resources after failure or interruption. Test fixtures cannot be presented as real gameplay or evidence of 100 coding agents.",
+  "ownership": [
+    "package.json",
+    "package-lock.json",
+    "playwright.config.ts",
+    "e2e/fixtures/local-app.ts",
+    "e2e/harness.spec.ts"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "A clean checkout can run a real browser harness against loopback with documented browser installation and finite timeouts.",
+    "No production credential, configuration or service is read or requested.",
+    "A failed assertion cleans up listeners, processes and browser contexts; missing browsers fail clearly.",
+    "The existing npm run check stays green; lockfile/script edits remain inside declared ownership."
+  ],
+  "status": "ready",
+  "category": "tooling",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/ARCHITECTURE.md",
+    "docs/design/SWARM-BRIEF-v0.md#definition-of-done-per-ticket"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": false,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

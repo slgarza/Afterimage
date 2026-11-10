@@ -1,0 +1,33 @@
+{
+  "id": "A060",
+  "title": "Check revision and authoritative phase deadlines inside transactions",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement the service transaction guard around canonical safe revisions,phase generation and server-injected trustedNow/roundDeadline. Clients cannot set/pause/extend the clock or active-match timer; reject stale/future revisions and overflow without state changes. Delegate phase/deadline policy and timer adjustments to the engine A014 contract,including30/60/90/120 base settings and specified anomaly/Blackout adjustments. A local menu,animation completion or client timestamp never authorizes advance. Expose only the fixed safe refresh/status metadata approved by A051; do not return authoritative private state on conflict.",
+  "ownership": [
+    "functions/src/authority/revision-gate.ts",
+    "functions/tests/authority/revision-gate.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A014",
+    "A055",
+    "A058"
+  ],
+  "acceptance": [
+    "Two actions with the same expected revision cannot both overwrite authority as if each were current.",
+    "Early advance,late intent,wrong phase generation,unsafe revision and stale deadline callbacks are rejected or reconciled as defined by the engine contract.",
+    "Client time/pause/timer overrides cannot alter an active multiplayer deadline or its canonical reductions.",
+    "Tests use injected time around exact boundaries and verify no private fields leak on revision/phase/deadline failures."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/GDD-v0.md#autoridad-y-timer-online",
+    "docs/design/SCREEN-FLOW-v0.md#5a-create-lobby",
+    "docs/design/SCREEN-FLOW-v0.md#8-match-city-board",
+    "docs/design/RULES-SPEC-v1.md#deadline-rule",
+    "docs/design/RULES-SPEC-v1.md#6-track-moments-and-powers"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "A083",
+  "title": "Implement gesture-gated Web Audio scenes and safe playback disposal",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Implement AudioPort for verified manifest entries, with explicit user-gesture unlock, separate Music/SFX gain, bounded cue concurrency, 350–800ms crossfades and complete scene/disposal behavior. Missing assets, autoplay denial and unsupported APIs must result in silence and a safe diagnostic rather than generic fallback beeps. Respect persisted settings, observable system-mute signals and I06 one-shot suppression of the final ten-second warning. Use injected audio and clock implementations in tests; no unapproved downloads or real playback are required.",
+  "ownership": [
+    "apps/client/src/media/web-audio.ts",
+    "apps/client/src/media/web-audio.test.ts"
+  ],
+  "dependsOn": [
+    "A082",
+    "A085",
+    "A092"
+  ],
+  "acceptance": [
+    "Music never starts before an allowed user gesture; Music and SFX can each be disabled independently.",
+    "Home/lobby, match-entry and City Board scene changes crossfade within the specified range without unnecessary loop restarts.",
+    "Duplicate domain events cannot play twice, and scene disposal releases nodes, listeners and scheduled cues.",
+    "Missing or unapproved files, failed loads and muted contexts do not block UI or authoritative match progression."
+  ],
+  "status": "blocked",
+  "category": "audio",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/AUDIO-SPEC-v0.md#music-system"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

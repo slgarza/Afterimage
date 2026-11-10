@@ -1,0 +1,55 @@
+{
+  "id": "A024",
+  "title": "Drive canonical rounds and semantic City Moments without client continuation gates",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. Export reduceMatchV1 to dispatch trusted domain actions through the merged reducers and exact canonical phase sequence. Complete a round via vote locking, operator assignment/choices, deterministic resolution, track/Anomaly/power effects, City Moment and automatic next ROUND_START; rotate Lead and advance incident queue/cooldown/Jam correctly. Authority events, not client animation callbacks or Continue buttons, control deadlines and next phases. Persist pending target powers and deterministic timeout progression without bypassing checks. Terminal win immediately stops the loop and enables Match End full role reveal. Emit stable allowlisted crew/operation/track/power/Disconnect/match-finished semantic events for UI/audio/achievements; no private data in generic public feeds. Preserve unresolved eligible-pool/timer/Containment/I04/Audit edges as explicit blockers.",
+  "ownership": [
+    "packages/engine/src/v1/reducer.ts",
+    "packages/engine/tests/v1/reducer.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A005",
+    "A007",
+    "A008",
+    "A010",
+    "A011",
+    "A013",
+    "A014",
+    "A015",
+    "A016",
+    "A017",
+    "A018",
+    "A019",
+    "A020",
+    "A021",
+    "A022",
+    "A023",
+    "A025"
+  ],
+  "acceptance": [
+    "Complete deterministic5-player and10-player transcripts traverse the exact canonical phase order and legal power/status transitions.",
+    "Round/CityMoment advancement is authority-driven and idempotent, with no extra nomination approval, Cast vote or Continue UI gate.",
+    "All12 node semantic events and terminal reveal boundary are emitted consistently; observers never infer a rule from a prototype timer or hardcoded score.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "blocked",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json",
+    "docs/design/MOMENT-SPEC-v0.md",
+    "docs/design/AUDIO-SPEC-v0.md",
+    "docs/design/ACHIEVEMENTS-SPEC-v0.md"
+  ],
+  "blockedBy": [
+    "D-ELIGIBLE-POOL",
+    "D-CONTAINMENT",
+    "D-I04-JAM-TARGET",
+    "D-TIMER-COMPOSITION",
+    "D-AUDIT-NO-HISTORY"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "A035",
+  "title": "Bind versioned client state to local or multiplayer authority through one port",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md and the exact referenced imported design sections before editing. RULES-SPEC-v1.md is canonical for production mechanics: six-node Repair/Sabotage tracks, one-person crew votes, Route/Gate operations, deterministic powers and silent spectators. SCREEN-FLOW prototype 5/5 scores and hardcoded transitions are UX references only. Preserve historical T01–T10 APIs/tests; implement the new view version in new game-v1 modules instead of silently changing legacy five-mark boards or command parsers. Use black/charcoal/neutral-frost chrome and full-colour approved expressive content through semantic asset keys. Modal-first means the complete game background is uniformly blur/dim/desaturated and inert; the fixed platform banner dock remains mounted outside that game viewport. No visible accounts/login, telemetry, credentials, live Firebase, ad SDK or unreviewed asset downloads. Keep local presentation distinct from authority: clients display server/solo-engine phases and deadlines, never compute secret outcomes, choose timeout targets, advance multiplayer on a local clock or reveal another alignment. Use injected semantic media/ad/purchase ports; no direct SDK playback or billing calls from UI. Edit only ownership, use original fixtures, run scoped tests/lint/typecheck and npm run check. DOM tests use jsdom, explicit afterEach(cleanup), Vitest and current Testing Library. Report results and contract changes; do not commit, push, open PRs, deploy or spend on providers. Define client subscription/lifecycle coordination around the reviewed versioned lobby/match recipient DTOs and MatchIntentV1 parser. A local Solo authority and multiplayer adapter implement the same capability-facing port; render state must not care which supplies it. Apply snapshots monotonically, bind recipient/generation, deduplicate current requests and dispose stale subscriptions/pending callbacks. Use crew-vote candidateId, operation-choice optionId, power-target powerId/targetId and containment-vote candidateId only as parsed public intents. request-advance belongs to approved host/backend automation, never an ordinary Continue button. No browser seed/outcome/deadline authority. Keep Firebase SDK binding behind the explicit owner-project/platform gate; a pure injected transport needs no credentials. The canonical producer contracts are A025 observeMatchV1/getLegalActionsV1 and A056 versioned recipient DTOs (A067 projects multiplayer views); public/private/legal fields must originate there, never raw hidden MatchStateV1. A004 owns exact I01–I06 option labels and all36 semantic icon keys. This task depends on the pure canonical model/DTO/intent contracts and A077 local authority, not Firebase callables. A075 may later supply the optional live multiplayer capability. Missing Firebase/project/native platform capability must never disable Solo; unavailable multiplayer reports an explicit capability state rather than creating a fake room. Consume the canonical types-only AuthorityPortV1 owned by A056; do not define a competing session transport interface. A077 supplies the local Solo implementation, A035 binds it to client state, and the separately gated A075 supplies the Firebase implementation.",
+  "ownership": [
+    "apps/client/src/features/game-v1/session/state.ts",
+    "apps/client/src/features/game-v1/session/transport.ts",
+    "apps/client/src/features/game-v1/session/session.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A002",
+    "A025",
+    "A051",
+    "A054",
+    "A055",
+    "A056",
+    "A057",
+    "A077",
+    "A078"
+  ],
+  "acceptance": [
+    "Versioned lobby, active player, silent spectator and match-end snapshots are consumed through the strict DTO decoder without mixing legacy views.",
+    "Older/duplicate or disposed-generation messages cannot roll back visible state or restore another recipient private data.",
+    "All submitted intents pass the canonical parser with current revision, while actor/role/seed/outcome overrides are impossible.",
+    "Local Solo and injected multiplayer fakes demonstrate the same lifecycle/cancellation semantics; no real Firebase setup occurs."
+  ],
+  "status": "blocked",
+  "category": "client-ui-v1",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "swarm/tasks/A004.json",
+    "swarm/tasks/A025.json",
+    "swarm/tasks/A067.json",
+    "swarm/tasks/A056.json"
+  ],
+  "screenIds": [],
+  "designSections": [
+    "SWARM-BRIEF: Prototype boundary; RULES-SPEC-v1: Round state machine, Deadline rule"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": false,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

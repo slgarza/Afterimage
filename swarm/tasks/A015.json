@@ -1,0 +1,35 @@
+{
+  "id": "A015",
+  "title": "Complete missed votes, operations and power targets with audited seeded fallbacks",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. Export completeDeadlineV1, using legal actions from observe/getLegalActions and injected authority time/RNG. At an expired phase deadline, fill only missing eligible Crew votes with seeded eligible candidate choices, missing operator inputs with their seeded available Route/Gate choices, and required power targets with valid seeded targets. Apply through the same merged reducers, never client guesses. Emit private audit timeout_vote, timeout_operation and target-timeout records with deterministic action order and safe public timeout provenance. Repeated deadline execution after completion is idempotent at the authority/event level, not another RNG draw.",
+  "ownership": [
+    "packages/engine/src/v1/timeouts.ts",
+    "packages/engine/tests/v1/timeouts.test.ts"
+  ],
+  "dependsOn": [
+    "A008",
+    "A009",
+    "A010",
+    "A011",
+    "A012",
+    "A014",
+    "A025"
+  ],
+  "acceptance": [
+    "Fixed authority time/RNG/action order reproduces every fallback choice and next RNG exactly.",
+    "Jammed/spectator voters, unavailable targets and wrong-axis operation options are never selected, even on timeout.",
+    "An early, duplicate or stale deadline event cannot fill choices or mutate state twice; manually supplied valid choices remain intact.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "blocked",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

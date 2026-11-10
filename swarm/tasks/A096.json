@@ -1,0 +1,43 @@
+{
+  "id": "A096",
+  "title": "Gate emulator authority, privacy and deadline checks in CI",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. After the G4 owner-project gate and emulator harness are approved, exercise assembled callable, authentication and read paths in isolated demo emulators with independent tests. Verify concurrent capacity, passcode/directory privacy, idempotency, stale revisions, host-only deadline advancement, exactly-once seeded fallback, Route/Gate/Ghost/S2 privacy and permanent Disconnect revocation. Add a bounded CI job with read-only permissions that cannot use production endpoints or credentials. Upload only fixed allowlisted test aggregates, never raw private state, logs or traces. Preserve existing required checks.",
+  "ownership": [
+    ".github/workflows/emulator-acceptance.yml",
+    "functions/tests/acceptance/authority.acceptance.test.ts",
+    "functions/tests/acceptance/recipient-isolation.acceptance.test.ts",
+    "functions/tests/acceptance/deadlines.acceptance.test.ts"
+  ],
+  "dependsOn": [
+    "A065",
+    "A067",
+    "A068",
+    "A069",
+    "A070",
+    "A071",
+    "A072",
+    "A073",
+    "A074",
+    "A075"
+  ],
+  "acceptance": [
+    "Real emulator tests demonstrate authorized atomic effects under duplicate, concurrent and reconnect requests.",
+    "Recipient-private information and sealed votes remain isolated in serialized read models and security rules.",
+    "Client clocks/animations cannot advance online phases; duplicate host requests settle one timeout/transition.",
+    "CI enforces service startup/teardown, timeouts and artifact allowlists without deployment or production permissions."
+  ],
+  "status": "blocked",
+  "category": "acceptance",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/SWARM-BRIEF-v0.md#workstream-gates",
+    "docs/design/RULES-SPEC-v1.md#deadline-rule"
+  ],
+  "blockedBy": [
+    "D-FIREBASE-PROJECT"
+  ],
+  "countsAsFeatureDelivery": false,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

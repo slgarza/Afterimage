@@ -1,0 +1,36 @@
+{
+  "id": "A090",
+  "title": "Implement supplied native advertising, consent and Remove Ads adapters",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Implement native platform adapters only after the owner supplies app/privacy/ad/store configuration and a Capacitor-compatible SDK has been reviewed. Initialize applicable consent before any ad request, isolate test ad units from production configuration, and implement the one-time non-consumable Remove Ads purchase with native Restore Purchases. Check current official SDK/store documentation during implementation; the frozen design is not release approval. Never commit production IDs, receipts or secrets. Do not target ads using roles, choices, chat, lobby codes or telemetry. Web remains a no-op, without promising cross-store or web entitlement.",
+  "ownership": [
+    "apps/client/src/monetization/native-ads.ts",
+    "apps/client/src/monetization/native-purchases.ts",
+    "apps/client/src/monetization/native-consent.ts",
+    "apps/client/src/monetization/native-adapters.test.ts"
+  ],
+  "dependsOn": [
+    "A088",
+    "A089",
+    "A095"
+  ],
+  "acceptance": [
+    "Tests prove that no ad request occurs before approved consent and navigation continues immediately on denial/failure.",
+    "Native purchase/restore grants entitlement only from verified platform results and suppresses banners and interstitials.",
+    "Build configuration cannot mix production/test IDs, and no app/ad/store identifier is hardcoded in tracked source.",
+    "Native behavior stays behind ports; UI and engine code never import an advertising or billing SDK directly."
+  ],
+  "status": "blocked",
+  "category": "platform",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/MONETIZATION-SPEC-v0.md#swarm-implementation-contract"
+  ],
+  "blockedBy": [
+    "D-NATIVE-APP-CONFIG",
+    "D-AD-STORE-CONFIG"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

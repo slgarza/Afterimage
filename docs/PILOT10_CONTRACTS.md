@@ -1,5 +1,9 @@
 # Ten-agent pilot contracts
 
+> Scope: completed T01-T10 compatibility only. New A001-A100 work uses
+> [the full design pack](DESIGN_RECONCILIATION.md) and its own declared ownership.
+> Preserve these APIs/tests; do not reinterpret them as the new six-node rules.
+
 This document fixes the implementation contracts for T01–T10 before concurrent
 work begins. It refines the ownership table in `SWARM_PILOT.md` for this batch.
 Read `README.md`, `AGENTS.md`, `GDD.md`, and `ARCHITECTURE.md` as well. This is a

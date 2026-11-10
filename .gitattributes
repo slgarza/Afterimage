@@ -1,0 +1,2 @@
+# Preserve intentional Markdown hard breaks in the unchanged design snapshots.
+docs/design/*.md whitespace=-blank-at-eol

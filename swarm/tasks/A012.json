@@ -1,0 +1,30 @@
+{
+  "id": "A012",
+  "title": "Lock each operator private Route or Gate choice",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. Export submitOperationV1 for the authenticated Route/Gate operator choosing one of their three current semantic option IDs before the authoritative deadline. Verify phase, operator identity, revision and allowed axis; lock once and preserve the other operator private choice. Neither participant may read or overwrite the other choice. A choice is route/gate intent, not an alignment declaration or requested result. Server timeout fallback is a separate authority event and must retain its timeout provenance.",
+  "ownership": [
+    "packages/engine/src/v1/operation-choice.ts",
+    "packages/engine/tests/v1/operation-choice.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A011"
+  ],
+  "acceptance": [
+    "Each operator can lock exactly one available own-axis option while all other players/spectators are denied.",
+    "Wrong incident/axis/phase/revision, expired or repeated submissions are rejected atomically.",
+    "No public event or returned participant view exposes either locked value to the other operator before Match End.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "blocked",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

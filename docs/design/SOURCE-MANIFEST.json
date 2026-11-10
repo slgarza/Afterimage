@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-11-10",
+  "source": "Owner-provided OpenClaw Afterimage design project",
+  "sourceRelativeRoot": ".openclaw/workspace/projects/afterimage",
+  "files": [
+    {
+      "path": "ACHIEVEMENTS-SPEC-v0.md",
+      "sha256": "c141c06620c3ad27c217e253f2c08d7b40853865caddcb16f935184333707cce"
+    },
+    {
+      "path": "AUDIO-SPEC-v0.md",
+      "sha256": "de4fce50e72873dc5c96ff87bde5d849a46bfaeba0fbff143c84d81970f5d014"
+    },
+    {
+      "path": "GDD-v0.md",
+      "sha256": "7aa344c5e26930b37ebb735574ade2bcbcde9beef1aa647a78b94509fcbedb78"
+    },
+    {
+      "path": "MOMENT-SPEC-v0.md",
+      "sha256": "4de4642e738df4cbe83ad580f0166cbc7c692571fbf3c2d08084b9545d8bae49"
+    },
+    {
+      "path": "MONETIZATION-SPEC-v0.md",
+      "sha256": "82109cd872655efca9e3fa02e9d8757abfd8d3e495c5ae3bda51f8e4e9505386"
+    },
+    {
+      "path": "ROADMAP.md",
+      "sha256": "52301e077b27bea8009eed9f6556c7cc8004838056f0026e1d915c0c98a78149"
+    },
+    {
+      "path": "RULES-SPEC-v1.md",
+      "sha256": "e2ee6cbba8ef0e17b13a7c493689d282c185de16a7a349930cfa2836682c6656"
+    },
+    {
+      "path": "SCREEN-FLOW-v0.md",
+      "sha256": "4321da421f7dba8fdb6a5bb67b7aba2b9798c31099e980f33b0530043d39b247"
+    },
+    {
+      "path": "SWARM-BRIEF-v0.md",
+      "sha256": "5c0f935cc862b64880308427cbfeb013b765e7d8ad7892355d5f2dd9d1cda120"
+    },
+    {
+      "path": "VISUAL-SYSTEM-v0.md",
+      "sha256": "e823083793f0cdaeb88db746e51b1707ff9025fe6fb35f0973e11f8700e66788"
+    },
+    {
+      "path": "mockups/README.md",
+      "sha256": "e7f4cf4748155da3fb4440312cf396d73e588b54320191f3f7101b36095aa342"
+    }
+  ],
+  "codeAndRuntimeImported": false,
+  "mockupImagesImported": false
+}

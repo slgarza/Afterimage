@@ -1,0 +1,33 @@
+{
+  "id": "A068",
+  "title": "Adapt atomic room storage to Firestore after the owner project gate",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. After G4, implement the injected Firestore repository adapter for approved versioned lobby/match state,private events,idempotency receipts and projection outbox. Run the same atomic contract suite as the memory adapter against isolated demo emulators. Map allowed persistence fields explicitly,verify MatchState checkpoints through the reviewed engine codec,and make SDK transaction retries replay-safe. Client-visible documents are separate read models,never authoritative records. Require an injected already-initialized emulator client; do not auto-discover application-default credentials or project selection. Corrupt/missing versions fail safely instead of resetting live state. Firebase gate G4 is externally blocked by D-FIREBASE-PROJECT: Sergio must create/provide the project before any Firebase worker, SDK/configuration or provider adapter is implemented. Do not create/configure a project, discover credentials or make live calls. Once that gate is satisfied, this ticket still uses demo/loopback emulators and injected clients only; no project IDs, app config, tokens or service accounts are committed.",
+  "ownership": [
+    "functions/src/storage/firestore-room-repository.ts",
+    "functions/tests/storage/firestore-room-repository.test.ts"
+  ],
+  "dependsOn": [
+    "A051",
+    "A052",
+    "A058",
+    "A072"
+  ],
+  "acceptance": [
+    "Memory and Firestore adapters pass the same atomic create/join/start/action/idempotency/outbox contract suite.",
+    "Concurrent final-slot joins and deadline/action retries preserve unique revisions/events and cannot apply track/RNG effects twice.",
+    "Malformed stored state/provider errors do not leak private records,credentials or raw SDK messages.",
+    "Tests fail closed for remote/live endpoints or ambient credentials and run only after D-FIREBASE-PROJECT is explicitly satisfied."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md#workstream-gates",
+    "docs/design/ROADMAP.md#arquitectura-objetivo",
+    "docs/design/GDD-v0.md#autoridad-y-timer-online"
+  ],
+  "blockedBy": [
+    "D-FIREBASE-PROJECT"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

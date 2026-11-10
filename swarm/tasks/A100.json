@@ -1,0 +1,62 @@
+{
+  "id": "A100",
+  "title": "Implement bounded public match chat and reactions with spectator enforcement",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the frozen sourceRefs. Implement one bounded public match communication slice after the approved G4 adapters exist. Edit only declared ownership; preserve current APIs, silent spectators and the offline Solo route. Use the shared AuthorityPortV1 to add an optional public-chat capability and bind it through the reviewed Firebase adapter. Verified active members may send bounded plain-text messages and approved fixed semantic reactions; permanently Disconnected or revoked members may neither send nor subscribe/read communication. Recheck current authority atomically to close Disconnect-versus-send races. Use server-supplied actor/sequence/time, idempotent request IDs and injected finite payload, rate, history and queue limits. Keep the communication sequence separate from gameplay revision so chat cannot invalidate votes. Claims/bluffs are ordinary escaped text, never proof of alignment or commands. Do not attach roles, diagnostics, choices, sealed votes or seed as metadata. Render one accessible glass conversation sheet from the existing City Board; no HTML rendering, uploads, link previews/fetches, voice, private channels, push notifications or moderation product. Solo and missing Firebase capability stay honestly unavailable and never contact a service. Do not provision/configure a Firebase project, commit credentials or raw private logs, deploy, push, create PRs or start agents. Run protocol, service and DOM checks plus npm run check and report the actual results.",
+  "ownership": [
+    "packages/protocol/src/public-chat-v1.ts",
+    "packages/protocol/tests/public-chat-v1.test.ts",
+    "packages/protocol/src/index.ts",
+    "packages/protocol/src/authority-port-v1.ts",
+    "functions/src/handlers/public-chat.ts",
+    "functions/tests/handlers/public-chat.test.ts",
+    "functions/src/communication/firestore-chat-store.ts",
+    "functions/tests/communication/firestore-chat-store.test.ts",
+    "functions/src/callables/chat.ts",
+    "functions/tests/callables/chat.test.ts",
+    "functions/src/index.ts",
+    "functions/firestore.rules",
+    "apps/client/src/features/game-v1/chat/index.tsx",
+    "apps/client/src/features/game-v1/chat/PublicChat.test.tsx",
+    "apps/client/src/runtime/firebase-authority.ts",
+    "apps/client/src/App.tsx"
+  ],
+  "dependsOn": [
+    "A025",
+    "A026",
+    "A035",
+    "A048",
+    "A051",
+    "A053",
+    "A055",
+    "A056",
+    "A058",
+    "A059",
+    "A067",
+    "A068",
+    "A069",
+    "A071",
+    "A072",
+    "A075",
+    "A078"
+  ],
+  "acceptance": [
+    "Only current verified active members can publish/read public communication; permanent Disconnect and membership revocation take effect atomically, including a racing send or queued callback.",
+    "Duplicate request IDs do not post twice, communication does not advance the gameplay revision, and injected rate/history/payload/queue bounds are enforced.",
+    "Serialized messages contain only approved public fields, untrusted text is rendered as text, and no role/diagnostic/choice/seed or sealed-vote metadata is published.",
+    "The accessible glass sheet composes with modal focus and the persistent dock; reactions use approved semantic keys and have text labels.",
+    "Tests cover revocation races, stale/duplicate requests, malicious markup and backpressure; offline Solo sends no Firebase request and no service identifiers or credentials are tracked."
+  ],
+  "status": "blocked",
+  "category": "communication",
+  "sourceRefs": [
+    "docs/design/ROADMAP.md#alcance-mvp",
+    "docs/design/SCREEN-FLOW-v0.md#8-match-city-board",
+    "docs/design/RULES-SPEC-v1.md#disconnect--spectator",
+    "docs/DESIGN_RECONCILIATION.md"
+  ],
+  "blockedBy": [
+    "D-FIREBASE-PROJECT"
+  ],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

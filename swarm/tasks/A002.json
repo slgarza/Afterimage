@@ -1,0 +1,29 @@
+{
+  "id": "A002",
+  "title": "Parse canonical v1 match intents without authority overrides",
+  "category": "protocol",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. Export MatchIntentV1, MatchIntentParseResultV1 and parseMatchIntentV1(input:unknown) from protocol/src/match-intents-v1.ts. Freeze exact own-field variants: {type:\"start-match\",expectedRevision}; {type:\"crew-vote\",candidateId,expectedRevision}; {type:\"operation-choice\",optionId,expectedRevision}; {type:\"power-target\",powerId,targetId,expectedRevision}; {type:\"containment-vote\",candidateId,expectedRevision}; {type:\"request-advance\",expectedRevision}. candidateId/targetId use canonical player IDs; optionId is a semantic incident Route/Gate key, never a file path. powerId is one of track.repair.safeguard, track.repair.audit_window, track.sabotage.grid_failure, track.sabotage.signal_sever, track.sabotage.blackout_order. request-advance is for host automation and grants no ability to skip a deadline. Require safe revisions and strict own data fields; return fresh allowlisted values or fixed invalid_match_intent/schema-only paths. Reject actor, role, seed, outcome, deadline, force or gameplay-result overrides. Keep v0 parseCommand unchanged and do not import engine into protocol.",
+  "ownership": [
+    "packages/protocol/src/match-intents-v1.ts",
+    "packages/protocol/tests/match-intents-v1.test.ts"
+  ],
+  "dependsOn": [
+    "A001"
+  ],
+  "acceptance": [
+    "Direct single-candidate votes and own Route/Gate choices are represented; no nominate-two or boolean approval variants enter v1.",
+    "All six exact variants have canonical-value, unknown-field, accessor, symbol, malformed-object and safe-error tests.",
+    "Parsing grants no membership/phase/actor authority; service must map validated intent to trusted domain context.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "blocked",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "A022",
+  "title": "Apply sealed next-vote Signal Jam and one-round Grid Failure",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. At S2 mark the next Crew vote sealed: targets stay hidden until deadline/resolution instead of card animations revealing them. Consume the seal for exactly that next vote, not forever. At S3 current Shift Lead targets one other active player for next-round Jam; apply Safeguard before effect, validate authority/revision and use the same one-round eligibility machinery. Emit track.sabotage.signal_jam/grid_failure and persistent status descriptors without private alignments.",
+  "ownership": [
+    "packages/engine/src/v1/sabotage-powers.ts",
+    "packages/engine/tests/v1/sabotage-powers.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A008",
+    "A016",
+    "A019"
+  ],
+  "acceptance": [
+    "A sealed vote hides chosen candidate mappings from every public/other-recipient surface until the correct resolution boundary.",
+    "S3 cannot target current Shift Lead or an inactive spectator and Jam blocks the exact next-round vote/Crew window.",
+    "Safeguard consumes instead of applying Jam; duplicate/replayed powers cannot extend status or reuse the one granted action.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "blocked",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json",
+    "docs/design/MOMENT-SPEC-v0.md"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

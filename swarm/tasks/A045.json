@@ -1,0 +1,37 @@
+{
+  "id": "A045",
+  "title": "Implement Settings, Credits and platform purchase/privacy controls",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md and the exact referenced imported design sections before editing. RULES-SPEC-v1.md is canonical for production mechanics: six-node Repair/Sabotage tracks, one-person crew votes, Route/Gate operations, deterministic powers and silent spectators. SCREEN-FLOW prototype 5/5 scores and hardcoded transitions are UX references only. Preserve historical T01–T10 APIs/tests; implement the new view version in new game-v1 modules instead of silently changing legacy five-mark boards or command parsers. Use black/charcoal/neutral-frost chrome and full-colour approved expressive content through semantic asset keys. Modal-first means the complete game background is uniformly blur/dim/desaturated and inert; the fixed platform banner dock remains mounted outside that game viewport. No visible accounts/login, telemetry, credentials, live Firebase, ad SDK or unreviewed asset downloads. Keep local presentation distinct from authority: clients display server/solo-engine phases and deadlines, never compute secret outcomes, choose timeout targets, advance multiplayer on a local clock or reveal another alignment. Use injected semantic media/ad/purchase ports; no direct SDK playback or billing calls from UI. Edit only ownership, use original fixtures, run scoped tests/lint/typecheck and npm run check. DOM tests use jsdom, explicit afterEach(cleanup), Vitest and current Testing Library. Report results and contract changes; do not commit, push, open PRs, deploy or spend on providers. Implement the shared-nav Settings screen and in-game settings modal from semantic preference/purchase/consent ports. Expose separate Sound Effects/Music/Haptics, Appearance System/Dark/Light, Language System/Español/English, Reduce Motion, Privacy Policy and Credits. Credits is a blocking glass modal sourced from approved asset/audio manifests. Expose Remove Ads and Restore purchases from verified platform state; no fake sale timer, account prompt or promised cross-store/web entitlement. Controls emit semantic requests; no SDK or receipt logic. Persist selections only via the reviewed preference port and show concrete unsupported/unavailable states.",
+  "ownership": [
+    "apps/client/src/features/game-v1/settings/index.tsx",
+    "apps/client/src/features/game-v1/settings/settings.test.tsx"
+  ],
+  "dependsOn": [
+    "A026"
+  ],
+  "acceptance": [
+    "Every specified setting has a labeled control with correct selection and System semantics; Music/SFX/Haptics remain independent.",
+    "Credits derive exact approved provenance/attribution from manifests rather than hardcoded track claims.",
+    "Remove Ads/Restore reflect pending/owned/unavailable/failed verified states without speculative entitlement or blocking gameplay.",
+    "Privacy choices and native capability failures render safely, and settings modal locks the background while Home navigation stays above the banner."
+  ],
+  "status": "blocked",
+  "category": "client-ui-v1",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/SCREEN-FLOW-v0.md",
+    "docs/design/VISUAL-SYSTEM-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/AUDIO-SPEC-v0.md",
+    "docs/design/MONETIZATION-SPEC-v0.md"
+  ],
+  "screenIds": [
+    "S22"
+  ],
+  "designSections": [
+    "SCREEN-FLOW: Support screens; AUDIO-SPEC: User control; MONETIZATION-SPEC: Remove Ads IAP"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

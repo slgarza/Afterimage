@@ -1,0 +1,31 @@
+{
+  "id": "A011",
+  "title": "Assign public Route and Gate operators with complementary diagnostics",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. For the selected two-person Crew, assign one Route Operator and one Gate Operator with explicit server-seeded RNG. Operator assignment is public; Route Operator privately sees only safe/corrupted route diagnostics and Gate Operator sees only safe/corrupted gate diagnostics for the current incident. Export assignOperatorsV1 and typed private diagnostic helpers. All alignments use identical controls and diagnostics; Static advantage is existing ally knowledge and choice, never an extra Sabotage button.",
+  "ownership": [
+    "packages/engine/src/v1/operators.ts",
+    "packages/engine/tests/v1/operators.test.ts"
+  ],
+  "dependsOn": [
+    "A001",
+    "A004",
+    "A010"
+  ],
+  "acceptance": [
+    "Exactly one of each operator is assigned to the selected Crew, reproducibly with an explicit next RNG.",
+    "Private diagnostic fixtures reveal only the recipient own safe/corrupt axis and never the other operator choice/axis or role.",
+    "Public assignment contains member/operator identities and semantic incident reference without hidden matrix diagnostics.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "blocked",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

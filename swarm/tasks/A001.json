@@ -1,0 +1,27 @@
+{
+  "id": "A001",
+  "title": "Define canonical v1 match state, actions and invariants",
+  "category": "engine",
+  "prompt": "Read README.md, AGENTS.md, docs/SWARM_PILOT.md, docs/PILOT100_BACKLOG.md and the frozen sources under docs/design/ first. RULES-SPEC-v1.md is the canonical six-node deterministic gameplay contract; completed foundation APIs remain compatibility history. Implement new versioned APIs without changing the completed T01–T10 contracts. Work only in declared ownership; no manifests, shared exports or dependencies unless explicitly owned. Engine production remains ES2022-only, pure and independent from Firebase, Node, browser, UI and Capacitor. Use original synthetic test data and injected authority time/entropy; no clocks or global randomness in engine. Never expose seed, roles, private inputs or raw audit data through public output. Do not invent a rule where an explicit design gap is named. Run scoped lint/typecheck/tests and npm run check; report contract changes and observed results. No commits, pushes, PRs, child agents, cloud deployment, credentials or budget changes. Export readonly MatchStateV1, MatchActionV1, MatchEventV1, MatchPlayerV1, public semantic event types and assertMatchInvariantsV1. Model canonical ROUND_START→VOTE_OPEN→CREW_LOCKED→OPERATION_LOCKED→RESOLUTION→CITY_MOMENT, plus terminal Match End, without inventing a nomination-approval phase. Represent Repair/Sabotage0–6, exact seat order, active versus game-Disconnected spectators, Jam/cooldown, previous Crew history, Route/Gate assignment, private choices/diagnostics, six incident references, powers, authority deadlines and private seeded RNG. Separate temporary connection presence from permanent power Disconnect. Distinguish Archivist, Static operative and The Null; no extra roles. Domain events carry trusted actor/time context supplied by authority and semantic data rather than SDK or art paths. Declare pending-power state and final-reveal boundaries. Export from the module only.",
+  "ownership": [
+    "packages/engine/src/v1/types.ts",
+    "packages/engine/tests/v1/types.test.ts"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Types cover every canonical phase, role/status, track power and operation action with discriminated readonly data.",
+    "Invariants reject duplicate/missing seat identities, unsafe revisions, impossible operators/track bounds and spectator action authority without mutation.",
+    "The public event type cannot carry secret role assignments, private choices, seed or the unrestricted authoritative state.",
+    "Scoped lint, typecheck and tests plus npm run check pass; legacy APIs retain compatibility and only owned files change."
+  ],
+  "status": "ready",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/GDD-v0.md",
+    "docs/design/SOURCE-MANIFEST.json"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

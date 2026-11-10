@@ -1,0 +1,36 @@
+{
+  "id": "A063",
+  "title": "Apply lobby profile readiness and host-only settings safely",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement approved alias/avatar/ready updates for the verified current member and host-only lobby settings/kick operations. Repeated aliases remain allowed; avatar changes never change identity. Host can update declared pre-match capacity,bot-fill/difficulty,visibility/passcode settings and timer enum only while the room is in lobby. Validate affected capacity/roster and hash passcode changes through the approved seam; never allow host kick/settings to bypass match Disconnect powers or change a live deadline. Use atomic revision/idempotency and publish safe A057 metadata. Do not guess host-transfer/host-loss behavior absent from the supplied sources; fail safely and preserve state until the narrow lifecycle decision is approved. Support approved explicit pre-game leave/revoke membership intent in the same lobby-only boundary. Do not turn a client menu/navigation action into a global pause or silently implement an unapproved host-transfer/live-game elimination policy.",
+  "ownership": [
+    "functions/src/handlers/update-lobby.ts",
+    "functions/tests/handlers/update-lobby.test.ts"
+  ],
+  "dependsOn": [
+    "A051",
+    "A053",
+    "A054",
+    "A055",
+    "A057",
+    "A058",
+    "A059",
+    "A060"
+  ],
+  "acceptance": [
+    "Members can edit only their own profile/readiness; only the verified host can change lobby settings or remove a pre-game member.",
+    "Alias/avatar edits preserve principal/seat identity and permit duplicates while configured capacity remains valid.",
+    "Active-match timer/settings/kick requests cannot pause,reset or bypass the canonical engine/permanent Disconnect rules.",
+    "Tests cover stale/concurrent updates,unauthorized changes,passcode rehash privacy and unchanged state on invalid lifecycle requests."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/SCREEN-FLOW-v0.md#2-alias--avatar",
+    "docs/design/SCREEN-FLOW-v0.md#5a-create-lobby",
+    "docs/design/SCREEN-FLOW-v0.md#6-lobby-room",
+    "docs/design/GDD-v0.md#autoridad-y-timer-online"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

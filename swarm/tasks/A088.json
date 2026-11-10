@@ -1,0 +1,28 @@
+{
+  "id": "A088",
+  "title": "Define ad and purchase ports with deterministic post-match eligibility",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/DESIGN_RECONCILIATION.md and the referenced frozen docs/design sources. Rules Spec v1 is canonical: Repair/Sabotage each end at six, one direct player-card vote, private Route/Gate inputs and authoritative deterministic outcomes. The five-point/Witness/demo scripts and completed T01-T10 APIs are historical; preserve their existing tests/API compatibility without using them as new game rules. Edit only owned paths and use existing dependencies unless manifest ownership explicitly permits reviewed additions. Keep engine production pure and do not read credentials, provision services, deploy, publish PRs or start agents. Use original synthetic fixtures and verified assets only. Run scoped tests/lint/typecheck and npm run check; report outcomes and contract changes. Define AdsPort, PurchasePort and a deterministic entitlement/ad-eligibility reducer. The native free experience has one persistent banner dock; web defaults to a no-op adapter. An interstitial is eligible only after the player has read/dismissed Match End and explicitly chosen to leave: at most one per two completed matches, never the first completed match of an install/session and never back-to-back. Consent denial, load failure, unavailability or verified Remove Ads must allow navigation to continue immediately. Purchase/restoration entitlement comes from the trusted platform port, never a local button assertion. Add no global account, cross-store entitlement promise, subscription, gameplay advantage or direct UI SDK call.",
+  "ownership": [
+    "apps/client/src/monetization/ports.ts",
+    "apps/client/src/monetization/policy.ts",
+    "apps/client/src/monetization/policy.test.ts"
+  ],
+  "dependsOn": [],
+  "acceptance": [
+    "Table-driven traces reject interstitials during every live phase, reveal, City Moment, error, reconnect and background/foreground transition.",
+    "Eligible post-match exits obey the first-match exclusion, one-per-two limit and no-back-to-back rule; duplicate events cannot show an ad twice.",
+    "Verified Remove Ads purchases and restored entitlements suppress every ad format immediately.",
+    "No-op behavior, failures and consent denial never block gameplay/navigation, and ports receive no private game data."
+  ],
+  "status": "ready",
+  "category": "monetization",
+  "sourceRefs": [
+    "docs/design/SWARM-BRIEF-v0.md",
+    "docs/design/RULES-SPEC-v1.md",
+    "docs/DESIGN_RECONCILIATION.md",
+    "docs/design/MONETIZATION-SPEC-v0.md"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

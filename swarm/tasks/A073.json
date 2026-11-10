@@ -1,0 +1,35 @@
+{
+  "id": "A073",
+  "title": "Publish monotonic recipient views with bounded backpressure and revocation",
+  "prompt": "Read README.md, AGENTS.md, docs/PILOT100_BACKLOG.md, docs/design/SWARM-BRIEF-v0.md, docs/design/RULES-SPEC-v1.md and the listed sourceRefs before editing. The imported Rules Spec v1 is the canonical engine contract; the earlier prototype/T01-T10 interfaces are baseline compatibility, not current gameplay rules. Do not restore approval votes, Repair/Sabotage buttons, Witness or five-node tracks. Preserve original IP and engine independence from Firebase/UI/Node. Edit only ownership; publish APIs only through explicitly owned package entrypoints, preserving baseline exports. Use original synthetic fixtures, scoped tests/lint/typecheck and npm run check. Do not commit, push, open PRs, spawn agents, provision/deploy services, access credentials or alter swarm budget. Implement a provider-free projection publisher over the committed room/outbox and injected projection-store port. Use A057 lobby or A067 canonical recipient views,not old5-track/T02 payloads or full authority documents. Coalesce superseded same-recipient revisions under bounded queue/backpressure; never drop required private revocation when a Disconnect/session change removes access. Publish source revision/phase generation and prevent older retries from overwriting newer views. Recover failed publication from committed state/outbox without re-running the action or revealing intermediate sealed votes/diagnostics. Revoke old private/operator/Ghost documents atomically with or before granting the next approved view according to A051. No provider SDK or Firebase project is required for memory/fake-store tests.",
+  "ownership": [
+    "functions/src/projections/publish-recipients.ts",
+    "functions/tests/projections/publish-recipients.test.ts"
+  ],
+  "dependsOn": [
+    "A051",
+    "A055",
+    "A056",
+    "A057",
+    "A058",
+    "A067"
+  ],
+  "acceptance": [
+    "Recipients converge to the latest approved lobby/match view while older retries cannot roll state or secrecy backward.",
+    "Queue pressure is bounded/coalesced and does not leak a transient unsealed vote,wrong operator diagnostic or stale private view.",
+    "Disconnect/revocation removes protected data before stale delivery can restore it; public watching remains as allowed.",
+    "Tests inject concurrent revisions,slow consumers,partial publication failure and recovery with unchanged engine/RNG/event history."
+  ],
+  "status": "blocked",
+  "category": "multiplayer-authority",
+  "sourceRefs": [
+    "docs/design/RULES-SPEC-v1.md#1-table-and-roles",
+    "docs/design/RULES-SPEC-v1.md#4-the-deterministic-crew-operation",
+    "docs/design/RULES-SPEC-v1.md#6-track-moments-and-powers",
+    "docs/design/RULES-SPEC-v1.md#disconnect--spectator",
+    "docs/design/GDD-v0.md#autoridad-y-timer-online"
+  ],
+  "blockedBy": [],
+  "countsAsFeatureDelivery": true,
+  "designManifestSha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+}

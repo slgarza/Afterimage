@@ -1,5 +1,10 @@
 # Game Design Document — Afterimage
 
+> Historical bootstrap design. Production A001-A100 work follows
+> [Rules Spec v1](design/RULES-SPEC-v1.md) and the
+> [retrieved source reconciliation](DESIGN_RECONCILIATION.md). The five-mark,
+> Witness and earlier scope below describe the original foundation context.
+
 ## Product promise
 
 Finish a tense, legible social-deduction game with friends in 20–35 minutes. Everyone has enough public information to make a theory and enough hidden information to doubt it.

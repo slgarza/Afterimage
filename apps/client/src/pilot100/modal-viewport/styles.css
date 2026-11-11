@@ -1,0 +1,45 @@
+.modal-viewport {
+  min-height: 100dvh;
+  color: #f2f2f2;
+  background: #1b1b1b;
+  isolation: isolate;
+}
+.modal-viewport__background { min-height: 100dvh; }
+.modal-viewport__content {
+  box-sizing: border-box;
+  min-height: 100dvh;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+.modal-viewport__dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  box-sizing: content-box;
+}
+.modal-viewport__dialog {
+  box-sizing: border-box;
+  width: min(36rem, calc(100% - 2rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)));
+  max-height: calc(100dvh - 2rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  overflow: auto;
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+  padding: 1.5rem;
+  border: 1px solid #ffffff45;
+  border-radius: 1rem;
+  background: #202020f5;
+  color: #f2f2f2;
+  box-shadow: 0 1rem 4rem #0008;
+}
+.modal-viewport__dialog::backdrop { background: transparent; }
+.modal-viewport__dialog :focus-visible { outline: 2px solid #eee; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .modal-viewport__dialog { scroll-behavior: auto; }
+}
+.modal-viewport[data-reduced-motion='true'] .modal-viewport__dialog { scroll-behavior: auto; }
+/* Keep the filtered containing block viewport-sized so the dock stays visible. */
+.modal-viewport__background { height: 100dvh; overflow: hidden; }
+.modal-viewport__content { height: 100dvh; overflow: auto; }

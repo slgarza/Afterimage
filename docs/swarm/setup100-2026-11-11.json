@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "measurement_kind": "authorized_setup_and_single_compatibility_probe",
+  "is_live_100_agent_swarm_run": false,
+  "recorded_at_utc": "2026-11-11T16:01:24.298738+00:00",
+  "target_repository": "slgarza/Afterimage",
+  "controller_repository": "slgarza/swarm-control",
+  "controller_execution_commit": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+  "worker_source_base_sha": "79404fe6d4ed5cf1b59b5610a3aebbe9d1f8021f",
+  "authorization": {
+    "policy_increase_approved": true,
+    "new_model_envelope_usd": "150.00",
+    "new_infrastructure_envelope_usd": "50.00",
+    "new_total_envelope_usd": "200.00",
+    "immediate_scope": "gateway/image/one compatibility probe and cleanup",
+    "setup_model_limit_usd": "0.50",
+    "setup_infrastructure_limit_usd": "19.00",
+    "setup_total_limit_usd": "19.50",
+    "maximum_probe_attempts": 1,
+    "hundred_worker_release_authorized": false,
+    "private_owner_confirmation_retained": true
+  },
+  "accounting": {
+    "policy_migration_applied": true,
+    "original_ledger_preserved": true,
+    "original_tasks_events_and_allocation_rows_preserved": true,
+    "prior_retained_allocations_cents": {
+      "model": 1800,
+      "infrastructure": 670
+    },
+    "cumulative_local_policy_cents": {
+      "model": 16800,
+      "infrastructure": 5670
+    },
+    "setup_retained_admission_reservations_cents": {
+      "model": 50,
+      "infrastructure": 1900
+    },
+    "setup_infrastructure_components_cents": {
+      "gateway_image_cleanup": 1765,
+      "single_probe": 135
+    },
+    "unreserved_local_allowance_cents": {
+      "model": 14950,
+      "infrastructure": 3100
+    },
+    "allocation_refunds_or_resets": false,
+    "admission_amounts_measure_provider_spend": false,
+    "provider_available_funds_usd": null,
+    "conservative_probe_model_charge_ceiling_usd": "0.054602",
+    "actual_billed_model_cost_usd": null,
+    "actual_billed_infrastructure_cost_usd": null,
+    "actual_reconciled_setup_cost_usd": null,
+    "billing_reconciled": false,
+    "modal_provider_export_imported_privately": true,
+    "import_claims_live_api_connector_verification": false,
+    "import_scope": "workspace aggregate including plan/credits, unassigned to this experiment; account amounts retained privately",
+    "subscription_allocation_policy": "Keep actual subscription charges separately; full/amortized experiment allocation still requires agreement."
+  },
+  "deployment": {
+    "gateway_deployments": 1,
+    "gateway_metadata_matches_reviewed_config": true,
+    "worker_image_build_requests": 1,
+    "new_image_layers_verified": false,
+    "image_build_internal_seconds": 0.810011701,
+    "http_input_capacity": 120,
+    "gateway_concurrency_verified": 100,
+    "provider_pacing_tpm_verified": 800000,
+    "provider_pacing_rpm_verified": 4000,
+    "provider_pacing_shared_deadline_seconds": 300,
+    "gateway_timeout_seconds": 900,
+    "gateway_min_containers": 0,
+    "gateway_max_containers": 1,
+    "gateway_scaledown_window_seconds": 90,
+    "rate_history_durability": "process-local; restart and other account traffic remain outside this limiter"
+  },
+  "probe": {
+    "attempts": 1,
+    "status": "passed",
+    "started_at_utc": "2026-11-11T15:50:27.273958+00:00",
+    "ended_at_utc": "2026-11-11T15:51:06.210213+00:00",
+    "internal_wall_seconds": 38.936,
+    "commands_completed": 1,
+    "command_exit_zero": true,
+    "expected_marker_verified": true,
+    "ready_response_verified": true,
+    "workspace_clean": true,
+    "file_changes": 0,
+    "model_requests": 2,
+    "model_completions": 2,
+    "model_errors": 0,
+    "count_requests": 2,
+    "count_errors": 0,
+    "input_tokens": 19647,
+    "cached_input_tokens": 9784,
+    "cache_write_input_tokens": 9857,
+    "output_tokens": 52,
+    "reasoning_output_tokens": 0,
+    "cached_components_are_subset_of_total_input": true,
+    "actual_model_limit_rpm_observed": 5000,
+    "actual_model_limit_tpm_observed": 1000000,
+    "model_limits_observed_from_provider_headers": true,
+    "sandbox_terminated": true,
+    "gateway_probe_run_stopped": true,
+    "cleanup_errors": [],
+    "one_probe_is_live_100_agent_capacity_proof": false
+  },
+  "post_setup": {
+    "source_preflight_passed": true,
+    "github_get_requests": 103,
+    "open_B_issues_checked": 100,
+    "exact_source_base_ci_green": true,
+    "local_admission_reserve_sufficient": true,
+    "source_and_local_budget_blockers": [],
+    "B_task_claims": 0,
+    "B_feature_workers_started": 0,
+    "launch_profile_live_enabled": false,
+    "setup_profile_live_enabled": false,
+    "setup_profile_worker_cap_during_probe": 1,
+    "gateway_application_state": "deployed",
+    "gateway_application_stopped_or_deleted": false,
+    "active_function_containers_observed": 0,
+    "active_sandboxes_observed": 0,
+    "inventory_snapshot_started_at_utc": "2026-11-11T15:53:42.620365+00:00",
+    "inventory_snapshot_ended_at_utc": "2026-11-11T15:53:43.994255+00:00",
+    "inventory_is_continuous_monitoring": false,
+    "effective_modal_sandbox_quota_verified": false,
+    "billing_lag_or_unattributed_usage_present": true
+  },
+  "independent_review": {
+    "assertions_passed": true,
+    "reviewer_did_not_execute_probe": true,
+    "historical_accounting_preserved": true,
+    "ledger_bytes_unchanged_during_read_only_review": true,
+    "private_receipt_sha256": "876b141727ac936d6e53216f8d1273ea197ff11880e973bb4eb662de04461724"
+  },
+  "exceptions_and_interventions": [
+    {
+      "stage": "migration authorization validation",
+      "outcome": "First confirming-authority identity punctuation rejected before SQL mutation; corrected receipt used the actual approved scope; successful second apply retained."
+    },
+    {
+      "stage": "timing receipt classification",
+      "outcome": "Inherited local-only wrapper flags corrected explicitly for cloud deploy/build; original timing/output receipts preserved."
+    },
+    {
+      "stage": "local evidence derivation",
+      "outcome": "Wrong summary key corrected to completed; original successful single-probe result unchanged; no extra cloud/model attempt."
+    },
+    {
+      "stage": "read-only provider billing",
+      "outcome": "Unsupported hourly grouping rejected; daily fallback and monthly observations preserved; delayed aggregates cannot establish final setup cost."
+    }
+  ],
+  "clock": {
+    "instrumented_stage_started_at_utc": "2026-11-11T15:46:33.912825+00:00",
+    "verified_setup_record_closed_at_utc": "2026-11-11T16:01:24.298738+00:00",
+    "instrumented_elapsed_seconds": 890.386061117,
+    "definition": "Instrumented authorized setup phase through final source/local/provider verification and this record; includes coordinator time and overlapping additional-backlog planning. Excludes subsequent GitHub publication. Not a coding-cohort delivery clock."
+  },
+  "contest": {
+    "feature_deliveries": 0,
+    "hundred_worker_overlap_proven": false,
+    "same_file_collision_repair_proven": false,
+    "afk_baseline_run": null,
+    "merged_green_prs_per_hour": null,
+    "merged_green_prs_per_dollar": null,
+    "efficiency_win_proven": false
+  },
+  "remaining_gates": [
+    "separate actual 100-worker release and pre-dispatch notice",
+    "reviewer availability, repair scope and full-delivery deadline",
+    "agreed quality/benchmark protocol",
+    "actual useful simultaneous scale, shared quota and collision evidence during later authorized runs"
+  ],
+  "operations": [
+    {
+      "operation": "budget-apply",
+      "status": "failed",
+      "started_at_utc": "2026-11-11T15:46:34.042995+00:00",
+      "ended_at_utc": "2026-11-11T15:46:34.223830+00:00",
+      "wall_seconds": 0.180823923,
+      "receipt_sha256": "e8abfa7b5c5f3f79d4814f02d4399590517acd7f7b384b9d01890cd781c9e5b7",
+      "output_sha256": "693322efd072d92d0a9aee49eb05f55e6935c10ce6c904ca1444c9192c4f77fb",
+      "cloud_operation": false
+    },
+    {
+      "operation": "budget-apply",
+      "status": "passed",
+      "started_at_utc": "2026-11-11T15:46:50.302527+00:00",
+      "ended_at_utc": "2026-11-11T15:46:50.504032+00:00",
+      "wall_seconds": 0.201512121,
+      "receipt_sha256": "1e9d22fae4e667dfa32637c2c26e8a2b3eb24c68e9e27120951e4c912e7219d6",
+      "output_sha256": "5ac5f8f9859e9fb0b97b972fd3d3b04c0d1ec75ef61d486befc280c94ebec050",
+      "cloud_operation": false
+    },
+    {
+      "operation": "gateway-deploy",
+      "status": "passed",
+      "started_at_utc": "2026-11-11T15:48:14.056010+00:00",
+      "ended_at_utc": "2026-11-11T15:48:25.738611+00:00",
+      "wall_seconds": 11.682604426,
+      "receipt_sha256": "407da04ef8cf194f82b62df2fdcad4b8cccd38ba0c0eea62b3d6fa89c3389dc1",
+      "output_sha256": "092ca481e02a48c2baae7681172cace35e3003dd10815ed426072a898dc5b11d",
+      "cloud_operation": true
+    },
+    {
+      "operation": "worker-image-build",
+      "status": "passed",
+      "started_at_utc": "2026-11-11T15:49:01.736942+00:00",
+      "ended_at_utc": "2026-11-11T15:49:03.304815+00:00",
+      "wall_seconds": 1.567890958,
+      "receipt_sha256": "01ca9bc2f941ab106a214d9ede4b8ceb3f4269ff1d3034f685505677f9d1e67a",
+      "output_sha256": "3448e7008383bf8035c419d20078770e2949e8ea6a87e9c759eb9952a3c99a62",
+      "cloud_operation": true
+    },
+    {
+      "operation": "compatibility-probe",
+      "status": "passed",
+      "started_at_utc": "2026-11-11T15:50:26.607402+00:00",
+      "ended_at_utc": "2026-11-11T15:51:06.388555+00:00",
+      "wall_seconds": 39.781155596,
+      "receipt_sha256": "f3ba59761955ea60df109be1e620a57a15c4a16fdc7b86a37777306efc7ea785",
+      "output_sha256": "600d92d2b4f625a433fdc9350100bae2ad5901b5f28b09b8fdb3a921d4abc0fd",
+      "cloud_operation": true
+    },
+    {
+      "operation": "post-setup-preflight",
+      "status": "passed",
+      "started_at_utc": "2026-11-11T15:53:23.344193+00:00",
+      "ended_at_utc": "2026-11-11T15:54:30.240191+00:00",
+      "wall_seconds": 66.896000325,
+      "receipt_sha256": "f727bd9a634c8bcc2ae3d618d67aa02337d1b2a9ca3bd562b870837a19314f8a",
+      "output_sha256": "365de470e10de7cdd60e3bba765af56f15232d70a6cf8dde2c02d91ef25621b6",
+      "cloud_operation": false
+    },
+    {
+      "operation": "provider-billing-import",
+      "status": "passed",
+      "started_at_utc": "2026-11-11T15:55:01.509760+00:00",
+      "ended_at_utc": "2026-11-11T15:55:01.836448+00:00",
+      "wall_seconds": 0.326696984,
+      "receipt_sha256": "04cf076daaf7a6fbe9dab731a11563832c87a5cdcb95a9673172de289d3fa2c7",
+      "output_sha256": "b81e4444e5b98d38d3381fcd18c2bdc82128246788972e30d3900fe823877245",
+      "cloud_operation": false
+    }
+  ],
+  "publication_policy": "Reviewed allowlist only; no account totals, raw worker logs, credential hashes, private runtime profiles or owner confirmation contents.",
+  "local_publication_validation": {
+    "deployment_packet_validator": "passed108bindings106frozeninputs16refs100tasks",
+    "lint": "passed",
+    "typecheck": "passed",
+    "controller_source_changed_this_setup": false,
+    "new_C_issues_created": 0,
+    "full_playable_MVP_required_for_this_scale_pilot": false
+  }
+}

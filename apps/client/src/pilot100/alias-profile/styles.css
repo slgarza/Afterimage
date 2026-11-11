@@ -1,0 +1,55 @@
+.alias-profile {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100svh;
+  padding: calc(5rem + env(safe-area-inset-top, 0px)) max(1.5rem, env(safe-area-inset-right, 0px)) calc(2rem + env(safe-area-inset-bottom, 0px)) max(1.5rem, env(safe-area-inset-left, 0px));
+  display: grid;
+  place-items: center;
+  background: #070707;
+  color: #f0f0f0;
+  font-family: system-ui, sans-serif;
+}
+
+.alias-profile button, .alias-profile input { font: inherit; color: inherit; }
+.alias-profile button { cursor: pointer; }
+.alias-profile button:focus-visible, .alias-profile input:focus-visible {
+  outline: 3px solid #f0f0f0;
+  outline-offset: 5px;
+}
+.alias-profile__back {
+  position: absolute;
+  top: calc(1rem + env(safe-area-inset-top, 0px));
+  left: calc(1rem + env(safe-area-inset-left, 0px));
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 26%);
+  background: #1b1b1b;
+}
+.alias-profile__form { display: grid; justify-items: center; gap: 1.5rem; width: min(100%, 22rem); }
+.alias-profile__avatar { display: grid; justify-items: center; gap: .75rem; border: 0; background: transparent; }
+.alias-profile__placeholder {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 9rem;
+  height: 9rem;
+  padding: 1rem;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 26%);
+  background: #1b1b1b;
+  color: #a6a6a6;
+}
+.alias-profile__input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 3rem;
+  border: 0;
+  border-bottom: 1px solid rgb(255 255 255 / 26%);
+  background: transparent;
+  text-align: center;
+}
+.alias-profile__continue { width: 100%; min-height: 3rem; border: 1px solid rgb(255 255 255 / 26%); border-radius: 999px; background: rgb(255 255 255 / 8%); }
+.alias-profile__continue:disabled { opacity: .5; cursor: default; }
+.alias-profile__error { margin: 0; overflow-wrap: anywhere; }
+.alias-profile__sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }

@@ -1,0 +1,63 @@
+.join-code-form {
+  box-sizing: border-box;
+  display: grid;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 28rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  color: #f0f0f0;
+  background: #202020;
+  border: 1px solid #797979;
+  border-radius: 1.5rem;
+}
+
+.join-code-form h2,
+.join-code-form p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.join-code-form input,
+.join-code-form button {
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  font: inherit;
+  border: 1px solid #989898;
+  border-radius: 0.75rem;
+}
+
+.join-code-form input {
+  width: 100%;
+  box-sizing: border-box;
+  color: #f0f0f0;
+  background: #141414;
+}
+
+.join-code-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.join-code-form button {
+  cursor: pointer;
+  color: #f0f0f0;
+  background: transparent;
+}
+
+.join-code-form button[type='submit'] {
+  color: #171717;
+  background: #f0f0f0;
+}
+
+.join-code-form :focus-visible {
+  outline: 3px solid #f0f0f0;
+  outline-offset: 3px;
+}
+
+.join-code-form :disabled {
+  opacity: 0.6;
+  cursor: wait;
+}

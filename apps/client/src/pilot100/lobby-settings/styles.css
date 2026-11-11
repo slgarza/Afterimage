@@ -1,0 +1,29 @@
+.lobby-settings {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, .26);
+  border-radius: 1.5rem;
+  background: rgba(27, 27, 27, .94);
+  color: #f0f0f0;
+  font-family: Inter, sans-serif;
+}
+.lobby-settings h2 { margin-top: 0; }
+.lobby-settings fieldset { display: grid; gap: .75rem; border: 0; padding: 0; margin: 1.5rem 0; min-width: 0; }
+.lobby-settings legend { margin-bottom: 1rem; }
+.lobby-settings select, .lobby-settings button {
+  min-height: 44px;
+  padding: .6rem 1rem;
+  border: 1px solid #a6a6a6;
+  border-radius: .75rem;
+  color: #f0f0f0;
+  background: #1b1b1b;
+  font: inherit;
+}
+.lobby-settings-range { margin: 0 0 .5rem; color: #a6a6a6; font-size: .875rem; }
+.lobby-settings-toggle { display: flex; align-items: center; gap: .75rem; min-height: 44px; }
+.lobby-settings input { width: 1.25rem; height: 1.25rem; accent-color: #f0f0f0; }
+.lobby-settings-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .75rem; }
+.lobby-settings button[type="submit"] { background: #f0f0f0; color: #1b1b1b; }
+.lobby-settings :disabled { opacity: .65; }
+.lobby-settings :focus-visible { outline: 2px solid #f0f0f0; outline-offset: 3px; }

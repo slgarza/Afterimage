@@ -1,0 +1,61 @@
+.lobby-participants {
+  color: #f0f0f0;
+  background: #070707;
+  border: 1px solid rgb(255 255 255 / 26%);
+  border-radius: 1rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  overflow-wrap: anywhere;
+}
+
+.lobby-participants__list {
+  list-style: none;
+  padding: 0;
+}
+
+.lobby-participants__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(255 255 255 / 26%);
+}
+
+.lobby-participants__identity {
+  display: grid;
+  gap: .4rem;
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.lobby-participants__avatar,
+.lobby-participants__muted {
+  color: #a6a6a6;
+}
+
+.lobby-participants__statuses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.lobby-participants button {
+  color: #f0f0f0;
+  background: #1b1b1b;
+  border: 1px solid rgb(255 255 255 / 26%);
+  border-radius: .5rem;
+  min-height: 2.75rem;
+  padding: .5rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lobby-participants button:disabled {
+  color: #a6a6a6;
+  cursor: default;
+}
+
+.lobby-participants button:focus-visible {
+  outline: 2px solid #f0f0f0;
+  outline-offset: 3px;
+}

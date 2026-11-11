@@ -1,0 +1,60 @@
+.shell-navigation {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem;
+  color: #f0f0f0;
+  background: linear-gradient(rgb(27 27 27 / 94%), rgb(7 7 7 / 94%));
+  border: 1px solid rgb(255 255 255 / 26%);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(16px);
+}
+
+.shell-navigation__routes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shell-navigation__routes button {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 3rem;
+  height: 100%;
+  padding: 0.5rem 0.25rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.shell-navigation__routes button[aria-current='page'] {
+  border-color: currentColor;
+  background: rgb(255 255 255 / 8%);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.shell-navigation__routes button:hover {
+  background: rgb(255 255 255 / 12%);
+}
+
+.shell-navigation__routes button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+  .shell-navigation {
+    color: CanvasText;
+    background: Canvas;
+    border-color: CanvasText;
+  }
+}

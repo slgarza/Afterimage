@@ -13,6 +13,17 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Fetch controller source for release pin verification
+        uses: actions/checkout@v4
+        with:
+          repository: slgarza/swarm-control
+          ref: main
+          path: .swarm/controller-source
+          fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
@@ -20,11 +31,13 @@ jobs:
       # validated by the local integration step.
       - run: npm ci
       - name: Test local benchmark receipt tooling
-        run: node --test tools/benchmark-pilot.test.mjs tools/prepare-parallel100.test.mjs
+        run: node --test tools/benchmark-pilot.test.mjs tools/prepare-parallel100.test.mjs tools/validate-deployment100.test.mjs
       - name: Validate frozen design and linked task metadata
         run: node tools/validate-pilot100.mjs --require-issues
       - name: Validate independent 100-task preparation
         run: node tools/prepare-parallel100.mjs --require-issues --workload-only
+      - name: Validate disabled deployment packet and frozen Git inputs
+        run: node tools/validate-deployment100.mjs --controller .swarm/controller-source --json
       - run: npm run lint
       - run: npm run typecheck
       - run: npm test

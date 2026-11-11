@@ -1,0 +1,1342 @@
+{
+  "version": 1,
+  "id": "afterimage-parallel100-deployment",
+  "mode": "preparation-only",
+  "launchPermitted": false,
+  "liveExecutionAuthorized": false,
+  "scope": "unpaired-module-scale-pilot",
+  "sourceOfTruth": {
+    "workload": "swarm/parallel100.json and the 100 exact task files below",
+    "source": "pinned target Git commit and docs/design/SOURCE-MANIFEST.json",
+    "execution": "pinned controller Git commit, with independently recorded preflight tool version",
+    "settings": "tracked disabled swarm.toml; a separately reviewed authorized root runtime profile is required for live operations",
+    "admission": "original target common-checkout .swarm/control.sqlite3; never replace/reset/refund",
+    "spend": "privately retained provider observations and reconciled attributable billing, not admission reservations",
+    "capacity": "current provider/account and deployed authenticated gateway evidence, not configured fields",
+    "authorization": "actual owner confirmation and independently bound private release/migration receipts, currently absent",
+    "acceptance": "exact pinned B task acceptance, frozen UI/domain contracts and candidate acceptance document",
+    "protocol": "candidate below until actual owner agreement; strong AFK configuration remains unknown"
+  },
+  "source": {
+    "targetRepository": "slgarza/Afterimage",
+    "targetBaseSha": "79404fe6d4ed5cf1b59b5610a3aebbe9d1f8021f",
+    "controllerRepository": "slgarza/swarm-control",
+    "controllerCommit": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+    "profile": {
+      "path": "swarm.toml",
+      "sha256": "54c03cba101424259301152d59f04da6d19dfb7659f65b3169a7773b2b1bf36e"
+    },
+    "manifest": {
+      "path": "swarm/parallel100.json",
+      "sha256": "452c49f8c38e710ac7724a663718de7269e8f7690f503b7a00acbda8f164e96e"
+    },
+    "workloadDefinitionSha256": "202384f5cbc39191b4da13388f9e68b0da92fea794ca4e5a9bcbbab0b7dde4f0",
+    "designManifest": {
+      "path": "docs/design/SOURCE-MANIFEST.json",
+      "sha256": "184d30abf623bb20231819d386088914abdb783b98ce58c725e85690ad03d748"
+    },
+    "contracts": [
+      {
+        "path": "docs/PILOT100_UI_CONTRACTS.md",
+        "sha256": "25f05e0140c89ab896ec93baa3b98700fa11fdc7297fb97a8e112212ccc6153b"
+      },
+      {
+        "path": "docs/PILOT100_DOMAIN_CONTRACTS.md",
+        "sha256": "4ff5f53197aae5bc48b81b71cf23778f2d3749e7ceb3d8950e75d13e0b329359"
+      }
+    ],
+    "benchmarkPolicy": {
+      "path": "docs/SWARM_BENCHMARK.md",
+      "sha256": "601f373798a79146ae7dd72b7e0ede7227712b68cd070e5986337b13f6886957"
+    },
+    "launchGuide": {
+      "path": "docs/SWARM100_LAUNCH.md",
+      "sha256": "44af9c5f0be946d93e8f89f911d5dcb4b4c161c461c611db8e43ed45407156bd"
+    },
+    "acceptancePolicy": {
+      "path": "docs/SWARM100_ACCEPTANCE.md",
+      "sha256": "924adcac09258cdc39bd986e5c89bd891fff2ab586bb8be8d9027df8ef6978d6"
+    },
+    "preparedControllerCommit": "3e95f30a3f4ad196f76edcd8c8cdf894d3ebd0a5"
+  },
+  "taskIds": [
+    "B001",
+    "B002",
+    "B003",
+    "B004",
+    "B005",
+    "B006",
+    "B007",
+    "B008",
+    "B009",
+    "B010",
+    "B011",
+    "B012",
+    "B013",
+    "B014",
+    "B015",
+    "B016",
+    "B017",
+    "B018",
+    "B019",
+    "B020",
+    "B021",
+    "B022",
+    "B023",
+    "B024",
+    "B025",
+    "B026",
+    "B027",
+    "B028",
+    "B029",
+    "B030",
+    "B031",
+    "B032",
+    "B033",
+    "B034",
+    "B035",
+    "B036",
+    "B037",
+    "B038",
+    "B039",
+    "B040",
+    "B041",
+    "B042",
+    "B043",
+    "B044",
+    "B045",
+    "B046",
+    "B047",
+    "B048",
+    "B049",
+    "B050",
+    "B051",
+    "B052",
+    "B053",
+    "B054",
+    "B055",
+    "B056",
+    "B057",
+    "B058",
+    "B059",
+    "B060",
+    "B061",
+    "B062",
+    "B063",
+    "B064",
+    "B065",
+    "B066",
+    "B067",
+    "B068",
+    "B069",
+    "B070",
+    "B071",
+    "B072",
+    "B073",
+    "B074",
+    "B075",
+    "B076",
+    "B077",
+    "B078",
+    "B079",
+    "B080",
+    "B081",
+    "B082",
+    "B083",
+    "B084",
+    "B085",
+    "B086",
+    "B087",
+    "B088",
+    "B089",
+    "B090",
+    "B091",
+    "B092",
+    "B093",
+    "B094",
+    "B095",
+    "B096",
+    "B097",
+    "B098",
+    "B099",
+    "B100"
+  ],
+  "tasks": [
+    {
+      "id": "B001",
+      "path": "swarm/tasks/B001.json",
+      "sha256": "d19831eee91fbb3c08b4c85919d4d0059eb67fb6edb491ad59ebc8951ed4bd3d",
+      "issue": 134,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/134",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B002",
+      "path": "swarm/tasks/B002.json",
+      "sha256": "1975d6cfd02d3a00103c7ba33b791a3949450d3059e34ca01c431bdfa7f661f7",
+      "issue": 135,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/135",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B003",
+      "path": "swarm/tasks/B003.json",
+      "sha256": "28fac6760eec3b548fefc7c982f8e7c4f9c124eebc0067fb136e899229acd4c6",
+      "issue": 136,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/136",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B004",
+      "path": "swarm/tasks/B004.json",
+      "sha256": "7aa126fe88fbfe3703c80bb8b73ddaf1124d2c6342261a7b7f6c9da78b49f2be",
+      "issue": 137,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/137",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B005",
+      "path": "swarm/tasks/B005.json",
+      "sha256": "a16ab1a3e8490f09b430254ab55c56627bb5211ef8ee8af6f1f6fe871f3588a2",
+      "issue": 138,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/138",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B006",
+      "path": "swarm/tasks/B006.json",
+      "sha256": "14d9e2b2a6d4528e63ca657d143364888d7156f50f4648a0b73282b84423d5bf",
+      "issue": 139,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/139",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B007",
+      "path": "swarm/tasks/B007.json",
+      "sha256": "4e851d9d59698fbaa9d2838418697acc36d6e8f0140e8a99082121389b177203",
+      "issue": 140,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/140",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B008",
+      "path": "swarm/tasks/B008.json",
+      "sha256": "16c5691835fe73da5946538f58682a8dc859416b2d61e9fc181588b257b0b5a4",
+      "issue": 141,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/141",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B009",
+      "path": "swarm/tasks/B009.json",
+      "sha256": "bb9e78e62f3181aeffc0f23a487a913b1bcd6d20d82e0a9eb51d4bed798f6bad",
+      "issue": 142,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/142",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B010",
+      "path": "swarm/tasks/B010.json",
+      "sha256": "bfcea9e5ba2ff4347f4c23de25169fdb65053d583ea240b6593afb93a5a31b4d",
+      "issue": 143,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/143",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B011",
+      "path": "swarm/tasks/B011.json",
+      "sha256": "6b73bbb85cea7f744f6ed93b2afe6e94ded9fa2600d85d2219b31760c57212fa",
+      "issue": 144,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/144",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B012",
+      "path": "swarm/tasks/B012.json",
+      "sha256": "6806a10b22b2f9b70a228b992f6653d808132e3cbaf4d4fc0476b270641a55ff",
+      "issue": 145,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/145",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B013",
+      "path": "swarm/tasks/B013.json",
+      "sha256": "22d8b5a1b4d79377bed9006e3c1aafa917ce81d2227648d86bb8498f5265bedf",
+      "issue": 146,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/146",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B014",
+      "path": "swarm/tasks/B014.json",
+      "sha256": "256fd8cdb419b90ad74b5dfe6eecb61a68aa907ac2fe28743e06d7c73aff7491",
+      "issue": 147,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/147",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B015",
+      "path": "swarm/tasks/B015.json",
+      "sha256": "07d112519914b4196d69fadf62f027095285da38df2676019b2a4e8be0718035",
+      "issue": 148,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/148",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B016",
+      "path": "swarm/tasks/B016.json",
+      "sha256": "b6f3de4544fe98ad18abf98526e4445a0310d5fdee7770b78d66b31d98a23792",
+      "issue": 149,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/149",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B017",
+      "path": "swarm/tasks/B017.json",
+      "sha256": "3dbff6ebf13e637d3e7cc368bad916f3771a585ef129d76da762068ee272629f",
+      "issue": 150,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/150",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B018",
+      "path": "swarm/tasks/B018.json",
+      "sha256": "a06c71887d1b65ad946d0d2e795a36874961929754e59f7921b431009710c3b0",
+      "issue": 151,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/151",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B019",
+      "path": "swarm/tasks/B019.json",
+      "sha256": "575074bc60e5c8d9c5f4a57c4797b280af71bbe4d2e1ce77035be769b67e6df1",
+      "issue": 152,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/152",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B020",
+      "path": "swarm/tasks/B020.json",
+      "sha256": "3320b293f0ae42121b73fb2eff42f638c0b1298a37058273cd71cbb10e43b2df",
+      "issue": 153,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/153",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B021",
+      "path": "swarm/tasks/B021.json",
+      "sha256": "16be9a523fede5ab0d44a57254682934cfc42d9a94ff104cb5ab9da3740796a0",
+      "issue": 154,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/154",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B022",
+      "path": "swarm/tasks/B022.json",
+      "sha256": "8af5c13d7abacc85b1312152b187c0159a8904ec88cedf8c5a0fc34e13571f8c",
+      "issue": 155,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/155",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B023",
+      "path": "swarm/tasks/B023.json",
+      "sha256": "bd6b0922ea866553959c8714621ebb69f4367492d86400206365d8840d07ab49",
+      "issue": 156,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/156",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B024",
+      "path": "swarm/tasks/B024.json",
+      "sha256": "b911052f7a631c98d7efa04bb9d59b7cb53870dadeb744f783d0eb1f4cac8de8",
+      "issue": 157,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/157",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B025",
+      "path": "swarm/tasks/B025.json",
+      "sha256": "79b21eda770b0f2eab6e67066ac9189d6e40efa180a6876a6821601ac8eccc53",
+      "issue": 158,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/158",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B026",
+      "path": "swarm/tasks/B026.json",
+      "sha256": "b7eb4d2779e68c992b716ecc662d9de5d2b3a0dccc7fdfa68d5e591e131a0c5b",
+      "issue": 159,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/159",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B027",
+      "path": "swarm/tasks/B027.json",
+      "sha256": "e818096dabbfc81b9fcf6159e31fb76a873f3132ad8aab56437f264e81e14a3d",
+      "issue": 160,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/160",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B028",
+      "path": "swarm/tasks/B028.json",
+      "sha256": "77d2d4be5f9b63abd91a60cc0d3708958f8cfbc6f062895560a16c6611e88046",
+      "issue": 161,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/161",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B029",
+      "path": "swarm/tasks/B029.json",
+      "sha256": "96126675764c6a6341adbf590e62868a8603c1992f6f6dcbeb73f75c8c539e58",
+      "issue": 162,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/162",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B030",
+      "path": "swarm/tasks/B030.json",
+      "sha256": "5bdf405ec8a3d282ac20088d600641412f84fcebf314399d459ac84d21b7a9ff",
+      "issue": 163,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/163",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B031",
+      "path": "swarm/tasks/B031.json",
+      "sha256": "d4bb8c3968ebe099f014184e4433025d89e4103c6491c61815835b5a054a461a",
+      "issue": 164,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/164",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B032",
+      "path": "swarm/tasks/B032.json",
+      "sha256": "b64e071d5cb9bc3ab380ff60e9bc543d65719dea172542b3b2824c0ccaf40ccd",
+      "issue": 165,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/165",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B033",
+      "path": "swarm/tasks/B033.json",
+      "sha256": "92905e89752ca7df9d43cc4cede24b02200a88461bb9dc668047c7263bb1f729",
+      "issue": 166,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/166",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B034",
+      "path": "swarm/tasks/B034.json",
+      "sha256": "55762a53be773bf412b2f71d6024f3ed5f288b7951209c6b9796e15b0cebfd76",
+      "issue": 167,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/167",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B035",
+      "path": "swarm/tasks/B035.json",
+      "sha256": "5eba27df03eb19538d54764472b76348e0bb8f513c565a6103af696f10a1556a",
+      "issue": 168,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/168",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B036",
+      "path": "swarm/tasks/B036.json",
+      "sha256": "82ddc7410abb7f7c7ce3460eb526cdcc6a58b5e0ce2098bb74fd72c79aa736f3",
+      "issue": 169,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/169",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B037",
+      "path": "swarm/tasks/B037.json",
+      "sha256": "5bae852a9b66d5d150c55200c81adec999f8852a2bc7449abb5082d538837790",
+      "issue": 170,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/170",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B038",
+      "path": "swarm/tasks/B038.json",
+      "sha256": "fb8947f177f4407500dae443350fe364b8b3eba382330a624c570ab7e3a13a92",
+      "issue": 171,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/171",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B039",
+      "path": "swarm/tasks/B039.json",
+      "sha256": "fe58004c7700d7bb5deaeef265813e462285627fd359fe8ec68cf534f0f57084",
+      "issue": 172,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/172",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B040",
+      "path": "swarm/tasks/B040.json",
+      "sha256": "0f24c5d2ec6eecdedae5ac8d9207aafb25eac799312c5eb841de300331aa8906",
+      "issue": 173,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/173",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B041",
+      "path": "swarm/tasks/B041.json",
+      "sha256": "3e68a4eb86fa06cf270ff3857b03cf46b8c64fea652399196e9f879e10890fbe",
+      "issue": 174,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/174",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B042",
+      "path": "swarm/tasks/B042.json",
+      "sha256": "c57299a63dc812dff7e66bb1184f36b59b0ca2ca45246e350166b2c0a1a0f835",
+      "issue": 175,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/175",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B043",
+      "path": "swarm/tasks/B043.json",
+      "sha256": "ab726699924cfdb608c4351bd119b96e9ad6f58f79946f787d7713b90e9e5ac7",
+      "issue": 176,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/176",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B044",
+      "path": "swarm/tasks/B044.json",
+      "sha256": "8706907e3dedf4d9d27e22df09279d29808bd5f225937a27fa65f3fce8ed5c96",
+      "issue": 177,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/177",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B045",
+      "path": "swarm/tasks/B045.json",
+      "sha256": "074dcfc7051abb76013a66974e75b128ec7e4dea8c14644c36e355abd58f10e4",
+      "issue": 178,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/178",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B046",
+      "path": "swarm/tasks/B046.json",
+      "sha256": "8d445faf39f48fbe8191ca8e372de2a6d2c8216c3e8feed6dac8be310b2c05bd",
+      "issue": 179,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/179",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B047",
+      "path": "swarm/tasks/B047.json",
+      "sha256": "800ebc9dba7ee55c2d409af319e8c5c8999529900ce0769982427efd800c5fde",
+      "issue": 180,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/180",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B048",
+      "path": "swarm/tasks/B048.json",
+      "sha256": "a6e5b9e2a5aba94416fd71f2c0429581afd24c296912ba938b9594d08ae91c34",
+      "issue": 181,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/181",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B049",
+      "path": "swarm/tasks/B049.json",
+      "sha256": "1a5f3513160adebf1f5bd935e0847ea97e1eb8f3531530188ef2dedff82c708f",
+      "issue": 182,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/182",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B050",
+      "path": "swarm/tasks/B050.json",
+      "sha256": "713a9a36f57cd6247a88210b5d4b322414e247b2fa22663d8d387591ba1ecd49",
+      "issue": 183,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/183",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B051",
+      "path": "swarm/tasks/B051.json",
+      "sha256": "962378206541d45054d6010bc923b474715aae17991fdd1ca33684b7fac47193",
+      "issue": 184,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/184",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B052",
+      "path": "swarm/tasks/B052.json",
+      "sha256": "7caa32928e8ffdbaaafc0d0ff7b86b4a03614b12918b262dda5f9616efc77110",
+      "issue": 185,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/185",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B053",
+      "path": "swarm/tasks/B053.json",
+      "sha256": "73daf53bd9cdfdb0c61c17450d74bf79b1e11bb7d1a67a0b17c49706eed3df4b",
+      "issue": 186,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/186",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B054",
+      "path": "swarm/tasks/B054.json",
+      "sha256": "9817ca7cd9d79a7e77fcff251cc587e07883a9813e25f4f6b4583c5bb9a741ee",
+      "issue": 187,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/187",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B055",
+      "path": "swarm/tasks/B055.json",
+      "sha256": "0df888353bd2b65dc509bfdacde45660823dee4aae69f0161cc5258e7e9e47a8",
+      "issue": 188,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/188",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B056",
+      "path": "swarm/tasks/B056.json",
+      "sha256": "bde603a928d99aa0b6ee283f19952dd87e038f69015a9e854b7d8deab6d634ab",
+      "issue": 189,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/189",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B057",
+      "path": "swarm/tasks/B057.json",
+      "sha256": "5d3deba525c503068145a1ad64ca4ae054bfed2c54e7820879ddff7141cc2749",
+      "issue": 190,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/190",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B058",
+      "path": "swarm/tasks/B058.json",
+      "sha256": "58634f2f99c0cb6228a01fb9a42940c23d9b8106ba842a324f45abde0bb6bc3e",
+      "issue": 191,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/191",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B059",
+      "path": "swarm/tasks/B059.json",
+      "sha256": "44bd3ba1207394b8625fba576ba72e0456c56e9b41ce969c0f7cbbeaf4d48828",
+      "issue": 192,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/192",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B060",
+      "path": "swarm/tasks/B060.json",
+      "sha256": "c37825252af9471bfab4f50917e264dcffaff151a8e297356a4ccaed8a7fb3d9",
+      "issue": 193,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/193",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B061",
+      "path": "swarm/tasks/B061.json",
+      "sha256": "f8521f38d5ea6289a3eb19bc8652764ba72396ba03e743bec0b8d9938f8a14f6",
+      "issue": 194,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/194",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B062",
+      "path": "swarm/tasks/B062.json",
+      "sha256": "f88569e6abadaf7acc5d3d390e339694dbcd17ede3a6ee6309496cfb96b72022",
+      "issue": 195,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/195",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B063",
+      "path": "swarm/tasks/B063.json",
+      "sha256": "eeb54c1d125c5ce3eb3f29fe36f65c8669f6e93d8fa0ad40902330f261eb8c61",
+      "issue": 196,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/196",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B064",
+      "path": "swarm/tasks/B064.json",
+      "sha256": "3122ae57b1594a693d6c85cc7da1bc1947a1d451911cb40a30b9c9882135cef8",
+      "issue": 197,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/197",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B065",
+      "path": "swarm/tasks/B065.json",
+      "sha256": "c92a9321d0676690d11530b9c8abf585c3c4da5162bda179220e1107bceb9b40",
+      "issue": 198,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/198",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B066",
+      "path": "swarm/tasks/B066.json",
+      "sha256": "fe7003abe5d25a446d97339cb8ed02cec445cedf4f914bda1557f30fa76283d7",
+      "issue": 199,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/199",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B067",
+      "path": "swarm/tasks/B067.json",
+      "sha256": "e83ecde90a4c7793e47a78d4497bb920a96d4425684c66ae395e256086891744",
+      "issue": 200,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/200",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B068",
+      "path": "swarm/tasks/B068.json",
+      "sha256": "488f7f984f6a7749e82b14bd8b4ad0515aea5d8bf6705ca553b0430322db72ea",
+      "issue": 201,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/201",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B069",
+      "path": "swarm/tasks/B069.json",
+      "sha256": "b97930f4dbbf46d7ab073296470f84626f40db8560cdf3957373e19165f7a31f",
+      "issue": 202,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/202",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B070",
+      "path": "swarm/tasks/B070.json",
+      "sha256": "868b6d70c0d15423c7dfbde8f6026939ec9523b7535fa2d339140f2e9fa45edb",
+      "issue": 203,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/203",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B071",
+      "path": "swarm/tasks/B071.json",
+      "sha256": "08d8534437c106b301257ad33ed391fb05d94dbaafbb6a6d689d4e66bc00002c",
+      "issue": 204,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/204",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B072",
+      "path": "swarm/tasks/B072.json",
+      "sha256": "0911ab6568d22be08d3b9565bc210301456a2b9bb3345e7584e21507721cc19d",
+      "issue": 205,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/205",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B073",
+      "path": "swarm/tasks/B073.json",
+      "sha256": "ffe68ab2b32d4c010b124cadabc7e746a8e86aac9faad0b5b8fca698947ffcd2",
+      "issue": 206,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/206",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B074",
+      "path": "swarm/tasks/B074.json",
+      "sha256": "6ec7046401c07860d3fdd6c1fb4f47cc36172ee253f41c671088f203e4d66398",
+      "issue": 207,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/207",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B075",
+      "path": "swarm/tasks/B075.json",
+      "sha256": "c6ad5dd250300e3fdad409893fc2125585f3e3a5512c97c690fd0a831fd83c40",
+      "issue": 208,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/208",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B076",
+      "path": "swarm/tasks/B076.json",
+      "sha256": "b492ae454d1dc460490fa948781742e6029066b6297802112bc6b8eb18ea25bb",
+      "issue": 209,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/209",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B077",
+      "path": "swarm/tasks/B077.json",
+      "sha256": "80575bb867102d571acc39b0d2a2cf397f43ee5eb868a99ca8789dad832fc251",
+      "issue": 210,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/210",
+      "countsAsFeatureDelivery": false
+    },
+    {
+      "id": "B078",
+      "path": "swarm/tasks/B078.json",
+      "sha256": "e5f562e3c0031533e5299bcaa92cff3a3207b6ead0ad5f8118c7a2cd7d164319",
+      "issue": 211,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/211",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B079",
+      "path": "swarm/tasks/B079.json",
+      "sha256": "423c20f0224d2b12ef87a3a185d55eddabc39c3c6d76a90ba6b8b41526b36b66",
+      "issue": 212,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/212",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B080",
+      "path": "swarm/tasks/B080.json",
+      "sha256": "9b07da7fa8f64ecec05637c9a55f2f644184e310f289efc07ade36e07a475749",
+      "issue": 213,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/213",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B081",
+      "path": "swarm/tasks/B081.json",
+      "sha256": "354b6dca3701c5f680252cb9ba3a5b1c9c20354e20037c9b5c03d9c314f45c3f",
+      "issue": 214,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/214",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B082",
+      "path": "swarm/tasks/B082.json",
+      "sha256": "8a7ccd7b296e78140f64e63722781345bbfb89aa2e50d10e049e7311497d912d",
+      "issue": 215,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/215",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B083",
+      "path": "swarm/tasks/B083.json",
+      "sha256": "dce3b80c0c75b545a6c3e92cd241959ce1cd326deefb96998da2e86f120c2134",
+      "issue": 216,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/216",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B084",
+      "path": "swarm/tasks/B084.json",
+      "sha256": "a504e4b576819cecdf03d292c1f2f46a43dfc26213d79afaf1176625b3c8d97b",
+      "issue": 217,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/217",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B085",
+      "path": "swarm/tasks/B085.json",
+      "sha256": "ac2daec07ef77cd0a16defc7742bdaf0cbf959a5a3438f4ae413320b850af331",
+      "issue": 218,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/218",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B086",
+      "path": "swarm/tasks/B086.json",
+      "sha256": "449efb6f377aefc1b92908c0f5ae9d25ca43207076085f906f33faae9cf65d52",
+      "issue": 219,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/219",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B087",
+      "path": "swarm/tasks/B087.json",
+      "sha256": "7fd52b65d9814b01245e57ee59f0b41001bdf7d8a5d4b239464824137dfa0405",
+      "issue": 220,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/220",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B088",
+      "path": "swarm/tasks/B088.json",
+      "sha256": "958c437863ac2f4657821028782e116b863625e098a1f32fb5ff3758fb470aec",
+      "issue": 221,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/221",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B089",
+      "path": "swarm/tasks/B089.json",
+      "sha256": "e890701541d0e6decac51fb1465975cb4d02cabe50001e6d3e9ee93cc1e253f5",
+      "issue": 222,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/222",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B090",
+      "path": "swarm/tasks/B090.json",
+      "sha256": "a9aaafb1140467fd7c9b19ddf1bc78978ce46ab20d642d8ed156219f4908a5e2",
+      "issue": 223,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/223",
+      "countsAsFeatureDelivery": false
+    },
+    {
+      "id": "B091",
+      "path": "swarm/tasks/B091.json",
+      "sha256": "5e3d6394c56e0cb68080de476f1e7df8d52362bfc3915b2bbc302c9c6ec62688",
+      "issue": 224,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/224",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B092",
+      "path": "swarm/tasks/B092.json",
+      "sha256": "4158cc0ec45d68ab1d11c386e440d87b8b969d4ac17803507d5b92f5509ccc3d",
+      "issue": 225,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/225",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B093",
+      "path": "swarm/tasks/B093.json",
+      "sha256": "0758635a4cb9f915b92115913863ec8d27e6ee4d15ba403b8f36eaab854ac072",
+      "issue": 226,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/226",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B094",
+      "path": "swarm/tasks/B094.json",
+      "sha256": "c9a9fa4f891c40f4a933eccb519118cbecde9007ee4dcb5fb19365fcab4f652d",
+      "issue": 227,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/227",
+      "countsAsFeatureDelivery": false
+    },
+    {
+      "id": "B095",
+      "path": "swarm/tasks/B095.json",
+      "sha256": "f48eb583fc03d8f319d6b6261470e44aad1dc6501b25944650ab0c3594369da2",
+      "issue": 228,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/228",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B096",
+      "path": "swarm/tasks/B096.json",
+      "sha256": "331fd0f6e798246bf6690e2aecaa6e14a49e3c387cf05eb0fcabeeb64db37d64",
+      "issue": 229,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/229",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B097",
+      "path": "swarm/tasks/B097.json",
+      "sha256": "b845db7e30258a9ea583d2caed1b9e0c7e42c46e0fc27786f0e1a70e45e9e115",
+      "issue": 230,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/230",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B098",
+      "path": "swarm/tasks/B098.json",
+      "sha256": "1a5eb2f3e3bc0074234613de591d331e0424ea5388f5fa467095728eddbf527b",
+      "issue": 231,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/231",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B099",
+      "path": "swarm/tasks/B099.json",
+      "sha256": "337914425dbfece9dff1df1e7c7ae3bcfb0db608402eb6f195b49b86659f24d4",
+      "issue": 232,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/232",
+      "countsAsFeatureDelivery": true
+    },
+    {
+      "id": "B100",
+      "path": "swarm/tasks/B100.json",
+      "sha256": "d63de0478eab46ea89f8fb9b8efd9d95e88556e831006e691e0676ea9413d708",
+      "issue": 233,
+      "issueUrl": "https://github.com/slgarza/Afterimage/issues/233",
+      "countsAsFeatureDelivery": true
+    }
+  ],
+  "workload": {
+    "taskCount": 100,
+    "productModuleCandidates": 97,
+    "supportingTaskIds": [
+      "B077",
+      "B090",
+      "B094"
+    ],
+    "dependencies": 0,
+    "sharedOwnedPaths": 0,
+    "dispatchOverlappingATasks": false,
+    "reservedOriginalTaskIds": [
+      "A002",
+      "A004",
+      "A005",
+      "A006",
+      "A008",
+      "A009",
+      "A010",
+      "A011",
+      "A012",
+      "A013",
+      "A014",
+      "A015",
+      "A016",
+      "A017",
+      "A018",
+      "A019",
+      "A020",
+      "A021",
+      "A022",
+      "A023",
+      "A025",
+      "A026",
+      "A027",
+      "A028",
+      "A029",
+      "A030",
+      "A031",
+      "A032",
+      "A033",
+      "A034",
+      "A036",
+      "A037",
+      "A038",
+      "A039",
+      "A040",
+      "A041",
+      "A042",
+      "A043",
+      "A044",
+      "A045",
+      "A046",
+      "A047",
+      "A048",
+      "A049",
+      "A053",
+      "A054",
+      "A055",
+      "A056",
+      "A057",
+      "A058",
+      "A059",
+      "A060",
+      "A061",
+      "A062",
+      "A063",
+      "A064",
+      "A065",
+      "A066",
+      "A067",
+      "A071",
+      "A073",
+      "A076",
+      "A078",
+      "A079",
+      "A080",
+      "A081",
+      "A082",
+      "A083",
+      "A084",
+      "A085",
+      "A088",
+      "A089",
+      "A090",
+      "A091",
+      "A092",
+      "A100"
+    ],
+    "moduleDeliveryEstablishesAppIntegration": false,
+    "liveCollisionRepairProven": false
+  },
+  "runtime": {
+    "workers": 100,
+    "synchronized": true,
+    "cpu": 2,
+    "memoryMiB": 2048,
+    "resourceValuesAreMaximums": true,
+    "cpuRequest": 0.5,
+    "memoryMiBRequest": 512,
+    "gatewayConcurrency": 100,
+    "minimumConcurrentContainers": 101,
+    "administrativeHelperPeakContainers": 102,
+    "administrativeHelperPeakIsGuaranteedMaximum": false,
+    "agentTimeoutSeconds": 1800,
+    "preparationBarrierTimeoutSeconds": 300,
+    "setupAndFinalCheckTimeoutSeconds": 240,
+    "maximumWorkerLifecycleSeconds": 2700,
+    "model": "gpt-6.1-sol",
+    "gatewayOrigin": null,
+    "workerApp": "afterimage-swarm-pilot",
+    "gatewayApp": "afterimage-swarm-gateway",
+    "gatewayLedger": "afterimage-pilot-budget-v1",
+    "environment": "main",
+    "allowOverlap": false,
+    "automaticRetry": false,
+    "automaticRefill": false,
+    "dispatchCommandExecuted": false,
+    "imageBuildExecuted": false,
+    "probeExecuted": false,
+    "gatewayDeploymentExecuted": false,
+    "authorizedRuntimeProfile": null,
+    "authorizedRuntimeProfilePlacement": "ignored file directly at target checkout root; nested .swarm profile unsupported",
+    "workerHasGitHubOrProviderCredentials": false,
+    "credentialedIntegrationSeparatedFromWorker": true,
+    "integrationMode": "assisted-serial-single-trusted-integrator",
+    "proposalStatus": "draft-not-authorized; reviewed controller execution pin selected; approved root runtime profile and deployment verification required",
+    "unchangedDefaultAgentTimeoutSeconds": 300,
+    "gatewayRunTtlSeconds": 2700,
+    "gatewayTtlSoftwareCeilingSeconds": 3600,
+    "gatewayHttpTimeoutSeconds": 900,
+    "providerRateTokensPerMinute": 800000,
+    "providerRateRequestsPerMinute": 4000,
+    "providerRateMaximumCombinedWaitSeconds": 300,
+    "providerRatePacingStatus": "implemented and offline-tested; authorized deployed settings verification pending",
+    "providerRatePacingDurability": "process-local rolling minute; restart is not durable provider quota evidence",
+    "aggregateWorkerRequests": {
+      "cpu": 50,
+      "memoryGiB": 50
+    },
+    "aggregateWorkerMaximums": {
+      "cpu": 200,
+      "memoryGiB": 200
+    },
+    "proposedRuntimeTomlSettings": {
+      "gateway_concurrency": 100,
+      "gateway_tokens_per_minute": 800000,
+      "gateway_requests_per_minute": 4000
+    },
+    "suppliedModelCapacity": {
+      "model": "gpt-6.1-sol",
+      "tokensPerMinute": 1000000,
+      "requestsPerMinute": 5000,
+      "sourceKind": "owner-supplied current account limits; retain underlying evidence privately",
+      "verifiedByProviderApi": false,
+      "batchQueueReportedLabel": "1.35M TPD (batch queue)",
+      "interactiveTokensPerDay": null,
+      "batchQueueIsInteractiveDailyQuotaEvidence": false,
+      "providerAccountEvidenceSha256": null,
+      "observedAtUtc": null
+    },
+    "workerModelStreamIdleTimeoutSeconds": 900,
+    "automaticRetryScope": "No automatic replacement worker or cohort retry; bounded Codex HTTP/stream retries below remain part of the original task allowance and measured cost.",
+    "automaticWorkerReplacement": false,
+    "modelHttpRequestRetries": 2,
+    "modelStreamRetries": 1,
+    "providerRateIdleScaledownSeconds": 90,
+    "privatePreparationProfileCreated": true,
+    "privatePreparationProfileLiveEnabled": false,
+    "modalCapacityContext": {
+      "ownerReportedPaidTierUpgrade": true,
+      "publishedTeamContainerConcurrency": 5000,
+      "publishedReference": "https://modal.com/pricing",
+      "effectiveWorkspaceActivationVerifiedByApi": false,
+      "effectiveSandboxAndFunctionQuotaVerified": false,
+      "publishedPlanIsLiveCapacityProof": false
+    }
+  },
+  "budget": {
+    "currency": "usd",
+    "ownerAuthorization": null,
+    "authorizedNewSpendUsd": null,
+    "approvedIncrementalModelCeilingUsd": null,
+    "approvedIncrementalInfrastructureCeilingUsd": null,
+    "approvedCumulativeModelLimitCents": null,
+    "approvedCumulativeInfrastructureLimitCents": null,
+    "approvedRunModelReservationUsd": null,
+    "approvedSetupAndRepairScope": null,
+    "currentPreparedPolicyCents": {
+      "model": 1800,
+      "infrastructure": 700
+    },
+    "proposedRunReservationUsd": {
+      "model": "145.00",
+      "infrastructure": "31.00"
+    },
+    "proposalStatus": "draft USD200 total new-spend envelope, not authorized; conditional on refreshed retained allocations; supersedes USD170 model draft",
+    "infrastructureAdmissionFormula": "1.00 + 0.30 * 100 = 31.00; prior allocations, setup/probes and repairs are additional",
+    "modelRunSoftwareCeilingUsd": "180.00",
+    "fixedProbeAdmissionReserveUsd": {
+      "model": "0.50",
+      "infrastructure": "1.35"
+    },
+    "providerCreditBalanceUsd": null,
+    "availableProviderFundsUsd": null,
+    "actualBilledCohortCostUsd": null,
+    "billingReconciled": false,
+    "allocationReleaseAuthorized": false,
+    "migrationApplied": false,
+    "statusCommand": [
+      "swarm-control",
+      "budget",
+      "status",
+      "--project",
+      "swarm.toml",
+      "--json"
+    ],
+    "rules": [
+      "Refresh budget status before discussing money; preserve every retained allocation.",
+      "A local admission limit/reservation is not a provider invoice, balance or new spending approval.",
+      "Do not subtract observed spend from a monthly reference to infer available credit.",
+      "Cumulative migration requires actual separate bound owner authorization; it does not enable execution.",
+      "Setup, failed attempts, repairs and cleanup fit the actual approved scope or wait for new approval.",
+      "The USD200 planning ceiling and draft cumulative168/56.70 policy are proposals only; current policy, allocations and disabled profile remain unchanged."
+    ],
+    "planningNewSpendCeilingUsd": "200.00",
+    "planningCeilingStatus": "owner question and proposal constraint only; no spend or launch approval",
+    "proposedNewEnvelopeUsd": {
+      "model": "150.00",
+      "infrastructure": "50.00"
+    },
+    "proposedCumulativePolicyCents": {
+      "model": 16800,
+      "infrastructure": 5670
+    },
+    "proposalRetainedAllocationBasisCents": {
+      "model": 1800,
+      "infrastructure": 670
+    },
+    "proposalRetainedAllocationBasisMustBeRefreshed": true,
+    "proposedRunAndOneProbeReservationSubtotalUsd": "177.85",
+    "proposedRemainingSetupCiRepairEnvelopeUsd": "22.15",
+    "proposalArithmetic": "145.00 model + 31.00 infrastructure + 0.50 probe model + 1.35 probe infrastructure = 177.85; 200.00 - 177.85 = 22.15. Model envelope150 plus infrastructure50 = 200 new allowance; cumulative168/56.70 preserves18/6.70 prior reservations.",
+    "proposedRemainingEnvelopeUsd": {
+      "model": "4.50",
+      "infrastructure": "17.65"
+    }
+  },
+  "roles": {
+    "owner": "Sergio (actual confirmation required)",
+    "trustedCoordinator": "Codex coordinator operating the trusted controller session",
+    "independentReviewerRole": "Separate review agent that did not implement or repair the task being reviewed",
+    "independentReviewerIdentity": null,
+    "credentialedIntegratorRole": "One trusted coordinator/integrator; assisted and serial",
+    "reviewAvailabilityConfirmed": false
+  },
+  "gates": [
+    {
+      "id": "local-workload-validation",
+      "status": "pending-refresh",
+      "evidence": null
+    },
+    {
+      "id": "clean-pushed-source-baseline-and-open-issues",
+      "status": "pending-refresh",
+      "evidence": null
+    },
+    {
+      "id": "actual-owner-budget-and-setup-release",
+      "status": "pending",
+      "evidence": null
+    },
+    {
+      "id": "authorized-cumulative-policy-and-runtime-profile",
+      "status": "pending",
+      "evidence": null
+    },
+    {
+      "id": "current-modal-100-workers-plus-gateway-quota",
+      "status": "pending",
+      "evidence": null
+    },
+    {
+      "id": "current-model-rpm-tpm-and-account-access",
+      "status": "pending",
+      "evidence": null
+    },
+    {
+      "id": "authorized-gateway-deploy-and-authenticated-capacity-100",
+      "status": "pending",
+      "evidence": null
+    },
+    {
+      "id": "authorized-compatibility-probe",
+      "status": "pending",
+      "evidence": null
+    },
+    {
+      "id": "independent-review-owners-and-repair-scope",
+      "status": "pending",
+      "evidence": null
+    },
+    {
+      "id": "scale-pilot-protocol-window-and-deadline-agreed",
+      "status": "pending",
+      "evidence": null
+    },
+    {
+      "id": "owner-notified-before-100-and-actual-run-release",
+      "status": "pending",
+      "evidence": null
+    }
+  ],
+  "protocol": {
+    "status": "candidate-not-approved",
+    "comparisonMode": "unpaired-scale-pilot",
+    "targetBaseSha": "79404fe6d4ed5cf1b59b5610a3aebbe9d1f8021f",
+    "workloadDefinitionSha256": "202384f5cbc39191b4da13388f9e68b0da92fea794ca4e5a9bcbbab0b7dde4f0",
+    "acceptancePolicy": {
+      "path": "docs/SWARM100_ACCEPTANCE.md",
+      "sha256": "924adcac09258cdc39bd986e5c89bd891fff2ab586bb8be8d9027df8ef6978d6"
+    },
+    "clockDefinition": "UTC workload release before dispatch/admission/startup through final accepted cohort merge and required combined green checks, or approved full-delivery deadline; include all failure, repair, review and CI tail.",
+    "workloadReleasedAtUtc": null,
+    "deliveryEndedAtUtc": null,
+    "fullDeliveryDeadlineUtc": null,
+    "proposedObservationWindowSeconds": 86400,
+    "observationWindowApproved": false,
+    "observationRule": "At least 86400 seconds after each actual merge; final acceptance waits through last merge window; report provisional results and defects/reverts.",
+    "proposedPrGranularity": "one B task per PR; at most one accepted task credit across attempts/repairs",
+    "proposedHeadlineDeliveryNumerator": "independently accepted merged-green product-module PRs, excluding B077/B090/B094 supporting work; also report all accepted B PRs and supporting subtotal",
+    "costDenominator": "actual reconciled eligible complete cohort cost including support, failures, repairs, quality-window services and declared setup allocation; unknown until receipts exist",
+    "setupAllocationPolicy": null,
+    "confirmedInternalTokenExemptionUsd": null,
+    "actualEligibleCostUsd": null,
+    "mergedGreenPrsPerHour": null,
+    "mergedGreenPrsPerDollar": null,
+    "afkConfiguration": null,
+    "organizerApproval": null,
+    "afkRun": null,
+    "efficiencyWinProven": false,
+    "activityEvidence": "distinct task/session/sandbox/base, barrier release and actual command/model events plus attributable patch work; preserve gaps and idle-span limitations",
+    "scaleRequirementProven": false,
+    "sameFileCollisionRepairProven": false,
+    "pacingAndSessionCandidate": {
+      "tokensPerMinute": 800000,
+      "requestsPerMinute": 4000,
+      "agentSessionSeconds": 1800,
+      "status": "not authorized; include every queue wait, rejection, timeout and compute occupancy in clock/cost",
+      "usefulActivityRule": "100 genuine task-owning coding agents; no idle placeholders; waiting is not simultaneous useful model activity",
+      "historicalInputTokenIllustration": {
+        "oldTenWorkerInputTokens": 1814997,
+        "scaledHundredWorkerInputTokens": 18149970,
+        "minimumMinutesAtOneMillionTpm": "18.14997",
+        "minimumMinutesAt800kTpm": "22.6874625",
+        "isForecast": false,
+        "caveat": "Different tasks; input-only arithmetic excludes output, count calls, other traffic and all overhead."
+      }
+    }
+  },
+  "stageOrder": [
+    "read-only/local preflight and new private preparation receipt",
+    "actual owner budget/setup authorization and supported cumulative migration if required",
+    "authorized root runtime profile, gateway deployment, compatibility and current capacity verification",
+    "concrete notice before 100, agreed scale protocol and actual 100-worker release",
+    "release workload clock and dispatch exact synchronized B001-B100 cohort",
+    "independent semantic acceptance, assisted credentialed review/PR integration and gated repairs",
+    "quality observation, actual billing reconciliation, cleanup and reviewed public aggregates"
+  ],
+  "publication": {
+    "rawWorkerLogsOrRuntimeStateAllowed": false,
+    "credentialsOrAccountDetailsAllowed": false,
+    "publicEvidenceIndex": "docs/swarm/README.md",
+    "publicationNeedsReviewedAllowlist": true,
+    "thisPacketCreatesFeatureDeliveries": false
+  }
+}

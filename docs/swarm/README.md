@@ -1,6 +1,6 @@
 # Swarm demo, pilot and contest evidence
 
-Public review entry point, updated 2026-11-10. Start with the status below, then
+Public review entry point, updated 2026-11-11. Start with the status below, then
 follow the source-linked tasks and measured reports.
 
 ## Current status
@@ -22,6 +22,9 @@ preparation. Local plans and browser fixtures do not establish agent concurrency
 
 ## Review the backlog and its source
 
+- [100-worker release packet](../../swarm/deployment100.json),
+  [staged launch guide](../SWARM100_LAUNCH.md) and
+  [independent acceptance policy](../SWARM100_ACCEPTANCE.md).
 - [Parallel100 issues](https://github.com/slgarza/Afterimage/issues?q=is%3Aissue+label%3Aparallel100),
   [B task/issue index](../PARALLEL100_TASKS.md),
   [preparation and launch runbook](../PILOT100_READY.md) and
@@ -41,6 +44,7 @@ preparation. Local plans and browser fixtures do not establish agent concurrency
 
 | Evidence | What it establishes |
 | --- | --- |
+| [Deployment preparation](deployment100-preparation-2026-11-11.md) / [JSON](deployment100-preparation-2026-11-11.json) | Current open-issue/base preflight, tested pacing/runtime proposal and USD200 planning envelope; no authorized deployment or live cohort |
 | [Parallel100 preparation report](parallel100-preparation-2026-11-10.md) / [JSON](parallel100-preparation-2026-11-10.json) | Second 100-task inventory, static independence, local checks and launch blockers; no live run |
 | [Preparation report](preparation-2026-11-10.md) / [JSON](preparation-2026-11-10.json) | Task/issue inventory, source coverage and measured local validation; not a live cohort |
 | [Historical ten-agent report](pilot10-2026-11-10.md) / [JSON](pilot10-2026-11-10.json) | The completed earlier assisted pilot and its stated measurement limits |

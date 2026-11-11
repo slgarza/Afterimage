@@ -1,0 +1,60 @@
+.leave-confirmation {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 30rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  border: 1px solid rgb(240 240 240 / 24%);
+  border-radius: 1rem;
+  background: #1b1b1b;
+  color: #f0f0f0;
+  font-family: inherit;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.leave-confirmation h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+.leave-confirmation p {
+  margin: 0 0 1rem;
+}
+
+.leave-confirmation__consequence {
+  white-space: pre-wrap;
+}
+
+.leave-confirmation__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.leave-confirmation button {
+  min-height: 2.75rem;
+  flex: 1 1 7rem;
+  padding: 0.625rem 1rem;
+  border: 1px solid #a6a6a6;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #f0f0f0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.leave-confirmation .leave-confirmation__leave {
+  background: #f0f0f0;
+  color: #070707;
+}
+
+.leave-confirmation button:focus-visible {
+  outline: 2px solid #f0f0f0;
+  outline-offset: 4px;
+}
+
+.leave-confirmation button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}

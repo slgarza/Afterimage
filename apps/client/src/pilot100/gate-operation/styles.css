@@ -1,0 +1,35 @@
+.gate-operation {
+  color: #f0f0f0;
+  background: #1b1b1b;
+  border: 1px solid #a6a6a6;
+  border-radius: 1rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  max-width: 48rem;
+  overflow-wrap: anywhere;
+}
+.gate-operation__diagnostics { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.gate-operation dt { color: #a6a6a6; }
+.gate-operation dd { margin: .4rem 0; }
+.gate-operation fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.gate-operation legend { margin-bottom: 1rem; }
+.gate-operation__choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: 1rem; }
+.gate-operation button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  padding: 1rem;
+  min-height: 44px;
+  color: inherit;
+  background: #070707;
+  border: 1px solid #a6a6a6;
+  border-radius: .75rem;
+  font: inherit;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.gate-operation button[aria-pressed='true'] { border: 3px double #f0f0f0; }
+.gate-operation button:focus-visible { outline: 3px solid #f0f0f0; outline-offset: 4px; }
+.gate-operation button:disabled { color: #a6a6a6; cursor: default; }
+.gate-operation img { object-fit: contain; }
+.gate-operation__missing { display: grid; place-items: center; width: 80px; min-height: 80px; font-size: .85rem; }

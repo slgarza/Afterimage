@@ -1,0 +1,33 @@
+.solo-setup {
+  box-sizing: border-box;
+  width: min(100%, 30rem);
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 2rem);
+  display: grid;
+  gap: 1rem;
+  background: #1b1b1b;
+  color: #f0f0f0;
+  border: 1px solid rgba(255, 255, 255, .26);
+  border-radius: 1.5rem;
+  font-family: system-ui, sans-serif;
+}
+.solo-setup h1, .solo-setup p { margin: 0; }
+.solo-setup p { color: #a6a6a6; line-height: 1.5; overflow-wrap: anywhere; }
+.solo-setup fieldset { min-width: 0; border: 1px solid rgba(255, 255, 255, .26); border-radius: .75rem; }
+.solo-setup button, .solo-setup select {
+  min-height: 44px;
+  min-width: 44px;
+  max-width: 100%;
+  padding: .65rem;
+  font: inherit;
+  color: inherit;
+  background: #292929;
+  border: 1px solid rgba(255, 255, 255, .26);
+  border-radius: .65rem;
+}
+.solo-setup button { cursor: pointer; }
+.solo-setup button:disabled, .solo-setup select:disabled { opacity: .55; cursor: default; }
+.solo-setup button:focus-visible, .solo-setup select:focus-visible { outline: 3px solid #f0f0f0; outline-offset: 3px; }
+.solo-setup__stepper { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.solo-setup__stepper output { font-size: 1.5rem; }
+.solo-setup .solo-setup__start { background: #f0f0f0; color: #070707; }

@@ -61,7 +61,10 @@
     "owner_reported_paid_tier_upgrade": true,
     "published_team_container_concurrency": 5000,
     "published_plan_is_effective_workspace_quota_proof": false,
-    "capacity_reference": "https://modal.com/pricing"
+    "capacity_reference": "https://modal.com/pricing",
+    "modal_audit_observed_at_utc": "2026-11-11T14:59:30.713300+00:00",
+    "modal_audit_precedes_owner_reported_upgrade": true,
+    "snapshot_not_live_capacity_monitoring": true
   },
   "candidate": {
     "status": "planning-only-not-authorized",

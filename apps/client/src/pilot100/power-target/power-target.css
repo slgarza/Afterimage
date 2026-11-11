@@ -1,0 +1,36 @@
+.power-target {
+  color: #f0f0f0;
+  background: #1b1b1b;
+  border: 1px solid #a6a6a6;
+  border-radius: 1rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  max-inline-size: 36rem;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+.power-target h2 { margin-block-start: 0; }
+.power-target__targets { list-style: none; margin: 0; padding: 0; }
+.power-target__targets li + li { margin-block-start: 1rem; }
+.power-target__targets p { margin-block: 0.5rem 0; white-space: pre-wrap; }
+.power-target button {
+  font: inherit;
+  color: #070707;
+  background: #f0f0f0;
+  border: 2px solid #f0f0f0;
+  border-radius: 0.5rem;
+  padding: 0.65rem 1rem;
+  min-block-size: 2.75rem;
+  inline-size: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.power-target button:disabled {
+  color: #a6a6a6;
+  background: #1b1b1b;
+  border-color: #a6a6a6;
+  cursor: default;
+}
+.power-target button:focus-visible { outline: 3px solid #f0f0f0; outline-offset: 4px; }

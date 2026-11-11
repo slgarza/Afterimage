@@ -27241,6 +27241,11 @@
         "bytes": 2697
       },
       {
+        "relative_path": "evidence/pilot100-2026-11-11/controller-GUI-PR6-merged.json",
+        "sha256": "09ad4f99e6c9a92a22d2d4a8a4a16817e60b201e8f00a7b572120d9a016cd800",
+        "bytes": 866
+      },
+      {
         "relative_path": "evidence/pilot100-2026-11-11/coordinated-ci-delay.json",
         "sha256": "1681f090d7461c706ec8b7d1979036eb5f399a4663bd341469eb7109f320ed22",
         "bytes": 16452
@@ -27309,6 +27314,31 @@
         "relative_path": "figures/pilot100-2026-11-11/censored-plot-receipt.json",
         "sha256": "6f57d9406a9e08e6bbbbf47e6dbaa18374c19e4085d2ffc1cb2f3e77fde795dc",
         "bytes": 799
+      },
+      {
+        "relative_path": "figures/pilot100-2026-11-11/censored-v2/censored-figure-v2-receipt.json",
+        "sha256": "b94bdfc4d0319102f393b8a91d95caeef02c72f81f83768d33eaeaf875c798de",
+        "bytes": 1316
+      },
+      {
+        "relative_path": "figures/pilot100-2026-11-11/censored-v2/censored-plot-inputs-public-allowlist.json",
+        "sha256": "c177f7ae9cf6a6b0db461cb07f993b5608b91d78cddf68307fddce5132bd33d4",
+        "bytes": 10302
+      },
+      {
+        "relative_path": "figures/pilot100-2026-11-11/censored-v2/figure-v2-provenance.json",
+        "sha256": "94b57cd30cc47b11817e14a459f98964c5e026583db6d74d8ce4bb019481aec0",
+        "bytes": 2130
+      },
+      {
+        "relative_path": "figures/pilot100-2026-11-11/censored-v2/pilot100-censored-20261111T221725Z.png",
+        "sha256": "8f6e10ce8835653e58f25829280a0430115c4980ba2b13c2e3af0c58c13a2ca8",
+        "bytes": 185253
+      },
+      {
+        "relative_path": "figures/pilot100-2026-11-11/censored-v2/pilot100-censored-20261111T221725Z.svg",
+        "sha256": "a45a6c813bcb32d70ce7ef1e55fa9834297ec93ede82c99feb5ec3ff5d1b355e",
+        "bytes": 114583
       },
       {
         "relative_path": "figures/pilot100-2026-11-11/pilot100-censored-20261111T221725Z.png",
@@ -27404,6 +27434,11 @@
         "relative_path": "methods/pilot100/censored-observation/close-censored-observation.py",
         "sha256": "7b63c5ac465338e1f4b680ada4004d6d1be66816dbde0b6dd632135ec1f9e7ac",
         "bytes": 23814
+      },
+      {
+        "relative_path": "methods/pilot100/censored-observation/plot-censored-annotation-v2.py",
+        "sha256": "17055e682645efc6011f1fd6ebc2663f1b4f5df3f6c1c9760f2a35daa777221d",
+        "bytes": 7955
       },
       {
         "relative_path": "methods/pilot100/censored-observation/source-provenance.json",
@@ -27582,7 +27617,14 @@
       "figures/pilot100-2026-11-11/plot-inputs.json",
       "figures/pilot100-2026-11-11/plot-receipt.json"
     ],
-    "last_ci_metadata_kind": "supporting_CENSORED_after_cutoff_not_completed_T1"
+    "last_ci_metadata_kind": "supporting_CENSORED_after_cutoff_not_completed_T1",
+    "current_figure": {
+      "png_relative_path": "figures/pilot100-2026-11-11/censored-v2/pilot100-censored-20261111T221725Z.png",
+      "sha256": "8f6e10ce8835653e58f25829280a0430115c4980ba2b13c2e3af0c58c13a2ca8",
+      "revision": 2,
+      "prior_v1_preserved": true,
+      "change": "Remove misleading global coding-deadline reference only; source sidecar, counts, events, cutoff/capture/actual queue stop and null completed T1 are unchanged."
+    }
   },
   "independent_postmortem": {
     "relative_path": "evidence/pilot100-2026-11-11/independent-postmortem-public-allowlist.json",
@@ -27934,7 +27976,15 @@
         "feature_credit_B_tasks": 0
       }
     },
-    "parallel_controller_work_is_not_B_task_delivery": true
+    "parallel_controller_work_is_not_B_task_delivery": true,
+    "later_controller_merge": {
+      "relative_path": "evidence/pilot100-2026-11-11/controller-GUI-PR6-merged.json",
+      "sha256": "09ad4f99e6c9a92a22d2d4a8a4a16817e60b201e8f00a7b572120d9a016cd800",
+      "merge_sha": "a08dc326ce4815e5f8e7e27e0e5de0ebf0333d52",
+      "after_cutoff_and_last_ci_capture": true,
+      "does_not_rewrite_v5_draft_at_export": true,
+      "B_feature_credit": 0
+    }
   },
   "methodological_appendices": [
     {
@@ -28042,5 +28092,55 @@
     "completed_T1": null,
     "quality_accepted": null,
     "exact_cutoff_CI_state_asserted": false
+  },
+  "publication_validation": {
+    "kind": "local_validation_of_report_branch_target_not_swarm_delivery",
+    "target_base_sha": "c2c4dcf765cac7aae261ea236b64ed1bacb2ea64",
+    "benchmarked_report_commit": "be9dfc85e28454df4ed78b6526706024a0bf18a9",
+    "receipt_sha256": "b922f436dafc89c85ac92a85548a607a3e240f56814ebe843bf9766feb0d82f0",
+    "profile": "full",
+    "status": "passed",
+    "clock": {
+      "definition": "Local validation after output-path admission through commands and final source snapshot; includes intermediate checkpoints, excludes final receipt write; not swarm delivery time.",
+      "started_at_utc": "2026-11-11T22:27:25.914Z",
+      "finished_at_utc": "2026-11-11T22:28:27.930Z",
+      "monotonic_duration_seconds": 62.016962794
+    },
+    "source_unchanged_during_benchmark": true,
+    "phases": [
+      {
+        "id": "metadata",
+        "status": "passed",
+        "monotonic_duration_seconds": 0.10286686,
+        "exit_code": 0
+      },
+      {
+        "id": "parallel-metadata",
+        "status": "passed",
+        "monotonic_duration_seconds": 0.128438998,
+        "exit_code": 0
+      },
+      {
+        "id": "benchmark-tests",
+        "status": "passed",
+        "monotonic_duration_seconds": 2.76107123,
+        "exit_code": 0
+      },
+      {
+        "id": "baseline",
+        "status": "passed",
+        "monotonic_duration_seconds": 58.813679734,
+        "exit_code": 0
+      }
+    ],
+    "later_changes_scope": "Documentation, artifact manifests, after-cutoff controller merge annotation and annotation-only figure derivative; application/runtime/workload inputs unchanged.",
+    "source_preparation_check": {
+      "bindings": 108,
+      "tasks": 100,
+      "status": "passed",
+      "live_execution_enabled": false
+    },
+    "worker_or_delivery_credit": 0,
+    "actual_validation_cost_usd": null
   }
 }

@@ -1,0 +1,82 @@
+.player-card-table {
+  color: #f0f0f0;
+  background: #070707;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+.player-card-table__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.player-card-table__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, .26);
+  border-radius: .75rem;
+  background: #1b1b1b;
+  overflow-wrap: anywhere;
+}
+
+.player-card-table__card[data-selected="true"] {
+  outline: 2px solid #f0f0f0;
+  outline-offset: 3px;
+}
+
+.player-card-table button {
+  min-height: 44px;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  border: 1px solid transparent;
+  border-radius: .65rem;
+  padding: .75rem;
+  background: transparent;
+  cursor: pointer;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.player-card-table__vote {
+  display: grid;
+  gap: .5rem;
+  flex: 1;
+  width: 100%;
+}
+
+.player-card-table__identity,
+.player-card-table__avatar {
+  color: #a6a6a6;
+}
+
+.player-card-table__avatar {
+  padding: 1rem .5rem;
+  border: 1px dashed rgba(255, 255, 255, .26);
+}
+
+.player-card-table button:disabled {
+  cursor: default;
+  border-style: dashed;
+  border-color: rgba(255, 255, 255, .26);
+}
+
+.player-card-table button:enabled:hover {
+  background: rgba(255, 255, 255, .08);
+}
+
+.player-card-table button:focus-visible {
+  outline: 3px solid #f0f0f0;
+  outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+  .player-card-table__card[data-selected="true"],
+  .player-card-table button:focus-visible {
+    outline-color: Highlight;
+  }
+}

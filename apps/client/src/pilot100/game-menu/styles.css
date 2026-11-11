@@ -1,0 +1,64 @@
+.game-menu {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 28rem;
+  padding: 1.5rem;
+  color: #f0f0f0;
+  background: #1b1b1b;
+  border: 1px solid #a6a6a6;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 3rem #0005;
+  font-family: inherit;
+}
+
+@supports (backdrop-filter: blur(16px)) {
+  .game-menu {
+    background: rgb(27 27 27 / 94%);
+    backdrop-filter: blur(16px);
+  }
+}
+
+.game-menu h2 {
+  margin: 0 0 0.75rem;
+}
+
+.game-menu p {
+  color: #a6a6a6;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.game-menu__actions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.game-menu__actions button {
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #a6a6a6;
+  border-radius: 0.5rem;
+  background: #303030;
+  color: #f0f0f0;
+  font: inherit;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.game-menu__actions button:hover {
+  background: #414141;
+}
+
+.game-menu__actions button:focus-visible {
+  outline: 3px solid #f0f0f0;
+  outline-offset: 3px;
+}
+
+.game-menu__actions p {
+  margin: 0;
+}
+
+.game-menu__actions .game-menu__close {
+  border-color: #f0f0f0;
+  font-weight: 700;
+}

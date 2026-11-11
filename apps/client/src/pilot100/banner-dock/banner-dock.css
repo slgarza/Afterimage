@@ -1,0 +1,16 @@
+.afterimage-banner-reservation {
+  height: calc(var(--afterimage-banner-height) + env(safe-area-inset-bottom, 0px));
+  flex: 0 0 auto;
+  pointer-events: none;
+}
+
+.afterimage-banner-dock {
+  position: fixed;
+  inset: auto 0 0;
+  box-sizing: border-box;
+  height: calc(var(--afterimage-banner-height) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: rgb(14 14 14 / 94%);
+  box-shadow: inset 0 1px rgb(240 240 240 / 16%);
+  pointer-events: none;
+}

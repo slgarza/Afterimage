@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "kind": "public_target_specific_evidence_analysis_source_snapshot",
+  "captured_at_utc": "2026-11-11T19:33:19.639868+00:00",
+  "recorded_worker_controller_commit": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+  "changes_to_worker_or_live_operators": false,
+  "source_export_deviations": [],
+  "source_already_uses_explicit_run_batch_target_input_and_output_paths": true,
+  "private_data_or_credentials_or_account_finance_exported": false,
+  "redaction_prefix_literals_and_synthetic_test_paths_are_not_real_operator_paths": true,
+  "files": [
+    {
+      "file": "collect-delivery-allowlist.py",
+      "original_source_location": "RUN/collect-delivery-allowlist.py",
+      "original_source_sha256": "37125a0e55417916ea9c113b441257a789ee4e0f1839b9f83986cb69556367b8",
+      "public_source_sha256": "37125a0e55417916ea9c113b441257a789ee4e0f1839b9f83986cb69556367b8",
+      "deviations": [],
+      "source_bytes_identical": true
+    },
+    {
+      "file": "analyze-activity-overhead.py",
+      "original_source_location": "RUN/analyze-activity-overhead.py",
+      "original_source_sha256": "ff0820b25f30e72cf7f8e764217b1296f74c18dcdf0be801197923f7c3f210da",
+      "public_source_sha256": "ff0820b25f30e72cf7f8e764217b1296f74c18dcdf0be801197923f7c3f210da",
+      "deviations": [],
+      "source_bytes_identical": true
+    },
+    {
+      "file": "plot-pilot-evidence.py",
+      "original_source_location": "RUN/plot-pilot-evidence.py",
+      "original_source_sha256": "c0e47c0564ccf4891ee067a7f75cffa17be43fff05b0887c4e11fdf270b59605",
+      "public_source_sha256": "c0e47c0564ccf4891ee067a7f75cffa17be43fff05b0887c4e11fdf270b59605",
+      "deviations": [],
+      "source_bytes_identical": true
+    },
+    {
+      "file": "test-delivery-allowlist.py",
+      "original_source_location": "RUN/test-delivery-allowlist.py",
+      "original_source_sha256": "6fa524979490e4b16c93372f3cfe9616697b5824af4880bb73b17e5e96362717",
+      "public_source_sha256": "6fa524979490e4b16c93372f3cfe9616697b5824af4880bb73b17e5e96362717",
+      "deviations": [],
+      "source_bytes_identical": true
+    },
+    {
+      "file": "test-delivery-finalize.py",
+      "original_source_location": "RUN/test-delivery-finalize.py",
+      "original_source_sha256": "9c6e4fa8b3bf353bafade491394446d9d4ec042a7eb7a745ac95ec14309613e8",
+      "public_source_sha256": "9c6e4fa8b3bf353bafade491394446d9d4ec042a7eb7a745ac95ec14309613e8",
+      "deviations": [],
+      "source_bytes_identical": true
+    },
+    {
+      "file": "test-operator-measurements.py",
+      "original_source_location": "RUN/test-operator-measurements.py",
+      "original_source_sha256": "18e268822a1a36fc7b5c69094f79001a52f2ff4172c21abb21e2bd541ec4fa45",
+      "public_source_sha256": "18e268822a1a36fc7b5c69094f79001a52f2ff4172c21abb21e2bd541ec4fa45",
+      "deviations": [],
+      "source_bytes_identical": true
+    },
+    {
+      "file": "test-activity-overhead.py",
+      "original_source_location": "RUN/test-activity-overhead.py",
+      "original_source_sha256": "c437e3da540893e7c9f6e963ea543acc1f19bec60ea56ddf132233f8c08df66a",
+      "public_source_sha256": "c437e3da540893e7c9f6e963ea543acc1f19bec60ea56ddf132233f8c08df66a",
+      "deviations": [],
+      "source_bytes_identical": true
+    },
+    {
+      "file": "test-plot-inputs.py",
+      "original_source_location": "RUN/test-plot-inputs.py",
+      "original_source_sha256": "0e01b4eb64bfe8e5c1acdf080199b774490630f8e3ed756c11bd20571fcf5691",
+      "public_source_sha256": "0e01b4eb64bfe8e5c1acdf080199b774490630f8e3ed756c11bd20571fcf5691",
+      "deviations": [],
+      "source_bytes_identical": true
+    }
+  ],
+  "optional_plot_lock_sha256": "2de33be6619f5fcf8430bfa8cfe6e2f942d0531d716191ac4d7f454be6069db4",
+  "controller_dependency": "swarm-control at recorded979026c commit; stdlib and controller modules, without service invocation",
+  "python_version": "3.12",
+  "optional_matplotlib_version": "3.10.7",
+  "offline_test_methods": {
+    "activity": 6,
+    "delivery_allowlist": 10,
+    "finalizer": 11,
+    "operator_measurements": 5,
+    "plot_inputs": 5
+  },
+  "finalizer_independent_function_ast_sha256": "0c98b31027eaf9f4c466266e23a7721b75bf1fda56f45ae2b8a0d49e42d4f08e",
+  "snapshot_revision": 2,
+  "post_snapshot_source_revision": {
+    "scope": "plot receipt metadata and synthetic CLI regression only",
+    "measured_data_or_plotting_algorithm_changed": false,
+    "previous_snapshot_retained": true,
+    "prior_plot_source_sha256": "26c08d5dd95120b583627a8f6e823088f19a310dd9b6d3fea7e137b9219bf9bc"
+  }
+}

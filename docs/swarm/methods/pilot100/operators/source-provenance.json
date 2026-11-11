@@ -1,0 +1,213 @@
+{
+  "schema_version": 2,
+  "captured_at_utc": "2026-11-11T17:18:45.745418+00:00",
+  "kind": "public_review_snapshot_of_private_operator_recovery_glue",
+  "controller_worker_runtime_commit": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+  "worker_runtime_modified": false,
+  "paid_execution_authorized_by_snapshot": false,
+  "runtime_inputs_or_state_exported": false,
+  "files": [
+    {
+      "file": "recover-reviewed-queue.py",
+      "runtime_source_sha256": "71647bd8143d4301888220e02d7f4b809a0009da15bcec9067783b0a13518a88",
+      "runtime_source_location": "RUN/recover-reviewed-queue.py",
+      "v1_parameterized_source_sha256": "fda4a5a3a87d257ee6a6e122d0ba9f25b64dd634eda665742c52b86597ac9e4c",
+      "v2_published_source_sha256": "5f19f5bd660ddebb812417cf32f96c12152eee5e4c251e71120bb18011aa1cfd",
+      "v2_body_ast_equivalent_to_v1_modulo_imports_and_utc_alias": true,
+      "v1_path_parameterization_edits": [
+        {
+          "source_line_number": 4,
+          "source_fragment_sha256": "586deb2382d592dbfb85a0d1a95344e43d3a1ae836fb78b76da9bbec3c3df14a",
+          "exported_fragment": "RUN=Path(os.environ['SWARM_RECOVERY_RUN']).resolve()",
+          "purpose": "operator path parameterization only"
+        },
+        {
+          "source_line_number": 6,
+          "source_fragment_sha256": "e07a0b6f403a8a5e3f59b5fa9c5dbaa46534a414f3003318311037b2949d742a",
+          "exported_fragment": "REPO=Path(os.environ['SWARM_RECOVERY_TARGET_ROOT']).resolve()",
+          "purpose": "operator path parameterization only"
+        },
+        {
+          "source_line_number": 7,
+          "source_fragment_sha256": "04e3862ee2f2c24b7b6fda804fb0078496caae1c8959932dd7bfec537e79ea66",
+          "exported_fragment": "CONTROLLER=Path(os.environ['SWARM_RECOVERY_CONTROLLER_ROOT']).resolve()",
+          "purpose": "operator path parameterization only"
+        },
+        {
+          "source_line_number": 8,
+          "source_fragment_sha256": "c5cb52098a144c10f7c3c2887c2da569e727169efa7d6e34883daf6ad43c97d4",
+          "exported_fragment": "PROFILE=Path(os.environ['SWARM_RECOVERY_PROFILE']).resolve()",
+          "purpose": "operator path parameterization only"
+        }
+      ],
+      "v1_reversing_disclosed_edits_restores_original_bytes": true
+    },
+    {
+      "file": "recover-reviewed-phase.py",
+      "runtime_source_sha256": "7d115aabfbffb9cfbb29b69e65c557cad8d1c002e1112c6a7081aa86c354f10e",
+      "runtime_source_location": "RUN/recover-reviewed-phase.py",
+      "v1_parameterized_source_sha256": "1b9ae6d672efbedcc9bcb487f0fa30236e32f0f69a4616e5bdce94f6534bb17f",
+      "v2_published_source_sha256": "8c262e95bfa27db7d90cbec438a3c71e24b41173053c4cf15caeb2ec4740d92e",
+      "v2_body_ast_equivalent_to_v1_modulo_imports_and_utc_alias": true,
+      "v1_path_parameterization_edits": [
+        {
+          "source_line_number": 22,
+          "source_fragment_sha256": "3ff468a0f56c6e84a5ff4bf4dc201713d0c4c7631e7fcf0dc14014881a3d0c2a",
+          "exported_fragment": "RUN = Path(os.environ['SWARM_RECOVERY_RUN']).resolve()",
+          "purpose": "operator path parameterization only"
+        },
+        {
+          "source_line_number": 23,
+          "source_fragment_sha256": "0cd6fba5c1b21660e7302f33bffeead368f282bac4c24486cbce41a0f6a959f6",
+          "exported_fragment": "CONTROLLER = Path(os.environ['SWARM_RECOVERY_CONTROLLER_ROOT']).resolve()",
+          "purpose": "operator path parameterization only"
+        },
+        {
+          "source_line_number": 24,
+          "source_fragment_sha256": "216fb5ef180b7e35983d98da5d6e8694f28765df77aaa4bb205054eeee2bc295",
+          "exported_fragment": "PROFILE = Path(os.environ['SWARM_RECOVERY_PROFILE']).resolve()",
+          "purpose": "operator path parameterization only"
+        }
+      ],
+      "v1_reversing_disclosed_edits_restores_original_bytes": true
+    },
+    {
+      "file": "repair-reviewed-phase.py",
+      "runtime_source_sha256": "01a5aa2c6f5c8fc6d410e87bb13d188ae757f9df0928210081fe3aa680a2f7c3",
+      "runtime_source_location": "RUN/repair-reviewed-phase.py",
+      "v1_parameterized_source_sha256": "2c28c9bf1c8718c5e9a0c1ee55510bc94851b9317731f2a3aa37cacea86ee3a3",
+      "v2_published_source_sha256": "280673f8d007bca6d2f5c1902f6ad940dd3f9546a1adc1336f18e93d6e8a0b8b",
+      "v2_body_ast_equivalent_to_v1_modulo_imports_and_utc_alias": true,
+      "v1_path_parameterization_edits": [
+        {
+          "source_line_number": 7,
+          "source_fragment_sha256": "586deb2382d592dbfb85a0d1a95344e43d3a1ae836fb78b76da9bbec3c3df14a",
+          "exported_fragment": "RUN=Path(os.environ['SWARM_RECOVERY_RUN']).resolve()",
+          "purpose": "operator path parameterization only"
+        },
+        {
+          "source_line_number": 51,
+          "source_fragment_sha256": "52f5102e068dd21b27001b44f6e02956d419af9d1926a9eb92aeae8c07d478da",
+          "exported_fragment": "load_project(Path(os.environ['SWARM_RECOVERY_PROFILE']).resolve())",
+          "purpose": "operator path parameterization only"
+        }
+      ],
+      "v1_reversing_disclosed_edits_restores_original_bytes": true
+    },
+    {
+      "file": "test-recovery-queue.py",
+      "runtime_source_sha256": "c3846be220b590487a4a9b8f92090e551cbe389906ac30d07826586ff1e4e97e",
+      "runtime_source_location": "RUN/test-recovery-queue.py",
+      "v1_parameterized_source_sha256": "c3846be220b590487a4a9b8f92090e551cbe389906ac30d07826586ff1e4e97e",
+      "v2_published_source_sha256": "4fdc271da82812477e0fed735a5c66e3e84faa5b70a81bfcc04065889777f451",
+      "v2_body_ast_equivalent_to_v1_modulo_imports_and_utc_alias": true,
+      "v1_path_parameterization_edits": [],
+      "v1_reversing_disclosed_edits_restores_original_bytes": true
+    },
+    {
+      "file": "test-recover-reviewed-phase.py",
+      "runtime_source_sha256": "aa36583989584f324b3ee8168c5f0eece9108f09c923d5628e0b9c3428afcabc",
+      "runtime_source_location": "RUN/test-recover-reviewed-phase.py",
+      "v1_parameterized_source_sha256": "721d754864e5199529d61bc07ff43ebab108e01c5807e5e8174c04c70c1a46d8",
+      "v2_published_source_sha256": "5b18c9854ae7be3786c4f08d0bfe72379e1e945f4fd57a7ed4f73476d354cecd",
+      "v2_body_ast_equivalent_to_v1_modulo_imports_and_utc_alias": true,
+      "v1_path_parameterization_edits": [
+        {
+          "purpose": "offline import adapter only",
+          "source_fragment_sha256": "c748ee1fdff0d7fa91f5cf9b6cfe7510aa3f845a8351d9e86cd990ebb8241a3d",
+          "exported_fragment": "with patch.dict(os.environ, {name: str(SCRIPT.parent.resolve()) for name in ('SWARM_RECOVERY_RUN', 'SWARM_RECOVERY_CONTROLLER_ROOT', 'SWARM_RECOVERY_PROFILE')}):\n    spec.loader.exec_module(m)",
+          "added_import": "os"
+        }
+      ],
+      "v1_reversing_disclosed_edits_restores_original_bytes": true
+    },
+    {
+      "file": "test-repair-generic.py",
+      "runtime_source_sha256": "078d4c69b5a064bef113cf88ed52a1cd0d782affc419e7b51a4a1cf3001807ba",
+      "runtime_source_location": "RUN/test-repair-generic.py",
+      "v1_parameterized_source_sha256": "078d4c69b5a064bef113cf88ed52a1cd0d782affc419e7b51a4a1cf3001807ba",
+      "v2_published_source_sha256": "20b2935aad83eea0c14a92544f7d2fffccd66e581205fbdcee72b07ff97b845b",
+      "v2_body_ast_equivalent_to_v1_modulo_imports_and_utc_alias": true,
+      "v1_path_parameterization_edits": [],
+      "v1_reversing_disclosed_edits_restores_original_bytes": true
+    }
+  ],
+  "original_fragments_with_host_paths": "Only source fragment hashes are exported. The recorded reversible byte check applies to private v1; v2 adds explicitly disclosed formatting/import cleanup/noqa comments.",
+  "public_export_version": 2,
+  "v2_created_at_utc": "2026-11-11T17:21:40.724344+00:00",
+  "published_bytes_equal_runtime_original": false,
+  "v1_parameterized_baseline_preserved_privately": true,
+  "v2_normalization": {
+    "format": "Ruff format, no algorithm edits",
+    "safe_import_cleanup": "Ruff I,F401,UP017 fixes only; unused sys/timezone imports removed and datetime.UTC is the same UTC singleton",
+    "narrow_noqa_comments": [
+      {
+        "file": "recover-reviewed-queue.py",
+        "line_before_final_format": 116,
+        "rule": "PLW1510",
+        "reason": "Retain original implicit check=False; return code is inspected."
+      },
+      {
+        "file": "recover-reviewed-queue.py",
+        "line_before_final_format": 178,
+        "rule": "RUF059",
+        "reason": "Retain exact original unpacking; payload is deliberately unused."
+      },
+      {
+        "file": "recover-reviewed-queue.py",
+        "line_before_final_format": 179,
+        "rule": "BLE001",
+        "reason": "Preserve original fail-closed/read-observation exception boundary."
+      },
+      {
+        "file": "recover-reviewed-queue.py",
+        "line_before_final_format": 383,
+        "rule": "BLE001",
+        "reason": "Preserve original fail-closed/read-observation exception boundary."
+      },
+      {
+        "file": "recover-reviewed-queue.py",
+        "line_before_final_format": 511,
+        "rule": "BLE001",
+        "reason": "Preserve original fail-closed/read-observation exception boundary."
+      },
+      {
+        "file": "recover-reviewed-queue.py",
+        "line_before_final_format": 557,
+        "rule": "BLE001",
+        "reason": "Preserve original fail-closed/read-observation exception boundary."
+      },
+      {
+        "file": "recover-reviewed-queue.py",
+        "line_before_final_format": 579,
+        "rule": "BLE001",
+        "reason": "Preserve original fail-closed/read-observation exception boundary."
+      },
+      {
+        "file": "recover-reviewed-queue.py",
+        "line_before_final_format": 616,
+        "rule": "C401",
+        "reason": "Retain original expression for faithful operator snapshot."
+      },
+      {
+        "file": "test-recovery-queue.py",
+        "line_before_final_format": 20,
+        "rule": "S102",
+        "reason": "Execute the selected local operator AST only in synthetic offline tests."
+      },
+      {
+        "file": "test-recovery-queue.py",
+        "line_before_final_format": 228,
+        "rule": "S102",
+        "reason": "Execute the selected local operator AST only in synthetic offline tests."
+      },
+      {
+        "file": "test-repair-generic.py",
+        "line_before_final_format": 21,
+        "rule": "S102",
+        "reason": "Execute the selected local operator AST only in synthetic offline tests."
+      }
+    ],
+    "semantic_structure_check": "Exact AST equality with v1 after ignoring import nodes and normalizing timezone.utc to UTC; noqa comments and formatting have no AST effect."
+  }
+}

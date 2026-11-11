@@ -1,0 +1,2372 @@
+{
+  "schema_version": 1,
+  "kind": "CENSORED_frozen_window_observation_close_not_completed_workload",
+  "captured_at_utc": "2026-11-11T22:18:42.590305+00:00",
+  "clock": {
+    "T0_utc": "2026-11-11T16:17:25.166040+00:00",
+    "T1_utc": null,
+    "full_delivery_finished": false,
+    "frozen_delivery_window_cutoff_utc": "2026-11-11T22:17:25.166040+00:00",
+    "observation_closed_at_utc": "2026-11-11T22:18:42.590305+00:00",
+    "observation_window_seconds": 21600.0,
+    "window_endpoint_kind": "frozen_administrative_cutoff_not_OS_process_stop_or_completed_workload_T1",
+    "original_clock_not_reset": true
+  },
+  "actual_last_queue_process_stop_at_utc": "2026-11-11T20:31:05.027569+00:00",
+  "recorded_queue_stop_event_count": 1,
+  "runtime_queue_row_count": 59,
+  "runtime_state_not_backfilled": true,
+  "original_worker_outcomes": {
+    "needs_repair": 100,
+    "validated": 0,
+    "originals_unchanged": true
+  },
+  "observed_recovery_counts": {
+    "original_empty_patch": 37,
+    "provisional_product": 56,
+    "provisional_support": 2,
+    "published_head_ci_unresolved": 1,
+    "nonempty_not_attempted_in_recovery": 4
+  },
+  "provisional_product_units": 56,
+  "provisional_support_units": 2,
+  "provisional_task_units": 58,
+  "product_attribution_counts": {
+    "coordinator_code_or_test_repair": 22,
+    "trusted_local_unchanged_failed_worker_recovery": 34
+  },
+  "CENSORED_provisional_product_units_per_frozen_observation_hour": 9.333333333333334,
+  "CENSORED_provisional_task_units_per_frozen_observation_hour": 9.666666666666666,
+  "completed_workload_or_accepted_throughput_claimed": false,
+  "final_metrics": {
+    "accepted_feature_items": null,
+    "accepted_green_prs_per_hour": null,
+    "accepted_green_prs_per_dollar": null,
+    "actual_billed_total_usd": null,
+    "eligible_cost_usd": null,
+    "billing_reconciled": false,
+    "AFK_efficiency_win_proven": false
+  },
+  "recovery_cost_scope": {
+    "new_paid_workers": 0,
+    "additional_paid_compatibility_probes": 0,
+    "scope": "Additional workers/probes after the original authorized100-worker cohort; original cohort and setup remain separate recorded stages.",
+    "basis": "Root completion record and reviewed local-only recovery operators; no provider balance or invoice inference.",
+    "zero_economic_cost_inferred": false,
+    "local_coordinator_codex_ci_and_export_cost_usd": null,
+    "gross_attributable_recovery_cost_usd": null,
+    "eligible_recovery_cost_usd": null,
+    "all_recovery_validation_and_integration_time_remains_on_original_T0_clock": true
+  },
+  "bounded_check_observer": {
+    "scope": "Separate root-authorized100-attempt exact-head GET observer, not the200-GET CI snapshot budget.",
+    "reserved_GET_attempts": 77,
+    "completed_response_receipts": 77,
+    "maximum_reserved_attempts": 100,
+    "latest_response": {
+      "attempt": 77,
+      "finished_at_utc": "2026-11-11T22:17:23.540147+00:00",
+      "return_code": 0,
+      "status": "missing_required_checks",
+      "github_actions_check_count": 0,
+      "source_receipt_sha256": "a2372834c0ec3b8aa7acf349369386c5badb815c668fd22c861463dfebf41767"
+    },
+    "latest_valid_check_response": {
+      "attempt": 77,
+      "finished_at_utc": "2026-11-11T22:17:23.540147+00:00",
+      "return_code": 0,
+      "status": "missing_required_checks",
+      "github_actions_check_count": 0,
+      "source_receipt_sha256": "a2372834c0ec3b8aa7acf349369386c5badb815c668fd22c861463dfebf41767"
+    },
+    "check_status_at_exact_cutoff_verified": false,
+    "actual_upstream_send_count": null,
+    "samples": [
+      {
+        "attempt": 1,
+        "finished_at_utc": "2026-11-11T21:01:23.405107+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "290cf5111158fc799f87702368c3861604c376e2d3c6534866c2bf65def4ac04"
+      },
+      {
+        "attempt": 2,
+        "finished_at_utc": "2026-11-11T21:02:23.418608+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "b925e7301098a4eaa68aa35071b7ca0f7c47f63dbca81f60baa0d6a26c8752d1"
+      },
+      {
+        "attempt": 3,
+        "finished_at_utc": "2026-11-11T21:03:26.305632+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "fc8d657b468260a0ddddd4b42489acfce3075d31386d7bb160b369693a97eaeb"
+      },
+      {
+        "attempt": 4,
+        "finished_at_utc": "2026-11-11T21:04:23.433770+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "ca3db1f67e3c3dec9762db938c460ddc84d45cd63c5e9db811bf486c34018154"
+      },
+      {
+        "attempt": 5,
+        "finished_at_utc": "2026-11-11T21:05:23.435931+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "0c9b1d96fbdc536c125137257dc9a428876870cf3046ed62e31e6386e5c16787"
+      },
+      {
+        "attempt": 6,
+        "finished_at_utc": "2026-11-11T21:06:23.440246+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "1bd5199176f3ec3dfab4dcd196d7e6dd3a52afe0ed9abd4588edfc10c42aa0f6"
+      },
+      {
+        "attempt": 7,
+        "finished_at_utc": "2026-11-11T21:07:23.454960+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "36ce60a4fa47c7b0fb6c95feeded2e1b77fb9fca03710b9bdf64562d8d648b97"
+      },
+      {
+        "attempt": 8,
+        "finished_at_utc": "2026-11-11T21:08:23.459985+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "22867dfe65c48b480149512abefae194dd1ed14abd6f9f53e7d6e2cbb01912d0"
+      },
+      {
+        "attempt": 9,
+        "finished_at_utc": "2026-11-11T21:09:25.447461+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "5f4eac4594a1ace389c663c6369826d7676e07c95a5bb79030275c3b5932a4c4"
+      },
+      {
+        "attempt": 10,
+        "finished_at_utc": "2026-11-11T21:10:26.537732+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "4d00213008ac87e9071c4a704b306263dd9e853d15cef84e35471e3a4fba0185"
+      },
+      {
+        "attempt": 11,
+        "finished_at_utc": "2026-11-11T21:11:23.483560+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "629c6fe60890e9817b7e4bb85e4ec5c9e00e4e5f95916d85677e02f07b7a8c82"
+      },
+      {
+        "attempt": 12,
+        "finished_at_utc": "2026-11-11T21:12:23.479651+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "39026dbc9cfaf77aea6da5d587114f28752b2788fe00690c5f700d25769769cb"
+      },
+      {
+        "attempt": 13,
+        "finished_at_utc": "2026-11-11T21:13:25.423460+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "1dab7faad86e86eb645eadbf338f994373dd6a98b01ea3f4c2874719cc94f9ae"
+      },
+      {
+        "attempt": 14,
+        "finished_at_utc": "2026-11-11T21:14:23.497495+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "c5f3184f5770f49f7ac1d1540c7f864a80f59d1c45928f826927ec34dcafe548"
+      },
+      {
+        "attempt": 15,
+        "finished_at_utc": "2026-11-11T21:15:23.505820+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "58de5cd250e7805b1fac2433ccf2941ad9fad0bbf2e1bb94b9649c837bf82f82"
+      },
+      {
+        "attempt": 16,
+        "finished_at_utc": "2026-11-11T21:16:23.562472+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "8d8ceebd0398da19ec5087483999ffb950bc57fcadd17d93d1fd5a35a4a2ad36"
+      },
+      {
+        "attempt": 17,
+        "finished_at_utc": "2026-11-11T21:17:24.531442+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "f6b8099ba46cf1c5fb172a51cc2f8f1b0dd58c9ca2df2fef0eb1a8979489ed1e"
+      },
+      {
+        "attempt": 18,
+        "finished_at_utc": "2026-11-11T21:18:23.386314+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "b6bf945dc71c9f40b3f5a9815986fca54a10886b15ced5af91f5dabd14b41751"
+      },
+      {
+        "attempt": 19,
+        "finished_at_utc": "2026-11-11T21:19:23.536159+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "0adc889fe7c42aef1ac6ab9f57c04f0604dc10829737401e19f74f0ce349f29b"
+      },
+      {
+        "attempt": 20,
+        "finished_at_utc": "2026-11-11T21:20:23.538289+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "a7f0bb9f25b866e930202f12245dd9735b089a91109575009a3240ec35fa2d59"
+      },
+      {
+        "attempt": 21,
+        "finished_at_utc": "2026-11-11T21:21:24.481257+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "3e5ba5d5ff9e6e96f8510f73e2054d47705a99912460c674b4b9b115cdbb6f4a"
+      },
+      {
+        "attempt": 22,
+        "finished_at_utc": "2026-11-11T21:22:23.565142+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "1d21f2494c121c7bdd18c3f8a08f64d649c9a2a7028b23d395418ebad3a73276"
+      },
+      {
+        "attempt": 23,
+        "finished_at_utc": "2026-11-11T21:23:23.399166+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "d24c9b6c15a4f9b1fc6cc9e90241ad15fc5f170125d6002b4c994ffa04dc841d"
+      },
+      {
+        "attempt": 24,
+        "finished_at_utc": "2026-11-11T21:24:23.410312+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "3d2ce9f89ceae86df9356e794c8a517c548055d44569bacc6a95ac7ca6f8292e"
+      },
+      {
+        "attempt": 25,
+        "finished_at_utc": "2026-11-11T21:25:23.432580+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "0e032d42c4a176489e2486150b8befe368537f9b7d00bd7a5b0e6fe5e421d4e0"
+      },
+      {
+        "attempt": 26,
+        "finished_at_utc": "2026-11-11T21:26:24.344320+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "ef8b499db7ad87b2a3a8fec0ce385692b088fb439c1da5ec987b177b39c3b655"
+      },
+      {
+        "attempt": 27,
+        "finished_at_utc": "2026-11-11T21:27:23.465429+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "bd31f683dc6c726aa7d56c27b06526491dbe2535a5960050653b986c352d0c42"
+      },
+      {
+        "attempt": 28,
+        "finished_at_utc": "2026-11-11T21:28:24.348189+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "2c7ec6b97d3ca51da6a4600db8090a121e2bac515e6edad67f8bd488ba687368"
+      },
+      {
+        "attempt": 29,
+        "finished_at_utc": "2026-11-11T21:29:23.446291+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "dcdbc68a4420cf5dfe5625595070d523ba0fd36ded32f760c328b5b549b40110"
+      },
+      {
+        "attempt": 30,
+        "finished_at_utc": "2026-11-11T21:30:24.422088+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "d6eef962d89c77876208d809dcd014d5da788a074fc522f822a3f634f78945b0"
+      },
+      {
+        "attempt": 31,
+        "finished_at_utc": "2026-11-11T21:31:23.424589+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "a37b421e16604275954d5bdc1fae0d718bc6ace6e79b85b70691537a7820d216"
+      },
+      {
+        "attempt": 32,
+        "finished_at_utc": "2026-11-11T21:32:24.415825+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "5581f00805f38e190b4fa1a24da37a25ad266345578ca8a95843e07228aa252e"
+      },
+      {
+        "attempt": 33,
+        "finished_at_utc": "2026-11-11T21:33:23.438792+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "4ff4210c27459284f1fac4bdb055d11ebba5b4056564b2818c9aa6c2d334e706"
+      },
+      {
+        "attempt": 34,
+        "finished_at_utc": "2026-11-11T21:34:23.494697+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "0393dff50c4e34993ee0a3a7ca0bd7741c60be43707f56cb9ee2c19630a73061"
+      },
+      {
+        "attempt": 35,
+        "finished_at_utc": "2026-11-11T21:35:23.298264+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "7a3cb4bb22d858ceac57e196796a6cc9004e78dabf4733bd50ca50dd2c4fcb84"
+      },
+      {
+        "attempt": 36,
+        "finished_at_utc": "2026-11-11T21:36:23.657908+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "3570c8644b00b7a8aefd33cf698328b8a0564b37204588cd6fc845a9e62c1d7e"
+      },
+      {
+        "attempt": 37,
+        "finished_at_utc": "2026-11-11T21:37:23.455542+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "a3f9f071b7eace8da238aef8cafa4e23cf53cc93e5fb08b617d05e573d2bd9a9"
+      },
+      {
+        "attempt": 38,
+        "finished_at_utc": "2026-11-11T21:38:23.498158+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "50d8d529b43a50932b4c1f926b0d14a36d7fab249a887cad14d234f7016b17f2"
+      },
+      {
+        "attempt": 39,
+        "finished_at_utc": "2026-11-11T21:39:23.346756+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "8334c62acc96b111faa1499e5b3945bfa134e32335f4f808d57b924d1a82e12c"
+      },
+      {
+        "attempt": 40,
+        "finished_at_utc": "2026-11-11T21:40:24.477986+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "777414cc05636bed9b330b17cb6b17d3e5d774653cebb553aaa93f314ed03a0f"
+      },
+      {
+        "attempt": 41,
+        "finished_at_utc": "2026-11-11T21:41:23.374716+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "a43721e5a1ac0d1230ea31b175308c120fbe249c897a523d8867cfad3161e67d"
+      },
+      {
+        "attempt": 42,
+        "finished_at_utc": "2026-11-11T21:42:23.495721+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "7d878be00f238133d4f57c6b3e8c4730ac603c0c82142b809a8a40cacb7955de"
+      },
+      {
+        "attempt": 43,
+        "finished_at_utc": "2026-11-11T21:43:24.497300+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "fcd90d89e8ad3614a4d40b37aeea43a1551a275d0ae4e8bf8729b07ffc8aeff8"
+      },
+      {
+        "attempt": 44,
+        "finished_at_utc": "2026-11-11T21:44:23.528861+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "ac111a684bea4c79ca282c4b398c9bccd975c9e3af8ee37b9f71234e2176495f"
+      },
+      {
+        "attempt": 45,
+        "finished_at_utc": "2026-11-11T21:45:23.587390+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "1985dbb2ff25dbedd263d52906dfc598b9f8b3aa3e3f6aeb46eb95ce50ec8441"
+      },
+      {
+        "attempt": 46,
+        "finished_at_utc": "2026-11-11T21:46:23.931170+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "584df2242b9b178f6290b5de270b1738025b9e44000208204af32ad359a3b24b"
+      },
+      {
+        "attempt": 47,
+        "finished_at_utc": "2026-11-11T21:47:23.393422+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "0fd494824b36968a502564be7757f7f17183600984d3c5fea7e72ae98c1a2009"
+      },
+      {
+        "attempt": 48,
+        "finished_at_utc": "2026-11-11T21:48:23.370463+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "6a00178b9410db9ae993701111866596ae69d79c907b6f497fb3554fa2f104c6"
+      },
+      {
+        "attempt": 49,
+        "finished_at_utc": "2026-11-11T21:49:24.537578+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "1eeec25a218500df9569f40ce9d4a309c6b0da1ba33fe63c5c5c2c95edcabc88"
+      },
+      {
+        "attempt": 50,
+        "finished_at_utc": "2026-11-11T21:50:23.416117+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "dfd24c4b8b715025ab6dbc6753cc964dd1b6d787ac330df999b77e853fa9ac63"
+      },
+      {
+        "attempt": 51,
+        "finished_at_utc": "2026-11-11T21:51:23.560722+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "c4acc911dc2c81017071184b7eaa7c6e42ed8aa706baf93c8dd9627efe8b0a27"
+      },
+      {
+        "attempt": 52,
+        "finished_at_utc": "2026-11-11T21:52:23.385500+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "fadd58ce60cbe6582ee409ce5cf3a5cca7ddd3964e3eb6a60b843f11a1a1bd35"
+      },
+      {
+        "attempt": 53,
+        "finished_at_utc": "2026-11-11T21:53:23.575122+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "e3fb58c0a80b4dd333a15d72e32e8961dff8e0a5ddd60b0b72b72b53bc956842"
+      },
+      {
+        "attempt": 54,
+        "finished_at_utc": "2026-11-11T21:54:25.289172+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "ea5953b05e82348236e0ff4cf5dd2c87e01577b24fbdefdde89a2606b81ad392"
+      },
+      {
+        "attempt": 55,
+        "finished_at_utc": "2026-11-11T21:55:24.537772+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "62ad0c5272f23e791257a17e445d4003a5fbad3ad9add7158757159e0930bc7d"
+      },
+      {
+        "attempt": 56,
+        "finished_at_utc": "2026-11-11T21:56:24.344550+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "6bcdb039c179a8133becbc1cbbdce953dfb20e597064c6be69e7dcc4229fa559"
+      },
+      {
+        "attempt": 57,
+        "finished_at_utc": "2026-11-11T21:57:25.370431+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "598f4ab17fa899f9dbbd5d0ca77f9880f9a74f2f01ccc2c8dde9fa40b0bd907c"
+      },
+      {
+        "attempt": 58,
+        "finished_at_utc": "2026-11-11T21:58:24.357038+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "8cf5a074f479319da50a670f46e55245ecdb05b6d3239f13772954917f32ba9c"
+      },
+      {
+        "attempt": 59,
+        "finished_at_utc": "2026-11-11T21:59:23.480981+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "72b2cac61f837e30283f3dd86c2468797b3f236f5945cadc08d1f29f5096573b"
+      },
+      {
+        "attempt": 60,
+        "finished_at_utc": "2026-11-11T22:00:25.419362+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "22d46225a6c0a2013968347ca4fa451799cfa1a35ffac86a91ef195dc627245d"
+      },
+      {
+        "attempt": 61,
+        "finished_at_utc": "2026-11-11T22:01:23.498813+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "479b7a56184b7ba0acccb243f91f837f9968c46195dd8eecf66dc3af8bf21b9b"
+      },
+      {
+        "attempt": 62,
+        "finished_at_utc": "2026-11-11T22:02:23.437136+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "d3695e346809ee14c494af8952b33d12217cfddc8917225f8ba78cac5e913ee5"
+      },
+      {
+        "attempt": 63,
+        "finished_at_utc": "2026-11-11T22:03:23.648119+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "5d5cdaad85cbd5ebf3a696411ae8c6a86cd50ec9c48aa2a030b13f7e9a94776c"
+      },
+      {
+        "attempt": 64,
+        "finished_at_utc": "2026-11-11T22:04:25.423677+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "0301677106346bfd3246ba3121ca57e1e4142cd1f10ca15efacb460bef79d94f"
+      },
+      {
+        "attempt": 65,
+        "finished_at_utc": "2026-11-11T22:05:23.500368+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "17e304f23f99e5b58c19fe2f27c2912cc4f5f9821a03dd6b93ef843d4f8f794e"
+      },
+      {
+        "attempt": 66,
+        "finished_at_utc": "2026-11-11T22:06:23.529465+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "d70918b25d6fb87f0764fdd2604d7dc83eb2c3e25f7c0512ba5de8c2d8011bde"
+      },
+      {
+        "attempt": 67,
+        "finished_at_utc": "2026-11-11T22:07:23.507641+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "05a81bc946b605cb3efa0da6e753ae23c947e4ca4ff32d45ae2113e08417c629"
+      },
+      {
+        "attempt": 68,
+        "finished_at_utc": "2026-11-11T22:08:23.567846+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "52cbcda164501268ca6b64b03cdc51ea87c50ecfc1741e00635fe64ec5ebba33"
+      },
+      {
+        "attempt": 69,
+        "finished_at_utc": "2026-11-11T22:09:23.564029+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "8291e7baac71c70c01a96d441e159a5523222b0c8342c042c322d2493bcd5ba9"
+      },
+      {
+        "attempt": 70,
+        "finished_at_utc": "2026-11-11T22:10:23.699714+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "c864ae6104cdd7d5b3b68dc1a45f429eca6bcc517d42f596989f41ee03e0758b"
+      },
+      {
+        "attempt": 71,
+        "finished_at_utc": "2026-11-11T22:11:24.495388+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "1d9d47f2981e907ff878f23c0c4d8306fd8bd3de173b0d94cf24f6cdd46014df"
+      },
+      {
+        "attempt": 72,
+        "finished_at_utc": "2026-11-11T22:12:23.583083+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "3e0d1e1f61f7627a7e7d37a3271ffdb35fa141374dc344ac05ef4fc071e3d0f3"
+      },
+      {
+        "attempt": 73,
+        "finished_at_utc": "2026-11-11T22:13:23.551041+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "5b24b2a1858568d5d09fb13f38ddf306716014aad092d74273c887c1b196980d"
+      },
+      {
+        "attempt": 74,
+        "finished_at_utc": "2026-11-11T22:14:23.590568+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "0b4451283ee77c6fee7c0f3d144e8c51baee460e35f3aeecb36978f9000147ed"
+      },
+      {
+        "attempt": 75,
+        "finished_at_utc": "2026-11-11T22:15:24.524769+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "f2ec7b261cc0a57d8ca3f84f45e07401849206f08c97076ace745cee8422ca7c"
+      },
+      {
+        "attempt": 76,
+        "finished_at_utc": "2026-11-11T22:16:23.534877+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "7048695b9a9fd9e7f59d21e75926294c150355f5efdb4c9b4f59d35d80d3ac20"
+      },
+      {
+        "attempt": 77,
+        "finished_at_utc": "2026-11-11T22:17:23.540147+00:00",
+        "return_code": 0,
+        "status": "missing_required_checks",
+        "github_actions_check_count": 0,
+        "source_receipt_sha256": "a2372834c0ec3b8aa7acf349369386c5badb815c668fd22c861463dfebf41767"
+      }
+    ],
+    "raw_response_bytes_and_raw_response_hashes_not_exported": true
+  },
+  "source_evidence": {
+    "queue_state_sha256": "ee7201de1fecbcf6d9ea0f7bac134ba7beea2f8346b997354929d11017610dd9",
+    "queue_journal_sha256": "de44e2b32c54d976acdc12bddbc3e130cfec1fc751b78f2ca9cdabab093b3354",
+    "workload_release_sha256": "1012ea73fec9722b1be569a6f36b493146029bce50b1ade5a69b4cded1baa3b4",
+    "delivery_allowlist_sha256": "560b8b58bc1572b85a948de2694d3dd42708583d06bab8af5790f322c7d8fb75",
+    "activity_allowlist_sha256": "7d9c11de14d63939d2e773764b047113fbe701a45eecd9c01a4fbe4efa9cab9e",
+    "closure_analysis_source_sha256": "7b63c5ac465338e1f4b680ada4004d6d1be66816dbde0b6dd632135ec1f9e7ac",
+    "sources_stable_during_projection": true
+  },
+  "rows": [
+    {
+      "task_id": "B001",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "9a6c1b2da30d1802c8b16cde5d1e19283656b5dac4e5904c38914abc72a09453",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B002",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "0800f3b8104ab217b73cb0faed63ad25725d592c019cb2715e7d4f1a618561f3",
+      "original_patch_sha256": "5bdc1cf0248deb9a3bc0b955a2772fbffb802d1e4b8cbd14ba3dc0ac1e570b52",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B003",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "2fcb13fde295bc5891ab5f17dfbd7c994a3c19ba4465abb90c37a6f8f0f46bf8",
+      "original_patch_sha256": "cfd9489335ae919e383c44699b42a0530c0bc3225164b40107e526e6805816a6",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B004",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "0dfeb435a4bf651a9215a0f422366a4c90c44feec577d400a8aa69dab4a492c8",
+      "original_patch_sha256": "b87c6cb791c5e706e12aa8e70b11880ccb516af5984844d206da80035c193fea",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B005",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "4b6a396e59961bc8bd89e574cd75691684ea943ae7d952f79219e1f4559741a6",
+      "original_patch_sha256": "bf356de5e11b932e5b77ea95e995fc374c08a0a04fe52e8435102a21db9e9e53",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B006",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "d43e3210fb70f8d4f0ebbe63ce60243e438d5c3469af8a8792f936f45ee432d4",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B007",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "85ec7eeb7f8e3b8ee6466fe521c82cbefa49fa423157d1e2ca3381e464ac07f5",
+      "original_patch_sha256": "873b66d5c5f5890b59986a12ac4043d4d2e2ab1b72374d13e0b6fbb93b935bb9",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B008",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "45d46a3ed3557da27e10963b3c0f42eda36285398b69b8748133968ca3553ea1",
+      "original_patch_sha256": "dbc74d2843927f3e30402948da6e792deec5e739b3073924a62464dd48920c38",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B009",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "69d9a4c26f42de309fd4f1eb81b568ba7922bc4b1a7a771e7dcceba10534fae3",
+      "original_patch_sha256": "54d7b16848657533e1e626c4b034ef6be4573db91e0e7666c4d35092822a2191",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B010",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "93608bb565dccdcc590c6b6d2d645e250d1269b49c014adfcdb66993a7580fc1",
+      "original_patch_sha256": "0daa62f164d195004bd31b142d130aa34b974519450e9b851b05accca76f54e0",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B011",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "28612d3f6be48f32741dec4d1ddb227466a104be0e8c885c73edc151f5789227",
+      "original_patch_sha256": "3489ffea793dee8bfe24130f079e873538b9c4914d964554b3f721776da9948b",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B012",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "1699ddab41ee4c5325bbdcf6557c247a871ed97f73f4e7d41107655e6db4609b",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B013",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "6063d1f7104cd9e7e2290248fbb9ffb8c15f8875531f4f02163f55b07b0a7524",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B014",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "65136c163b4c80abfb3ad502417e0ef606d34e09a9e2296a1e54ded7ab1f025e",
+      "original_patch_sha256": "5b1758b1e938b1fe4787a80c328b64286f4d835868124bc6d35ae30f8fdb5ac4",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B015",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "027db385dde46a66539b192ee5ebddd1c652219058c212b84398e43b430713a1",
+      "original_patch_sha256": "beaf675ebb31159d6daf928f5b123adcc5ad163892302171f95d8263654345c2",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B016",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "a026a37aa61efaaa9bc66012bc047abdb14af2b5cc60b51bddf0e423865ef84f",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B017",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "f132865e0dea3f35c9dde5e3b5903e6bd5ce4b411982843f68687f47d672586e",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B018",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "74a908eac985ab1d9b7c1ca2c3403d312a33f6811f21fb8006f410570e51699e",
+      "original_patch_sha256": "0207e64753acaebc255d62a58dcc73eb9fc07a500c1b5722d2cfbb5ba8e77816",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B019",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "29a7698fe37df8c6120fad6302c34f0ac08e66f3dbbf2821672d8223cd93ae44",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B020",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "65c2212937fa0e47af323e0d15fe63b04000f44d69ad51caa877ec03d47e4628",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B021",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "ba0fe481a32f07e2f308b5102dc3d7e46d58c2468236a83919c6fbec27a61727",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B022",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "984392b8fc7388f65945977592a7153b96e40933e9792d01d6562542a9e0431d",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B023",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "592dc5d81a020f1355b8653d7e263c17f9d52ee286c7f87b10a32c680dc343e4",
+      "original_patch_sha256": "8f6f036757f04a97d1b8fa13b8af59acc742950df29fd58e0259832a41907626",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B024",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "15ac7f2684ef8e6af8115b804f31cad14ab1dc10a776d439d09ee9e5ed01d526",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B025",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "56fadcb97952f6f28d9c379f4272277f652744212ef1dbf141502e47e754f868",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B026",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "26955c46193e7da13acef7a9cc3db028648c8586772273341423523fe54bfde3",
+      "original_patch_sha256": "764486fb9eec34896509209857fbe544cbab32fe2bda7d8dfa1e9ad203c7268f",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B027",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "a6b18eabe0474188caf8bef2569a39290cbf04cf6925dff38e3a8f5a28774923",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B028",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "9912d9b9b4dfeab4cc35b162c9e59d552719442134fe3d8f0e1091c5da40412d",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B029",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "8b70b1fb15c8ae211b2d4dd94ef2f222ea3ea5f03f6eefb45e079f7f5669d91a",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B030",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "4bd83f13d54c0fcd569c3c4b850a0536893d0c00878e590637298c2c0a7a7cce",
+      "original_patch_sha256": "8bad9b651b88c7a684d87c63fb5d569d6765ae9f901ac7da1d0404c1a36cd539",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B031",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "f617453fccc2d9c34750324e7cab372f29bf846b8a0f8da2c5dcf1d1d75ecb4b",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B032",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "9bf4cb3d2f29faaf5431f3dcccb72a8f989aa1edcc4271890e62fe484912496c",
+      "original_patch_sha256": "6dc055d277e5328d14fd925f2d755e335935e91a967bce30b35c3a6b7bd589cc",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B033",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "0f2ddf68948e04b958151b37c15e3207eb8bf3fca1c23c3bc55c08762f1f1715",
+      "original_patch_sha256": "b253e01c38a873fa044a29d1a8ffd5e1eea3191433a56e205add413747f058b8",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B034",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "fd6aa42a7c29c1301a86c8d075992c632d1e61557a4a1dccb0d2edbce5832f42",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B035",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "5aded7bef8fce141bccd1b813ed62054ab041d4ce8539c751c0dff94997b7eb6",
+      "original_patch_sha256": "da40b34182ec99005f6e9e181728ee6014497e7f2e0fb883087f8369e6f0245e",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B036",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "c4b85e071b678ee92df7d5623d792d63666f2076639af537a559cb33a771da3b",
+      "original_patch_sha256": "7a76a1e459422668d7a5363796037d1f3349f4d73513399ad27943373529305b",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B037",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "d09237859a8289ebbbb0b34f0085d37d6697120e4913e09c2b9a26daaf55adc0",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B038",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "ac4c140b116a673617d29a6aaeb30e65bd3a9a90f43d3834b2fb18764f4e13d8",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B039",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "9824382a44eba760bc838ad8e0e7d6ceb1da48df9cc285072f27bb436a971d55",
+      "original_patch_sha256": "4f1b0dd8f028957e58b5838220db762cd367d9e5ece4a904952d694a8123d3de",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B040",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "ee854390088dc89606335d7c18ff6a77a6378125d65c298f19d1ece811883115",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B041",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "61af8f511fcc7b373e20b6dd35c5c25dad08016c7bb162efd3a6ccd791fca371",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B042",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "1d6437d18cfdf80c372225eae4bbba8a7c3b0bb597c2d2c7b1332f982ecb422c",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B043",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "8f8e581d5d9296f558090bbceaa5d0354e1462ec2f05a1b0e9ee5825eb679604",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B044",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "59ca6460fbd9a339ecd0f510cf4550a140ece274431593993c58694716fdbfbf",
+      "original_patch_sha256": "b27220ea0f95e1e0b546daf99447fc62aa07903712ba4a33deac3fcf907c52a0",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B045",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "5e9226f89542ea25f9b9de7d974d7315fc774b2ca188b266103a924ab9be2763",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B046",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "da51eaeb71637b44c8da789c61b1ffdb6275f8b9f7aced10c40224c8401a4e73",
+      "original_patch_sha256": "09e86661d9b94584ba45fc680e68b38a0a091868066d2d9ea80377c10e1de592",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B047",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "d362119f576d91669ea1ce8bcc69dfc86623be8bcd766619acb509c7e9c5e0fe",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B048",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "977fe2efeaa5c8c6e6102c55321fe6374838be914b22595498285b66fdb13dfd",
+      "original_patch_sha256": "001fb3317252dd9dc479f2d87cd9f9e00c99ff6b0693cada9be854b70ac55173",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B049",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "2fe981a80faa5115136be35c4970c78c7cbcc5518f91ab60bbeb94d56a86a78f",
+      "original_patch_sha256": "6c2fb6f94dc7f59867080ba2788c0396786ce819fbb8665eee521e72966c4193",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B050",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "488ebe802d83c58cd1684cd6ea59b3f59e9f3f12e15010caccf04f84bbd317b2",
+      "original_patch_sha256": "be59b8bdb6985600b3971e2541442cb41842e1e0a5fbf204eeefc2490a49f59b",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B051",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "5179b1c0f4087b459437ac9bd24f5db46cf5fc2b4e8ba71c8dd50a002f68830d",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B052",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "264fc57d6cd2524d4d7489d3c9acba5f54b448ab1635ef06de17e7609f13d92b",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B053",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "b399cd2363690311ef62331755fefdda8ee3c1ca185fdf97125f79f530e9e05e",
+      "original_patch_sha256": "cb6f654d14339689dace848c636a2d65eb3990077ca050a868b00cb2f39f459b",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B054",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "40a51cc78e4334ec8c8b0bc268b112c20ec7f8c13d4e0bdd602f5740460e0827",
+      "original_patch_sha256": "52d37fb26853021fab6aeda0a1668af41761661caaeac123fb97773a83594ff0",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B055",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "b7ac18c2389e0d56c20177258f4e5e6daf19b7f1b7e84f8bc0f6f4339645bde6",
+      "original_patch_sha256": "ba79ac953fdfb08e414f5ba8a992310e3c05bd0a1f697591df55bec577039649",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B056",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "540a296debb3dfce33859e52b6e05bc598bcf8722de9b8b36f1dfa4fedebc789",
+      "original_patch_sha256": "188314925076aad47a1be1058868008a6fc302a6a4102672642ee0a076cff4df",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B057",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "c7ca02b5239ca80e0c6bea79421af5a3477186244d541b78a9dab99c4e9b409a",
+      "original_patch_sha256": "a4123eb58635c560666b7736e81247e677d4d02f48e153736105171cf8569313",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B058",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "21c5d7a186949bf4312a14b5d55bd28e834eb943e8afe6660aa42aadd218cccb",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B059",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "65f8d9ee24d845a0b887cd038d855b814fcaa66759f100c7d2cd617f2dfb6bbc",
+      "original_patch_sha256": "a81242f3df073ee0ca94ea0f260c26cc2922ba11d106504780eefa8c6f29d7aa",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B060",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "4361fa19226abc70329af63621ba8228cb4c48b131464fb1c7a1c99dc6efc56c",
+      "original_patch_sha256": "807d1f53313924b9958502b1df5348192590556f31827ee32fa825134659bd01",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B061",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "74f030ce4808a8f9cba42978ed5681a000b6f1cdcf1e681f57eeff4a651e9b63",
+      "original_patch_sha256": "2ea5ac0c8839e99067b0b1b1bc2fe53adf989800b034afc729a2a76af1720044",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B062",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "5d82c2b0aa74c33c6849d1bae903e44d0719780bf0956048e4d43092d7e30390",
+      "original_patch_sha256": "b60f72212cc8d5b285c773f05d15d5b25200b3ab58c1fce34e8ba06c5ec07e8c",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B063",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "f451bdea98dd586f2d74407b780c1d5d4662a3c4d8368a8cb0427aecda77ad41",
+      "original_patch_sha256": "1ee9b65f991dd011e88b038a34c0a582d73c49f98cdb4356c003af7b1c7d059e",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B064",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "f6f8d58d82ce039b3b1b1d94b5a75e8d78654feb12db05b87d1277c45852795d",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B065",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "5181010dfbc7e25e86ab083f4dbd4d03338a169272f452326c27c176368a2752",
+      "original_patch_sha256": "2480a84e90b0e24098010e02835d07f7d9d0a2dcfb99de275ba4920e07d45dc0",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B066",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "186612ee6577be8b7fae15fbeff9f1a1e1d686aea8b3e1d83d001e4e427fd035",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B067",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "c156ca815d4f1a8efe62045a8f56c7653baf551f2208cde530bf5fe5db393c1b",
+      "original_patch_sha256": "ee9aa350097deb2956fe16c968d23b3db1ca752951bf6684048058fa2648aed9",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B068",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "f8ee0190d4fb7962c6d3a07173b9bebe32e2effcfb68f681828a977fa343efcf",
+      "original_patch_sha256": "cb2f2275d93e868440005dc56fc8016f610a0610b86ec2a956d0d06756d378f8",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B069",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "0b78c154d485f95a098a915101607f562a093af72d41990bedbc899542556837",
+      "original_patch_sha256": "e0db7f40e787541a67aea6c3cbd0a55ccc52055c17e2a820dea32745e94859ce",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B070",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "77e9a85b1420d49b474d77dc5278de5e7670ea59a646e22b09a4240958a41af1",
+      "original_patch_sha256": "271186baa47c743903656b78ecdddbf280ff912977554031dc5f5cf14ab38e77",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B071",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "f6924e7b44f6cad791fd503cc7384d161f5b7597a09d73508b59f105171960da",
+      "original_patch_sha256": "a868d77db6422009cbe1870650b9d8bd1cd5c7c6ce6c333e9b38da3398f3d49a",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B072",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "0066f1b66cbd984bcaec3b7909b2ad788ceb737c873255d9c225f8855f3fb4f1",
+      "original_patch_sha256": "17ace5104bc1d1332ca726b5cc82735d54bfb590224ce876c670ef6638270b1b",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B073",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "c472b1b0313d8eb78922cc553e21cfda8619d9e7abde260737ddf0127471e2f0",
+      "original_patch_sha256": "f5628c0865ad55ff719b0e8819f073ca2693c706df3444c155c771c70b6ed834",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B074",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "8b062eaed3fcd780ea77ed1fb979f02a4e984489fcaca9b50f3205ae3409e497",
+      "original_patch_sha256": "add14d3d055c8907161257c55240eb6fbbd8685411e2ba0b5eeb4552ab848340",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B075",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "bf17453f28d81b86594ec63e8fb169e3b1602287f5797f4097f4f24a8e631e4b",
+      "original_patch_sha256": "0bbc6569747fc0d2546df1b01bf0ef90816f826153527f268b3bc443e7520bb4",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B076",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "ce37577b89aafa8e0ede94862af3d9111914607100557d63d94f395e170c90bb",
+      "original_patch_sha256": "53ef5bfc268eed499916cb28bf0c660ce27e326fabc0aafe842b3f626cd54318",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B077",
+      "workload_classification": "support",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_support",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "b7d69e157cda50adbb7f7da4dbadd8ed6e21a0d7dac520d1f93cb5ed7b88e824",
+      "original_patch_sha256": "ba50d06ee70ed3e37ec7f4d481b9fe97b40dcb413b9482089fb07557bc8e29d0",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B078",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "1308fe2da8ca598615f90324fe4199e2b41048cbce6837ffeab75a5e5bb5fd12",
+      "original_patch_sha256": "9a529784c1897c6042b3811e596560104389d64f8fc8b55d6c40bc65e5efec5f",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B079",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "0c518cfb91956d84166590f481ba8faa8d86e9c33e02f1b2713271e84c4eb651",
+      "original_patch_sha256": "bc6dc80aa6c5ccde6c1a78ffb42cbc33dd8211800983ef63887e56c8a02ddf16",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B080",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "2b6c422890433c4707ab5e1c263527f25c7019acb04f97e4127810509ad1983c",
+      "original_patch_sha256": "e2141c50aacc4ce6aada14df3b44e7852f58eeb8f9d819588a1a256e7905a51b",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B081",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "589c087677cbfefe956bea2eb4aa994397251e98c28b4ed52764b018ed28a876",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B082",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "6078cfeb13080edd0fe548f57798930f72950161413ca69ac89358c76cbc0557",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B083",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "69edcd1cf4e552f6fe179fc3a055cdee0633e93d7bf91108b6bb03bdc3418ef1",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B084",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "a7faf63bc4ea6bcb9360d9d9cb2b80ca0efa467c76befadf82c644eaf418a0ae",
+      "original_patch_sha256": "59392aa2d67c4bd62b6992a1f904dded753a938ae59644112993c4f0f218ddf2",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B085",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "da90a67c48f85275ef50be41b15234126d0612e3f8d2ea56cd8ec60f8a985ff0",
+      "original_patch_sha256": "1d8d90d5a02d5c5cb835cc896c8780202ced3590ad8bb312f3d8e3026cf14654",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B086",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "fe5d88eb3140ef6d7f4b25a7b0fed50bd9ba56bebd63cff0167ff42f15cc20a4",
+      "original_patch_sha256": "6878c09f4020a43605277286089585089619974b5004a34715e8277b97dda877",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B087",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "f1016bb09a88f5991f7bbfb8394ed2dd8a24f955e3aa713d941021824915fb9d",
+      "original_patch_sha256": "dc91080b02a58e2d4f6bafac36948d51043bd85fb933014e8eb9fa27ce2d2a04",
+      "final_quality_accepted": null,
+      "attribution": "coordinator_code_or_test_repair"
+    },
+    {
+      "task_id": "B088",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "3ee695253bfa2f2dc111447e30468846152eb1d553a08f02b40545287d133eae",
+      "original_patch_sha256": "0db1bf7798088b0a7401cd093c0e6b8e6b90a9a355cae14aa298a4164461f903",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B089",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "db8b1ddfc933cf1b83204b468b3265f5c46b3ab5a2245d05e23d1781d72132db",
+      "original_patch_sha256": "94bebd1659ea196bff44363fb3f06acb0f7ff34b3ea5dd69243b144ccc131586",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B090",
+      "workload_classification": "support",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_support",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "6e147731c1b4676dab4088abbe5fe9d87abc25fb9eb5fb7261fe009cf8734fad",
+      "original_patch_sha256": "d45fdea94a7c8b62d3b3d3f7c80aae4a04040d54fd199231e17b806f12d3b035",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B091",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "695b7ad3412e1b1f79ebc15d5f7e7e4d6cc5783f8a05a271f46879cffb688f99",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B092",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "provisional_product",
+      "raw_queue_status": "merged_green_provisional",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": true,
+      "original_report_sha256": "13276a22430834fb76318ff65aee41ad4ba4cd3a86f7c609c297ecac0b7a4975",
+      "original_patch_sha256": "211acde3894190533b5b783a7bee62fb2780fd5dac086fa9e765fd327da44421",
+      "final_quality_accepted": null,
+      "attribution": "trusted_local_unchanged_failed_worker_recovery"
+    },
+    {
+      "task_id": "B093",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "511599a58caf40c28c78589ec8bb3ddbc587cf20ca88c10392aa45b36e0ff072",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B094",
+      "workload_classification": "support",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "2e0a75042481f82f5ac474a817cdb75d40784164511003e22d9b1c28e6cc9ec8",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B095",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": false,
+      "observed_recovery_classification": "original_empty_patch",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "f41ae5eb8534b285193b9812b2f0975f4d735146961ce5f76d99f477e6b1627f",
+      "original_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B096",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "published_head_ci_unresolved",
+      "raw_queue_status": "head_ci_failed_or_cutoff",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "10e3767e6d8ed278e65b87da5b8676eb8b8b647b39f6507f94db2756a6e10019",
+      "original_patch_sha256": "ed9017b71de1d3c6b5018b5d1e5350873304e8e1d99775fb56f50ceb09109681",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B097",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "nonempty_not_attempted_in_recovery",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "11c30282a8ecbeb44102a08dba3847d33824954b20b0aa7c59650fd055ee67be",
+      "original_patch_sha256": "6b38bbc3889dfdbd16e32fa364cb9e909508f8520c6ddb04313be6b25520002f",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B098",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "nonempty_not_attempted_in_recovery",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "d1984b9c2266f85a08cb11cf60f0826af2dadd1188383b3ae2bcdba3dc9d7f17",
+      "original_patch_sha256": "fd4767272a418a2dd589ca675ab92801245845877d7facf3bb819c32469bfbac",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B099",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "nonempty_not_attempted_in_recovery",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "318eba5e66a83920b38b3d6873f0100bec95cafcd9851b5769d4f9f77f538ee9",
+      "original_patch_sha256": "17c700c266604f52027371294b73f969574bc708d579daa96e370dbab0ac1af2",
+      "final_quality_accepted": null
+    },
+    {
+      "task_id": "B100",
+      "workload_classification": "product",
+      "original_worker_status": "needs_repair",
+      "original_patch_nonempty": true,
+      "observed_recovery_classification": "nonempty_not_attempted_in_recovery",
+      "raw_queue_status": "not_recorded",
+      "source_code_failure_inferred": false,
+      "qualified_for_frozen_window": false,
+      "original_report_sha256": "ae9f95bc83dcfdbcc27bbabbb51e759968bb597a0be6db01757b5d1d3e8c2cb8",
+      "original_patch_sha256": "b3273d63d781f9da1bdffdb938b53021c5dd5af8b0216f7f5d26b9cb61ad2156",
+      "final_quality_accepted": null
+    }
+  ],
+  "plot_events": [
+    {
+      "task_id": "B010",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:18:58.001235+00:00"
+    },
+    {
+      "task_id": "B003",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:21:37.390090+00:00"
+    },
+    {
+      "task_id": "B011",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:24:08.127049+00:00"
+    },
+    {
+      "task_id": "B014",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:26:32.912057+00:00"
+    },
+    {
+      "task_id": "B008",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:29:32.669876+00:00"
+    },
+    {
+      "task_id": "B015",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:32:46.811084+00:00"
+    },
+    {
+      "task_id": "B023",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:35:18.750328+00:00"
+    },
+    {
+      "task_id": "B026",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:38:16.651996+00:00"
+    },
+    {
+      "task_id": "B032",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:40:45.261958+00:00"
+    },
+    {
+      "task_id": "B033",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:43:30.212447+00:00"
+    },
+    {
+      "task_id": "B035",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:46:04.709646+00:00"
+    },
+    {
+      "task_id": "B039",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:49:58.086453+00:00"
+    },
+    {
+      "task_id": "B009",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:52:44.427520+00:00"
+    },
+    {
+      "task_id": "B030",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:55:50.467526+00:00"
+    },
+    {
+      "task_id": "B005",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:58:18.218169+00:00"
+    },
+    {
+      "task_id": "B036",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:01:04.653633+00:00"
+    },
+    {
+      "task_id": "B044",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T18:03:35.290826+00:00"
+    },
+    {
+      "task_id": "B048",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T18:06:39.124606+00:00"
+    },
+    {
+      "task_id": "B046",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:10:17.548069+00:00"
+    },
+    {
+      "task_id": "B002",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:13:09.371148+00:00"
+    },
+    {
+      "task_id": "B049",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T18:16:23.400570+00:00"
+    },
+    {
+      "task_id": "B004",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:19:16.452561+00:00"
+    },
+    {
+      "task_id": "B050",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:22:36.967301+00:00"
+    },
+    {
+      "task_id": "B007",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:25:10.426105+00:00"
+    },
+    {
+      "task_id": "B018",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:28:35.308760+00:00"
+    },
+    {
+      "task_id": "B053",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T18:31:30.856088+00:00"
+    },
+    {
+      "task_id": "B054",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T18:34:24.150210+00:00"
+    },
+    {
+      "task_id": "B055",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:37:33.645239+00:00"
+    },
+    {
+      "task_id": "B056",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:41:14.621340+00:00"
+    },
+    {
+      "task_id": "B057",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T18:44:38.602699+00:00"
+    },
+    {
+      "task_id": "B059",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:47:32.136470+00:00"
+    },
+    {
+      "task_id": "B060",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:50:26.266147+00:00"
+    },
+    {
+      "task_id": "B061",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T18:54:09.297940+00:00"
+    },
+    {
+      "task_id": "B062",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T18:57:36.063640+00:00"
+    },
+    {
+      "task_id": "B063",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:00:15.670502+00:00"
+    },
+    {
+      "task_id": "B065",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:02:55.004708+00:00"
+    },
+    {
+      "task_id": "B067",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:06:09.077074+00:00"
+    },
+    {
+      "task_id": "B068",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:09:56.735301+00:00"
+    },
+    {
+      "task_id": "B069",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:13:10.861484+00:00"
+    },
+    {
+      "task_id": "B070",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:15:55.970172+00:00"
+    },
+    {
+      "task_id": "B071",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:19:25.922035+00:00"
+    },
+    {
+      "task_id": "B072",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:23:42.565377+00:00"
+    },
+    {
+      "task_id": "B073",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:26:45.208920+00:00"
+    },
+    {
+      "task_id": "B074",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T19:30:13.203139+00:00"
+    },
+    {
+      "task_id": "B075",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:33:08.671537+00:00"
+    },
+    {
+      "task_id": "B076",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:36:18.615987+00:00"
+    },
+    {
+      "task_id": "B077",
+      "category": "support",
+      "qualified_at_utc": "2026-11-11T19:39:34.598121+00:00"
+    },
+    {
+      "task_id": "B078",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:44:14.005085+00:00"
+    },
+    {
+      "task_id": "B079",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:47:01.640326+00:00"
+    },
+    {
+      "task_id": "B080",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:50:49.836093+00:00"
+    },
+    {
+      "task_id": "B084",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T19:53:53.910584+00:00"
+    },
+    {
+      "task_id": "B085",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:57:07.812105+00:00"
+    },
+    {
+      "task_id": "B086",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T19:59:34.686116+00:00"
+    },
+    {
+      "task_id": "B087",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T20:03:14.069159+00:00"
+    },
+    {
+      "task_id": "B088",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T20:07:07.884343+00:00"
+    },
+    {
+      "task_id": "B089",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T20:09:50.741315+00:00"
+    },
+    {
+      "task_id": "B090",
+      "category": "support",
+      "qualified_at_utc": "2026-11-11T20:13:54.485979+00:00"
+    },
+    {
+      "task_id": "B092",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T20:16:26.434449+00:00"
+    }
+  ],
+  "limits": [
+    "The original queue stopped at its recorded timestamp; the six-hour cutoff is an administrative observation endpoint, not a fabricated OS stop or completed-workload T1.",
+    "The observed pending/empty-check response has its own timestamp; it does not prove platform outage, source-code failure or exact-cutoff CI state.",
+    "Product, support, unresolved CI, unattempted recovery and empty original patches remain separate; all100 original worker failures are retained.",
+    "Recovery is assisted. New paid workers=0 does not establish zero local/Codex/CI cost. Actual billed/eligible dollars, accepted24h outcomes and matched AFK comparison remain unknown.",
+    "Reported worker process spans and sampled VMs do not prove continuous useful100-agent work, CPU utilization or inference concurrency."
+  ]
+}

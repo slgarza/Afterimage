@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "kind": "CI_last_observation_method_package",
+  "destination_proposal": "docs/swarm/methods/pilot100/ci-last-observation/",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "8a99a8e9d6e0b375c48d7555f2d67d59aed176e57bbc5633e0dc55b468432fcc",
+      "bytes": 3500
+    },
+    {
+      "path": "collect-ci-metadata.py",
+      "sha256": "60a4d8f2cd43f53eb64db33573ba5a4b25a574ed770bf8042db1900b7105793b",
+      "bytes": 30937
+    },
+    {
+      "path": "provenance.json",
+      "sha256": "440ff1a9d6f0993fe96ff14bed9158d6c2ea5361edb90a89ffbe195d2cd9c944",
+      "bytes": 1997
+    },
+    {
+      "path": "test-ci-metadata.py",
+      "sha256": "2fa277a1699d0de34b21e40d3fd6e10f043e6c0a4c2fab47739f2a884cbf587f",
+      "bytes": 27220
+    }
+  ],
+  "scope": "Only these method files plus manifest; no raw API bodies/private runtime/caches/counters/markers/state."
+}

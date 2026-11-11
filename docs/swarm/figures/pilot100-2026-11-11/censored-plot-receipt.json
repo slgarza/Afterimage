@@ -1,0 +1,16 @@
+{
+  "kind": "standalone_censored_observation_figure",
+  "metadata": {
+    "censored_allowlist_sha256": "aaf2f26680fa848c5f4bacb52cdb3b92d7c23a199c7802199da243959140061b",
+    "plot_inputs_sha256": "f08b22b9b8d48e8b4e423076b0a7f1600083248d3f416bd0b44a1d69dd3c1416",
+    "window_endpoint_kind": "administrative_cutoff",
+    "T1_utc": null,
+    "matplotlib_version": "3.10.7"
+  },
+  "files": {
+    "pilot100-censored-20261111T221725Z.png": "32e77f3d410551ca6c5b14368c5ffc4ddae9d58923495a436cab9d005d3affb7",
+    "pilot100-censored-20261111T221725Z.svg": "008dfe18076c9f679304c26fd1c815309b7f0f24a596c2db745b21f13f149a8a",
+    "censored-plot-inputs-public-allowlist.json": "f08b22b9b8d48e8b4e423076b0a7f1600083248d3f416bd0b44a1d69dd3c1416"
+  },
+  "final_accepted_or_completed_delivery_claimed": false
+}

@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "kind": "independent_pilot100_read_only_postmortem",
+  "created_at_utc": "2026-11-11T18:26:40.907966+00:00",
+  "scope": "Original100-worker outcome and measured overhead; recovery delivery is ongoing. Observations, hypotheses and proposed experiments are explicitly separate.",
+  "worker_base_sha": "79404fe6d4ed5cf1b59b5610a3aebbe9d1f8021f",
+  "controller_commit": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+  "source_bindings": [
+    {
+      "relative_evidence_name": "activity-and-overhead-public-allowlist.json",
+      "sha256": "7d9c11de14d63939d2e773764b047113fbe701a45eecd9c01a4fbe4efa9cab9e"
+    },
+    {
+      "relative_evidence_name": "original-terminal-results-public-allowlist.json",
+      "sha256": "d1231027904e1226b8afb94e3d37abf290b7b0471607734801e34dd5d66359f2"
+    },
+    {
+      "relative_evidence_name": "gateway-final-dict-allowlist-bec6e55ab8b8493f9c59440dc49184fc.json",
+      "sha256": "4f5559d0f51eef1b90d3ccedf12c58a7a9c80a1cd069ebd898376f162f84a193"
+    },
+    {
+      "relative_evidence_name": "operating-plan.json",
+      "sha256": "926d2c0256ec508a74f1f6386b20c7d91e1764c7ae70b7eb4ecdd75a502bd4d7"
+    },
+    {
+      "relative_evidence_name": "collect-delivery-allowlist.py",
+      "sha256": "9ce6db3f9b753206100f64f2322122a8e49f3689a4a280c2c9e133b8bd1d7543"
+    },
+    {
+      "relative_evidence_name": "recovery-domain-review-complete.json",
+      "sha256": "41af792f2a607a38467cabb1e7c3f221fc0cac9a4b39731b27af2878614a17fb"
+    },
+    {
+      "relative_evidence_name": "recovery-domain-repaired-review-complete.json",
+      "sha256": "5580c64cbf4526677af5652793d1fa4d76c5b4403ebdca2e672943331c7f23e6"
+    },
+    {
+      "controller_relative_path": "swarm_control/modal_runner.py",
+      "sha256": "45a63e2731bd04eb137e9d1ead12e3601cbf5134441cd3ca7ea90c84600a1901"
+    },
+    {
+      "controller_relative_path": "swarm_control/modal_worker.py",
+      "sha256": "715c7e012d1f2796ecf725a00e00ff0450d8701e3a1b38e29ffbedf54b2e1ccc"
+    },
+    {
+      "controller_relative_path": "swarm_control/provider_rate.py",
+      "sha256": "5cdab75922485e8cfdfee893d0e8bd39ce0a7580b599ff815874327a6a7dd721"
+    },
+    {
+      "controller_relative_path": "swarm_control/pilot_gateway.py",
+      "sha256": "64100ae7df3b1d84704ddbc6436153b0b3c436d162ee82bbf5b560703ea6b73b"
+    },
+    {
+      "controller_relative_path": "swarm_control/pilot_integrate.py",
+      "sha256": "6df053463dbb2db27ebed883716915b1818f76c555b5e6ef046b69e0de197fa5"
+    }
+  ],
+  "observations": [
+    {
+      "id": "O1",
+      "claim": "The immediate acceptance failure is fully explained by the recorded gate inputs, without needing a speculative infrastructure cause.",
+      "facts": {
+        "original_tasks": 100,
+        "original_validated": 0,
+        "agent_exit_counts": {
+          "-1": 98,
+          "137": 1,
+          "0": 1
+        },
+        "helper_check_exit_counts": {
+          "0": 86,
+          "1": 14
+        },
+        "cross_tabulation": [
+          {
+            "agent_exit": -1,
+            "helper_check_exit": 0,
+            "nonempty_patch": false,
+            "tasks": 36
+          },
+          {
+            "agent_exit": -1,
+            "helper_check_exit": 0,
+            "nonempty_patch": true,
+            "tasks": 48
+          },
+          {
+            "agent_exit": -1,
+            "helper_check_exit": 1,
+            "nonempty_patch": true,
+            "tasks": 14
+          },
+          {
+            "agent_exit": 0,
+            "helper_check_exit": 0,
+            "nonempty_patch": false,
+            "tasks": 1
+          },
+          {
+            "agent_exit": 137,
+            "helper_check_exit": 0,
+            "nonempty_patch": true,
+            "tasks": 1
+          }
+        ],
+        "nonempty_patches": 63,
+        "empty_patches": 37
+      },
+      "interpretation": "eligible_result requires agent_exit0, helper check0, a nonempty owned patch and unchanged head. All99 nonzero exits fail that gate. The sole zero exit, B094, had an empty patch.49 nonempty patches had helper check0 but still lacked a successful agent exit; that is useful recovery material rather than autonomous validation.",
+      "evidence": [
+        "original-terminal-results-public-allowlist.json",
+        "swarm_control/modal_runner.py:eligible_result"
+      ]
+    },
+    {
+      "id": "O2",
+      "claim": "The cohort ran into a strongly deadline-shaped termination pattern, but semantic termination reasons were not collected.",
+      "facts": {
+        "configured_agent_timeout_seconds": 1800,
+        "agent_process_spans_between1790and1810_seconds": 99,
+        "process_span_median_seconds": 1800.4290194511414,
+        "process_span_min_seconds": 1343.396367073059,
+        "process_span_max_seconds": 1800.62291097641,
+        "only_early_normal_exit_task": "B094",
+        "early_normal_exit_span_seconds": 1343.396367073059
+      },
+      "interpretation": "99 spans near the configured1800s exec limit are consistent with deadline expiry. The runner preserves returncode but does not emit a separate timeout/cancellation/OOM/provider-stop classification. -1 and137 alone do not establish the underlying cause. B094 previously reported a bounded-text specification ambiguity and produced no decoder; that empty result is not demonstrated to be an infrastructure failure.",
+      "evidence": [
+        "activity-and-overhead-public-allowlist.json",
+        "swarm_control/modal_runner.py:execute_task",
+        "reviews/B094.json (curated semantic finding; raw handoff not exported)"
+      ]
+    },
+    {
+      "id": "O3",
+      "claim": "There is evidence of100 distinct active agent sessions, but useful100-way concurrency is a narrower unresolved claim.",
+      "facts": {
+        "distinct_typed_threads": 100,
+        "tasks_with_completed_command_items": 100,
+        "completed_command_items": 1104,
+        "tasks_with_provider_completed_responses": 100,
+        "process_envelope_peak_tasks": 100,
+        "process_envelope100_seconds": 1343.337683916092,
+        "command_event_envelope100_seconds": 853.6672430038452,
+        "matched_completed_command_peak_tasks": 7,
+        "started_command_items_without_completion": 2,
+        "provider_inventory_observations_at100": 92
+      },
+      "interpretation": "Process/event envelopes contain model, queue and transport gaps; the observed matched-command peak7 is not an upper bound because two command intervals are incomplete and timestamps are observer-side. Discrete100-VM observations do not prove continuous100-way useful work or100 accepted contributions. This also does not establish that only a few agents did all work.",
+      "evidence": [
+        "activity-and-overhead-public-allowlist.json"
+      ]
+    },
+    {
+      "id": "O4",
+      "claim": "Documentation dominates captured command output and is a plausible optimization target, with explicit measurement limits.",
+      "facts": {
+        "completed_commands_classified_read_like": 1039,
+        "completed_commands_classified_canonical_doc_read_like": 940,
+        "total_captured_command_output_utf8_bytes": 26005759,
+        "doc_read_like_captured_output_utf8_bytes": 25760841,
+        "doc_read_like_share_of_captured_output": 0.9905821629739782,
+        "global_instruction_document_bytes": 92603,
+        "domain_contract_document_bytes": 74692,
+        "ui_contract_document_bytes": 61889,
+        "configured_model_context_window_tokens": 32768,
+        "same_normalized_command_groups_across_multiple_tasks": 61,
+        "largest_group_distinct_tasks": 42
+      },
+      "interpretation": "Classifications are nonexclusive string heuristics. A document-path mention can be a search, excerpt or truncated read; captured bytes are not bytes actually read, model-context tokens or billed tokens. The frozen global instruction list includes prior-pilot documentation as well as current material. No controlled prompt-size ablation was performed.",
+      "evidence": [
+        "activity-and-overhead-public-allowlist.json",
+        "swarm_control/modal_runner.py:prompt_for",
+        "swarm_control/modal_runner.py:codex_command",
+        "frozen swarm.toml instructions"
+      ]
+    },
+    {
+      "id": "O5",
+      "claim": "Gateway accounting establishes successful responses and at least one local pacing expiry, not request-level bottleneck attribution.",
+      "facts": {
+        "gateway_admission_attempt_counter": 1057,
+        "verified_completed_response_count": 963,
+        "failed_or_uncertain_outcome_count": 94,
+        "verified_completed_response_input_tokens": 19783115,
+        "verified_completed_response_output_tokens": 497784,
+        "configured_local_tokens_per_minute": 800000,
+        "configured_local_requests_per_minute": 4000,
+        "shared_count_and_inference_admission_deadline_seconds": 300,
+        "minimum_distinct_local_queue_expiries_observed": 1,
+        "local_expiry_observed_task": "B063",
+        "actual_upstream_inference_send_count": null,
+        "upstream_429_count": null,
+        "per_request_queue_and_model_latencies": null
+      },
+      "interpretation": "Reserve increments requests/count_requests before pacing or upstream HTTP.963 completions are a lower bound on actual upstream inference sends;1057 is not a verified send count.94 failures/uncertain outcomes must not be labeled94 provider429s or94 queue expiries. Count preflight, FIFO pacing, maximum-output token reservations, model streaming and cancellation are combined without per-phase timestamps. One gateway with100 slots is not demonstrated to be the cause of the cohort outcome. Monetary retention is conservative accounting, not a reconciled invoice.",
+      "evidence": [
+        "activity-and-overhead-public-allowlist.json",
+        "gateway-final-dict-allowlist-bec6e55ab8b8493f9c59440dc49184fc.json",
+        "swarm_control/pilot_gateway.py:responses",
+        "swarm_control/provider_rate.py:ProviderRateLimiter",
+        "swarm_control/pilot_budget.py:reserve"
+      ]
+    },
+    {
+      "id": "O6",
+      "claim": "Shell-command spans leave most agent-envelope time unattributed.",
+      "facts": {
+        "summed_matched_completed_command_interval_union_seconds_across_tasks": 919.7067458629608,
+        "median_task_matched_command_interval_union_seconds": 3.866147041320801,
+        "summed_command_envelope_residual_seconds_across_tasks": 159180.30137443542
+      },
+      "interpretation": "These are task-interval aggregates, not CPU utilization or a cohort wall clock. The residual includes reasoning, model service, pacing, buffering and unobserved work. It must not be called idle time or attributed to a particular component without phase instrumentation.",
+      "evidence": [
+        "activity-and-overhead-public-allowlist.json"
+      ]
+    },
+    {
+      "id": "O7",
+      "claim": "Full checks were duplicated at several stages, including checks on empty output that could never pass worker acceptance.",
+      "facts": {
+        "original_helper_checks_completed": 100,
+        "empty_patch_helper_checks_passed": 37,
+        "agent_command_payloads_classified_configured_full_benchmark_like": 47,
+        "tasks_without_check_like_or_benchmark_like_agent_command": 37
+      },
+      "interpretation": "The trusted helper always executes the frozen full benchmark when path/head checks pass, before eligible_result rejects an empty patch.37 empty outputs therefore still incurred a helper baseline check.47 is a command-text heuristic, not proof of47 additional completed or successful full validations. Recovered candidates are then fully tested again on current main, and GitHub checks run for PR and merge. These are intentional safety layers with measurable cost; optimize using verified tree identities rather than removing gates.",
+      "evidence": [
+        "swarm_control/modal_runner.py:execute_task",
+        "swarm_control/modal_worker.py:check",
+        "frozen swarm.toml validation.checks",
+        "tools/benchmark-pilot.mjs:profileCommands"
+      ]
+    },
+    {
+      "id": "O8",
+      "claim": "Isolation and disjoint ownership avoided the shared-file conflict problem; this cohort did not test its harder form.",
+      "facts": {
+        "original_heads_unchanged": 100,
+        "original_ownership_violations": 0,
+        "original_prohibited_paths": 0,
+        "recovery_errors": 0,
+        "terminated_original_sandboxes": 100,
+        "overlapping_ownership_allowed": false
+      },
+      "interpretation": "Independent leaf tasks in isolated checkouts plus serial integration provide a concrete avoidance strategy. This does not demonstrate merge-conflict resolution, incompatible API/consumer evolution or throughput under intentionally overlapping files. There is no observed basis to blame original failures on file collisions.",
+      "evidence": [
+        "original report hash revalidation against activity allowlist",
+        "swarm_control/modal_runner.py:validate_batch",
+        "swarm_control/pilot_integrate.py"
+      ]
+    },
+    {
+      "id": "O9",
+      "claim": "Independent recovery found useful source despite failed execution, while exposing quality gaps that green CI alone missed.",
+      "facts": {
+        "domain_nonempty_originals_reviewed": 38,
+        "canonical_domain_independent_assertions": 1706,
+        "unchanged_domain_recovery_approvals": 31,
+        "domain_original_recovery_rejections": 7,
+        "new_coordinator_domain_repair_approvals": 7,
+        "original_reports_reclassified_successful": 0
+      },
+      "interpretation": "The recovered lane preserves original failure and adds local review/validation. Domain rejections included strict test typing, incorrect RNG golden expectations, a source descriptor typing error and absent owned tests. Source-only fixture success was insufficient for delivery. The B003 post-merge palette defect required a corrective PR and no extra feature credit. These interventions and quality-window costs belong in the result.",
+      "evidence": [
+        "recovery-domain-review-complete.json",
+        "recovery-domain-repaired-review-complete.json",
+        "b003-postmerge-palette-defect.json"
+      ]
+    }
+  ],
+  "hypotheses_not_confirmed_causes": [
+    {
+      "id": "H1",
+      "statement": "Repeated broad document/tool output may create context churn and consume a large share of the request budget before implementation and handoff.",
+      "supported_by": [
+        "O4",
+        "O6"
+      ],
+      "not_established": "No per-request context attribution, truncation/compaction trace or controlled narrow-prompt comparison exists."
+    },
+    {
+      "id": "H2",
+      "statement": "Weighted token pacing, model latency and cancellation near the1800s deadline may jointly prevent completion.",
+      "supported_by": [
+        "O2",
+        "O5",
+        "O6"
+      ],
+      "not_established": "Per-request admission/send/first-byte/completion timestamps and terminal kill reasons are missing. Neither semaphore100 nor upstream429 causality is demonstrated."
+    },
+    {
+      "id": "H3",
+      "statement": "Small independent leaf tasks may be disproportionately affected by repeated full validation, serial current-base integration and CI waiting.",
+      "supported_by": [
+        "O7",
+        "integration_overhead_snapshot"
+      ],
+      "not_established": "No matched AFK run exists, and the snapshot is still in progress; no comparative throughput or dollar advantage follows."
+    },
+    {
+      "id": "H4",
+      "statement": "Spec ambiguity and incomplete semantic/test coverage explain some individual outcomes in addition to execution limits.",
+      "supported_by": [
+        "O1",
+        "O2",
+        "O9"
+      ],
+      "not_established": "This is not a quantified causal decomposition of all100 failures. Review corrections and existing CI do not prove complete gameplay acceptance."
+    }
+  ],
+  "minimum_next_experiments_not_executed": [
+    {
+      "priority": 1,
+      "name": "Instrument termination and request phases before changing capacity",
+      "minimum_design": "Offline tests with fake clocks/transports plus one future explicitly budgeted tiny cohort. Record exec terminal reason; monotonic reserve/capacity/count/pacing/send/first-byte/completion/cancel timestamps and safe outcome enums. Export no bodies, credentials or raw account identifiers.",
+      "hold_fixed": "Ownership, acceptance, model, budget ceilings and failure retention. No extra paid operation is authorized by this proposal.",
+      "measure": "Useful task progress versus model/queue/transport/check time; actual upstream sends versus admission counters; cancellation/timeout origin.",
+      "decision_rule": "Change one diagnosed constraint only after phase measurements support it; do not infer a100-slot bottleneck from configuration."
+    },
+    {
+      "priority": 2,
+      "name": "Predeclare a paired AFK and swarm comparison on the same frozen backlog",
+      "minimum_design": "Select a small stratified UI/domain subset before running, including blocked/empty-risk tasks; use the same base, acceptance, PR granularity, resources/model policy and quality checks. Freeze the strongest available AFK pipeline definition rather than assuming a one-agent baseline. Run enough matched repetitions to show variance before another100-agent paid cohort.",
+      "hold_fixed": "T0 includes startup through current-base review/repair/CI/merge; retain original autonomous and assisted results separately. No clock reset for recovery; corrections add no duplicate task credit.",
+      "measure": "Merged green qualified task PRs/hour and product/support units separately; operator intervention;24h defects; per-dollar results only after actual provider/infrastructure/CI billing reconciliation and the contest internal-token rule.",
+      "decision_rule": "No claim of a contest win without paired observed evidence. Any paid experiment requires a separately authorized remaining budget."
+    },
+    {
+      "priority": 3,
+      "name": "Bound the instruction context without changing task authority",
+      "minimum_design": "On the paired subset, compare the current broad-read prompt against a deterministic task packet containing shared vocabulary, the exact owned contract section and relevant rules/legacy compatibility excerpts with source hashes; keep full sources available on demand.",
+      "hold_fixed": "Same functional contract, unknown-rule handling, model, deadline, quotas and validation gates. Do not remove rules to improve completion rates.",
+      "measure": "Actual input/output tokens, repeated/truncated tool output, time to first code, agent exit0 rate, nonempty/check0 rate and independently accepted behavior.",
+      "decision_rule": "Adopt smaller context only if semantic acceptance is preserved and measured delivery improves."
+    },
+    {
+      "priority": 4,
+      "name": "Separate deadline/pacing and repeated-validation effects",
+      "minimum_design": "Use instrumented replay/fake provider tests first, then a tiny predeclared authorized comparison. Test deadline headroom and bounded request scheduling at the same observed quota. Independently test skipping full checks for provably empty patches while preserving collected evidence and rejection. Consider cache reuse only for cryptographically identical dependency/source/test trees; always validate actual current-base candidates and exact PR heads.",
+      "hold_fixed": "Durable money retention, no automatic refill/refund, no new worker retries, source ownership and merge/CI gates.",
+      "measure": "Queue expiry, completed handoff rate, model latency, actual check wall time and accepted deliveries; do not label conservative reservation as billed cost.",
+      "decision_rule": "Do not increase gateway replicas or quotas blindly; process-local rate histories require a different proven coordination design before replication."
+    },
+    {
+      "priority": 5,
+      "name": "Test real collisions and dependency coupling explicitly",
+      "minimum_design": "Begin with offline deterministic conflicting branches to validate stale-base/conflict/review behavior. A later authorized two-agent code task pair should intentionally edit one shared file and one producer/consumer API, with frozen dependency rules and CI contention.",
+      "hold_fixed": "No force merge, fake-green check, silent three-way approval or weakened ownership. Keep the current disjoint cohort results distinct.",
+      "measure": "Conflict frequency, failed/current-base retries, reviewer time, green merged throughput and quality regressions.",
+      "decision_rule": "Only then generalize the avoidance strategy to the competition shared-file hurdle; synthetic offline replay alone is not evidence of100 useful live agents."
+    }
+  ],
+  "measurement_gaps": [
+    {
+      "id": "M1",
+      "gap": "Original runner does not preserve an explicit semantic termination reason for its negative process exits.",
+      "consequence": "Deadline-shaped evidence cannot fully distinguish timeout, cancellation, remote kill and memory pressure."
+    },
+    {
+      "id": "M2",
+      "gap": "Gateway per-request phase timestamps and actual upstream-send counter are absent.",
+      "consequence": "Admission counters and completed responses cannot attribute all94 uncertain outcomes or time spent pacing/model service."
+    },
+    {
+      "id": "M3",
+      "gap": "Review clocks are measured segments with known missing earlier phases and overlaps.",
+      "consequence": "Per-task duration sums are not total person time. Retain null for missing phases and count shared fixture/harness/export/diagnostic intervals once."
+    },
+    {
+      "id": "M4",
+      "gap": "Delivery collector observed reading only review_duration_seconds while domain receipts use monotonic_elapsed_seconds, and omitting explicit common diagnostic/tooling intervals.",
+      "source_sha256_observed": "9ce6db3f9b753206100f64f2322122a8e49f3689a4a280c2c9e133b8bd1d7543",
+      "still_present_in_source_read": true,
+      "status": "Reported to the collector maintainer for correction; a later version must be reviewed separately.",
+      "consequence": "Without a measured-segment fallback and explicit common-stage records, the public method underreports available review/diagnostic timing."
+    }
+  ],
+  "integration_overhead_snapshot": {
+    "as_of_utc": "2026-11-11T18:26:40.904086+00:00",
+    "interim_not_final_delivery_score": true,
+    "source_state_sha256": "7e3501a1ae17a374afe1a9c6f0ec749400e3115b9b11fdb8b15aafe5f35ce2bc",
+    "source_journal_snapshot_sha256": "a9880117e20029016ebea31a07776b7902330a826fcb36ea4151beef0240bf3e",
+    "state_unchanged_during_snapshot": true,
+    "status_counts": {
+      "merged_green_provisional": 24,
+      "merged_pending_combined_ci": 1,
+      "integrating": 1
+    },
+    "operation_wall_summaries": {
+      "plan": {
+        "operations_observed": 26,
+        "summed_operation_wall_seconds": 6.612722731020767,
+        "median_operation_wall_seconds": 0.21618601799855242,
+        "nonzero_return_count": 0
+      },
+      "prepare": {
+        "operations_observed": 25,
+        "summed_operation_wall_seconds": 1406.0418131630286,
+        "median_operation_wall_seconds": 55.856809553995845,
+        "nonzero_return_count": 0
+      },
+      "publish": {
+        "operations_observed": 25,
+        "summed_operation_wall_seconds": 143.44816151801206,
+        "median_operation_wall_seconds": 5.686929806994158,
+        "nonzero_return_count": 0
+      },
+      "merge": {
+        "operations_observed": 25,
+        "summed_operation_wall_seconds": 154.00596425002732,
+        "median_operation_wall_seconds": 6.145118405998801,
+        "nonzero_return_count": 0
+      }
+    },
+    "head_ci_waits": {
+      "count": 25,
+      "summed_observed_wait_seconds": 2595.8620943900023,
+      "median_observed_wait_seconds": 112.03270854000584
+    },
+    "interpretation": "Serial integration reruns install/full checks on current main, publishes, waits for exact-head CI, merges and observes combined main CI. Operation and CI sums are observed phases, not additive totals with nested validation receipts or the primary T0 clock. No final accepted throughput is inferred."
+  },
+  "review_effort": {
+    "started_at_utc": "2026-11-11T18:19:59.889170+00:00",
+    "finished_at_utc": "2026-11-11T18:26:40.908314+00:00",
+    "monotonic_elapsed_seconds": 401.01911,
+    "method": "Read existing curated evidence and local core/collector source, reverify all100 original report/patch hashes and safety counts, compute local aggregate summaries. No worker commands or logs were executed.",
+    "shared_postmortem_interval_count_once": true
+  },
+  "actual_autonomous_original_validated_workers": 0,
+  "actual_billed_cost_reconciled": false,
+  "afk_comparison_run": null,
+  "contest_superiority_proven": false,
+  "runtime_code_changed": false,
+  "raw_logs_or_payloads_exported": false,
+  "additional_cloud_or_model_calls": 0,
+  "new_workers": 0,
+  "budget_or_deployment_authorization_granted": false
+}

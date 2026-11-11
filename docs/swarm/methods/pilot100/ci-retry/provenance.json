@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "kind": "held_reference_CI_retry_method_provenance",
+  "recorded_at_utc": "2026-11-11T20:43:46.116299+00:00",
+  "publication_state_at_recording": "Held for root review; no publication by curator.",
+  "source_bundle_sha256": "711bc0456f69b2083c9210a8e589d706e5577f580920c594e6986abc6dca1e93",
+  "actual_runtime_auxiliary_code_pins": {
+    "queue_source_sha256": "71647bd8143d4301888220e02d7f4b809a0009da15bcec9067783b0a13518a88",
+    "phase_source_sha256": "7d115aabfbffb9cfbb29b69e65c557cad8d1c002e1112c6a7081aa86c354f10e",
+    "meaning": "Hashes of actual approved private runtime operator bytes, not the transformed public snapshots. No authorization to replace or rebind them is granted."
+  },
+  "transformation": {
+    "parameter_substitutions_only": true,
+    "complete_original_AST_recovered_privately_by_inverse_substitutions": true,
+    "original_algorithm_body_changes": 0,
+    "style_and_comments": "AST unparse normalizes formatting and omits comments; semantic AST equality is checked after reversing explicit parameter expressions.",
+    "original_source_bytes_embedded": false,
+    "requires_original_private_sources_for_independent_inverse_comparison": true
+  },
+  "execution_history_separated": {
+    "first_operator": "Exactly one successful branch lease push; immediate postpush PR metadata confirmation failed; no push retry.",
+    "second_operator": "GET-only confirmation recorded by local same-tree attestation at2026-11-11T20:38:06.590872+00:00; zero push retries.",
+    "third_operator": "Reference and14offline guards; no plan/merge execution is performed or asserted by this package.",
+    "initial_Ruff_findings": {
+      "count": 2,
+      "corrected_before_execution": true,
+      "evidence": "Coordinator transcript; original pre-correction lint trace/raw source bytes not retained in this package.",
+      "raw_trace_sha256": null
+    },
+    "initial_source_review_findings": {
+      "count": 2,
+      "corrected_before_execution": [
+        "Shared integration lock over the mutation sequence.",
+        "Durable attempted/unconfirmed remote-write receipt before push."
+      ]
+    }
+  },
+  "validation": {
+    "result": {
+      "templates_validated": 4,
+      "offline_guard_tests_passed": 14,
+      "operator_entrypoints_executed": 0,
+      "github_or_model_calls": 0
+    },
+    "validation_process_wall_seconds": 0.345119,
+    "ruff_verifier": true,
+    "python_compilation_verifier": true,
+    "all_template_syntax_and_source_hashes": true,
+    "initial_export_verification_failure": {
+      "preserved_as_observation": true,
+      "reason": "First synthetic materialization missed a literal PR endpoint in parameterization; subsequent explicit parameter substitution fixed export only. Original frozen operator/test inputs were unchanged.",
+      "raw_trace_sha256": null
+    }
+  },
+  "privacy": {
+    "runtime_customer_source_or_logs_embedded": false,
+    "credentials_or_account_state_embedded": false,
+    "actual_run_paths_or_runtime_head_ids_embedded_in_templates": false,
+    "source_text_templates_inert_JSON": true,
+    "actual_runtime_queue_phase_pins_explicitly_in_provenance": true
+  },
+  "benchmark": {
+    "initial_curation_duration_seconds": null,
+    "note": "No dedicated authoring timer preceded export work. The measured validation invocation is not total curation/person-time."
+  },
+  "operator_entrypoints_executed_by_curator": 0,
+  "github_get_attempts_for_curation": 0,
+  "github_mutations": 0,
+  "paid_or_model_operations": 0,
+  "frozen_input_mutations": 0
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "kind": "held_same_tree_CI_retry_reference_package",
+  "destination_proposal": "docs/swarm/methods/pilot100/ci-retry/",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "92feb3ce0d56027cc96a2b467c3a6690710096b2ceaf9e017129970e8ed7e8b7",
+      "bytes": 4483
+    },
+    {
+      "path": "operators.bundle.json",
+      "sha256": "711bc0456f69b2083c9210a8e589d706e5577f580920c594e6986abc6dca1e93",
+      "bytes": 45522
+    },
+    {
+      "path": "provenance.json",
+      "sha256": "b7ee7450a7c557b4c2bab15efddfe02a587e5a20bcfe6d28906ed3fadc8e800f",
+      "bytes": 3545
+    },
+    {
+      "path": "verify-export.py",
+      "sha256": "aab896ccde9672422e05951e5f23ded46d326e5c6d9e11d00d54f379a6b5dcbe",
+      "bytes": 2511
+    }
+  ],
+  "publication_requires_root_review": true,
+  "copy_scope": "Only these4reference-method files plus this manifest; no original runtime scripts/state/response bodies/logs or credentials."
+}

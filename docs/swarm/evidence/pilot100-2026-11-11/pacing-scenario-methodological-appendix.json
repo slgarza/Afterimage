@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "independent_pacing_scenario_postmortem_addendum",
+  "recorded_at_utc": "2026-11-11T19:56:51.964476+00:00",
+  "reviewer": "preflight_engine",
+  "classification": "Conditional arithmetic and code-level constraints; not a causal attribution or measured per-request demand.",
+  "sources": [
+    {
+      "repository": "slgarza/swarm-control",
+      "commit": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+      "path": "swarm_control/pilot_gateway.py",
+      "sha256": "64100ae7df3b1d84704ddbc6436153b0b3c436d162ee82bbf5b560703ea6b73b"
+    },
+    {
+      "repository": "slgarza/swarm-control",
+      "commit": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+      "path": "swarm_control/provider_rate.py",
+      "sha256": "5cdab75922485e8cfdfee893d0e8bd39ce0a7580b599ff815874327a6a7dd721"
+    },
+    {
+      "repository": "slgarza/swarm-control",
+      "commit": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+      "path": "swarm_control/pilot_budget.py",
+      "sha256": "fab00b336ff4e65a34da734c4e8a8b212069017efa8b15aaf230d5205c589469"
+    },
+    {
+      "artifact": "gateway-accounting-public-allowlist-v2.json",
+      "sha256": "c08e903a9b5808511abbcbda2ff00f46fef8e0933ca6e3173b75d8cd8567c7ef"
+    },
+    {
+      "artifact": "activity-and-overhead-public-allowlist.json",
+      "sha256": "7d9c11de14d63939d2e773764b047113fbe701a45eecd9c01a4fbe4efa9cab9e"
+    }
+  ],
+  "observed_safe_aggregates": {
+    "verified_completed_responses": 963,
+    "verified_completed_usage_input_tokens": 19783115,
+    "verified_completed_usage_output_tokens": 497784,
+    "local_pacing_tokens_per_rolling_minute": 800000,
+    "shared_count_and_inference_admission_deadline_seconds": 300,
+    "coding_session_limit_seconds": 1800,
+    "workers_requested": 100,
+    "request_maximum_output_limit": 4096
+  },
+  "code_facts": [
+    {
+      "function": "pilot_gateway.build_web_app.responses",
+      "finding": "Count preflight obtains one RPM permit with zero tokens; inference then obtains one RPM permit weighted by verified_count + prepared max_output_tokens. The count HTTP and both waits share one300-second deadline."
+    },
+    {
+      "function": "provider_rate.ProviderRateLimiter.acquire/_expire",
+      "finding": "Permits occupy a rolling60-second history; a request may use initially free capacity. Permits are not refunded after failure or cancellation. These permits are not money."
+    },
+    {
+      "function": "pilot_budget.prepare_request",
+      "finding": "Absent max_output_tokens defaults to4096; an explicit smaller positive limit is retained, and larger requests are clipped to4096. The run aggregates do not prove every completion used4096."
+    },
+    {
+      "function": "pilot_budget.usage_cost",
+      "finding": "A verified completion requires reported usage_input >= counted_input, not equality; actual_output <= output_limit is also checked. Completed usage_input totals cannot be equated to exact-count permit totals."
+    }
+  ],
+  "conditional_scenario": {
+    "assumptions": [
+      "For each of the963 verified completions, exact counted_input equals the reported usage_input.",
+      "For each of those completions, prepared max_output_tokens is4096.",
+      "Only completed-response inference permits are counted; failed/uncertain attempts, count RPM permits, service time and waits are excluded."
+    ],
+    "formula": "19783115 +963*4096",
+    "hypothetical_inference_token_permits": 23727563,
+    "hypothetical_output_capacity_reservations": 3944448,
+    "token_capacity_minutes_at_configured_tpm": 29.65945375,
+    "token_capacity_seconds_at_configured_tpm": 1779.567225,
+    "comparison_to_coding_window": "29.65945 token-capacity-minutes is close to a30-minute coding window under these assumptions. It is not a measured wait duration, minimum elapsed time, or proof the limiter caused the original outcomes.",
+    "code_level_bound": "Because counted_input <= verified usage_input and output_limit <=4096,23727563 is an upper bound on aggregate inference permit weights for these completed responses under the frozen code; it is not an observed lower bound or a requirement demonstrated by the receipts. Failed or uncertain attempts can consume additional permits."
+  },
+  "useful_implications": [
+    {
+      "status": "configuration-level implication",
+      "statement": "Increasing active workers to100 does not increase the shared800kTPM ceiling. Repeated large request contexts and conservative maximum-output reservations can compete with a bounded coding window."
+    },
+    {
+      "status": "hypothesis for a controlled future experiment",
+      "statement": "Bound exact per-task authority/context and record per-request permit weight, wait and service durations before changing concurrency or deadlines. The existing documentation-read output totals are bytes and command heuristics, not measured input-count contributions."
+    }
+  ],
+  "unmeasured_or_unproven": [
+    "Per-request exact counted_input, prepared max_output_tokens and actual granted inference permit weights were not retained as an auditable final aggregate.",
+    "Per-request queue-entry, count permit, count HTTP start/end, inference permit, upstream send, first response and settlement times are needed to reconstruct pressure, bursts and deadline losses.",
+    "Initially available capacity, rolling-window shape, request ordering, cancellations, failed/uncertain attempts and model/service latency prevent converting the quotient to observed wall time.",
+    "At least one local queue expiry is observed in the existing safe activity allowlist; repeated sticky snapshots are not distinct expiries, and94 failed/uncertain outcomes are not94 proven upstream429s.",
+    "No evidence here establishes pacing as the cause of0 original validated workers, input-count equality, all output limits being4096, an AFK advantage, actual provider cost or actual provider quota sufficiency."
+  ],
+  "minimal_next_observation_proposal": {
+    "paid_run_authorized_by_this_addendum": false,
+    "instrument_only_proposal": [
+      "Retain allowlisted numeric permit weights and monotonic phase timestamps without prompts, task tokens, headers or content.",
+      "Use an already approved future controlled comparison to vary bounded prompt context/output reservation or deadline one factor at a time; keep all original failures and full delivery clock."
+    ]
+  },
+  "benchmark": {
+    "started_at_utc": "2026-11-11T19:55:53.315046+00:00",
+    "completed_at_utc": "2026-11-11T19:56:51.965760+00:00",
+    "monotonic_elapsed_seconds": 58.649358,
+    "scope": "Offline code reading and arithmetic; no runtime mutation or simulation of an observed trace.",
+    "initial_draft_duration_included": true
+  },
+  "github_get_attempts": 0,
+  "github_mutations": 0,
+  "paid_or_model_operations": 0,
+  "frozen_input_mutations": 0
+}

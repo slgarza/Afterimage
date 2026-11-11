@@ -1,0 +1,1265 @@
+{
+  "schema_version": 1,
+  "kind": "afterimage_parallel100_independent_acceptance_methods",
+  "exported_at_utc": "2026-11-11T17:51:28.737797+00:00",
+  "frozen_target_base_sha": "79404fe6d4ed5cf1b59b5610a3aebbe9d1f8021f",
+  "frozen_contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md",
+  "frozen_contract_sha256": "4ff5f53197aae5bc48b81b71cf23778f2d3749e7ceb3d8950e75d13e0b329359",
+  "scope": "Contract-derived domain/protocol/client policy leaf fixtures B051–B100 and portable v2 review harness. Text-only methods export; no worker implementation source or raw runtime logs.",
+  "harness": {
+    "relative_path": "harness/verify-pure-leaf.cjs",
+    "source": "\"use strict\";\n// Private independent acceptance harness. Evaluates only a manually reviewed\n// pure leaf in a VM without filesystem/network/process globals. It neither\n// executes worker tests nor changes worker/candidate files.\nconst fs = require(\"node:fs\");\nconst vm = require(\"node:vm\");\nconst crypto = require(\"node:crypto\");\nconst assert = require(\"node:assert/strict\");\nconst path = require(\"node:path\");\nconst { createRequire } = require(\"node:module\");\nconst [sourceFile, fixtureFile, targetRoot, rawTimeout = \"5000\"] = process.argv.slice(2);\nif (!targetRoot) throw Error(\"usage: harness SOURCE_TS FIXTURE_JS TARGET_ROOT [VM_TIMEOUT_MS]\");\nconst targetRequire = createRequire(path.resolve(targetRoot, \"package.json\"));\nconst ts = targetRequire(\"typescript\");\nconst vmTimeoutMs = Number(rawTimeout);\nif (!Number.isSafeInteger(vmTimeoutMs) || vmTimeoutMs < 10 || vmTimeoutMs > 10000) throw Error(\"invalid VM timeout\");\nif (!sourceFile || !fixtureFile) throw Error(\"source and independent fixture required\");\nfunction transpile(source, filename) {\n  const result = ts.transpileModule(source, {fileName: filename, reportDiagnostics: true,\n    compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}});\n  if (result.diagnostics.some(d=>d.category===ts.DiagnosticCategory.Error)) throw Error(\"typescript syntax rejected\");\n  return result.outputText;\n}\nconst engineSource=fs.readFileSync(path.resolve(targetRoot,\"packages/engine/src/index.ts\"),\"utf8\");\nconst engine={exports:{}};\nconst engineContext=vm.createContext(engine,{codeGeneration:{strings:false,wasm:false}});\nvm.runInContext(transpile(engineSource,\"trusted-engine-index.ts\"),engineContext,{timeout:5000});\nconst source=fs.readFileSync(sourceFile,\"utf8\");\nconst fixture=fs.readFileSync(fixtureFile,\"utf8\");\nlet checks=0;\nconst context=vm.createContext({exports:{},\n require(spec){if(spec===\"../index.js\")return engine.exports;throw Error(\"unexpected module import\");},\n countCheck(){checks++;},nodeAssert:assert,\n},{codeGeneration:{strings:false,wasm:false}});\nvm.runInContext(\"(function(exports, require){\\n\" + transpile(source,sourceFile) + \"\\n})(exports, require);\",context,{timeout:vmTimeoutMs});\nvm.runInContext(`\n function canon(v){if(Array.isArray(v))return v.map(canon);if(v&&typeof v==='object')return Object.fromEntries(Object.keys(v).sort().map(k=>[k,canon(v[k])]));return v;}\n function check(v,label){nodeAssert.ok(v,label);countCheck();}\n function same(a,b,label){nodeAssert.deepStrictEqual(canon(a),canon(b),label);countCheck();}\n function good(result){check(result&&result.ok===true,'valid frozen-contract input must succeed');return result.value;}\n function bad(result,code){check(result&&result.ok===false,'invalid/forbidden input must fail');if(code)same(result.error.code,code);return result.error;}\n `+fixture,context,{timeout:vmTimeoutMs});\nconsole.log(JSON.stringify({kind:\"independent_private_pure_leaf_acceptance\",passed:true,checks,\n source_sha256:crypto.createHash(\"sha256\").update(source).digest(\"hex\"),\n fixture_sha256:crypto.createHash(\"sha256\").update(fixture).digest(\"hex\"),\n cloud_calls:0,model_calls:0,implementation_modified:false,module_scope_isolated:true,vm_timeout_ms:vmTimeoutMs}));\n",
+    "sha256": "b80a13eeb1adce9c458a63bf492cf6d993ba448b467d815fd61bcf36b731e409",
+    "private_runtime_v2_source_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+    "export_adaptation": "Replace two host-specific dependency/source paths with explicit TARGET_ROOT and createRequire against target package.json; preserve module closure, fixture helpers, timeout bounds and assertions. Exported source bytes differ from private runtime bytes.",
+    "cli_arguments": [
+      "SOURCE_TS",
+      "FIXTURE_JS",
+      "TARGET_ROOT",
+      "VM_TIMEOUT_MS_optional_default5000"
+    ],
+    "tested_dependencies": {
+      "node": "v24.6.0",
+      "typescript": "5.9.3",
+      "target": "ES2022",
+      "module": "CommonJS"
+    },
+    "vm_limitations": "Node vm provides separate contexts and bounded synchronous execution here. It is not an operating-system security sandbox, memory limit, process isolation or proof that hostile code is safe. Run only manually reviewed pure modules with appropriate process isolation."
+  },
+  "initial_preparation": {
+    "pilot_dispatch_started_at_utc": "2026-11-11T16:17:25.166040+00:00",
+    "first_fixture_observed_mtime_utc": "2026-11-11T16:27:41.083195+00:00",
+    "mtime_is_not_a_creation_or_cryptographic_attestation": true,
+    "measured_segment_started_at_utc": "2026-11-11T16:29:40.580041+00:00",
+    "measured_segment_finished_at_utc": "2026-11-11T16:32:23.910653+00:00",
+    "measured_common_segment_seconds_once": 163.330613,
+    "earlier_preparation_seconds": null,
+    "earlier_preparation_reason": "Initial contract reading and first20fixtures did not have a monotonic start recorded; no duration invented.",
+    "initial_fixture_count": 50,
+    "initial_harness_sha256": "63f272e26ddc406551807cf84aebc63a0f5f87e45d1abfe247be7897f4f2fabb",
+    "recorded_candidate_implementations_read": 0,
+    "chronology": "Initial fixtures were prepared during worker execution after dispatch and before this reviewer received/inspected implementation patches. Final B072/B088 fixtures and v2 harness were revised after original output inspection. This is not a claim that all final fixtures existed unchanged before the run.",
+    "initial_receipt_sha256": "9dc2eeb118f988315a454a0b685a63bf354840e10510ecaa5de02f2a49f6a6c6"
+  },
+  "corrections": [
+    {
+      "kind": "harness_scope_correction",
+      "started_at_utc": "2026-11-11T16:58:07.015602+00:00",
+      "finished_at_utc": "2026-11-11T16:59:30.945916+00:00",
+      "common_monotonic_elapsed_seconds_once": 83.930327,
+      "prior_runtime_harness_sha256": "63f272e26ddc406551807cf84aebc63a0f5f87e45d1abfe247be7897f4f2fabb",
+      "corrected_private_runtime_harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+      "approvals_explicitly_revoked_then_revalidated": [
+        "B053",
+        "B054",
+        "B057"
+      ],
+      "also_retested_after_false_failure": [
+        "B061"
+      ],
+      "detail": "Evaluate transpiled candidate inside its own CommonJS function closure. Fixture helpers retain their own realm scope; candidate private same/f names cannot replace assertion helpers. V1 collision was reproduced, v2 accessor/scope smoke passed, timeout smoke passed."
+    },
+    {
+      "kind": "fixture_contract_precision_correction",
+      "task_id": "B072",
+      "recorded_at_utc": "2026-11-11T17:04:02.182575+00:00",
+      "prior_sha256": "80b88d5ae287931c62a5bfb7cd258abfd6470855cc03088a50dd2608e1165d91",
+      "final_sha256": "9ee31492399d7ebd91d622c5e72abe5364a5d205556bead4345f80eef34ef7c2",
+      "prior_fixture_executed": false,
+      "reason": "Frozen wording says name is trimmed1–48 but does not explicitly require normalization rather than rejecting noncanonical input. Positive fixtures must use an unequivocally valid already-trimmed name. Extra boundary check allows rejection or normalization, but never untrimmed successful output.",
+      "worker_implementation_changed": false
+    },
+    {
+      "kind": "fixture_contract_precision_correction",
+      "task_id": "B088",
+      "recorded_at_utc": "2026-11-11T17:09:08.755882+00:00",
+      "prior_sha256": "35f33485bb61a63fe0df1698a57fece584f4c9cc9a430c97f058f6c1f892ac9c",
+      "final_sha256": "6dbdcad0417578c4018076b26133fbc28b51c3e7574f6247938dc38a05911ea2",
+      "prior_fixture_executed": true,
+      "reason": "Frozen contract requires nonhost cannot advance but does not require ok:true/mayAdvance:false for nonhosts; explicit Result forbidden is equally valid. Original fixture overconstrained result wrapper. Corrected expectation accepts only denied nonhost behavior, with forbidden if returning error. Original failed execution retained.",
+      "worker_implementation_changed": false
+    },
+    {
+      "kind": "review_gate_correction_fixture_unchanged",
+      "task_id": "B074",
+      "recorded_at_utc": "2026-11-11T17:06:39.088476+00:00",
+      "detail": "Initial source-only approval was explicitly revoked because frozen acceptance requires owned regression tests. Private fixture success did not satisfy delivered test coverage. Coordinator later authored a distinct owned test file and received a new review; original failed worker result remains unchanged."
+    }
+  ],
+  "fixtures": [
+    {
+      "task_id": "B051",
+      "relative_path": "fixtures/B051.js",
+      "source": "\nconst f=exports.allocateRoles;\nfor(let n=5;n<=10;n++)for(const seed of [0,1,12345,4294967295]){\n const input={playerIds:Array.from({length:n},(_,i)=>'p'+i),rng:{value:seed}};const saved=JSON.stringify(input);const v=good(f(input));\n const expected={5:[3,1,1],6:[4,1,1],7:[4,2,1],8:[5,2,1],9:[5,3,1],10:[6,3,1]}[n];\n same(['archivist','static-operative','null'].map(role=>v.assignments.filter(a=>a.role===role).length),expected);\n same(v.assignments.map(a=>a.playerId),input.playerIds);same(f(input),f(input));same(JSON.stringify(input),saved);\n check(v.rng!==input.rng,'RNG output detached');\n}\nfor(const n of [0,4,11])bad(f({playerIds:Array.from({length:n},(_,i)=>'p'+i),rng:{value:1}}));\nbad(f({playerIds:['a','a','b','c','d'],rng:{value:1}}));\nbad(f({playerIds:['a','b','c','d','e'],rng:{value:-1}}));\n",
+      "sha256": "128b8580ab1b17cf8e02f2f1428f3c03f5990e8753bf16008b442fdc15e5edb7",
+      "target_source_relative_path": "packages/engine/src/parallel100/role-allocation.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b051",
+      "initial_preparation_sha256": "128b8580ab1b17cf8e02f2f1428f3c03f5990e8753bf16008b442fdc15e5edb7",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B052",
+      "relative_path": "fixtures/B052.js",
+      "source": "\nconst f=exports.initialRoleKnowledge;\nconst assignments=[['a','archivist'],['b','archivist'],['c','archivist'],['d','archivist'],['s1','static-operative'],['s2','static-operative'],['n','null']].map(([playerId,role])=>({playerId,role}));\nsame(good(f({assignments,recipientId:'s1'})),{ownRole:'static-operative',staticAllyIds:['s2']});\nsame(good(f({assignments,recipientId:'n'})),{ownRole:'null',staticAllyIds:[]});\nsame(good(f({assignments,recipientId:'a'})),{ownRole:'archivist',staticAllyIds:[]});\nbad(f({assignments,recipientId:'missing'}));bad(f({assignments:assignments.map(a=>({...a,role:'null'})),recipientId:'a'}));\n",
+      "sha256": "391120f481d81031e22361909d911a640946aae116919d3a0d53ef061c154a73",
+      "target_source_relative_path": "packages/engine/src/parallel100/initial-role-knowledge.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b052",
+      "initial_preparation_sha256": "391120f481d81031e22361909d911a640946aae116919d3a0d53ef061c154a73",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B053",
+      "relative_path": "fixtures/B053.js",
+      "source": "\nconst f=exports.nextShiftLead;const seats=[{id:'a',active:true},{id:'b',active:false},{id:'c',active:true}];\nsame(good(f({seats,previousLeadId:null})),{leadId:'a'});same(good(f({seats,previousLeadId:'a'})),{leadId:'c'});same(good(f({seats,previousLeadId:'b'})),{leadId:'c'});same(good(f({seats,previousLeadId:'c'})),{leadId:'a'});\nbad(f({seats,previousLeadId:'missing'}));bad(f({seats:seats.map(s=>({...s,active:false})),previousLeadId:null}));bad(f({seats:[seats[0],seats[0]],previousLeadId:null}));\n",
+      "sha256": "36401ad4b75aa2d7962fde745ef66c4a66312c2a0abf716010c50fada4ee5525",
+      "target_source_relative_path": "packages/engine/src/parallel100/shift-lead-rotation.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b053",
+      "initial_preparation_sha256": "36401ad4b75aa2d7962fde745ef66c4a66312c2a0abf716010c50fada4ee5525",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 11,
+        "source_sha256": "f099b72b6590617aa51961e7b69b698835078f71d9fee901b2ae0d792ad48a70",
+        "started_at_utc": "2026-11-11T16:59:30.946992+00:00",
+        "finished_at_utc": "2026-11-11T16:59:31.465487+00:00",
+        "monotonic_elapsed_seconds": 0.51853,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "36401ad4b75aa2d7962fde745ef66c4a66312c2a0abf716010c50fada4ee5525",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B054",
+      "relative_path": "fixtures/B054.js",
+      "source": "\nconst f=exports.roundCapabilities;\nfor(const active of [false,true])for(const jammed of [false,true])for(const crewCooldown of [false,true]){\n const v=good(f({players:[{id:'p',active,jammed,crewCooldown},{id:'x',active:true,jammed:false,crewCooldown:false},{id:'y',active:true,jammed:false,crewCooldown:false}]}));\n const p=v.players.find(p=>p.id==='p');same(p,{id:'p',mayVote:active&&!jammed,mayServe:active&&!jammed&&!crewCooldown,mayChat:active});\n}\nconst v=good(f({players:[{id:'a',active:true,jammed:false,crewCooldown:false}]}));same(v.eligibleCrewIds,['a']);same(v.unresolvedDecision,'D-ELIGIBLE-POOL');\nbad(f({players:[{id:'a',active:1,jammed:false,crewCooldown:false}]}));\n",
+      "sha256": "78f65110c30c0ad915a053f0b2aae61bd71d5d4f3129d523bb5dcb49eaf23f93",
+      "target_source_relative_path": "packages/engine/src/parallel100/round-capabilities.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b054",
+      "initial_preparation_sha256": "78f65110c30c0ad915a053f0b2aae61bd71d5d4f3129d523bb5dcb49eaf23f93",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 20,
+        "source_sha256": "7aae73ca0b2c4c90aec4ae015bdeda26131cc3024ff00693b57244d2800509bf",
+        "started_at_utc": "2026-11-11T16:59:31.579475+00:00",
+        "finished_at_utc": "2026-11-11T16:59:32.135184+00:00",
+        "monotonic_elapsed_seconds": 0.555756,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "78f65110c30c0ad915a053f0b2aae61bd71d5d4f3129d523bb5dcb49eaf23f93",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B055",
+      "relative_path": "fixtures/B055.js",
+      "source": "\nconst f=exports.recordCrewVote;const input={phase:'VOTE_OPEN',revision:2,expectedRevision:2,actorId:'a',candidateId:'b',voterIds:['a','b','c'],eligibleCrewIds:['b','c'],votes:[]};\nsame(good(f(input)),{revision:3,votes:[{voterId:'a',candidateId:'b'}]});same(input.votes,[]);\nfor(const change of [{phase:'ROUND_START'},{expectedRevision:1},{actorId:'z'},{candidateId:'a'},{votes:[{voterId:'a',candidateId:'c'}]},{revision:Number.MAX_SAFE_INTEGER,expectedRevision:Number.MAX_SAFE_INTEGER}])bad(f({...input,...change}));\n",
+      "sha256": "eeffaddbba0946b13d05f60615f244063b925317c8056732683928960ad53c7e",
+      "target_source_relative_path": "packages/engine/src/parallel100/crew-vote-ledger.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b055",
+      "initial_preparation_sha256": "eeffaddbba0946b13d05f60615f244063b925317c8056732683928960ad53c7e",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 9,
+        "source_sha256": "f33a019e7c63e8ff8a069e0eebbbb980ba3d734d36552d358c4785d280586a82",
+        "started_at_utc": "2026-11-11T17:11:39.732743+00:00",
+        "finished_at_utc": "2026-11-11T17:11:40.213064+00:00",
+        "monotonic_elapsed_seconds": 0.480368,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "eeffaddbba0946b13d05f60615f244063b925317c8056732683928960ad53c7e",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B056",
+      "relative_path": "fixtures/B056.js",
+      "source": "\nconst f=exports.selectRepairCrew;const rng={value:1};const candidates=[{id:'a',votes:5,lastCrewRound:2},{id:'b',votes:3,lastCrewRound:1},{id:'c',votes:3,lastCrewRound:null}];\nlet v=good(f({candidates,currentRound:3,rng}));same(v.crewIds,['a','c']);same(v.draws,[]);same(v.rng,rng);\nconst tie={candidates:candidates.map(c=>({...c,votes:0,lastCrewRound:null})),currentRound:3,rng};v=good(f(tie));same(f(tie),f(tie));check(v.crewIds.length===2&&v.crewIds[0]!==v.crewIds[1]);check(v.draws.length>=1);same(candidates[0].votes,5);\nsame(bad(f({candidates:[],currentRound:3,rng}),'decision-required').decisionId,'D-ELIGIBLE-POOL');bad(f({candidates:[{id:'a',votes:1,lastCrewRound:5},{id:'b',votes:1,lastCrewRound:null}],currentRound:3,rng}));\n",
+      "sha256": "815c512a39b36349145300aad92f5d40f80e2adcd908aa22ab7330c9854cd9a5",
+      "target_source_relative_path": "packages/engine/src/parallel100/crew-selection.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b056",
+      "initial_preparation_sha256": "815c512a39b36349145300aad92f5d40f80e2adcd908aa22ab7330c9854cd9a5",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 13,
+        "source_sha256": "87c5c5aa6fe982621038f6c5105446e5a4d52aaf6c8c90c067e73ff022e211dc",
+        "started_at_utc": "2026-11-11T17:11:56.105048+00:00",
+        "finished_at_utc": "2026-11-11T17:11:56.611846+00:00",
+        "monotonic_elapsed_seconds": 0.506847,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "815c512a39b36349145300aad92f5d40f80e2adcd908aa22ab7330c9854cd9a5",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B057",
+      "relative_path": "fixtures/B057.js",
+      "source": "\nconst f=exports.assignCrewOperators;for(const seed of [0,1,2,4294967295]){const input={crewIds:['a','b'],rng:{value:seed}};const v=good(f(input));same([v.routeOperatorId,v.gateOperatorId].sort(),['a','b']);same(f(input),f(input));check(v.rng.value!==input.rng.value);}\nbad(f({crewIds:['a','a'],rng:{value:1}}));bad(f({crewIds:['a'],rng:{value:1}}));bad(f({crewIds:['a','b'],rng:{value:4294967296}}));\n",
+      "sha256": "cc4e09627641cbe2a7431a737169fddd614a202dbf0c6d2ce9bac4f3b637f94a",
+      "target_source_relative_path": "packages/engine/src/parallel100/crew-operator-assignment.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b057",
+      "initial_preparation_sha256": "cc4e09627641cbe2a7431a737169fddd614a202dbf0c6d2ce9bac4f3b637f94a",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 19,
+        "source_sha256": "681c71bbf57a24d2eca12ab897d08e6b49b3dd5b14951d3f4e59dbc97b0bdc64",
+        "started_at_utc": "2026-11-11T16:59:32.245578+00:00",
+        "finished_at_utc": "2026-11-11T16:59:32.762583+00:00",
+        "monotonic_elapsed_seconds": 0.517046,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "cc4e09627641cbe2a7431a737169fddd614a202dbf0c6d2ce9bac4f3b637f94a",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B058",
+      "relative_path": "fixtures/B058.js",
+      "source": "\nconst f=exports.incidentDefinition;\nconst rows=[['I01','Power Surge',['North Relay','Core Bypass','Reservoir'],['Phase Lock','Ground Bridge','Load Shed'],1,1,2,0],['I02','Transit Cascade',['Metro Loop','Freight Spine','Skyway'],['West Gate','Central Gate','East Gate'],0,2,1,1],['I03','Memory Leak',['Archive Vault','Civic Cloud','Street Cache'],['Mirror Seal','Paper Trail','Cold Store'],1,2,2,0],['I04','Hospital Isolation',['Triage Link','Surgical Grid','Emergency Battery'],['Sterile Gate','Backup Gate','Flood Gate'],2,1,1,2],['I05','Flooded Substation',['Upper Conduit','River Switch','Drain Relay'],['Pressure Lock','Sluice Gate','Dry Dock'],2,1,1,0],['I06','Signal Archive Fire',['Cold Stack','Glass Array','Night Beacon'],['Halo Lock','Ember Gate','Ash Filter'],1,2,2,1]];\nfor(const [id,name,routes,gates,sr,sg,cr,cg] of rows){let v=good(f(id));same(v.name,name);same(v.routes.map(x=>x.label),routes);same(v.gates.map(x=>x.label),gates);same(v.safe,{routeId:v.routes[sr].id,gateId:v.gates[sg].id});same(v.corrupted,{routeId:v.routes[cr].id,gateId:v.gates[cg].id});for(const o of [...v.routes,...v.gates])same(o.iconKey,o.id);v.routes[0].label='mutated';same(good(f(id)).routes[0].label,routes[0]);}\nbad(f('I99'));bad(f(null));\n",
+      "sha256": "309b416a07d0aedb6a390636c7dbcaddedba3f0c3d592270ad56b527e055b5b7",
+      "target_source_relative_path": "packages/engine/src/parallel100/incident-catalogue.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b058",
+      "initial_preparation_sha256": "309b416a07d0aedb6a390636c7dbcaddedba3f0c3d592270ad56b527e055b5b7",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B059",
+      "relative_path": "fixtures/B059.js",
+      "source": "\nconst f=exports.nextIncident;let remaining=[],previous=null,rng={value:1};\nfor(let cycle=0;cycle<8;cycle++){const seen=[];for(let j=0;j<6;j++){const input={remaining,previous,rng};const v=good(f(input));check(v.incidentId!==previous);seen.push(v.incidentId);same(f(input),f(input));remaining=v.remaining;previous=v.incidentId;rng=v.rng;}same([...seen].sort(),['I01','I02','I03','I04','I05','I06']);}\nconst input={remaining:['I02','I03'],previous:'I01',rng:{value:12}};same(good(f(input)),{incidentId:'I02',remaining:['I03'],rng:{value:12}});bad(f({...input,previous:'I02'}));bad(f({...input,remaining:['I02','I02']}));\n",
+      "sha256": "d3109af75f1be79cd7f5d6e0c7d07c24c6d88bd38274e8367ea4873a6a253747",
+      "target_source_relative_path": "packages/engine/src/parallel100/incident-queue.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b059",
+      "initial_preparation_sha256": "d3109af75f1be79cd7f5d6e0c7d07c24c6d88bd38274e8367ea4873a6a253747",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 156,
+        "source_sha256": "ab3db2ea61b2a44c07609ab48b7b8eb93fe3f862bc8490e0294603c4a8a657bb",
+        "started_at_utc": "2026-11-11T17:12:05.113656+00:00",
+        "finished_at_utc": "2026-11-11T17:12:05.597114+00:00",
+        "monotonic_elapsed_seconds": 0.483504,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "d3109af75f1be79cd7f5d6e0c7d07c24c6d88bd38274e8367ea4873a6a253747",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B060",
+      "relative_path": "fixtures/B060.js",
+      "source": "\nconst f=exports.lockOperationChoice;const x={phase:'CREW_LOCKED',revision:1,expectedRevision:1,actorId:'r',routeOperatorId:'r',gateOperatorId:'g',routeOptionIds:['incident.i01.route.a','incident.i01.route.b','incident.i01.route.c'],gateOptionIds:['incident.i01.gate.a','incident.i01.gate.b','incident.i01.gate.c'],choiceId:'incident.i01.route.a',routeChoice:null,gateChoice:null};\nsame(good(f(x)),{revision:2,routeChoice:x.choiceId,gateChoice:null});same(x.routeChoice,null);\nfor(const c of [{actorId:'g'},{actorId:'z'},{phase:'OPERATION_LOCKED'},{expectedRevision:0},{routeChoice:x.choiceId},{gateOperatorId:'r'}])bad(f({...x,...c}));\n",
+      "sha256": "92cb4c250fcec91cfa5b0827dabbaff56cceabd3a8f48746842096f9e37dabca",
+      "target_source_relative_path": "packages/engine/src/parallel100/private-operation-lock.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b060",
+      "initial_preparation_sha256": "92cb4c250fcec91cfa5b0827dabbaff56cceabd3a8f48746842096f9e37dabca",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 9,
+        "source_sha256": "5e322ab809381f130f6ccf0c31986d97ab129af5bb88fbb17b9061fee0811263",
+        "started_at_utc": "2026-11-11T17:12:14.497777+00:00",
+        "finished_at_utc": "2026-11-11T17:12:14.990070+00:00",
+        "monotonic_elapsed_seconds": 0.492344,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "92cb4c250fcec91cfa5b0827dabbaff56cceabd3a8f48746842096f9e37dabca",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B061",
+      "relative_path": "fixtures/B061.js",
+      "source": "\nconst f=exports.resolveOperationPair;const base={routes:['route.a','route.b','route.c'],gates:['gate.1','gate.2','gate.3'],safe:{routeId:'route.a',gateId:'gate.1'},corrupted:{routeId:'route.c',gateId:'gate.3'}};const counts={repair:0,sabotage:0,anomaly:0};for(const routeId of base.routes)for(const gateId of base.gates){const v=good(f({...base,selected:{routeId,gateId}}));const expected=routeId==='route.a'&&gateId==='gate.1'?'repair':routeId==='route.c'&&gateId==='gate.3'?'sabotage':'anomaly';same(v.outcome,expected);same(v.repairDelta,expected==='repair'?1:0);same(v.sabotageDelta,expected==='sabotage'?1:0);same(v.trace,expected==='repair'?'safe':expected==='sabotage'?'corrupted':'mixed');counts[v.outcome]++;}same(counts,{repair:1,sabotage:1,anomaly:7});bad(f({...base,selected:{routeId:'missing',gateId:'gate.1'}}));bad(f({...base,corrupted:base.safe,selected:base.safe}));\n",
+      "sha256": "47c9bbf4d11988e4ee32e3e1291655442e713dae9b74c231dfbc9aa6a69c343a",
+      "target_source_relative_path": "packages/engine/src/parallel100/operation-outcome.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b061",
+      "initial_preparation_sha256": "47c9bbf4d11988e4ee32e3e1291655442e713dae9b74c231dfbc9aa6a69c343a",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 48,
+        "source_sha256": "0b794dda0981d26c2cc7407470d586da40fdad37736bbb7d3fa34e514fe8c740",
+        "started_at_utc": "2026-11-11T16:59:32.876418+00:00",
+        "finished_at_utc": "2026-11-11T16:59:33.459368+00:00",
+        "monotonic_elapsed_seconds": 0.582989,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "47c9bbf4d11988e4ee32e3e1291655442e713dae9b74c231dfbc9aa6a69c343a",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B062",
+      "relative_path": "fixtures/B062.js",
+      "source": "\nconst f=exports.completeTimedOutActions;const base={kind:'operation',pending:[{actorId:'a',legalOptionIds:['incident.i01.route.north_relay','incident.i01.route.core_bypass']},{actorId:'b',legalOptionIds:['incident.i01.gate.phase_lock']}],rng:{value:1}};const v=good(f(base));same(f(base),f(base));same(v.completions.length,2);for(let i=0;i<2;i++){check(base.pending[i].legalOptionIds.includes(v.completions[i].optionId));same(v.completions[i].reason,'timeout_operation');}same(good(f({...base,pending:[]})),{completions:[],rng:{value:1}});same(bad(f({...base,kind:'vote',pending:[{actorId:'a',legalOptionIds:[]}]}),'decision-required').decisionId,'D-ELIGIBLE-POOL');bad(f({...base,pending:[{actorId:'a',legalOptionIds:[]}]}));bad(f({...base,pending:[base.pending[0],base.pending[0]]}));\n",
+      "sha256": "1065e4ccf71828c9943897119b9292113a51a39b2d1c5fc26cc22aa9d3cafe76",
+      "target_source_relative_path": "packages/engine/src/parallel100/timeout-completion.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b062",
+      "initial_preparation_sha256": "1065e4ccf71828c9943897119b9292113a51a39b2d1c5fc26cc22aa9d3cafe76",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 14,
+        "source_sha256": "0ada4bfc75c973f08081a3721334e2fafa0ff65b4383c97e8f6b3ee18e881c36",
+        "started_at_utc": "2026-11-11T17:00:12.259012+00:00",
+        "finished_at_utc": "2026-11-11T17:00:12.765787+00:00",
+        "monotonic_elapsed_seconds": 0.50682,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "1065e4ccf71828c9943897119b9292113a51a39b2d1c5fc26cc22aa9d3cafe76",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B063",
+      "relative_path": "fixtures/B063.js",
+      "source": "\nconst f=exports.advanceCityTracks;for(let repair=0;repair<=5;repair++)for(let sabotage=0;sabotage<=5;sabotage++)for(const outcome of ['repair','sabotage','anomaly']){const v=good(f({repair,sabotage,outcome,nullDisconnected:false}));same(v.repair,repair+(outcome==='repair'?1:0));same(v.sabotage,sabotage+(outcome==='sabotage'?1:0));same(v.winner,v.repair===6?'archivists':v.sabotage===6?'static':null);same(v.momentKey,outcome==='anomaly'?null:outcome==='repair'?'city.repair.r'+(repair+1):'city.sabotage.s'+(sabotage+1));}same(good(f({repair:5,sabotage:5,outcome:'sabotage',nullDisconnected:true})).winner,'archivists');same(good(f({repair:5,sabotage:5,outcome:'sabotage',nullDisconnected:true})).sabotage,5);for(const repair of [6,-1,0.5,NaN])bad(f({repair,sabotage:0,outcome:'repair',nullDisconnected:false}));\n",
+      "sha256": "d8ccf029d3b40e4a6ad76726a6888d0971689f28923294606dd5e5cf160b87e0",
+      "target_source_relative_path": "packages/engine/src/parallel100/track-advance.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b063",
+      "initial_preparation_sha256": "d8ccf029d3b40e4a6ad76726a6888d0971689f28923294606dd5e5cf160b87e0",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 548,
+        "source_sha256": "e8a1e59e5d90eecd26f1b8f97c0560b9b4a68bf914a9eb117afd624d75cfce05",
+        "started_at_utc": "2026-11-11T17:01:04.429560+00:00",
+        "finished_at_utc": "2026-11-11T17:01:04.997191+00:00",
+        "monotonic_elapsed_seconds": 0.567681,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "d8ccf029d3b40e4a6ad76726a6888d0971689f28923294606dd5e5cf160b87e0",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B064",
+      "relative_path": "fixtures/B064.js",
+      "source": "\nconst f=exports.applySafeguard;for(const effect of ['jam','disconnect'])same(good(f({protectedPlayerId:'a',targetId:'a',targetActive:true,effect})),{prevented:true,protectedPlayerId:null,applyEffect:false});same(good(f({protectedPlayerId:'a',targetId:'b',targetActive:true,effect:'jam'})),{prevented:false,protectedPlayerId:'a',applyEffect:true});same(good(f({protectedPlayerId:null,targetId:'b',targetActive:true,effect:'disconnect'})),{prevented:false,protectedPlayerId:null,applyEffect:true});bad(f({protectedPlayerId:'a',targetId:'a',targetActive:false,effect:'jam'}));bad(f({protectedPlayerId:'a',targetId:'b',targetActive:true,effect:'repair'}));\n",
+      "sha256": "2b788fc428ea6c3b5a69a4ee88120d8d715ff6582572fb60cb1cebffc133715a",
+      "target_source_relative_path": "packages/engine/src/parallel100/safeguard-effect.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b064",
+      "initial_preparation_sha256": "2b788fc428ea6c3b5a69a4ee88120d8d715ff6582572fb60cb1cebffc133715a",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B065",
+      "relative_path": "fixtures/B065.js",
+      "source": "\nconst f=exports.crewVoteView;const votes=[{voterId:'a',candidateId:'mine',timeout:false},{voterId:'b',candidateId:'opponent_secret',timeout:true}];let v=good(f({sealed:true,resolved:false,recipientId:'a',votes}));same(v,{castCount:2,ownVote:{candidateId:'mine',timeout:false},disclosedVotes:[]});check(!JSON.stringify(v).includes('opponent_secret'));for(const c of [{sealed:false,resolved:false},{sealed:true,resolved:true}])same(good(f({...c,recipientId:'a',votes})).disclosedVotes,votes);bad(f({sealed:true,resolved:false,recipientId:'a',votes:[votes[0],votes[0]]}));\n",
+      "sha256": "7d195b6cab4786957d5ce4978a5472684b732e23014db133ae6f598178c8f414",
+      "target_source_relative_path": "packages/engine/src/parallel100/sealed-vote-view.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b065",
+      "initial_preparation_sha256": "7d195b6cab4786957d5ce4978a5472684b732e23014db133ae6f598178c8f414",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 8,
+        "source_sha256": "96ccf8295219abf2c27b0e614c25a43ad0610b2eb66dd5e74493b52a160873a0",
+        "started_at_utc": "2026-11-11T17:01:18.104032+00:00",
+        "finished_at_utc": "2026-11-11T17:01:18.601408+00:00",
+        "monotonic_elapsed_seconds": 0.497442,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "7d195b6cab4786957d5ce4978a5472684b732e23014db133ae6f598178c8f414",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B066",
+      "relative_path": "fixtures/B066.js",
+      "source": "\nconst f=exports.auditOperationEvidence;for(const chosenClass of ['safe','corrupted','neutral']){same(good(f({requesterIsAuthorizedLead:true,targetActive:true,latest:{chosenClass,timeout:false}})),{result:chosenClass});same(good(f({requesterIsAuthorizedLead:true,targetActive:true,latest:{chosenClass,timeout:true}})),{result:'timeout'});}bad(f({requesterIsAuthorizedLead:false,targetActive:true,latest:{chosenClass:'safe',timeout:false}}));same(bad(f({requesterIsAuthorizedLead:true,targetActive:true,latest:null}),'decision-required').decisionId,'D-AUDIT-NO-HISTORY');\n",
+      "sha256": "8869e2ab1739baa713dc60863601e8a709e5d8b9b4958b2781d433418e7bad68",
+      "target_source_relative_path": "packages/engine/src/parallel100/private-audit-evidence.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b066",
+      "initial_preparation_sha256": "8869e2ab1739baa713dc60863601e8a709e5d8b9b4958b2781d433418e7bad68",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B067",
+      "relative_path": "fixtures/B067.js",
+      "source": "\nconst f=exports.disconnectPlayer;const players=[{id:'a',active:true,role:'archivist'},{id:'b',active:true,role:'archivist'},{id:'c',active:true,role:'archivist'},{id:'s',active:true,role:'static-operative'},{id:'n',active:true,role:'null'}];const input={actorId:'a',authorizedLeadId:'a',targetId:'s',phaseAllowsPower:true,players};const v=good(f(input));same(v.publicEffect,{targetId:'s',spectator:true,nullVictory:false});same(v.winner,null);same(v.players.find(p=>p.id==='s').active,false);same(players.find(p=>p.id==='s').active,true);const win=good(f({...input,targetId:'n'}));same(win.winner,'archivists');same(win.publicEffect.nullVictory,true);for(const change of [{actorId:'b'},{targetId:'a'},{targetId:'missing'},{phaseAllowsPower:false}])bad(f({...input,...change}));bad(f({...input,players:players.map(p=>p.id==='s'?{...p,active:false}:p)}));\n",
+      "sha256": "93cceff70d4ce72d1fc59be329f5388986df7401f78c339220be24eb740c3414",
+      "target_source_relative_path": "packages/engine/src/parallel100/permanent-disconnect.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b067",
+      "initial_preparation_sha256": "93cceff70d4ce72d1fc59be329f5388986df7401f78c339220be24eb740c3414",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 13,
+        "source_sha256": "3ab3b58dc2c5936a925e6a24301331f18c8f6a0c46cd3c2574bb2f8a977340a2",
+        "started_at_utc": "2026-11-11T17:01:38.889637+00:00",
+        "finished_at_utc": "2026-11-11T17:01:39.403551+00:00",
+        "monotonic_elapsed_seconds": 0.513964,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "93cceff70d4ce72d1fc59be329f5388986df7401f78c339220be24eb740c3414",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B068",
+      "relative_path": "fixtures/B068.js",
+      "source": "\nconst f=exports.incidentAnomalyEffect;const effects={I01:'reduce-next-round-by-10',I02:'shuffle-vote-cards',I03:'redact-one-feed-line',I05:'obscure-map-route',I06:'suppress-last-ten-audio-once'};for(const [incidentId,effect] of Object.entries(effects)){const v=good(f({incidentId}));same(v.effect,effect);same(v.decisionRequired,incidentId==='I01'?'D-TIMER-COMPOSITION':null);}same(bad(f({incidentId:'I04'}),'decision-required').decisionId,'D-I04-JAM-TARGET');bad(f({incidentId:'I99'}));\n",
+      "sha256": "f30f6555e91c74324161dd9c57b182a38999db10bfa30758c1be863bdcc975f5",
+      "target_source_relative_path": "packages/engine/src/parallel100/anomaly-effects.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b068",
+      "initial_preparation_sha256": "f30f6555e91c74324161dd9c57b182a38999db10bfa30758c1be863bdcc975f5",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 19,
+        "source_sha256": "a8c76f8c4a40758b3bc6b9efc0b98544f794a89ff49784728e2c56b49c1768cc",
+        "started_at_utc": "2026-11-11T17:01:55.171580+00:00",
+        "finished_at_utc": "2026-11-11T17:01:55.671568+00:00",
+        "monotonic_elapsed_seconds": 0.500038,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "f30f6555e91c74324161dd9c57b182a38999db10bfa30758c1be863bdcc975f5",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B069",
+      "relative_path": "fixtures/B069.js",
+      "source": "\nconst f=exports.traceOnlineEvidence;for(let repair=0;repair<=6;repair++)for(const operationResolved of [false,true])for(const pairClass of ['safe','corrupted','mixed']){const visible=repair>=2&&operationResolved;same(good(f({repair,operationResolved,pairClass})),{visible,classification:visible?pairClass:null});}for(const repair of [-1,7,1.5,NaN])bad(f({repair,operationResolved:true,pairClass:'safe'}));\n",
+      "sha256": "86eecfb385aa199a6dccdbe4a4ec113e09519fcb0756f11d8058a1713817b1c1",
+      "target_source_relative_path": "packages/engine/src/parallel100/trace-online-evidence.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b069",
+      "initial_preparation_sha256": "86eecfb385aa199a6dccdbe4a4ec113e09519fcb0756f11d8058a1713817b1c1",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 88,
+        "source_sha256": "ee789e2d4776cf4f3e92268c91acc9812b56a9453f967ae801b2d9c6edb5d1f5",
+        "started_at_utc": "2026-11-11T17:02:12.924256+00:00",
+        "finished_at_utc": "2026-11-11T17:02:13.410732+00:00",
+        "monotonic_elapsed_seconds": 0.486531,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "86eecfb385aa199a6dccdbe4a4ec113e09519fcb0756f11d8058a1713817b1c1",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B070",
+      "relative_path": "fixtures/B070.js",
+      "source": "\nconst f=exports.recipientObservation;const players=[['a','archivist'],['b','archivist'],['c','archivist'],['s','static-operative'],['n','null']].map(([id,role])=>({id,role,alias:id,avatarKey:'avatar.'+id,active:true}));const diagnostic={kind:'route',safeOptionId:'incident.i01.route.safe',corruptedOptionId:'incident.i01.route.corrupted'};const input={recipientId:'a',phase:'CREW_LOCKED',players,ownDiagnostic:diagnostic,recipientIsOperator:true,matchEnded:false};const v=good(f(input));same(v.ownRole,'archivist');same(v.ownDiagnostic,diagnostic);check(v.players.every(p=>p.revealedRole===null));for(const change of [{recipientIsOperator:false},{phase:'VOTE_OPEN'},{players:players.map(p=>p.id==='a'?{...p,active:false}:p)}])same(good(f({...input,...change})).ownDiagnostic,null);const ended=good(f({...input,phase:'MATCH_END',matchEnded:true}));same(ended.players.map(p=>p.revealedRole),players.map(p=>p.role));same(ended.ownDiagnostic,null);bad(f({...input,phase:'MATCH_END'}));bad(f({...input,matchEnded:true}));bad(f({...input,recipientId:'missing'}));\n",
+      "sha256": "6b892450752b96261c381ae40aa6fa4ad0bb0eaed5a7c60271c0850ca5a9b7cf",
+      "target_source_relative_path": "packages/engine/src/parallel100/recipient-observation.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b070",
+      "initial_preparation_sha256": "6b892450752b96261c381ae40aa6fa4ad0bb0eaed5a7c60271c0850ca5a9b7cf",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 16,
+        "source_sha256": "9224eec6fa7dfee58e1c26868cc577fadc8479783aded26e00816a1c4b3f66d2",
+        "started_at_utc": "2026-11-11T17:02:43.605055+00:00",
+        "finished_at_utc": "2026-11-11T17:02:44.070108+00:00",
+        "monotonic_elapsed_seconds": 0.465102,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "6b892450752b96261c381ae40aa6fa4ad0bb0eaed5a7c60271c0850ca5a9b7cf",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B071",
+      "relative_path": "fixtures/B071.js",
+      "source": "\nconst f=exports.bindVerifiedPrincipal;const memberships=[{subjectId:'auth_a',playerId:'a',active:true},{subjectId:'auth_b',playerId:'b',active:false}];same(good(f({verifiedPrincipal:{subjectId:'auth_a'},memberships})),{playerId:'a',active:true});same(good(f({verifiedPrincipal:{subjectId:'auth_b'},memberships})),{playerId:'b',active:false});for(const verifiedPrincipal of [null,{subjectId:'unknown'}])bad(f({verifiedPrincipal,memberships}),'forbidden');bad(f({verifiedPrincipal:{subjectId:'auth_a'},memberships:[memberships[0],memberships[0]]}));\n",
+      "sha256": "0cf01dcb3036bfa387fe5ab41bddc9a7197dcf606e5c0523e469ccf1cc26b7c2",
+      "target_source_relative_path": "packages/protocol/src/parallel100/verified-session-binding.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b071",
+      "initial_preparation_sha256": "0cf01dcb3036bfa387fe5ab41bddc9a7197dcf606e5c0523e469ccf1cc26b7c2",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 9,
+        "source_sha256": "45fda922ccb7b3003fddcf51aede1d8839912c4d800d6847b87abb171cbffb33",
+        "started_at_utc": "2026-11-11T17:03:01.404183+00:00",
+        "finished_at_utc": "2026-11-11T17:03:01.881381+00:00",
+        "monotonic_elapsed_seconds": 0.477257,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "0cf01dcb3036bfa387fe5ab41bddc9a7197dcf606e5c0523e469ccf1cc26b7c2",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B072",
+      "relative_path": "fixtures/B072.js",
+      "source": "\nconst f=exports.decodeLobbyConfiguration;const base={name:'Signal city',seats:5,roundSeconds:30,fillBots:true,difficulty:'standard',listed:false,requirePasscode:false,passcode:null};for(const seats of [5,6,7,8,9,10])for(const roundSeconds of [30,60,90,120]){const v=good(f({...base,seats,roundSeconds}));same(v.name,'Signal city');same(v.seats,seats);same(v.roundSeconds,roundSeconds);same(v.passcode,null);}good(f({...base,requirePasscode:true,passcode:'private-pass'}));for(const change of [{seats:4},{seats:11},{roundSeconds:45},{seed:1},{requirePasscode:true,passcode:null},{name:'bad\\u0000name'}])bad(f({...base,...change}));let calls=0;const hostile={...base};Object.defineProperty(hostile,'name',{enumerable:true,get(){calls++;return 'secret';}});bad(f(hostile));same(calls,0);bad(f({...base,[Symbol('extra')]:true}));const proxy=Proxy.revocable({...base},{});proxy.revoke();bad(f(proxy.proxy));\n\nconst whitespaceResult=f({...base,name:'  Signal city  '});check(!whitespaceResult.ok||whitespaceResult.value.name==='Signal city','noncanonical names must not be retained untrimmed');\n",
+      "sha256": "9ee31492399d7ebd91d622c5e72abe5364a5d205556bead4345f80eef34ef7c2",
+      "target_source_relative_path": "packages/protocol/src/parallel100/lobby-config-decoder.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b072",
+      "initial_preparation_sha256": "80b88d5ae287931c62a5bfb7cd258abfd6470855cc03088a50dd2608e1165d91",
+      "same_as_recorded_initial_preparation": false,
+      "final_revision_after_original_output_inspection": true,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 132,
+        "source_sha256": "cedbf0bc4ada5bff14f69e4c767cd2cd2ec299f6edb49e3f30154a848d33750a",
+        "started_at_utc": "2026-11-11T17:04:12.402874+00:00",
+        "finished_at_utc": "2026-11-11T17:04:12.891740+00:00",
+        "monotonic_elapsed_seconds": 0.488923,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "9ee31492399d7ebd91d622c5e72abe5364a5d205556bead4345f80eef34ef7c2",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B073",
+      "relative_path": "fixtures/B073.js",
+      "source": "\nconst f=exports.decodeMatchIntent;const variants=[{type:'crew-vote',candidateId:'a',expectedRevision:0},{type:'operation-choice',optionId:'incident.i01.route.north_relay',expectedRevision:1},{type:'power-target',powerId:'city.repair.r3',targetId:'b',expectedRevision:2},{type:'containment-vote',candidateId:'c',expectedRevision:3},{type:'request-advance',expectedRevision:4}];for(const v of variants){same(good(f(v)),v);bad(f({...v,seed:1}));bad(f({...v,actorId:'forged'}));bad(f({...v,expectedRevision:-1}));}let calls=0;const h={...variants[0]};Object.defineProperty(h,'candidateId',{enumerable:true,get(){calls++;return 'private';}});bad(f(h));same(calls,0);bad(f(Object.create(variants[0])));const proxy=Proxy.revocable({...variants[0]},{});proxy.revoke();bad(f(proxy.proxy));\n",
+      "sha256": "a93622d5043894c033c0087dfc0d2843ab1ef74b578ad2168b41d08f6d9fc28d",
+      "target_source_relative_path": "packages/protocol/src/parallel100/match-intent-decoder.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b073",
+      "initial_preparation_sha256": "a93622d5043894c033c0087dfc0d2843ab1ef74b578ad2168b41d08f6d9fc28d",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 29,
+        "source_sha256": "218dcd780805c8c6e012dd62cda2535ef76444adf575d03532aae081fd1fbccb",
+        "started_at_utc": "2026-11-11T17:05:41.937250+00:00",
+        "finished_at_utc": "2026-11-11T17:05:42.428527+00:00",
+        "monotonic_elapsed_seconds": 0.491321,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "a93622d5043894c033c0087dfc0d2843ab1ef74b578ad2168b41d08f6d9fc28d",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B074",
+      "relative_path": "fixtures/B074.js",
+      "source": "\nconst f=exports.publicLobbyView;const p={id:'a',alias:'same',avatarKey:'avatar.a',ready:true,connected:true};const base={code:'ABC123',name:'City',configuredSeats:5,hostPlayerId:'a',revision:0,players:[p,{...p,id:'b',avatarKey:'avatar.b'}],passcode:'private-pass',seed:123};const v=good(f(base));same(v.players.length,2);same(v.players.map(p=>p.alias),['same','same']);check(!JSON.stringify(v).includes('private-pass'));check(!Object.hasOwn(v,'seed'));v.players[0].alias='changed';same(base.players[0].alias,'same');for(const change of [{hostPlayerId:'missing'},{revision:-1},{configuredSeats:4},{players:[p,p]}])bad(f({...base,...change}));\n",
+      "sha256": "ea89895555dd429d1c52244ba36f38d6b47c68fbe9367df9f4ebfd395aad5ea6",
+      "target_source_relative_path": "packages/protocol/src/parallel100/public-lobby-view.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b074",
+      "initial_preparation_sha256": "ea89895555dd429d1c52244ba36f38d6b47c68fbe9367df9f4ebfd395aad5ea6",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 10,
+        "source_sha256": "9bf2811ad2a7a7bcdb13fc5493133f9558ff729116193d6d6c6c901340f61fce",
+        "started_at_utc": "2026-11-11T17:06:01.049933+00:00",
+        "finished_at_utc": "2026-11-11T17:06:01.547978+00:00",
+        "monotonic_elapsed_seconds": 0.498089,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "ea89895555dd429d1c52244ba36f38d6b47c68fbe9367df9f4ebfd395aad5ea6",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B075",
+      "relative_path": "fixtures/B075.js",
+      "source": "\nconst f=exports.lobbyDirectoryView;const room={id:'public_a',name:'City',listed:true,joinable:true,seats:5,connected:2,requiresPasscode:true,code:'SECRET',passcode:'private-pass'};const v=good(f({rooms:[room,{...room,id:'hidden',listed:false},{...room,id:'closed',joinable:false}]}));same(v,[{id:'public_a',name:'City',seats:5,connected:2,requiresPasscode:true}]);check(!JSON.stringify(v).includes('private'));same(good(f({rooms:[]})),[]);bad(f({rooms:[room,room]}));bad(f({rooms:[{...room,connected:6}]}));\n",
+      "sha256": "3dfa3a9118a4d7ccab70790b3b5b29c8dca4a18d0017e2e6468e03761120dddd",
+      "target_source_relative_path": "packages/protocol/src/parallel100/lobby-directory-view.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b075",
+      "initial_preparation_sha256": "3dfa3a9118a4d7ccab70790b3b5b29c8dca4a18d0017e2e6468e03761120dddd",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 7,
+        "source_sha256": "ddf5c6b35bd4daf6da130fdaf6801501459c81a172a363abdd2b3519ccb5e1b1",
+        "started_at_utc": "2026-11-11T17:06:07.966373+00:00",
+        "finished_at_utc": "2026-11-11T17:06:08.448249+00:00",
+        "monotonic_elapsed_seconds": 0.481917,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "3dfa3a9118a4d7ccab70790b3b5b29c8dca4a18d0017e2e6468e03761120dddd",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B076",
+      "relative_path": "fixtures/B076.js",
+      "source": "\nconst f=exports.idempotencyDecision;const base={actorId:'a',requestId:'req_1',requestDigest:'a'.repeat(64),existing:null};same(good(f(base)),{action:'execute',resultReference:null});const existing={actorId:'a',requestId:'req_1',requestDigest:'a'.repeat(64),resultReference:'result_1'};same(good(f({...base,existing})),{action:'replay',resultReference:'result_1'});for(const change of [{actorId:'b'},{requestId:'req_2'},{requestDigest:'b'.repeat(64)}])bad(f({...base,...change,existing}),'forbidden');bad(f({...base,requestDigest:'A'.repeat(64)}));\n",
+      "sha256": "9a4f6f965b31cda75a159a1ee121b360c6ad2816e51bf644e34f94ce8c9de1c0",
+      "target_source_relative_path": "packages/protocol/src/parallel100/request-idempotency.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b076",
+      "initial_preparation_sha256": "9a4f6f965b31cda75a159a1ee121b360c6ad2816e51bf644e34f94ce8c9de1c0",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 11,
+        "source_sha256": "9976d9a43ca7b3dfbfeb8dd53759a3512d061c485a37b786bec4be2cb6e217e2",
+        "started_at_utc": "2026-11-11T17:06:20.821692+00:00",
+        "finished_at_utc": "2026-11-11T17:06:21.352845+00:00",
+        "monotonic_elapsed_seconds": 0.531205,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "9a4f6f965b31cda75a159a1ee121b360c6ad2816e51bf644e34f94ce8c9de1c0",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B077",
+      "relative_path": "fixtures/B077.js",
+      "source": "\nconst f=exports.revisionPrecondition;for(const actualRevision of [0,1,1000000000000])same(good(f({actualRevision,expectedRevision:actualRevision})),{nextRevision:actualRevision+1});bad(f({actualRevision:2,expectedRevision:1}),'stale');for(const n of [-1,1.5,NaN,Infinity,Number.MAX_SAFE_INTEGER,true,'1'])bad(f({actualRevision:n,expectedRevision:n}));\n",
+      "sha256": "6c367a84cc25eefcefc7ac4064e9815f79ebbbfb8ebd12d109cd133408d4a27f",
+      "target_source_relative_path": "packages/protocol/src/parallel100/revision-precondition.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b077",
+      "initial_preparation_sha256": "6c367a84cc25eefcefc7ac4064e9815f79ebbbfb8ebd12d109cd133408d4a27f",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 15,
+        "source_sha256": "fdc01888c4a1f7eb026ff9892ec2f2bd8badd76d50f377afc8ddacf7c4dcf5b8",
+        "started_at_utc": "2026-11-11T17:06:39.451139+00:00",
+        "finished_at_utc": "2026-11-11T17:06:39.946616+00:00",
+        "monotonic_elapsed_seconds": 0.495519,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "6c367a84cc25eefcefc7ac4064e9815f79ebbbfb8ebd12d109cd133408d4a27f",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B078",
+      "relative_path": "fixtures/B078.js",
+      "source": "\nconst f=exports.authorityDeadlineDecision;for(const trustedNowMs of [99,100,101])for(const action of ['player-input','host-advance'])same(good(f({trustedNowMs,deadlineMs:100,action})),{allowed:action==='player-input'?trustedNowMs<100:trustedNowMs>=100,deadlineReached:trustedNowMs>=100});for(const trustedNowMs of [-1,1.5,NaN,Infinity,Number.MAX_SAFE_INTEGER+1])bad(f({trustedNowMs,deadlineMs:100,action:'player-input'}));\n",
+      "sha256": "f2f45eec30f60b239139fe0f4656b238cb954af3db420d2f5bcadb9b85b514b4",
+      "target_source_relative_path": "packages/protocol/src/parallel100/authority-deadline-guard.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b078",
+      "initial_preparation_sha256": "f2f45eec30f60b239139fe0f4656b238cb954af3db420d2f5bcadb9b85b514b4",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 17,
+        "source_sha256": "ed54d63f2285cfad87476b4962c7224a934d4d4357993050c3b00a17d6268a2b",
+        "started_at_utc": "2026-11-11T17:06:47.377540+00:00",
+        "finished_at_utc": "2026-11-11T17:06:47.889162+00:00",
+        "monotonic_elapsed_seconds": 0.511664,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "f2f45eec30f60b239139fe0f4656b238cb954af3db420d2f5bcadb9b85b514b4",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B079",
+      "relative_path": "fixtures/B079.js",
+      "source": "\nconst f=exports.enqueueRecipientView;const base={deliveredRevision:0,pending:[{revision:1,payloadReference:'view1'},{revision:2,payloadReference:'view2'}],incoming:{revision:3,payloadReference:'view3'},maxPending:2};same(good(f(base)),{pending:[{revision:2,payloadReference:'view2'},{revision:3,payloadReference:'view3'}],discardedRevisions:[1]});same(good(f({...base,incoming:{revision:1,payloadReference:'stale'}})),{pending:base.pending,discardedRevisions:[1]});bad(f({...base,pending:[base.pending[1],base.pending[0]]}));for(const maxPending of [0,33,1.5])bad(f({...base,maxPending}));same(base.pending.map(x=>x.revision),[1,2]);\n",
+      "sha256": "046c7acd909758f53bf78e999689e6801211d8be3302c3e4af11140e382405f4",
+      "target_source_relative_path": "packages/protocol/src/parallel100/monotonic-view-buffer.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b079",
+      "initial_preparation_sha256": "046c7acd909758f53bf78e999689e6801211d8be3302c3e4af11140e382405f4",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 9,
+        "source_sha256": "ff62fa041931caf4251df8e942e496c476bee87ccfbd94f34316f3bd294bcb15",
+        "started_at_utc": "2026-11-11T17:06:54.344456+00:00",
+        "finished_at_utc": "2026-11-11T17:06:54.848909+00:00",
+        "monotonic_elapsed_seconds": 0.504508,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "046c7acd909758f53bf78e999689e6801211d8be3302c3e4af11140e382405f4",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B080",
+      "relative_path": "fixtures/B080.js",
+      "source": "\nconst f=exports.subscriptionCapabilities;const base={boundPlayerId:'a',roomPlayerIds:['a','b'],active:true,connectionGeneration:2,subscriptionGeneration:2};same(good(f(base)),{publicView:true,privateDiagnostics:true,chatWrite:true,revokeSubscription:false});same(good(f({...base,active:false})),{publicView:true,privateDiagnostics:false,chatWrite:false,revokeSubscription:false});for(const change of [{boundPlayerId:null},{boundPlayerId:'missing'},{subscriptionGeneration:1}])same(good(f({...base,...change})),{publicView:false,privateDiagnostics:false,chatWrite:false,revokeSubscription:true});bad(f({...base,roomPlayerIds:['a','a']}));bad(f({...base,connectionGeneration:-1}));\n",
+      "sha256": "c27248f8f5e127919d31b958af9b133bb089d716823e0edfddef9d8c26b1af6c",
+      "target_source_relative_path": "packages/protocol/src/parallel100/subscription-capabilities.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b080",
+      "initial_preparation_sha256": "c27248f8f5e127919d31b958af9b133bb089d716823e0edfddef9d8c26b1af6c",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 12,
+        "source_sha256": "9668ac8107ae8d3042a20f86db813074f988f2a3be06104423c1949fb1c166c4",
+        "started_at_utc": "2026-11-11T17:07:07.360771+00:00",
+        "finished_at_utc": "2026-11-11T17:07:07.845341+00:00",
+        "monotonic_elapsed_seconds": 0.48462,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "c27248f8f5e127919d31b958af9b133bb089d716823e0edfddef9d8c26b1af6c",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B081",
+      "relative_path": "fixtures/B081.js",
+      "source": "\nconst f=exports.publicServiceError;same(f('invalid-input'),{code:'invalid-request',retryable:false});same(f('stale'),{code:'retry',retryable:true});let hits=0;const hostile=new Proxy({}, {get(){hits++;throw Error('private');},ownKeys(){hits++;throw Error('private');},getPrototypeOf(){hits++;throw Error('private');}});for(const input of ['forbidden','missing-room','wrong-passcode','stale private',null,undefined,1,Symbol('secret'),hostile,new Error('secret')])same(f(input),{code:'unavailable',retryable:false});same(hits,0);\n",
+      "sha256": "91caf7f31a3d19682e9952ac4d501ce3a2da3c93687656a504589d05671eb651",
+      "target_source_relative_path": "packages/protocol/src/parallel100/safe-service-errors.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b081",
+      "initial_preparation_sha256": "91caf7f31a3d19682e9952ac4d501ce3a2da3c93687656a504589d05671eb651",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B082",
+      "relative_path": "fixtures/B082.js",
+      "source": "\nconst f=exports.normalizeRoomCode;for(const input of [' abc123 ','AbC123','ABC123'])same(good(f(input)),{code:'ABC123'});for(const input of ['ABC12','ABC1234','AB C12','ＡBC123','abßde','abc!23',null,{}])bad(f(input));let hits=0;bad(f({toString(){hits++;return 'ABC123';}}));same(hits,0);\n",
+      "sha256": "87a7969c35a459fe274a1a3ee9dbb8c0d66326e28f0b3fbc993a3e217d8ba203",
+      "target_source_relative_path": "packages/protocol/src/parallel100/room-code-input.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b082",
+      "initial_preparation_sha256": "87a7969c35a459fe274a1a3ee9dbb8c0d66326e28f0b3fbc993a3e217d8ba203",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B083",
+      "relative_path": "fixtures/B083.js",
+      "source": "\nconst f=exports.roomJoinAdmission;const base={principalVerified:true,roomExists:true,joinable:true,passcodeRequired:false,passcodeVerified:false,configuredSeats:5,occupiedSeats:4,existingMember:false};same(good(f(base)),{action:'join'});same(good(f({...base,passcodeRequired:true,passcodeVerified:true})),{action:'join'});same(good(f({...base,occupiedSeats:5,existingMember:true})),{action:'resume'});const errors=[];for(const change of [{principalVerified:false},{roomExists:false},{joinable:false},{passcodeRequired:true},{occupiedSeats:5}])errors.push(bad(f({...base,...change})));for(const e of errors)same(e,errors[0]);bad(f({...base,configuredSeats:4}));bad(f({...base,occupiedSeats:6}));\n",
+      "sha256": "ff0d46213d4f7e4eb09e6bc5d43aaa729effff46805b9493faca0f5b5dbc49b9",
+      "target_source_relative_path": "packages/protocol/src/parallel100/join-admission-policy.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b083",
+      "initial_preparation_sha256": "ff0d46213d4f7e4eb09e6bc5d43aaa729effff46805b9493faca0f5b5dbc49b9",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B084",
+      "relative_path": "fixtures/B084.js",
+      "source": "\nconst f=exports.decodeLobbyProfilePatch;const allowed=['avatar.a','avatar.b'];const base={alias:'Player',avatarKey:'avatar.a',expectedRevision:0};same(good(f(base,allowed)),base);const unicode={...base,alias:'😀'.repeat(24)};same(good(f(unicode,allowed)),unicode);for(const change of [{alias:''},{alias:' spaced '},{alias:'a'.repeat(25)},{alias:'bad\\u0000name'},{avatarKey:'unknown'},{expectedRevision:-1},{role:'null'},{playerId:'forged'}])bad(f({...base,...change},allowed));let calls=0;const hostile={...base};Object.defineProperty(hostile,'alias',{enumerable:true,get(){calls++;return 'secret';}});bad(f(hostile,allowed));same(calls,0);bad(f(base,['avatar.a','avatar.a']));\n",
+      "sha256": "4b3ef637d9c6ec30d143d59f07858d5c71810ee56c4d1a91dcf25101792ac08a",
+      "target_source_relative_path": "packages/protocol/src/parallel100/lobby-profile-patch.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b084",
+      "initial_preparation_sha256": "4b3ef637d9c6ec30d143d59f07858d5c71810ee56c4d1a91dcf25101792ac08a",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 15,
+        "source_sha256": "b16f54720c943317bf665c9cf8e16524797c1783bdbed58631a71fcc1e19d36a",
+        "started_at_utc": "2026-11-11T17:08:21.406290+00:00",
+        "finished_at_utc": "2026-11-11T17:08:21.892354+00:00",
+        "monotonic_elapsed_seconds": 0.486111,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "4b3ef637d9c6ec30d143d59f07858d5c71810ee56c4d1a91dcf25101792ac08a",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B085",
+      "relative_path": "fixtures/B085.js",
+      "source": "\nconst f=exports.hostLobbyPermission;const base={verifiedPlayerId:'a',hostPlayerId:'a',phase:'lobby',action:'start',targetId:null,playerIds:['a','b'],configuredSeats:5,readyPlayerIds:['a','b'],fillBots:true};same(good(f(base)),{allowed:true,reason:'allowed'});same(good(f({...base,verifiedPlayerId:'b'})),{allowed:false,reason:'host-only'});same(good(f({...base,phase:'match'})),{allowed:false,reason:'phase'});same(good(f({...base,fillBots:false})).allowed,false);same(good(f({...base,readyPlayerIds:['a']})).allowed,false);same(good(f({...base,action:'kick',targetId:'b'})).allowed,true);const denied=f({...base,action:'kick',targetId:'a'});check(denied.ok===false||denied.value.allowed===false);bad(f({...base,playerIds:['a','a']}));\n",
+      "sha256": "ada7137bb80c751ae0269af11d88580018649243e1594d801d6f9e1d131c291e",
+      "target_source_relative_path": "packages/protocol/src/parallel100/host-lobby-permissions.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b085",
+      "initial_preparation_sha256": "ada7137bb80c751ae0269af11d88580018649243e1594d801d6f9e1d131c291e",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 14,
+        "source_sha256": "3aa73c37e9a6506b96c5be676574eeb11e45c48625b03b26dfb7552c77f9d7c2",
+        "started_at_utc": "2026-11-11T17:08:36.851903+00:00",
+        "finished_at_utc": "2026-11-11T17:08:37.344238+00:00",
+        "monotonic_elapsed_seconds": 0.492381,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "ada7137bb80c751ae0269af11d88580018649243e1594d801d6f9e1d131c291e",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B086",
+      "relative_path": "fixtures/B086.js",
+      "source": "\nconst f=exports.reconnectPresence;const base={verifiedPlayerId:'a',boundPlayerId:'a',previousGeneration:1,requestedGeneration:2,permanentlyDisconnected:false};same(good(f(base)),{connected:true,generation:2,active:true,discardPrivateCache:true});same(good(f({...base,permanentlyDisconnected:true})),{connected:true,generation:2,active:false,discardPrivateCache:true});for(const change of [{verifiedPlayerId:'b'},{requestedGeneration:1},{requestedGeneration:0},{previousGeneration:-1},{requestedGeneration:Number.MAX_SAFE_INTEGER+1}])bad(f({...base,...change}));\n",
+      "sha256": "d162c945b8e89ed870cb291440052a4adbfcd3c0ef77e19276379a7f8b645275",
+      "target_source_relative_path": "packages/protocol/src/parallel100/reconnect-presence.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b086",
+      "initial_preparation_sha256": "d162c945b8e89ed870cb291440052a4adbfcd3c0ef77e19276379a7f8b645275",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 9,
+        "source_sha256": "b687a0be19fca88dcb199a4e6ec115b7781a7b83c4281f07a5b11d4d509e1d5d",
+        "started_at_utc": "2026-11-11T17:08:42.748871+00:00",
+        "finished_at_utc": "2026-11-11T17:08:43.229893+00:00",
+        "monotonic_elapsed_seconds": 0.481071,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "d162c945b8e89ed870cb291440052a4adbfcd3c0ef77e19276379a7f8b645275",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B087",
+      "relative_path": "fixtures/B087.js",
+      "source": "\nconst f=exports.decodeRecipientView;const roles=['archivist','archivist','archivist','static-operative','null'];const base={version:1,recipientId:'p0',revision:0,phase:'VOTE_OPEN',active:true,ownRole:'archivist',players:roles.map((role,i)=>({id:'p'+i,alias:'Player',avatarKey:'avatar.'+i,active:true,revealedRole:null}))};same(good(f(base)),base);const ended={...base,phase:'MATCH_END',players:base.players.map((p,i)=>({...p,revealedRole:roles[i]}))};same(good(f(ended)),ended);for(const change of [{seed:1},{passcode:'private'},{recipientId:'missing'},{revision:-1},{active:false},{players:base.players.map((p,i)=>i===1?{...p,revealedRole:'null'}:p)}])bad(f({...base,...change}));let calls=0;const hostile={...base,players:base.players.map(p=>({...p}))};Object.defineProperty(hostile.players[1],'alias',{enumerable:true,get(){calls++;return 'secret';}});bad(f(hostile));same(calls,0);bad(f({...base,[Symbol('secret')]:true}));\n",
+      "sha256": "dd276685ca364202f9d82d9e9533a7a0b23b6bf2ae7c269e5e2afb3e6f64736a",
+      "target_source_relative_path": "packages/protocol/src/parallel100/recipient-view-decoder.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b087",
+      "initial_preparation_sha256": "dd276685ca364202f9d82d9e9533a7a0b23b6bf2ae7c269e5e2afb3e6f64736a",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 13,
+        "source_sha256": "971f6f9e4ceb65e719a79cb9f4752036bb26dc3d0e93261753035ce413f17e21",
+        "started_at_utc": "2026-11-11T17:12:24.831622+00:00",
+        "finished_at_utc": "2026-11-11T17:12:25.299068+00:00",
+        "monotonic_elapsed_seconds": 0.467494,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "dd276685ca364202f9d82d9e9533a7a0b23b6bf2ae7c269e5e2afb3e6f64736a",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B088",
+      "relative_path": "fixtures/B088.js",
+      "source": "\nconst f=exports.hostAdvancePermission;const base={verifiedPlayerId:'a',hostPlayerId:'a',actualRevision:2,expectedRevision:2,trustedNowMs:100,persistedDeadlineMs:100,terminal:false};same(good(f(base)),{mayAdvance:true});for(const change of [{trustedNowMs:99},{terminal:true}])same(good(f({...base,...change})),{mayAdvance:false});const nonhost=f({...base,verifiedPlayerId:'b'});check(nonhost.ok===false||nonhost.value.mayAdvance===false);if(!nonhost.ok)same(nonhost.error.code,'forbidden');const stale=f({...base,expectedRevision:1});check(stale.ok===false||stale.value.mayAdvance===false);bad(f({...base,trustedNowMs:NaN}));bad(f({...base,actualRevision:-1}));\n",
+      "sha256": "6dbdcad0417578c4018076b26133fbc28b51c3e7574f6247938dc38a05911ea2",
+      "target_source_relative_path": "packages/protocol/src/parallel100/host-advance-command.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b088",
+      "initial_preparation_sha256": "35f33485bb61a63fe0df1698a57fece584f4c9cc9a430c97f058f6c1f892ac9c",
+      "same_as_recorded_initial_preparation": false,
+      "final_revision_after_original_output_inspection": true,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 11,
+        "source_sha256": "1e6e6b14de580c76f93ad2117455ac02375ec5c2bf135097d32f176cb73fea01",
+        "started_at_utc": "2026-11-11T17:09:08.934645+00:00",
+        "finished_at_utc": "2026-11-11T17:09:09.405063+00:00",
+        "monotonic_elapsed_seconds": 0.470466,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "6dbdcad0417578c4018076b26133fbc28b51c3e7574f6247938dc38a05911ea2",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B089",
+      "relative_path": "fixtures/B089.js",
+      "source": "\nconst f=exports.decodePublicChatAction;const ctx={verifiedPlayerId:'a',active:true,capabilityEnabled:true,allowedReactionIds:['reaction.yes','reaction.no']};same(good(f({type:'chat',text:'  hello\\nworld  '},ctx)),{type:'chat',text:'hello\\nworld'});same(good(f({type:'chat',text:'😀'.repeat(280)},ctx)).text,'😀'.repeat(280));same(good(f({type:'chat',text:'<script>alert(1)</script>'},ctx)).text,'<script>alert(1)</script>');same(good(f({type:'reaction',reactionId:'reaction.yes'},ctx)),{type:'reaction',reactionId:'reaction.yes'});for(const change of [{active:false},{capabilityEnabled:false}])bad(f({type:'chat',text:'hello'},{...ctx,...change}));for(const input of [{type:'chat',text:''},{type:'chat',text:'a'.repeat(281)},{type:'chat',text:'a\\tb'},{type:'reaction',reactionId:'unknown'},{type:'chat',text:'hello',actorId:'forged'}])bad(f(input,ctx));let hits=0;const h={type:'chat'};Object.defineProperty(h,'text',{enumerable:true,get(){hits++;return 'secret';}});bad(f(h,ctx));same(hits,0);\n",
+      "sha256": "fcba76a1157f93ab7754ac1c0a532a2e33a4e2027d656254ac0d671528c20298",
+      "target_source_relative_path": "packages/protocol/src/parallel100/bounded-chat-policy.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b089",
+      "initial_preparation_sha256": "fcba76a1157f93ab7754ac1c0a532a2e33a4e2027d656254ac0d671528c20298",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 17,
+        "source_sha256": "3f6bf3ae625848b26ad9ddcaf4c7059fe064c4ec438cab001686773f95a6c545",
+        "started_at_utc": "2026-11-11T17:09:17.038945+00:00",
+        "finished_at_utc": "2026-11-11T17:09:17.521006+00:00",
+        "monotonic_elapsed_seconds": 0.48211,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "fcba76a1157f93ab7754ac1c0a532a2e33a4e2027d656254ac0d671528c20298",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B090",
+      "relative_path": "fixtures/B090.js",
+      "source": "\nconst f=exports.safeRequestSummary;for(const type of ['lobby-create','lobby-join','profile','ready','settings','crew-vote','operation-choice','power-target','containment-vote','request-advance'])same(f({type,requestId:'safe_1',passcode:'private-pass',optionId:'secret-option',role:'null'}),{kind:type,requestId:'safe_1'});same(f(null),{kind:'unknown',requestId:null});same(f({type:'unknown',requestId:'not safe space'}),{kind:'unknown',requestId:null});let hits=0;const h={};Object.defineProperty(h,'type',{get(){hits++;return 'lobby-create';}});Object.defineProperty(h,'requestId',{get(){hits++;return 'secret';}});same(f(h),{kind:'unknown',requestId:null});same(hits,0);const p=Proxy.revocable({},{});p.revoke();same(f(p.proxy),{kind:'unknown',requestId:null});\n",
+      "sha256": "126368255f40a8cf8c2ab63c555b4438d5416916f43a5534a9b74705b8259ee7",
+      "target_source_relative_path": "packages/protocol/src/parallel100/safe-request-summary.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b090",
+      "initial_preparation_sha256": "126368255f40a8cf8c2ab63c555b4438d5416916f43a5534a9b74705b8259ee7",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 15,
+        "source_sha256": "f858972519ebaf0fbf7e02664ceb89829850a9dece15dc9d252a7850288dc00d",
+        "started_at_utc": "2026-11-11T17:09:23.968362+00:00",
+        "finished_at_utc": "2026-11-11T17:09:24.464892+00:00",
+        "monotonic_elapsed_seconds": 0.496572,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "126368255f40a8cf8c2ab63c555b4438d5416916f43a5534a9b74705b8259ee7",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B091",
+      "relative_path": "fixtures/B091.js",
+      "source": "\nconst f=exports.decodePreferences;const defaults={version:1,music:true,sfx:true,haptics:false,musicVolume:0.7,sfxVolume:0.7,reducedMotion:'system',language:'system',appearance:'system'};same(good(f(null)),defaults);for(const text of ['invalid','{}','null',JSON.stringify({...defaults,version:0}),JSON.stringify({...defaults,role:'null'}),JSON.stringify({...defaults,musicVolume:2}),' '.repeat(17000)+JSON.stringify(defaults)])same(good(f(text)),defaults);const valid={...defaults,music:false,sfx:false,haptics:true,musicVolume:0,sfxVolume:1,reducedMotion:'on',language:'es',appearance:'dark'};same(good(f(JSON.stringify(valid))),valid);\n",
+      "sha256": "aeb33e00e78743ad4925c3569c0627e0c988cb4941a216a242bb6aa68873f33b",
+      "target_source_relative_path": "apps/client/src/pilot100/preference-codec/index.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b091",
+      "initial_preparation_sha256": "aeb33e00e78743ad4925c3569c0627e0c988cb4941a216a242bb6aa68873f33b",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B092",
+      "relative_path": "fixtures/B092.js",
+      "source": "\nconst f=exports.audioFeedbackPlan;const base={gestureUnlocked:true,systemMuted:false,sfxEnabled:true,suppressLastTenOnce:false};const events=['ui.tap','vote.open','vote.cast','bot.vote','crew.deploy','district.repair','district.sabotage','timer.last-ten','match.win','match.loss','achievement.unlock'];for(const event of events){same(good(f({...base,event})),{cue:'audio.'+event,visualEvent:event,consumeLastTenSuppression:false});for(const flags of [{gestureUnlocked:false},{systemMuted:true},{sfxEnabled:false}])same(good(f({...base,...flags,event})).cue,null);}same(good(f({...base,event:'timer.last-ten',suppressLastTenOnce:true})),{cue:null,visualEvent:'timer.last-ten',consumeLastTenSuppression:true});same(good(f({...base,event:'ui.tap',suppressLastTenOnce:true})).consumeLastTenSuppression,false);bad(f({...base,event:'unknown'}));\n",
+      "sha256": "5856c4f98a8a7420450ffc3df258ed9a46c178f7bd4e04dd0aec7718df758ec3",
+      "target_source_relative_path": "apps/client/src/pilot100/semantic-audio-policy/index.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b092",
+      "initial_preparation_sha256": "5856c4f98a8a7420450ffc3df258ed9a46c178f7bd4e04dd0aec7718df758ec3",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 93,
+        "source_sha256": "b9ea92311e732c2c7351bc030b1bdc7093d873207257d29a5b248b622cf9ba11",
+        "started_at_utc": "2026-11-11T17:09:34.723051+00:00",
+        "finished_at_utc": "2026-11-11T17:09:35.275382+00:00",
+        "monotonic_elapsed_seconds": 0.552374,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "5856c4f98a8a7420450ffc3df258ed9a46c178f7bd4e04dd0aec7718df758ec3",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B093",
+      "relative_path": "fixtures/B093.js",
+      "source": "\nconst f=exports.hapticFeedbackPlan;const base={enabled:true,heavyOptIn:true,supported:true};for(const event of ['selection','menu-confirm'])same(good(f({...base,event})),{intensity:'light'});for(const event of ['vote-locked','crew-confirmed'])same(good(f({...base,event})),{intensity:'medium'});for(const event of ['repair','sabotage','match-end']){same(good(f({...base,event})),{intensity:'heavy'});same(good(f({...base,event,heavyOptIn:false})),{intensity:'none'});}same(good(f({...base,event:'timer'})),{intensity:'none'});for(const change of [{enabled:false},{supported:false}])same(good(f({...base,...change,event:'selection'})),{intensity:'none'});bad(f({...base,event:'unknown'}));\n",
+      "sha256": "801d2937bdba7ecd6025154abdbdf29ef185f28152d103f85d01bbdd00ed2b8a",
+      "target_source_relative_path": "apps/client/src/pilot100/haptic-feedback-policy/index.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b093",
+      "initial_preparation_sha256": "801d2937bdba7ecd6025154abdbdf29ef185f28152d103f85d01bbdd00ed2b8a",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B094",
+      "relative_path": "fixtures/B094.js",
+      "source": "\nconst f=exports.decodeVisualAssetRecord;const base={semanticKey:'incident.i01.route.north_relay',label:'North Relay',uiPath:'assets/incidents/north-relay.webp',masterSha256:'a'.repeat(64),source:'Original source prompt',license:'Original project art',approvalSha256:'b'.repeat(64)};same(good(f(base)),base);for(const uiPath of ['https://example.test/art.png','../assets/art.png','assets/../art.png','assets//art.png','assets/art.svg','assets\\\\art.png'])bad(f({...base,uiPath}));for(const change of [{approvalSha256:''},{masterSha256:'A'.repeat(64)},{source:''},{role:'null'}])bad(f({...base,...change}));let hits=0;const h={...base};Object.defineProperty(h,'label',{enumerable:true,get(){hits++;return 'secret';}});bad(f(h));same(hits,0);\n",
+      "sha256": "ae4fbed81ed8778cfc16d082b9ba594283f0894f1377458327eafe5faa9d89f7",
+      "target_source_relative_path": "apps/client/src/pilot100/asset-record-decoder/index.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b094",
+      "initial_preparation_sha256": "ae4fbed81ed8778cfc16d082b9ba594283f0894f1377458327eafe5faa9d89f7",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B095",
+      "relative_path": "fixtures/B095.js",
+      "source": "\nconst f=exports.creditsEntries;const r={semanticKey:'asset.one',creator:'B creator',source:'source',license:'Original',attribution:'B credit',approved:true};const a={...r,semanticKey:'asset.two',creator:'A creator',attribution:'A credit'};const v=good(f({records:[r,{...r,semanticKey:'asset.three'},a,{...r,semanticKey:'asset.unapproved',approved:false,creator:'hidden'}]}));same(v,[{creator:'A creator',source:'source',license:'Original',attribution:'A credit'},{creator:'B creator',source:'source',license:'Original',attribution:'B credit'}]);same(good(f({records:[]})),[]);same(f({records:[a,r]}),f({records:[r,a]}));bad(f({records:[r,r]}));bad(f({records:[{...r,creator:'bad\\u0000name'}]}));\n",
+      "sha256": "87468ee14e781e923955b13fc71353286b7b88310ac4e74460876a5a9c76420a",
+      "target_source_relative_path": "apps/client/src/pilot100/credits-projection/index.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b095",
+      "initial_preparation_sha256": "87468ee14e781e923955b13fc71353286b7b88310ac4e74460876a5a9c76420a",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "not_executed_no_nonempty_original_source",
+        "assertion_count": null,
+        "source_sha256": null
+      }
+    },
+    {
+      "task_id": "B096",
+      "relative_path": "fixtures/B096.js",
+      "source": "\nconst f=exports.adEligibility;const base={platform:'native',adsRemoved:false,consentAllowed:true,completedMatches:2,lastInterstitialAfterMatch:null,matchEndRead:true,exitingCompletedMatch:true,livePhaseVisible:false,blockingModal:false,adAvailable:true};same(good(f(base)),{reserveBannerDock:true,mayRequestBanner:true,mayShowInterstitial:true,blockNavigation:false});same(good(f({...base,platform:'web'})),{reserveBannerDock:false,mayRequestBanner:false,mayShowInterstitial:false,blockNavigation:false});same(good(f({...base,adsRemoved:true})),{reserveBannerDock:false,mayRequestBanner:false,mayShowInterstitial:false,blockNavigation:false});for(const change of [{consentAllowed:false},{completedMatches:1},{matchEndRead:false},{exitingCompletedMatch:false},{livePhaseVisible:true},{blockingModal:true},{adAvailable:false},{lastInterstitialAfterMatch:1}])same(good(f({...base,...change})).mayShowInterstitial,false);same(good(f({...base,completedMatches:4,lastInterstitialAfterMatch:2})).mayShowInterstitial,true);same(good(f({...base,consentAllowed:false,adAvailable:false})).reserveBannerDock,true);bad(f({...base,lastInterstitialAfterMatch:3}));\n",
+      "sha256": "fc8edec59d458c56626433d8c3155700b1e8a545382cdc8e5b9d8c86fe88136f",
+      "target_source_relative_path": "apps/client/src/pilot100/ad-eligibility/index.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b096",
+      "initial_preparation_sha256": "fc8edec59d458c56626433d8c3155700b1e8a545382cdc8e5b9d8c86fe88136f",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 27,
+        "source_sha256": "9a31dcbcd0ae68644284250f7f2f4c64ae56d48f1a874449cc04235d398106b5",
+        "started_at_utc": "2026-11-11T17:09:40.790684+00:00",
+        "finished_at_utc": "2026-11-11T17:09:41.260971+00:00",
+        "monotonic_elapsed_seconds": 0.470349,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "fc8edec59d458c56626433d8c3155700b1e8a545382cdc8e5b9d8c86fe88136f",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B097",
+      "relative_path": "fixtures/B097.js",
+      "source": "\nconst f=exports.purchaseEntitlementState;const previous={platform:'ios',adsRemoved:false,revision:1};same(good(f({previous,event:{type:'verified-entitlement',platform:'ios',entitled:true,revision:2}})),{platform:'ios',adsRemoved:true,revision:2,availability:'verified'});for(const type of ['unavailable','cancelled','failed'])same(good(f({previous:{...previous,adsRemoved:true},event:{type}})),{platform:'ios',adsRemoved:true,revision:1,availability:'unchanged'});same(good(f({previous:{...previous,adsRemoved:true},event:{type:'verified-entitlement',platform:'ios',entitled:false,revision:2}})).adsRemoved,false);bad(f({previous,event:{type:'verified-entitlement',platform:'android',entitled:true,revision:2}}));bad(f({previous,event:{type:'verified-entitlement',platform:'ios',entitled:true,revision:1}}));bad(f({previous:{...previous,platform:'web'},event:{type:'verified-entitlement',platform:'ios',entitled:true,revision:2}}));\n",
+      "sha256": "9a0217d2993918f7cd55b88b10757a5da4a0851273e3184b24dcf622e23f7b59",
+      "target_source_relative_path": "apps/client/src/pilot100/purchase-entitlement-state/index.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b097",
+      "initial_preparation_sha256": "9a0217d2993918f7cd55b88b10757a5da4a0851273e3184b24dcf622e23f7b59",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 13,
+        "source_sha256": "a6e9cdd7f243fe6402e9bf23bc725634f422ce2c441ec00b5af165acf410b6e9",
+        "started_at_utc": "2026-11-11T17:09:47.303275+00:00",
+        "finished_at_utc": "2026-11-11T17:09:47.763113+00:00",
+        "monotonic_elapsed_seconds": 0.459886,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "9a0217d2993918f7cd55b88b10757a5da4a0851273e3184b24dcf622e23f7b59",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B098",
+      "relative_path": "fixtures/B098.js",
+      "source": "\nconst f=exports.chooseFairBotAction;const legalActions=[{kind:'route',optionId:'incident.i01.route.safe',ownDiagnosticClass:'safe'},{kind:'route',optionId:'incident.i01.route.corrupted',ownDiagnosticClass:'corrupted'},{kind:'route',optionId:'incident.i01.route.neutral',ownDiagnosticClass:'neutral'}];for(const ownRole of ['archivist','static-operative','null']){const input={observation:{ownRole,active:true,legalActions},rng:{value:1}};const v=good(f(input));same(v.action.optionId,ownRole==='static-operative'?legalActions[1].optionId:legalActions[0].optionId);same(f(input),f(input));check(v.rng.value!==1);}same(good(f({observation:{ownRole:'archivist',active:false,legalActions},rng:{value:1}})),{action:null,rng:{value:1}});same(good(f({observation:{ownRole:'archivist',active:true,legalActions:[]},rng:{value:1}})),{action:null,rng:{value:1}});bad(f({observation:{ownRole:'archivist',active:true,legalActions:[legalActions[0],legalActions[0]]},rng:{value:1}}));\n",
+      "sha256": "771e459043326eb11ca3ceaee464881525107e57f44345b3420cad1f520fdeae",
+      "target_source_relative_path": "apps/client/src/pilot100/fair-bot-policy/index.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b098",
+      "initial_preparation_sha256": "771e459043326eb11ca3ceaee464881525107e57f44345b3420cad1f520fdeae",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 17,
+        "source_sha256": "43461e52c91b3a223e7aed6badb8fd1291ba58a270ea14a3c9b276c609e09f17",
+        "started_at_utc": "2026-11-11T17:09:56.970370+00:00",
+        "finished_at_utc": "2026-11-11T17:09:57.457601+00:00",
+        "monotonic_elapsed_seconds": 0.487273,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "771e459043326eb11ca3ceaee464881525107e57f44345b3420cad1f520fdeae",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B099",
+      "relative_path": "fixtures/B099.js",
+      "source": "\nconst f=exports.localNavigation;const direct={ 'launch|enter':'profile','profile|profile-confirm':'home','home|play-solo':'solo-setup','home|play-multiplayer':'directory','directory|joined-lobby':'lobby','solo-setup|authority-match-start':'match','lobby|authority-match-start':'match','match|authority-match-end':'results','profile|back':'launch','solo-setup|back':'home','directory|back':'home'};const states=['launch','profile','home','solo-setup','directory','lobby','match','results'];const events=['enter','profile-confirm','play-solo','play-multiplayer','joined-lobby','authority-match-start','authority-match-end','return-after-match','again-after-match','leave-confirmed','back'];for(const mode of ['solo','multiplayer'])for(const current of states)for(const event of events){let route=direct[current+'|'+event],clearPrivateView=false,requestFreshMatch=false;if(event==='leave-confirmed'&&['lobby','match','results'].includes(current)){route='home';clearPrivateView=true;}if(current==='results'&&['return-after-match','again-after-match'].includes(event)){route=mode==='solo'?'solo-setup':'lobby';clearPrivateView=true;requestFreshMatch=event==='again-after-match';}const result=f({current,mode,event});if(route)same(good(result),{route,clearPrivateView,requestFreshMatch});else bad(result);}\n",
+      "sha256": "bbf56a64ad814f15acaecb7319684299aabb33c38d44e8d87786cb3d3cde866f",
+      "target_source_relative_path": "apps/client/src/pilot100/local-navigation-policy/index.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b099",
+      "initial_preparation_sha256": "bbf56a64ad814f15acaecb7319684299aabb33c38d44e8d87786cb3d3cde866f",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 208,
+        "source_sha256": "3db0ba6464f079b9fdc29a9365901109dc3f64e8504dafcef4e2dbd1dab9d8af",
+        "started_at_utc": "2026-11-11T17:10:03.317354+00:00",
+        "finished_at_utc": "2026-11-11T17:10:03.776396+00:00",
+        "monotonic_elapsed_seconds": 0.45909,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "bbf56a64ad814f15acaecb7319684299aabb33c38d44e8d87786cb3d3cde866f",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    },
+    {
+      "task_id": "B100",
+      "relative_path": "fixtures/B100.js",
+      "source": "\nconst f=exports.privateRecoveryState;const previous={generation:2,revision:3,active:true,privatePayloadReference:'private_ref',connected:true};same(good(f({previous,event:{type:'connection-lost'}})),{generation:3,revision:null,active:true,privatePayloadReference:null,connected:false});same(good(f({previous,event:{type:'leave'}})),{generation:3,revision:null,active:false,privatePayloadReference:null,connected:false});const spectator=good(f({previous,event:{type:'permanent-disconnect'}}));same(spectator,{generation:2,revision:3,active:false,privatePayloadReference:null,connected:true});bad(f({previous:spectator,event:{type:'recipient-view',generation:2,revision:4,active:true,privatePayloadReference:'restore'}}));same(good(f({previous:spectator,event:{type:'recipient-view',generation:2,revision:4,active:false,privatePayloadReference:'erase'}})),{generation:2,revision:4,active:false,privatePayloadReference:null,connected:true});bad(f({previous,event:{type:'recipient-view',generation:1,revision:4,active:true,privatePayloadReference:'old'}}));bad(f({previous,event:{type:'recipient-view',generation:2,revision:3,active:true,privatePayloadReference:'same'}}));bad(f({previous:{...previous,generation:Number.MAX_SAFE_INTEGER},event:{type:'leave'}}));\n",
+      "sha256": "c06f6b17f8e4068ac8b00af084401442ce8a0d5d947295ef752894912c53dea7",
+      "target_source_relative_path": "apps/client/src/pilot100/private-recovery-state/index.ts",
+      "contract_relative_path": "docs/PILOT100_DOMAIN_CONTRACTS.md#b100",
+      "initial_preparation_sha256": "c06f6b17f8e4068ac8b00af084401442ce8a0d5d947295ef752894912c53dea7",
+      "same_as_recorded_initial_preparation": true,
+      "final_revision_after_original_output_inspection": false,
+      "original_source_execution": {
+        "status": "passed_independent_fixture",
+        "assertion_count": 12,
+        "source_sha256": "74495b152e1257b7027750cfa190d026d73932e66d157157e6028b2367ec7d22",
+        "started_at_utc": "2026-11-11T17:10:13.794264+00:00",
+        "finished_at_utc": "2026-11-11T17:10:14.340948+00:00",
+        "monotonic_elapsed_seconds": 0.546733,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "c06f6b17f8e4068ac8b00af084401442ce8a0d5d947295ef752894912c53dea7",
+        "meaning": "Semantic fixture execution only; not an autonomous worker success, project-check pass, merged PR, connected feature, or quality-window completion."
+      }
+    }
+  ],
+  "historical_fixture_versions": [
+    {
+      "task_id": "B072",
+      "relative_path": "history/fixtures/B072.initial.js",
+      "source": "\nconst f=exports.decodeLobbyConfiguration;const base={name:'  Signal city  ',seats:5,roundSeconds:30,fillBots:true,difficulty:'standard',listed:false,requirePasscode:false,passcode:null};for(const seats of [5,6,7,8,9,10])for(const roundSeconds of [30,60,90,120]){const v=good(f({...base,seats,roundSeconds}));same(v.name,'Signal city');same(v.seats,seats);same(v.roundSeconds,roundSeconds);same(v.passcode,null);}good(f({...base,requirePasscode:true,passcode:'private-pass'}));for(const change of [{seats:4},{seats:11},{roundSeconds:45},{seed:1},{requirePasscode:true,passcode:null},{name:'bad\\u0000name'}])bad(f({...base,...change}));let calls=0;const hostile={...base};Object.defineProperty(hostile,'name',{enumerable:true,get(){calls++;return 'secret';}});bad(f(hostile));same(calls,0);bad(f({...base,[Symbol('extra')]:true}));const proxy=Proxy.revocable({...base},{});proxy.revoke();bad(f(proxy.proxy));\n",
+      "sha256": "80b88d5ae287931c62a5bfb7cd258abfd6470855cc03088a50dd2608e1165d91",
+      "superseded": true,
+      "executed_before_correction": false
+    },
+    {
+      "task_id": "B088",
+      "relative_path": "history/fixtures/B088.initial.js",
+      "source": "\nconst f=exports.hostAdvancePermission;const base={verifiedPlayerId:'a',hostPlayerId:'a',actualRevision:2,expectedRevision:2,trustedNowMs:100,persistedDeadlineMs:100,terminal:false};same(good(f(base)),{mayAdvance:true});for(const change of [{verifiedPlayerId:'b'},{trustedNowMs:99},{terminal:true}])same(good(f({...base,...change})),{mayAdvance:false});const stale=f({...base,expectedRevision:1});check(stale.ok===false||stale.value.mayAdvance===false);bad(f({...base,trustedNowMs:NaN}));bad(f({...base,actualRevision:-1}));\n",
+      "sha256": "35f33485bb61a63fe0df1698a57fece584f4c9cc9a430c97f058f6c1f892ac9c",
+      "superseded": true,
+      "executed_before_correction": true
+    }
+  ],
+  "execution_summary": {
+    "original_source_fixtures_executed": 38,
+    "canonical_original_source_assertions_passed": 1706,
+    "canonical_count_includes_corrected_v2_retests": [
+      "B053",
+      "B054",
+      "B057",
+      "B061",
+      "B088"
+    ],
+    "not_executed_original_source_tasks": [
+      "B051",
+      "B052",
+      "B058",
+      "B064",
+      "B066",
+      "B081",
+      "B082",
+      "B083",
+      "B091",
+      "B093",
+      "B094",
+      "B095"
+    ],
+    "not_executed_reason": "Original patch was empty, so no actual recovered implementation source existed for that task fixture. Syntax parsing is not execution or acceptance.",
+    "superseded_or_failed_executions": [
+      {
+        "task_id": "B053",
+        "classification": "superseded_v1_harness_success_approval_revoked",
+        "assertion_count": 11,
+        "started_at_utc": null,
+        "finished_at_utc": null,
+        "monotonic_elapsed_seconds": 0.352517757,
+        "harness_sha256": "63f272e26ddc406551807cf84aebc63a0f5f87e45d1abfe247be7897f4f2fabb",
+        "included_in_canonical_1706_assertions": false
+      },
+      {
+        "task_id": "B054",
+        "classification": "superseded_v1_harness_success_approval_revoked",
+        "assertion_count": 20,
+        "started_at_utc": "2026-11-11T16:54:37.884146+00:00",
+        "finished_at_utc": "2026-11-11T16:54:38.391251+00:00",
+        "monotonic_elapsed_seconds": 0.507149,
+        "harness_sha256": "63f272e26ddc406551807cf84aebc63a0f5f87e45d1abfe247be7897f4f2fabb",
+        "included_in_canonical_1706_assertions": false
+      },
+      {
+        "task_id": "B057",
+        "classification": "superseded_v1_harness_success_approval_revoked",
+        "assertion_count": 19,
+        "started_at_utc": "2026-11-11T16:55:26.643146+00:00",
+        "finished_at_utc": "2026-11-11T16:55:27.141299+00:00",
+        "monotonic_elapsed_seconds": 0.498203,
+        "harness_sha256": "63f272e26ddc406551807cf84aebc63a0f5f87e45d1abfe247be7897f4f2fabb",
+        "included_in_canonical_1706_assertions": false
+      },
+      {
+        "task_id": "B061",
+        "classification": "historical_instrumentation_failure",
+        "reason": "private module helper collided with fixture same helper under v1",
+        "assertion_count": null,
+        "started_at_utc": "2026-11-11T16:55:55.282841+00:00",
+        "finished_at_utc": "2026-11-11T16:55:55.774870+00:00",
+        "monotonic_elapsed_seconds": 0.492074,
+        "harness_sha256": "63f272e26ddc406551807cf84aebc63a0f5f87e45d1abfe247be7897f4f2fabb",
+        "fixture_sha256": "47c9bbf4d11988e4ee32e3e1291655442e713dae9b74c231dfbc9aa6a69c343a",
+        "included_in_canonical_1706_assertions": false
+      },
+      {
+        "task_id": "B088",
+        "classification": "historical_instrumentation_failure",
+        "reason": "initial fixture overconstrained the nonhost Result wrapper",
+        "assertion_count": null,
+        "started_at_utc": "2026-11-11T17:08:49.290886+00:00",
+        "finished_at_utc": "2026-11-11T17:08:49.797035+00:00",
+        "monotonic_elapsed_seconds": 0.506199,
+        "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+        "fixture_sha256": "35f33485bb61a63fe0df1698a57fece584f4c9cc9a430c97f058f6c1f892ac9c",
+        "included_in_canonical_1706_assertions": false
+      }
+    ],
+    "additional_repaired_source_execution": {
+      "started_at_utc": "2026-11-11T17:36:03.663721+00:00",
+      "finished_at_utc": "2026-11-11T17:36:04.185213+00:00",
+      "monotonic_elapsed_seconds": 0.52153,
+      "checks": 9,
+      "source_sha256": "bb2cb300c2289e6ec30be83025112578b047a4adff588f40b30dcae29d80deb9",
+      "fixture_sha256": "92cb4c250fcec91cfa5b0827dabbaff56cceabd3a8f48746842096f9e37dabca",
+      "harness_sha256": "bf1144d8165d47ab98485cc4e06b0688993304b47bcea05ba39593b48018ef35",
+      "task_id": "B060",
+      "meaning": "Separate rerun after coordinator type-only source repair; emitted runtime JS was independently byte-identical. Not added to the 38 original-source total.",
+      "included_in_canonical_1706_assertions": false
+    },
+    "reused_results_are_not_new_executions": true,
+    "fixture_success_is_not_project_or_delivery_acceptance": true,
+    "afk_baseline_comparison": null
+  },
+  "synthetic_smoke_examples": [
+    {
+      "name": "private_module_scope_and_decoder_accessors",
+      "module_source_ts": "function same(){ return 'private helper'; }\nconst f='private constant';\nexport function fixtureProbe(input:unknown){ if(input===null||typeof input!=='object')return {ok:false,error:{code:'invalid-input'}};const d=Object.getOwnPropertyDescriptor(input,'value');if(!d||!('value' in d)||typeof d.value!=='number')return {ok:false,error:{code:'invalid-input'}};return {ok:true,value:{value:d.value,label:same(),tag:f}}; }\n",
+      "fixture_source_js": "const result=good(exports.fixtureProbe({value:7}));same(result,{value:7,label:'private helper',tag:'private constant'});let reads=0;const input={};Object.defineProperty(input,'value',{get(){reads++;return 8;}});bad(exports.fixtureProbe(input));same(reads,0);check(typeof process==='undefined');check(typeof fetch==='undefined');same(Object.keys(exports),['fixtureProbe']);\n",
+      "expected": "success",
+      "vm_timeout_ms": 5000,
+      "module_source_sha256": "c2e48403b53a69e3527f3ae2b017176cfa16eefc9285c9ea0f2ae44b661af1ea",
+      "fixture_source_sha256": "db8b7139cf5c7fe01a37c95559f7962e84dbc1c372b872b3b8c761b2d6d1d12a"
+    },
+    {
+      "name": "expected_value_mismatch_must_fail",
+      "module_source_ts": "export function answer(){return 1;}\n",
+      "fixture_source_js": "same(exports.answer(),2);\n",
+      "expected": "assertion_failure",
+      "vm_timeout_ms": 5000,
+      "module_source_sha256": "739f0f1225d447e190a19d386316d919de3eff15afb99fd63f715a6b79905af1",
+      "fixture_source_sha256": "c1eeb80844f6efb428a1d92b411818e6de0934ccde7bdbdad97e4da71b9484e4"
+    },
+    {
+      "name": "fixture_loop_is_bounded",
+      "module_source_ts": "export const answer=1;\n",
+      "fixture_source_js": "while(true){}\n",
+      "expected": "timeout",
+      "vm_timeout_ms": 50,
+      "module_source_sha256": "4707a3ee493e6c4a0d31089204df67ba527d1fd895f4d0b2f51feed81de8047f",
+      "fixture_source_sha256": "d8ab844dd8343a1a7ac199c16bddc9d42b7eff58cf435cebdc36912a1271458e"
+    }
+  ],
+  "omitted_entries": [],
+  "privacy_scope": "Only public frozen task/contract references, synthetic fixture values, code/integrity hashes, UTC timings and curated execution summaries are included. No credentials, raw logs, host filesystem paths, worker/run credentials, provider/account identifiers or original worker payloads."
+}

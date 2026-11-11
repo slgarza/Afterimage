@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-11T17:13:10.951056+00:00",
+  "source": "Modal SDK1.6.3 read-only SandboxListV2 and TaskList",
+  "receipt_sha256": "6bbd8a52acec04d4ada33d085d8c6f959c3313b21e2c0ca43c723f3ccd53e0e8",
+  "sandbox_count": 0,
+  "sandbox_listing_verified_complete": true,
+  "function_container_count": 0,
+  "function_listing_verified": true,
+  "input_count": 0,
+  "backlog_count": 0,
+  "input_backlog_basis": "zero listed function containers; no live gateway function revived to query statistics",
+  "after_gateway_stop_utc": "2026-11-11T16:53:03+00:00",
+  "compute_invocations": 0,
+  "mutations": 0,
+  "proves_useful_agent_concurrency": false,
+  "cost_usd": null
+}

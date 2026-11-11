@@ -1,0 +1,17 @@
+{
+  "kind": "controller_GUI_and_feedback_publication",
+  "recorded_at_utc": "2026-11-11T22:28:33.486876+00:00",
+  "source_commit": "5ada06cb91914864a28f4e6bdc60a19c5e94c260",
+  "merge_commit": "a08dc326ce4815e5f8e7e27e0e5de0ebf0333d52",
+  "merge_commit_tree_matches_validated_source": true,
+  "merged_at_utc": "2026-11-11T22:28:01Z",
+  "PR": "https://github.com/slgarza/swarm-control/pull/6",
+  "gallery": "https://github.com/slgarza/swarm-control/blob/main/docs/DASHBOARD.md#screenshots",
+  "independent_runtime_review_sha256": "fb536ebaa027051fbe27b0ccc7ae5e7e20bbe62508f82b2771dcc1861f13abeb",
+  "additional_independent_focused_tests": 51,
+  "pilot_B_credit": 0,
+  "new_paid_worker_runs": 0,
+  "original_pilot_controller_source_immutable": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+  "after_censored_capture": true,
+  "after_last_CI_supporting_capture": true
+}

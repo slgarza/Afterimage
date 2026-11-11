@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "kind": "CENSORED_CI_metadata_last_observation_validation",
+  "validated_at_utc": "2026-11-11T22:22:24.120758+00:00",
+  "snapshot_name": "ci-censored-20261111T222148.154960Z.json",
+  "snapshot_sha256": "f76148bbe4de2d96dc525920e67a8fac28532c643f6cc586fa9303d2a9be7a0c",
+  "method_source_sha256": "60a4d8f2cd43f53eb64db33573ba5a4b25a574ed770bf8042db1900b7105793b",
+  "observation_started_at_utc": "2026-11-11T22:18:09.343085+00:00",
+  "observation_finished_at_utc": "2026-11-11T22:21:48.142368+00:00",
+  "collection_monotonic_elapsed_seconds": 218.799283,
+  "frozen_cutoff_utc": "2026-11-11T22:17:25.166040+00:00",
+  "classification": "supporting_censored_last_observation",
+  "runtime_task_entries": 59,
+  "unique_commit_shas": 118,
+  "checks_read_complete": 118,
+  "workflow_pages": 2,
+  "workflow_metadata_list_read_complete": true,
+  "commits_with_matching_workflow_metadata": 118,
+  "original_response_sources_verified_by_private_exact_body_sha256": 120,
+  "request_budget": {
+    "global_get_limit": 200,
+    "used_before_this_snapshot": 61,
+    "used_this_snapshot": 120,
+    "used_total": 181,
+    "remaining": 19
+  },
+  "source_stable_during_gets": true,
+  "atomic_snapshot_claimed": false,
+  "completed_workload_T1_utc": null,
+  "full_delivery_completion_claimed": false,
+  "quality_acceptance_claimed": false,
+  "exact_cutoff_CI_status_verified": false,
+  "limits": [
+    "This is the single supporting CENSORED last observation. It began after the actual administrative cutoff; each GitHub response has its own observation timing. It is not an instantaneous exact-cutoff status proof.",
+    "The genuine runtime queue stop remains20:31 with59 recorded rows; no100-task state or completed-workload clock was manufactured.",
+    "Future reruns,24h quality acceptance, billed cost and AFK comparison are not established. No normal final or second last snapshot will follow under this scope."
+  ],
+  "github_mutations": 0,
+  "paid_or_model_operations": 0,
+  "source_snapshot": {
+    "queue_state_sha256": "ee7201de1fecbcf6d9ea0f7bac134ba7beea2f8346b997354929d11017610dd9",
+    "journal_sha256": "de44e2b32c54d976acdc12bddbc3e130cfec1fc751b78f2ca9cdabab093b3354",
+    "workload_release_sha256": "1012ea73fec9722b1be569a6f36b493146029bce50b1ade5a69b4cded1baa3b4",
+    "queue_changed_during_gets": false,
+    "journal_changed_during_gets": false,
+    "workload_release_changed_during_gets": false,
+    "atomic_snapshot_claimed": false,
+    "original_run_input_bytes_retained_private": true
+  },
+  "timing_note": "Collection time is one measured analysis invocation, not person-time or GitHub runner/API queue time; wrapper timing is nested and must not be added."
+}

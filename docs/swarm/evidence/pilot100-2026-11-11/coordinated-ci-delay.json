@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "kind": "coordinated_CI_metadata_delay_and_rejected_recovery_controls",
+  "revision": 2,
+  "created_at_utc": "2026-11-11T20:40:22.917220+00:00",
+  "task_id": "B096",
+  "repository": "slgarza/Afterimage",
+  "pr_url": "https://github.com/slgarza/Afterimage/pull/298",
+  "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+  "cohort_run_id": "pilot100-20261111T161645Z-e389f41a",
+  "source_independent_investigation_sha256": "fc3d10915f18957633bd1c8a27f409411a7697ea8ad026140eaddadf58472218",
+  "observations": {
+    "metadata_read_started_at_utc": "2026-11-11T20:30:49.648771+00:00",
+    "metadata_observed_at_utc": "2026-11-11T20:31:10.941889+00:00",
+    "metadata_receipt_completed_at_utc": "2026-11-11T20:32:09.218386+00:00",
+    "observations_are_non_atomic_and_time_bounded": true,
+    "original_responses_retained_privately": true,
+    "runs": [
+      {
+        "workflow_run_id": 43094902195,
+        "url": "https://github.com/slgarza/Afterimage/actions/runs/43094902195",
+        "event": "pull_request",
+        "run_attempt": 1,
+        "status": "in_progress",
+        "conclusion": null,
+        "jobs": [
+          {
+            "job_id": 130781073421,
+            "url": "https://github.com/slgarza/Afterimage/actions/runs/43094902195/job/130781073421",
+            "status": "in_progress",
+            "conclusion": null,
+            "reported_step_count": 17,
+            "all_reported_steps_completed_successfully": true,
+            "latest_reported_step_completed_at_utc": "2026-11-11T20:17:55Z",
+            "job_completed_at_utc": null
+          }
+        ]
+      },
+      {
+        "workflow_run_id": 43094892226,
+        "url": "https://github.com/slgarza/Afterimage/actions/runs/43094892226",
+        "event": "push",
+        "run_attempt": 1,
+        "status": "in_progress",
+        "conclusion": null,
+        "jobs": [
+          {
+            "job_id": 130781043361,
+            "url": "https://github.com/slgarza/Afterimage/actions/runs/43094892226/job/130781043361",
+            "status": "in_progress",
+            "conclusion": null,
+            "reported_step_count": 17,
+            "all_reported_steps_completed_successfully": true,
+            "latest_reported_step_completed_at_utc": "2026-11-11T20:17:59Z",
+            "job_completed_at_utc": null
+          }
+        ]
+      }
+    ],
+    "step_success_establishes_authoritative_check_success": false,
+    "last_verified_authoritative_head_green": false,
+    "known_provider_outage_cause_established": false,
+    "current_provider_status_rechecked_by_reporter": false,
+    "independent_analysis_with_5_GETs_monotonic_seconds": 79.569963
+  },
+  "queue_interruption": {
+    "event": {
+      "at_utc": "2026-11-11T20:31:05.027569+00:00",
+      "kind": "integration_queue_stopped",
+      "paused": false,
+      "task_status_counts": {
+        "head_ci_failed_or_cutoff": 1,
+        "merged_green_provisional": 58
+      },
+      "cutoff_reached": false
+    },
+    "head_ci_wait_event": {
+      "at_utc": "2026-11-11T20:31:05.018890+00:00",
+      "kind": "head_ci_wait_finished",
+      "task_id": "B096",
+      "status": "pending"
+    },
+    "task_records_observed": 59,
+    "recorded_status_counts": {
+      "merged_green_provisional": 58,
+      "head_ci_failed_or_cutoff": 1
+    },
+    "recorded_B096_status_bucket": "head_ci_failed_or_cutoff",
+    "bucket_is_proof_of_code_failure_or_cutoff": false,
+    "interpretation": "Integrator stopped the waiting process while authoritative CI remained pending, before cutoff. The overloaded recorded bucket does not establish a code failure or cutoff.",
+    "queue_paused_flag": false,
+    "all_100_recovery_queue_outcomes_recorded": false,
+    "source_state_sha256": "ee7201de1fecbcf6d9ea0f7bac134ba7beea2f8346b997354929d11017610dd9",
+    "source_journal_sha256": "de44e2b32c54d976acdc12bddbc3e130cfec1fc751b78f2ca9cdabab093b3354",
+    "snapshot_source_bytes_unchanged_during_derivation": true
+  },
+  "ordinary_controls": [
+    {
+      "operation": "ordinary_workflow_cancel",
+      "actor_role": "trusted_credentialed_integrator",
+      "workflow_run_id": 43094892226,
+      "workflow_run_url": "https://github.com/slgarza/Afterimage/actions/runs/43094892226",
+      "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+      "started_at_utc": "2026-11-11T20:31:40.912334+00:00",
+      "ended_at_utc": "2026-11-11T20:31:42.907649+00:00",
+      "utc_timestamp_envelope_seconds": 1.995315,
+      "interval_is_monotonic_cpu_or_exclusive_effort": false,
+      "http_status": 409,
+      "local_cli_exit_code": 1,
+      "request_accepted": false,
+      "reported_rejection_reason": "run_not_in_progress",
+      "rejection_reason_provenance": "Coordinator reported original API message; receipt independently binds HTTP status and original output hashes.",
+      "private_source_receipt_sha256": "2f2773b6015568a89d1477557b940743db8355aafd5cf6cecc2c6a17232e4734",
+      "new_feature_workers_started": 0,
+      "new_CI_attempt_acknowledged": false,
+      "additional_attributable_ci_cost_usd": null
+    },
+    {
+      "operation": "ordinary_workflow_cancel",
+      "actor_role": "trusted_credentialed_integrator",
+      "workflow_run_id": 43094902195,
+      "workflow_run_url": "https://github.com/slgarza/Afterimage/actions/runs/43094902195",
+      "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+      "started_at_utc": "2026-11-11T20:31:39.615812+00:00",
+      "ended_at_utc": "2026-11-11T20:31:40.911700+00:00",
+      "utc_timestamp_envelope_seconds": 1.295888,
+      "interval_is_monotonic_cpu_or_exclusive_effort": false,
+      "http_status": 409,
+      "local_cli_exit_code": 1,
+      "request_accepted": false,
+      "reported_rejection_reason": "run_not_in_progress",
+      "rejection_reason_provenance": "Coordinator reported original API message; receipt independently binds HTTP status and original output hashes.",
+      "private_source_receipt_sha256": "3c2e2839fe5387266b0a159cf83305ed0a16a211461fc1f8352f35845d6dc78a",
+      "new_feature_workers_started": 0,
+      "new_CI_attempt_acknowledged": false,
+      "additional_attributable_ci_cost_usd": null
+    },
+    {
+      "operation": "ordinary_whole_workflow_rerun_same_sha",
+      "actor_role": "trusted_credentialed_integrator",
+      "workflow_run_id": 43094892226,
+      "workflow_run_url": "https://github.com/slgarza/Afterimage/actions/runs/43094892226",
+      "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+      "started_at_utc": "2026-11-11T20:32:00.613108+00:00",
+      "ended_at_utc": "2026-11-11T20:32:01.354245+00:00",
+      "utc_timestamp_envelope_seconds": 0.741137,
+      "interval_is_monotonic_cpu_or_exclusive_effort": false,
+      "http_status": 403,
+      "local_cli_exit_code": 1,
+      "request_accepted": false,
+      "reported_rejection_reason": "workflow_already_running",
+      "rejection_reason_provenance": "Coordinator reported original API message; receipt independently binds HTTP status and original output hashes.",
+      "private_source_receipt_sha256": "f3ad21150c28b8660b1b0edf0250343c3be610b9bd275bbca20cf5ab0437a999",
+      "new_feature_workers_started": 0,
+      "new_CI_attempt_acknowledged": false,
+      "additional_attributable_ci_cost_usd": null
+    },
+    {
+      "operation": "ordinary_whole_workflow_rerun_same_sha",
+      "actor_role": "trusted_credentialed_integrator",
+      "workflow_run_id": 43094902195,
+      "workflow_run_url": "https://github.com/slgarza/Afterimage/actions/runs/43094902195",
+      "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+      "started_at_utc": "2026-11-11T20:31:59.834338+00:00",
+      "ended_at_utc": "2026-11-11T20:32:00.612449+00:00",
+      "utc_timestamp_envelope_seconds": 0.778111,
+      "interval_is_monotonic_cpu_or_exclusive_effort": false,
+      "http_status": 403,
+      "local_cli_exit_code": 1,
+      "request_accepted": false,
+      "reported_rejection_reason": "workflow_already_running",
+      "rejection_reason_provenance": "Coordinator reported original API message; receipt independently binds HTTP status and original output hashes.",
+      "private_source_receipt_sha256": "05d9df49f2407ee8d15ece863f8e1e8a38cee4a68623ba9f8621f0cbbf62ec38",
+      "new_feature_workers_started": 0,
+      "new_CI_attempt_acknowledged": false,
+      "additional_attributable_ci_cost_usd": null
+    }
+  ],
+  "clock": {
+    "T0_utc": "2026-11-11T16:17:25.166040+00:00",
+    "cutoff_utc": "2026-11-11T22:17:25.166040+00:00",
+    "T1_utc": null,
+    "clock_reset_or_delay_excluded": false,
+    "premature_finalization_permitted": false
+  },
+  "accounting_and_acceptance": {
+    "B096_provisional_credit": 0,
+    "original_worker_outcomes_changed": false,
+    "accepted_quality_count": null,
+    "real_CI_attempt_confirmed_by_these_rejected_controls": false,
+    "new_feature_workers_started": 0,
+    "new_paid_probe_started": 0,
+    "attributable_control_local_and_CI_cost_usd": null,
+    "cancel_or_rerun_gate_bypass": false,
+    "new_CI_workflows_acknowledged_after_distinct_head_push": 2,
+    "original_rejected_controls_are_new_CI_attempts": false,
+    "same_tree_retry_establishes_B096_green": false
+  },
+  "reporter": {
+    "role": "independent_public_evidence_reporter",
+    "executed_control_mutations": false,
+    "extra_GitHub_provider_or_model_calls": 0,
+    "raw_logs_bodies_private_paths_credentials_account_data_or_extra_actor_PII_exported": false
+  },
+  "pending_followup": "New exact-head Actions checks and later merge/combined checks must genuinely finish successfully. B096 remains uncredited in the58-task checkpoint; no gate, clock or original worker result is changed.",
+  "derivation_timing": {
+    "started_at_utc": "2026-11-11T20:40:22.916824+00:00",
+    "ended_at_utc": "2026-11-11T20:40:22.930339+00:00",
+    "monotonic_elapsed_seconds": 0.01354807399911806
+  },
+  "supersedes_sha256": "aef0880dd49920c61b84ca807bf7430c4d5ef4ba8edb14d89c918f8a3a8cf5db",
+  "force_cancel_controls": [
+    {
+      "operation": "force_workflow_cancel_after_normal_cancel_and_rerun_conflict",
+      "actor_role": "trusted_credentialed_integrator",
+      "workflow_run_id": 43094892226,
+      "workflow_run_url": "https://github.com/slgarza/Afterimage/actions/runs/43094892226",
+      "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+      "started_at_utc": "2026-11-11T20:32:35.646236+00:00",
+      "ended_at_utc": "2026-11-11T20:32:37.131929+00:00",
+      "utc_timestamp_envelope_seconds": 1.485693,
+      "interval_is_monotonic_cpu_or_exclusive_effort": false,
+      "http_status": 409,
+      "local_cli_exit_code": 1,
+      "request_accepted": false,
+      "reported_rejection_reason": "run_not_in_progress",
+      "private_source_receipt_sha256": "5dbb231c834bc8dc48b99def9117c4eb8592be52aa9e26a38b64259712174611",
+      "new_feature_workers_started": 0,
+      "new_CI_attempt_acknowledged": false,
+      "additional_attributable_ci_cost_usd": null
+    },
+    {
+      "operation": "force_workflow_cancel_after_normal_cancel_and_rerun_conflict",
+      "actor_role": "trusted_credentialed_integrator",
+      "workflow_run_id": 43094902195,
+      "workflow_run_url": "https://github.com/slgarza/Afterimage/actions/runs/43094902195",
+      "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+      "started_at_utc": "2026-11-11T20:32:34.627964+00:00",
+      "ended_at_utc": "2026-11-11T20:32:35.645497+00:00",
+      "utc_timestamp_envelope_seconds": 1.017533,
+      "interval_is_monotonic_cpu_or_exclusive_effort": false,
+      "http_status": 409,
+      "local_cli_exit_code": 1,
+      "request_accepted": false,
+      "reported_rejection_reason": "run_not_in_progress",
+      "private_source_receipt_sha256": "470239df4e6d6bb758caa3977c303b28805898b4532d10630591f1398845c8b2",
+      "new_feature_workers_started": 0,
+      "new_CI_attempt_acknowledged": false,
+      "additional_attributable_ci_cost_usd": null
+    }
+  ],
+  "rejected_control_requests_total": 6,
+  "same_tree_head_retry": {
+    "operation": "same_parent_same_tree_message_only_head_retry",
+    "actor_role": "trusted_credentialed_integrator",
+    "source_attestation_sha256": "8bebcd339cb6858d4e1a4ac62c05e1d0ddd5857fb5a9e0f84d1f6e402ce59eb3",
+    "source_helper_sha256": "6569bbe1a9c2b036f1ba0dbbbd7291a3752a5d2b90e6cd1b3826130c6fb490e7",
+    "helper_independent_reviews_reported_by_coordinator": true,
+    "helper_review_receipt_hashes_not_supplied_to_reporter": true,
+    "old_head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+    "new_head_sha": "5ef03bcc2ae84cf25e67b83a8d5f1c9b51d1f208",
+    "original_reviewed_patch_sha256": "ed9017b71de1d3c6b5018b5d1e5350873304e8e1d99775fb56f50ceb09109681",
+    "original_feature_review_receipt_sha256": "78e949fd339d92d5a0b5c6e7b4bb881ed2e62686d40f7ba7ba678f87d2aa9b24",
+    "original_integration_metadata_sha256": "4b8197bcf1bce6b1e0c5885035aaf0d73167b576db6e7553d9bfd2adf199906e",
+    "original_queue_snapshot_sha256": "ee7201de1fecbcf6d9ea0f7bac134ba7beea2f8346b997354929d11017610dd9",
+    "local_git_tree_parent_facts_independently_read": [
+      {
+        "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+        "tree_sha": "76727c5c4d44d27cbe849eb7c4bf7c719e1375a3",
+        "single_parent_sha": "c2c4dcf765cac7aae261ea236b64ed1bacb2ea64"
+      },
+      {
+        "head_sha": "5ef03bcc2ae84cf25e67b83a8d5f1c9b51d1f208",
+        "tree_sha": "76727c5c4d44d27cbe849eb7c4bf7c719e1375a3",
+        "single_parent_sha": "c2c4dcf765cac7aae261ea236b64ed1bacb2ea64"
+      }
+    ],
+    "retained_remote_GET_tree_parent_facts_verified": [
+      {
+        "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+        "tree_sha": "76727c5c4d44d27cbe849eb7c4bf7c719e1375a3",
+        "single_parent_sha": "c2c4dcf765cac7aae261ea236b64ed1bacb2ea64",
+        "original_GET_response_sha256": "e389cd4822961e30a8b9ee6926d87240351fea23a9c12623697269b12e90867f"
+      },
+      {
+        "head_sha": "5ef03bcc2ae84cf25e67b83a8d5f1c9b51d1f208",
+        "tree_sha": "76727c5c4d44d27cbe849eb7c4bf7c719e1375a3",
+        "single_parent_sha": "c2c4dcf765cac7aae261ea236b64ed1bacb2ea64",
+        "original_GET_response_sha256": "21be1187dcdda9d2149d49c7a48118e447f1639a096ba542b46e507008aa33b8"
+      }
+    ],
+    "exact_old_head_lease_succeeded": true,
+    "only_one_push_attempted": true,
+    "second_push_performed": false,
+    "prepush_recorded_at_utc": "2026-11-11T20:36:02.638695+00:00",
+    "push_finished_at_utc": "2026-11-11T20:36:04.164532+00:00",
+    "prepush_receipt_sha256": "5941f930e87816a94bad9a1c3315a781ce4b1b88c3dbdbeb27c55ea138ccb972",
+    "push_result_receipt_sha256": "ea6fb146910483a8e7d966f9a93e122db956f22f8a0a28cea64f7cbbce61a68b",
+    "postpush_wrapper_initial_assertion_failed": true,
+    "initial_error_interpretation": "First post-write PR GET still reported the old head. The write was not repeated; separate read-only reconciliation subsequently verified the actual new remote head and identical code tree.",
+    "reconciled_at_utc": "2026-11-11T20:38:06.590872+00:00",
+    "reconciliation_attests_GET_only": true,
+    "retained_PR_GET_response_sha256": "e61b9ac00c905794b73c2881145ad47e18bc8ddab773092aca988e4c3925b509",
+    "verified_PR_projection": {
+      "url": "https://github.com/slgarza/Afterimage/pull/298",
+      "number": 298,
+      "created_at": "2026-11-11T20:16:07Z",
+      "updated_at": "2026-11-11T20:36:04Z",
+      "state_at_observation": "open",
+      "merged_at_observation": false,
+      "head_sha": "5ef03bcc2ae84cf25e67b83a8d5f1c9b51d1f208"
+    },
+    "original_published_at_preserved": true,
+    "original_reviewed_at_preserved": true,
+    "new_run_last_coordinator_observation_utc": "2026-11-11T20:37:42+00:00",
+    "new_run_statuses_from_coordinator_observation_not_reporter_live_GET": [
+      {
+        "workflow_run_id": 43097014170,
+        "url": "https://github.com/slgarza/Afterimage/actions/runs/43097014170",
+        "status": "queued",
+        "conclusion": null,
+        "head_sha": "5ef03bcc2ae84cf25e67b83a8d5f1c9b51d1f208"
+      },
+      {
+        "workflow_run_id": 43097007937,
+        "url": "https://github.com/slgarza/Afterimage/actions/runs/43097007937",
+        "status": "queued",
+        "conclusion": null,
+        "head_sha": "5ef03bcc2ae84cf25e67b83a8d5f1c9b51d1f208"
+      }
+    ],
+    "new_head_authoritative_green_established_in_this_appendix": false,
+    "feature_code_or_test_delta": false,
+    "additional_feature_credit": 0,
+    "new_feature_workers_started": 0,
+    "additional_attributable_ci_cost_usd": null
+  }
+}

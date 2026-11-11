@@ -1,0 +1,28 @@
+{
+  "kind": "censored_window_actual_source_stability_proof",
+  "observed_at_utc": "2026-11-11T22:18:16.493370+00:00",
+  "frozen_cutoff_utc": "2026-11-11T22:17:25.166040+00:00",
+  "source_hashes": {
+    "recovery-queue-state.json": "ee7201de1fecbcf6d9ea0f7bac134ba7beea2f8346b997354929d11017610dd9",
+    "recovery-journal.jsonl": "de44e2b32c54d976acdc12bddbc3e130cfec1fc751b78f2ca9cdabab093b3354",
+    "workload-release.json": "1012ea73fec9722b1be569a6f36b493146029bce50b1ade5a69b4cded1baa3b4"
+  },
+  "two_identical_reads_seconds_apart": 1,
+  "runtime_task_rows": 59,
+  "runtime_status_counts": {
+    "merged_green_provisional": 58,
+    "head_ci_failed_or_cutoff": 1
+  },
+  "actual_recorded_queue_stop_at_utc": "2026-11-11T20:31:05.027569+00:00",
+  "observer_actual_exit_at_utc": "2026-11-11T22:17:25.166171+00:00",
+  "observer_reserved_GET_attempts": 77,
+  "observer_latest_response_at_utc": "2026-11-11T22:17:23.540147+00:00",
+  "observer_latest_response_status": "missing_required_checks",
+  "exact_cutoff_CI_status_known": false,
+  "plan_or_merge_invoked_by_delegated_agent": false,
+  "normal_finalizer_invoked": false,
+  "normal_dashboard_marker_created": false,
+  "T1_utc": null,
+  "full_delivery_finished": false,
+  "runtime_or_budget_state_changed_by_this_proof": false
+}

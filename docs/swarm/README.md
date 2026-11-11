@@ -11,7 +11,7 @@ follow the source-linked tasks and measured reports.
 | Design | Owner-supplied Rules v1, screen flows and visual/audio/monetization contracts imported with source hashes |
 | Original backlog | A001-A100: 11 initially ready, 89 blocked; preserved scope must consume B modules without duplicating work |
 | Additional prepared cohort | B001-B100: 100 independent, source-linked module tasks with frozen contracts and disjoint ownership |
-| Current 100-worker pilot | 100 distinct worker sandboxes and controller-reported session starts observed; useful overlap, accepted deliveries and billing remain unverified |
+| Current 100-worker pilot | Cutoff-censored after six hours: all 100 originals need repair, zero validated; separate assistance qualified 56 provisional product modules and two support tasks; B096 unresolved, four later nonempty candidates unattempted, 37 empty patches; completed T1 and mature quality/billing remain unknown |
 | Historical pilot | Ten reviewed, merged PRs documented separately below |
 | Contest proof | 100 useful simultaneous agents and an efficiency win over a strong AFK baseline remain unproven |
 | Billing | Unknown/unreconciled amounts remain `null`; budget reservations are not invoices |
@@ -44,13 +44,39 @@ preparation. Local plans and browser fixtures do not establish agent concurrency
 
 | Evidence | What it establishes |
 | --- | --- |
-| [Authorized 100-worker pilot](pilot100-2026-11-11.md) / [JSON](pilot100-2026-11-11.json) / [live tracker](https://github.com/slgarza/Afterimage/issues/237) | Actual release/T0, 100 sandbox identities and observed session starts; useful contribution, accepted deliveries, billing and scale proof remain unmeasured |
+| [Authorized 100-worker pilot](pilot100-2026-11-11.md) / [JSON](pilot100-2026-11-11.json) / [live tracker](https://github.com/slgarza/Afterimage/issues/237) | Actual release/T0, 100 failed original rows and separate cutoff-censored recovery: 56 provisional products plus two support tasks; unresolved/unattempted/empty outcomes, unknown completed T1 and no proven AFK advantage |
 | [Authorized setup and compatibility probe](setup100-2026-11-11.md) / [JSON](setup100-2026-11-11.json) | Approved cumulative policy with history preserved, deployed gateway/image, one real tool/model round trip and cleanup snapshot; no B worker or live 100-agent proof |
 | [Deployment preparation](deployment100-preparation-2026-11-11.md) / [JSON](deployment100-preparation-2026-11-11.json) | Current open-issue/base preflight, tested pacing/runtime proposal and USD200 planning envelope; no authorized deployment or live cohort |
 | [Parallel100 preparation report](parallel100-preparation-2026-11-10.md) / [JSON](parallel100-preparation-2026-11-10.json) | Second 100-task inventory, static independence, local checks and launch blockers; no live run |
 | [Preparation report](preparation-2026-11-10.md) / [JSON](preparation-2026-11-10.json) | Task/issue inventory, source coverage and measured local validation; not a live cohort |
 | [Historical ten-agent report](pilot10-2026-11-10.md) / [JSON](pilot10-2026-11-10.json) | The completed earlier assisted pilot and its stated measurement limits |
 | [Benchmark policy and operator runbook](../SWARM_BENCHMARK.md) | Required evidence for every attempt, full delivery clocks, independent acceptance and reconciled cost |
+
+The live pilot package also publishes the
+[integration operator methods](methods/pilot100/operators/README.md),
+[50 independent fixtures and harness provenance](methods/pilot100/independent-acceptance/README.md),
+[analysis sources and synthetic tests](methods/pilot100/analysis/README.md),
+[CI metadata collector and provenance](methods/pilot100/ci-metadata/README.md),
+[historical CI-retry safeguards](methods/pilot100/ci-retry/README.md),
+[normal-final or cutoff-censored CI observation](methods/pilot100/ci-last-observation/README.md),
+[cutoff delivery observations](evidence/pilot100-2026-11-11/delivery-observation-at-cutoff.json),
+[provider observations](evidence/pilot100-2026-11-11/provider-resource-series.json),
+[activity diagnostics](evidence/pilot100-2026-11-11/activity-and-overhead.json) and
+[independent postmortem](evidence/pilot100-2026-11-11/independent-postmortem-public-allowlist.json).
+The [cutoff sidecar](evidence/pilot100-2026-11-11/censored-observation-close.json),
+[actual censor methods](methods/pilot100/censored-observation/README.md) and
+[after-cutoff CI observation](evidence/pilot100-2026-11-11/ci-metadata/ci-censored-20261111T222148.154960Z.json)
+retain the closing evidence. The cutoff record is an administrative observation close, not completed integration.
+Completed-workload T1 and final accepted-through-quality metrics remain unknown.
+The report retains the measured setup segment separately from the complete
+release-to-green clock. Earlier preparation has no complete historical start,
+so total setup-inclusive elapsed time and throughput remain unknown. Local
+Codex review/repair, shared services and CI also need attributable cost
+reconciliation; no extra workers does not mean economic recovery cost zero.
+The separately requested [local controller dashboard](evidence/pilot100-2026-11-11/dashboard.json)
+and [controller review PR #6](https://github.com/slgarza/swarm-control/pull/6)
+receive zero B task credit. Their browser checks and known failed attempts are
+reported separately; total authoring time and attributable cost remain unknown.
 
 Record preparation, execution, review, repairs, integration and cleanup, including
 failures and interventions. Compare the same frozen workload against the approved

@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Afterimage independent acceptance methods text bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "exported_at_utc",
+    "frozen_target_base_sha",
+    "frozen_contract_relative_path",
+    "frozen_contract_sha256",
+    "scope",
+    "harness",
+    "initial_preparation",
+    "corrections",
+    "fixtures",
+    "historical_fixture_versions",
+    "execution_summary",
+    "synthetic_smoke_examples",
+    "omitted_entries",
+    "privacy_scope"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "afterimage_parallel100_independent_acceptance_methods"
+    },
+    "exported_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "frozen_target_base_sha": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "frozen_contract_relative_path": {
+      "const": "docs/PILOT100_DOMAIN_CONTRACTS.md"
+    },
+    "frozen_contract_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "harness": {
+      "type": "object",
+      "required": [
+        "relative_path",
+        "source",
+        "sha256",
+        "private_runtime_v2_source_sha256",
+        "export_adaptation",
+        "cli_arguments",
+        "tested_dependencies",
+        "vm_limitations"
+      ],
+      "properties": {
+        "relative_path": {
+          "const": "harness/verify-pure-leaf.cjs"
+        },
+        "source": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "private_runtime_v2_source_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "export_adaptation": {
+          "type": "string"
+        },
+        "cli_arguments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tested_dependencies": {
+          "type": "object"
+        },
+        "vm_limitations": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "initial_preparation": {
+      "type": "object"
+    },
+    "corrections": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "fixtures": {
+      "type": "array",
+      "minItems": 50,
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "task_id",
+          "relative_path",
+          "source",
+          "sha256",
+          "target_source_relative_path",
+          "contract_relative_path",
+          "initial_preparation_sha256",
+          "same_as_recorded_initial_preparation",
+          "final_revision_after_original_output_inspection",
+          "original_source_execution"
+        ],
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "pattern": "^B(?:05[1-9]|0[6-9][0-9]|100)$"
+          },
+          "relative_path": {
+            "type": "string",
+            "pattern": "^fixtures/B[0-9]{3}\\.js$"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "target_source_relative_path": {
+            "type": "string",
+            "pattern": "^(packages|apps)/[A-Za-z0-9_./-]+\\.ts$"
+          },
+          "contract_relative_path": {
+            "type": "string",
+            "pattern": "^docs/PILOT100_DOMAIN_CONTRACTS\\.md#b[0-9]{3}$"
+          },
+          "initial_preparation_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "same_as_recorded_initial_preparation": {
+            "type": "boolean"
+          },
+          "final_revision_after_original_output_inspection": {
+            "type": "boolean"
+          },
+          "original_source_execution": {
+            "type": "object",
+            "required": [
+              "status",
+              "assertion_count",
+              "source_sha256"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "passed_independent_fixture",
+                  "not_executed_no_nonempty_original_source"
+                ]
+              },
+              "assertion_count": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1
+              },
+              "source_sha256": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "started_at_utc": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "finished_at_utc": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "monotonic_elapsed_seconds": {
+                "type": "number",
+                "minimum": 0
+              },
+              "harness_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "fixture_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "meaning": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "historical_fixture_versions": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "task_id",
+          "relative_path",
+          "source",
+          "sha256",
+          "superseded",
+          "executed_before_correction"
+        ],
+        "properties": {
+          "task_id": {
+            "enum": [
+              "B072",
+              "B088"
+            ]
+          },
+          "relative_path": {
+            "type": "string",
+            "pattern": "^history/fixtures/B[0-9]{3}\\.initial\\.js$"
+          },
+          "source": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "superseded": {
+            "const": true
+          },
+          "executed_before_correction": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "execution_summary": {
+      "type": "object"
+    },
+    "synthetic_smoke_examples": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object"
+      }
+    },
+    "omitted_entries": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "privacy_scope": {
+      "type": "string"
+    }
+  }
+}

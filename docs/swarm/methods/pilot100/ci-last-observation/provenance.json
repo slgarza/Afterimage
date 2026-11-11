@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "kind": "CI_last_observation_method_version_provenance",
+  "prepared_at_utc": "2026-11-11T21:05:39.125204+00:00",
+  "previous_retained_method_source_sha256": "56f70f652156ffcb8963fc7d841e6083e069cc954696d7b0acc02f5fd4dace38",
+  "current_method_source_sha256": "60a4d8f2cd43f53eb64db33573ba5a4b25a574ed770bf8042db1900b7105793b",
+  "current_tests_sha256": "2fa277a1699d0de34b21e40d3fd6e10f043e6c0a4c2fab47739f2a884cbf587f",
+  "original_current_observation_method_source_sha256": "8e85e8bf79f150b568794aa8f150a35e9b7637a2d852536650dc473a06466ffc",
+  "changes": [
+    "Separate actual-cutoff censored observation with no completed-workload T1/completion/quality claim.",
+    "Shared durable last marker makes final/censored alternatives mutually exclusive and prevents later sampling; legacy final marker respected.",
+    "Same original persistent cap and retained-source reader; no budget reset or additional remote operation during preparation.",
+    "Independent audit corrected wait measurement labels before any last invocation: pending/failed outcomes and overlapping reconciliation are event observations, not all-green or distinct-task waits; no additive total."
+  ],
+  "validation": {
+    "offline_tests_passed": 25,
+    "offline_test_reported_seconds": 0.246,
+    "ruff_source_and_tests": true,
+    "python_compilation_source_and_tests": true,
+    "synthetic_calls_only": true
+  },
+  "actual_later_observation_invoked_at_preparation": false,
+  "original_current_get_attempts": 61,
+  "reader_global_cap": 200,
+  "reader_remaining_at_preparation": 139,
+  "separate_B096_investigation_GETs": 5,
+  "operator_or_worker_sources_changed": false,
+  "runtime_or_customer_data_embedded": false,
+  "initial_authoring_duration_seconds": null,
+  "github_get_attempts_for_this_preparation": 0,
+  "github_mutations": 0,
+  "paid_or_model_operations": 0,
+  "superseded_unexecuted_scope_extension_source_sha256": "4fd0847ce883ed569ccee25064e9caa6105a2a44c9f07d600fec3e8ed1ff1f65"
+}

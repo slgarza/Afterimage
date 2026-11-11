@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "measurement_kind": "deployment_preparation",
+  "is_live_swarm_run": false,
+  "reported_at_utc": "2026-11-11T15:20:49.701523+00:00",
+  "target_repository": "slgarza/Afterimage",
+  "target_worker_base_sha": "79404fe6d4ed5cf1b59b5610a3aebbe9d1f8021f",
+  "controller_repository": "slgarza/swarm-control",
+  "controller_reviewed_head_sha": "75031a5f6633ec4be5a7b8d8d07f21f1fdfc11bd",
+  "controller_execution_commit": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+  "controller_change_pr": "https://github.com/slgarza/swarm-control/pull/4",
+  "whole_preparation_started_at_utc": null,
+  "whole_preparation_duration_seconds": null,
+  "instrumented_phase_started_at_utc": "2026-11-11T14:56:23.525171+00:00",
+  "clock_limit": "The original preparation start was not recorded. Per-command wall times below are measured independently; they are not a delivery clock.",
+  "workload": {
+    "task_count": 100,
+    "independent_ready_tasks": 100,
+    "product_module_candidates": 97,
+    "supporting_tasks": 3,
+    "task_ids": "B001-B100",
+    "issue_numbers": "134-233",
+    "shared_owned_paths": 0,
+    "dependencies": 0,
+    "definition_sha256": "202384f5cbc39191b4da13388f9e68b0da92fea794ca4e5a9bcbbab0b7dde4f0"
+  },
+  "source_preflight": {
+    "passed": true,
+    "github_get_requests": 103,
+    "open_issues_checked": 100,
+    "base_reachable": true,
+    "exact_base_ci_green": true,
+    "new_durable_task_claims": 0,
+    "original_ledger_state_unchanged": true
+  },
+  "validation": {
+    "controller_unit_tests": 235,
+    "ruff": "passed",
+    "python_compilation": "passed",
+    "frozen_source_full_benchmark": "passed",
+    "failed_attempts_retained": 1,
+    "failures": "First target validation detected concurrent preparation edits; repeated on a clean frozen worktree.",
+    "deployment_packet_bindings": 108,
+    "frozen_worker_base_bindings": 106,
+    "frozen_source_references": 16,
+    "deployment_packet_tests": 12
+  },
+  "provider_read_only_observations": {
+    "modal_access_verified": true,
+    "configured_model_secret_name_exists": true,
+    "current_model_secret_validity_probed": false,
+    "gateway_state": "stopped",
+    "active_sandboxes_observed": 0,
+    "effective_modal_quota_verified": false,
+    "model_capacity_source": "owner-reported current account limits",
+    "model_tokens_per_minute": 1000000,
+    "model_requests_per_minute": 5000,
+    "model_capacity_verified_by_api": false,
+    "interactive_daily_token_limit": null,
+    "batch_queue_label_is_interactive_daily_quota_evidence": false,
+    "owner_reported_paid_tier_upgrade": true,
+    "published_team_container_concurrency": 5000,
+    "published_plan_is_effective_workspace_quota_proof": false,
+    "capacity_reference": "https://modal.com/pricing"
+  },
+  "candidate": {
+    "status": "planning-only-not-authorized",
+    "new_total_envelope_usd": "200.00",
+    "new_model_envelope_usd": "150.00",
+    "new_infrastructure_envelope_usd": "50.00",
+    "run_model_reservation_usd": "145.00",
+    "run_infrastructure_admission_reserve_usd": "31.00",
+    "one_probe_reservation_usd": "1.85",
+    "run_and_probe_subtotal_usd": "177.85",
+    "remaining_setup_ci_repair_envelope_usd": "22.15",
+    "provider_tokens_per_minute": 800000,
+    "provider_requests_per_minute": 4000,
+    "coding_session_seconds": 1800,
+    "gateway_run_ttl_seconds": 2700,
+    "all_admission_amounts_are_provider_invoices": false,
+    "existing_subscription_cost_allocation": "Retain actual subscription charges separately and predeclare full/amortized pilot cost allocation; do not treat plan price or included credits as available pilot funds."
+  },
+  "execution": {
+    "live_profile_enabled": false,
+    "budget_migration_applied": false,
+    "new_cloud_deployments": 0,
+    "new_image_builds": 0,
+    "new_compatibility_probes": 0,
+    "swarm_workers_started": 0,
+    "swarm_feature_prs_merged": 0,
+    "actual_billed_preparation_cost_usd": null,
+    "launch_ready": false
+  },
+  "comparison": {
+    "mode": "unpaired-scale-pilot-proposal",
+    "afk_run": null,
+    "accepted_deliveries": null,
+    "full_delivery_seconds": null,
+    "actual_reconciled_cost_usd": null,
+    "merged_green_prs_per_hour": null,
+    "merged_green_prs_per_dollar": null,
+    "useful_100_agent_overlap_proven": false,
+    "same_file_collision_repair_proven": false,
+    "contest_win_proven": false
+  },
+  "remaining_gates": [
+    "actual owner budget/setup authorization",
+    "effective Modal sandbox/functions quota",
+    "authorized policy migration and enabled runtime release",
+    "authorized gateway/image/probe and authenticated capacity/pacing verification",
+    "review availability, protocol/window/deadline and separate 100-worker release"
+  ],
+  "measurements": [
+    {
+      "stage": "migration-proposal",
+      "result": "passed",
+      "started_at_utc": "2026-11-11T15:13:23.064142+00:00",
+      "ended_at_utc": "2026-11-11T15:13:23.267121+00:00",
+      "wall_seconds": 0.202982009,
+      "receipt_sha256": "22bbd0454927e39f6a5c61696d2ebd5e217b46d4e635fe1da22e59dc640878b9",
+      "output_sha256": "2f68b7e0edd5a666cf71735aea635165168995225d358bef9b546e9657b84f90"
+    },
+    {
+      "stage": "online-preflight",
+      "result": "passed",
+      "started_at_utc": "2026-11-11T15:13:29.184583+00:00",
+      "ended_at_utc": "2026-11-11T15:14:40.807711+00:00",
+      "wall_seconds": 71.623126913,
+      "receipt_sha256": "04f2716abffead8c8f4cb600e5d98ea6f1c1cbf4369f944fbd9b536976851036",
+      "output_sha256": "6c1fc8851817342a70d961fbbadce9cc0872b454adef1a71f00e6217837cd37b"
+    },
+    {
+      "stage": "controller-tests",
+      "result": "passed",
+      "started_at_utc": "2026-11-11T15:14:10.618475+00:00",
+      "ended_at_utc": "2026-11-11T15:14:38.304093+00:00",
+      "wall_seconds": 27.685614235,
+      "receipt_sha256": "6d825ba169394c34133c2c727efbe55eeed98dcbaa4dd4ec1862de054394c6fa",
+      "output_sha256": "5595c274facd5dc1cc864e9569f3a03376c4bf99db45cebdf857f5ddfe481e93"
+    },
+    {
+      "stage": "controller-ruff",
+      "result": "passed",
+      "started_at_utc": "2026-11-11T15:14:51.825876+00:00",
+      "ended_at_utc": "2026-11-11T15:14:51.869866+00:00",
+      "wall_seconds": 0.043989996,
+      "receipt_sha256": "2f8f425209ef769733563896ba883e440ed9b2c880eb643641c3a166af213b01",
+      "output_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "stage": "controller-compile",
+      "result": "passed",
+      "started_at_utc": "2026-11-11T15:14:51.806526+00:00",
+      "ended_at_utc": "2026-11-11T15:14:51.919274+00:00",
+      "wall_seconds": 0.112738638,
+      "receipt_sha256": "6fede897d05b429afa65a2f3e0fd7daa39bb082a74e9fc2c35efbabf330ad26d",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "target-baseline",
+      "result": "failed",
+      "started_at_utc": "2026-11-11T15:14:12.053186+00:00",
+      "ended_at_utc": "2026-11-11T15:14:55.871537+00:00",
+      "wall_seconds": 43.818346359,
+      "receipt_sha256": "7420e13e0e9ecab3fa3466c339967b2e3fb5813c6d65f04a17a2864a1a068f6a",
+      "output_sha256": "bd3b32af731c03113df4db550a38e3880646584dcc8c64241ee0ed322d4f59b2",
+      "failure": "source_changed_during_validation; every check phase passed; retained original attempt"
+    },
+    {
+      "stage": "frozen-source-install",
+      "result": "passed",
+      "started_at_utc": "2026-11-11T15:15:32.724311+00:00",
+      "ended_at_utc": "2026-11-11T15:15:36.140557+00:00",
+      "wall_seconds": 3.416255168,
+      "receipt_sha256": "3ffdea665989430c763d54e8adeb5e98d2783b1a85a95cbe0115a369f3069f46",
+      "output_sha256": "acdc15da101b87993b9c6a622f6d898aaec3b3becb70798ddff02e6644799473"
+    },
+    {
+      "stage": "frozen-source-baseline",
+      "result": "passed",
+      "started_at_utc": "2026-11-11T15:16:24.252923+00:00",
+      "ended_at_utc": "2026-11-11T15:17:06.839632+00:00",
+      "wall_seconds": 42.586712971,
+      "receipt_sha256": "e0007ada00549c5cfd3372f17b7d0d6e2430a440ae9262f96dc0bc6b9d015d78",
+      "output_sha256": "342ae76d16ed49ae632a81871c6d0b14300992ef42059f8c204588bbf4da12bb"
+    },
+    {
+      "stage": "packet-validator",
+      "result": "passed",
+      "started_at_utc": "2026-11-11T15:19:03.021720+00:00",
+      "ended_at_utc": "2026-11-11T15:19:04.145654+00:00",
+      "wall_seconds": 1.123951654,
+      "receipt_sha256": "bd4c1b8299224228a87404856ce2db02d21299701360a38d9905579f70e8a6b7",
+      "output_sha256": "6250d5f2bedf273e67fce88487f1bea214580315d9754e53f94abb5ba3db515c"
+    },
+    {
+      "stage": "packet-tests",
+      "result": "passed",
+      "started_at_utc": "2026-11-11T15:19:03.033094+00:00",
+      "ended_at_utc": "2026-11-11T15:19:06.957727+00:00",
+      "wall_seconds": 3.924635338,
+      "receipt_sha256": "9f3949dbdb2ed7733d4c6e76b51c43f15fa652fbc3405d86f0e10ab97cd453ba",
+      "output_sha256": "d2510f0b8a623d8a04057f531680671202db48f7fa5949868de4b525a3efc1ae"
+    },
+    {
+      "stage": "target-final-lint",
+      "result": "passed",
+      "started_at_utc": "2026-11-11T15:19:03.023559+00:00",
+      "ended_at_utc": "2026-11-11T15:19:05.272682+00:00",
+      "wall_seconds": 2.249216319,
+      "receipt_sha256": "73bc19b5e0ab437e6ffbea9fc5820f50baa27f4a575c70d3bee284349ab35c92",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "publication_policy": "Reviewed allowlist only; raw logs, account financial observations, credentials, private profile and original receipts remain outside Git.",
+  "controller_ci": "https://github.com/slgarza/swarm-control/actions/runs/43047019221"
+}

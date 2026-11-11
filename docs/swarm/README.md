@@ -11,7 +11,7 @@ follow the source-linked tasks and measured reports.
 | Design | Owner-supplied Rules v1, screen flows and visual/audio/monetization contracts imported with source hashes |
 | Original backlog | A001-A100: 11 initially ready, 89 blocked; preserved scope must consume B modules without duplicating work |
 | Additional prepared cohort | B001-B100: 100 independent, source-linked module tasks with frozen contracts and disjoint ownership |
-| Next pilot | Authorized gateway/image setup and one compatibility probe passed; 100-worker dispatch remains held and live profiles disabled |
+| Current 100-worker pilot | 100 distinct worker sandboxes and controller-reported session starts observed; useful overlap, accepted deliveries and billing remain unverified |
 | Historical pilot | Ten reviewed, merged PRs documented separately below |
 | Contest proof | 100 useful simultaneous agents and an efficiency win over a strong AFK baseline remain unproven |
 | Billing | Unknown/unreconciled amounts remain `null`; budget reservations are not invoices |
@@ -44,6 +44,7 @@ preparation. Local plans and browser fixtures do not establish agent concurrency
 
 | Evidence | What it establishes |
 | --- | --- |
+| [Authorized 100-worker pilot](pilot100-2026-11-11.md) / [JSON](pilot100-2026-11-11.json) / [live tracker](https://github.com/slgarza/Afterimage/issues/237) | Actual release/T0, 100 sandbox identities and observed session starts; useful contribution, accepted deliveries, billing and scale proof remain unmeasured |
 | [Authorized setup and compatibility probe](setup100-2026-11-11.md) / [JSON](setup100-2026-11-11.json) | Approved cumulative policy with history preserved, deployed gateway/image, one real tool/model round trip and cleanup snapshot; no B worker or live 100-agent proof |
 | [Deployment preparation](deployment100-preparation-2026-11-11.md) / [JSON](deployment100-preparation-2026-11-11.json) | Current open-issue/base preflight, tested pacing/runtime proposal and USD200 planning envelope; no authorized deployment or live cohort |
 | [Parallel100 preparation report](parallel100-preparation-2026-11-10.md) / [JSON](parallel100-preparation-2026-11-10.json) | Second 100-task inventory, static independence, local checks and launch blockers; no live run |

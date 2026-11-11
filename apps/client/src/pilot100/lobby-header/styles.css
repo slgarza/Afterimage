@@ -1,0 +1,76 @@
+.pilot-lobby-header {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  padding: 1rem;
+  padding-top: max(1rem, env(safe-area-inset-top));
+  color: #f0f0f0;
+  background: #070707;
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.pilot-lobby-header__name {
+  margin: 0 0 1rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+}
+
+.pilot-lobby-header__code {
+  margin: 0;
+}
+
+.pilot-lobby-header__code span,
+.pilot-lobby-header__code strong {
+  display: block;
+}
+
+.pilot-lobby-header__code span,
+.pilot-lobby-header__count {
+  color: #a6a6a6;
+}
+
+.pilot-lobby-header__code strong {
+  font-family: ui-monospace, monospace;
+  font-size: clamp(1.75rem, 6vw, 3rem);
+  white-space: pre-wrap;
+}
+
+.pilot-lobby-header__count {
+  font-variant-numeric: tabular-nums;
+}
+
+.pilot-lobby-header__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pilot-lobby-header__actions button {
+  max-width: 100%;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 999px;
+  background: #1b1b1b;
+  color: #f0f0f0;
+  font: inherit;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.pilot-lobby-header__actions button:disabled {
+  color: #a6a6a6;
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+.pilot-lobby-header__actions button:focus-visible {
+  outline: 3px solid #f0f0f0;
+  outline-offset: 3px;
+}
+
+.pilot-lobby-header__feedback {
+  margin: 0.75rem 0 0;
+}

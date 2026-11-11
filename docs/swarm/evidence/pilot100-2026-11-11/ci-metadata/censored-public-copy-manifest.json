@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "kind": "CENSORED_CI_metadata_approved_copy_allowlist",
+  "destination_proposal": "docs/swarm/evidence/pilot100-2026-11-11/ci-metadata/",
+  "files": [
+    {
+      "path": "ci-censored-20261111T222148.154960Z.json",
+      "sha256": "f76148bbe4de2d96dc525920e67a8fac28532c643f6cc586fa9303d2a9be7a0c",
+      "bytes": 321228
+    },
+    {
+      "path": "ci-censored-last-validation.json",
+      "sha256": "0897d0e4389d4f5303ccc7d26e370a9e3500444e6ca876026d292301d60019e5",
+      "bytes": 2697
+    }
+  ],
+  "only_last_observation": true,
+  "copy_scope": "Only these2safe metadata files plus this manifest. Never copy API bodies, caches/counters/markers, source input snapshots or raw worker logs.",
+  "full_delivery_T1_or_quality_or_exact_cutoff_status_claimed": false,
+  "additional_snapshot_or_read_authorization": false
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "kind": "offline_serial_integration_timing_audit",
+  "as_of_utc": "2026-11-11T18:26:14.257955+00:00",
+  "source_journal_sha256": "96b7976d7a73c0889bb477edb4c90b56eadb9f52dc3e2f096b50fb52cb775c2d",
+  "phase_seconds": {
+    "plan": {
+      "samples": 25,
+      "median": 0.21618034699349664,
+      "minimum": 0.1653620520082768,
+      "maximum": 0.8244422980060335,
+      "sum": 6.346556882024743
+    },
+    "prepare": {
+      "samples": 25,
+      "median": 55.856809553995845,
+      "minimum": 46.19007606600644,
+      "maximum": 66.66088335298991,
+      "sum": 1406.0418131630286
+    },
+    "publish": {
+      "samples": 25,
+      "median": 5.686929806994158,
+      "minimum": 4.9326358569960576,
+      "maximum": 6.688710620001075,
+      "sum": 143.44816151801206
+    },
+    "head_ci_wait": {
+      "samples": 24,
+      "median": 112.04864312700374,
+      "minimum": 65.48007221799344,
+      "maximum": 115.4099797349918,
+      "sum": 2499.7246666980063
+    },
+    "merge": {
+      "samples": 24,
+      "median": 6.169358628998452,
+      "minimum": 5.384785236004973,
+      "maximum": 7.076278082997305,
+      "sum": 148.52272243701736
+    }
+  },
+  "completed_cycles": {
+    "count": 24,
+    "median_seconds": 176.66952766951,
+    "minimum_seconds": 130.42275492601038,
+    "maximum_seconds": 193.35684723396844
+  },
+  "measured_ci_wait_is_observed_not_actual_runner_duration": true,
+  "actual_polling_tax_unmeasured": true,
+  "findings": [
+    "Current-base full validation is mandatory for each candidate; prevalidated parallel branches become stale after another merge.",
+    "Push and pull_request both trigger head CI; main push adds combined-result CI. No workflow change was made during the pilot.",
+    "Most phase wall time is local validation and observed head-CI wait; parallel merge, skipped checks or altered PR granularity would change the evaluated protocol.",
+    "A shorter poll can only reduce observation delay, not CI computation or queue duration; reducing the normal sleep only removes at most one intentional poll-sleep interval per successful observation; API/read failures can add separate delay.",
+    "Prepare of the next candidate already overlaps previous combined-result CI sampling, so that tail is not simply additive per PR."
+  ],
+  "safe_substantial_midrun_speedup_without_revalidation_established": false,
+  "candidate_future_changes_not_applied": [
+    "Reviewed workflow event deduplication while retaining PR exact-head and main combined checks.",
+    "A new tested merge queue that validates exact speculative combined trees and preserves task granularity.",
+    "Dependency caching with the same required install/validation commands and separate measurement."
+  ],
+  "runtime_or_GitHub_or_provider_mutations": 0,
+  "raw_commands_outputs_private_paths_and_account_finance_exported": false,
+  "normal_poll_sleep_interval_seconds": 15,
+  "maximum_intentional_sleep_before_next_normal_poll_seconds": 15,
+  "API_read_latency_and_retry_delay_are_not_bounded_by_poll_sleep": true,
+  "successful_phase_samples_only": true
+}

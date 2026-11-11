@@ -1,0 +1,434 @@
+{
+  "schema_version": 1,
+  "kind": "independent_B096_stalled_head_ci_metadata_investigation",
+  "task_id": "B096",
+  "repository": "slgarza/Afterimage",
+  "pr_number": 298,
+  "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+  "observed_at_utc": "2026-11-11T20:31:10.941889+00:00",
+  "observation_started_at_utc": "2026-11-11T20:30:49.648771+00:00",
+  "receipt_completed_at_utc": "2026-11-11T20:32:09.218386+00:00",
+  "get_scope": {
+    "separate_explicit_root_investigation": true,
+    "limit": 6,
+    "attempts": 5,
+    "final_ci_collector_attempts_still": 61,
+    "final_ci_collector_global_limit": 200,
+    "final_ci_collector_remaining": 139
+  },
+  "original_response_bodies_retained_private": true,
+  "response_headers_or_stderr_retained": false,
+  "response_sources": [
+    {
+      "attempt": 1,
+      "response_body_sha256": "b3571c59318038f883398eec4fa376d89ac5f577d364a996576c72a046e03ff5"
+    },
+    {
+      "attempt": 2,
+      "response_body_sha256": "5740f5765a34ce62e18d1426af933d8b7e35ab546f4e909f129caadeb17c4e6b"
+    },
+    {
+      "attempt": 3,
+      "response_body_sha256": "0eb9ef81aff98a7ee91f80dedc479271a73947abe313be1c86c6fa4280e9f036"
+    },
+    {
+      "attempt": 4,
+      "response_body_sha256": "1da9f4ef214a7f5ad8235712a637794e1b6eec916f7389c90a9f1cd88493d7d9"
+    },
+    {
+      "attempt": 5,
+      "response_body_sha256": "6d8687556652dc898656cf52a15535e8e4ff79a4cf60e451e9af7c2e3abc00c3"
+    }
+  ],
+  "checks": [
+    {
+      "id": 130781073421,
+      "name": "checks",
+      "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+      "status": "in_progress",
+      "conclusion": null,
+      "started_at": "2026-11-11T20:16:12Z",
+      "completed_at": null,
+      "details_url": "https://github.com/slgarza/Afterimage/actions/runs/43094902195/job/130781073421"
+    },
+    {
+      "id": 130781043361,
+      "name": "checks",
+      "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+      "status": "in_progress",
+      "conclusion": null,
+      "started_at": "2026-11-11T20:16:09Z",
+      "completed_at": null,
+      "details_url": "https://github.com/slgarza/Afterimage/actions/runs/43094892226/job/130781043361"
+    }
+  ],
+  "observations": [
+    {
+      "run": {
+        "id": 43094902195,
+        "name": "CI",
+        "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+        "event": "pull_request",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_attempt": 1,
+        "created_at": "2026-11-11T20:16:10Z",
+        "run_started_at": "2026-11-11T20:16:10Z",
+        "updated_at": "2026-11-11T20:16:13Z",
+        "html_url": "https://github.com/slgarza/Afterimage/actions/runs/43094902195",
+        "response_body_sha256": "5740f5765a34ce62e18d1426af933d8b7e35ab546f4e909f129caadeb17c4e6b"
+      },
+      "jobs_response_body_sha256": "0eb9ef81aff98a7ee91f80dedc479271a73947abe313be1c86c6fa4280e9f036",
+      "jobs": [
+        {
+          "id": 130781073421,
+          "name": "checks",
+          "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+          "status": "in_progress",
+          "conclusion": null,
+          "started_at": "2026-11-11T20:16:12Z",
+          "completed_at": null,
+          "html_url": "https://github.com/slgarza/Afterimage/actions/runs/43094902195/job/130781073421",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:16:13Z",
+              "completed_at": "2026-11-11T20:16:14Z"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:16:14Z",
+              "completed_at": "2026-11-11T20:16:15Z"
+            },
+            {
+              "number": 3,
+              "name": "Fetch controller source for release pin verification",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:16:15Z",
+              "completed_at": "2026-11-11T20:16:16Z"
+            },
+            {
+              "number": 4,
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:16:16Z",
+              "completed_at": "2026-11-11T20:16:17Z"
+            },
+            {
+              "number": 5,
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:16:17Z",
+              "completed_at": "2026-11-11T20:17:06Z"
+            },
+            {
+              "number": 6,
+              "name": "Test local benchmark receipt tooling",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:06Z",
+              "completed_at": "2026-11-11T20:17:08Z"
+            },
+            {
+              "number": 7,
+              "name": "Validate frozen design and linked task metadata",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:08Z",
+              "completed_at": "2026-11-11T20:17:08Z"
+            },
+            {
+              "number": 8,
+              "name": "Validate independent 100-task preparation",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:08Z",
+              "completed_at": "2026-11-11T20:17:08Z"
+            },
+            {
+              "number": 9,
+              "name": "Validate disabled deployment packet and frozen Git inputs",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:08Z",
+              "completed_at": "2026-11-11T20:17:09Z"
+            },
+            {
+              "number": 10,
+              "name": "Run npm run lint",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:09Z",
+              "completed_at": "2026-11-11T20:17:11Z"
+            },
+            {
+              "number": 11,
+              "name": "Run npm run typecheck",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:11Z",
+              "completed_at": "2026-11-11T20:17:28Z"
+            },
+            {
+              "number": 12,
+              "name": "Run npm test",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:28Z",
+              "completed_at": "2026-11-11T20:17:46Z"
+            },
+            {
+              "number": 13,
+              "name": "Run npm run build",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:46Z",
+              "completed_at": "2026-11-11T20:17:55Z"
+            },
+            {
+              "number": 24,
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:55Z",
+              "completed_at": "2026-11-11T20:17:55Z"
+            },
+            {
+              "number": 25,
+              "name": "Post Fetch controller source for release pin verification",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:55Z",
+              "completed_at": "2026-11-11T20:17:55Z"
+            },
+            {
+              "number": 26,
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:55Z",
+              "completed_at": "2026-11-11T20:17:55Z"
+            },
+            {
+              "number": 27,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:55Z",
+              "completed_at": "2026-11-11T20:17:55Z"
+            }
+          ],
+          "all_reported_steps_completed_successfully": true,
+          "reported_step_count": 17
+        }
+      ]
+    },
+    {
+      "run": {
+        "id": 43094892226,
+        "name": "CI",
+        "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_attempt": 1,
+        "created_at": "2026-11-11T20:16:07Z",
+        "run_started_at": "2026-11-11T20:16:07Z",
+        "updated_at": "2026-11-11T20:16:10Z",
+        "html_url": "https://github.com/slgarza/Afterimage/actions/runs/43094892226",
+        "response_body_sha256": "1da9f4ef214a7f5ad8235712a637794e1b6eec916f7389c90a9f1cd88493d7d9"
+      },
+      "jobs_response_body_sha256": "6d8687556652dc898656cf52a15535e8e4ff79a4cf60e451e9af7c2e3abc00c3",
+      "jobs": [
+        {
+          "id": 130781043361,
+          "name": "checks",
+          "head_sha": "ea11cf013e0d6d7be4161a39b2424cacd31e4ad2",
+          "status": "in_progress",
+          "conclusion": null,
+          "started_at": "2026-11-11T20:16:09Z",
+          "completed_at": null,
+          "html_url": "https://github.com/slgarza/Afterimage/actions/runs/43094892226/job/130781043361",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:16:10Z",
+              "completed_at": "2026-11-11T20:16:11Z"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:16:11Z",
+              "completed_at": "2026-11-11T20:16:12Z"
+            },
+            {
+              "number": 3,
+              "name": "Fetch controller source for release pin verification",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:16:12Z",
+              "completed_at": "2026-11-11T20:16:13Z"
+            },
+            {
+              "number": 4,
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:16:13Z",
+              "completed_at": "2026-11-11T20:16:16Z"
+            },
+            {
+              "number": 5,
+              "name": "Run npm ci",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:16:16Z",
+              "completed_at": "2026-11-11T20:17:08Z"
+            },
+            {
+              "number": 6,
+              "name": "Test local benchmark receipt tooling",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:08Z",
+              "completed_at": "2026-11-11T20:17:11Z"
+            },
+            {
+              "number": 7,
+              "name": "Validate frozen design and linked task metadata",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:11Z",
+              "completed_at": "2026-11-11T20:17:11Z"
+            },
+            {
+              "number": 8,
+              "name": "Validate independent 100-task preparation",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:11Z",
+              "completed_at": "2026-11-11T20:17:11Z"
+            },
+            {
+              "number": 9,
+              "name": "Validate disabled deployment packet and frozen Git inputs",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:11Z",
+              "completed_at": "2026-11-11T20:17:11Z"
+            },
+            {
+              "number": 10,
+              "name": "Run npm run lint",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:11Z",
+              "completed_at": "2026-11-11T20:17:14Z"
+            },
+            {
+              "number": 11,
+              "name": "Run npm run typecheck",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:14Z",
+              "completed_at": "2026-11-11T20:17:31Z"
+            },
+            {
+              "number": 12,
+              "name": "Run npm test",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:31Z",
+              "completed_at": "2026-11-11T20:17:49Z"
+            },
+            {
+              "number": 13,
+              "name": "Run npm run build",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:49Z",
+              "completed_at": "2026-11-11T20:17:58Z"
+            },
+            {
+              "number": 24,
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:58Z",
+              "completed_at": "2026-11-11T20:17:58Z"
+            },
+            {
+              "number": 25,
+              "name": "Post Fetch controller source for release pin verification",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:58Z",
+              "completed_at": "2026-11-11T20:17:58Z"
+            },
+            {
+              "number": 26,
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:58Z",
+              "completed_at": "2026-11-11T20:17:59Z"
+            },
+            {
+              "number": 27,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "started_at": "2026-11-11T20:17:59Z",
+              "completed_at": "2026-11-11T20:17:59Z"
+            }
+          ],
+          "all_reported_steps_completed_successfully": true,
+          "reported_step_count": 17
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "Both push and pull_request workflow runs at the reviewed exact head were in_progress with null conclusions; both jobs and both check runs were also in_progress/null.",
+    "All17 reported steps in each job, including post steps and Complete job, were completed/success, ending20:17:55Z and20:17:59Z respectively. This is metadata inconsistency or incomplete finalization, not sufficient evidence of a successful check conclusion.",
+    "The source does not establish whether a runner remains active, which backend component is delayed, or a general service outage."
+  ],
+  "recovery_proposal": {
+    "mutations_executed_by_reviewer": false,
+    "steps": [
+      "Quiesce the integration waiter through its supported operator path; preserve the original full delivery clock and pending state.",
+      "Cancel both stalled runs ordinarily; confirm terminal states before attempting rerun.",
+      "Rerun both entire workflows at the same head, preserving old attempts and their delay/outcomes.",
+      "Require actual Actions check-run status completed/conclusion success for the exact reviewed head before integration. Do not treat step success as check success or waive the gate."
+    ],
+    "reason_both_runs": "The frozen integrator green_checks validates that every returned Actions check is successful, so a cancelled sibling can still block if only one run is repeated.",
+    "commands_verified_against_installed_cli_help": [
+      "gh run cancel RUN_ID -R slgarza/Afterimage",
+      "gh run rerun RUN_ID -R slgarza/Afterimage"
+    ],
+    "if_ordinary_cancel_stays_stuck": "Alert coordinator and inspect the documented force-cancel path separately; do not loop mutations or relax acceptance."
+  },
+  "timing": {
+    "monotonic_elapsed_seconds": 79.569963,
+    "note": "One offline analysis plus5real read-only GitHub metadata requests and local CLI help. No root mutation time included."
+  },
+  "quality_acceptance_changed": false,
+  "delivery_count_changed": false,
+  "github_mutations": 0,
+  "paid_or_model_operations": 0,
+  "queue_mutations": 0
+}

@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "revision": 5,
+  "kind": "parallel_local_controller_and_GUI_delivery_not_pilot_feature_work",
+  "as_of_utc": "2026-11-11T22:24:42.625542+00:00",
+  "source_repository": "slgarza/swarm-control",
+  "source_commit": "5ada06cb91914864a28f4e6bdc60a19c5e94c260",
+  "source_tree": "b0472fc8e34763542c1e4a08df73f1c82b86b2e4",
+  "review_pr_url": "https://github.com/slgarza/swarm-control/pull/6",
+  "pr_state_at_export": "draft",
+  "interface_language": "English",
+  "display_locale": "en-US",
+  "currency": "USD",
+  "timestamp_timezone": "UTC",
+  "pilot_controller_commit": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+  "pilot_feature_credit": 0,
+  "live_controller_source_changed_during_run": false,
+  "original_worker_outcomes_changed": false,
+  "authoring_start_utc": null,
+  "total_authoring_seconds": null,
+  "actual_billed_GUI_cost_usd": null,
+  "authoring_time_reason": "No dedicated timer preceded initial preparation; observed checks and browser intervals are reported separately.",
+  "controller_validation": {
+    "full_unit_tests": 332,
+    "all_passed": true,
+    "measured_checks": [
+      {
+        "check": "unit",
+        "started_at_utc": "2026-11-11T22:18:44.914910+00:00",
+        "ended_at_utc": "2026-11-11T22:19:20.691491+00:00",
+        "wall_seconds": 35.77656711899908,
+        "return_code": 0,
+        "output_sha256": "1a453455f0001482c7073ac2cae830c305bb017f81369a0e993c10ab893ee2d9"
+      },
+      {
+        "check": "ruff",
+        "started_at_utc": "2026-11-11T22:19:20.691712+00:00",
+        "ended_at_utc": "2026-11-11T22:19:20.715818+00:00",
+        "wall_seconds": 0.02412579501105938,
+        "return_code": 0,
+        "output_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      {
+        "check": "compile",
+        "started_at_utc": "2026-11-11T22:19:20.715997+00:00",
+        "ended_at_utc": "2026-11-11T22:19:20.802620+00:00",
+        "wall_seconds": 0.08664316601061728,
+        "return_code": 0,
+        "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "check": "javascript",
+        "started_at_utc": "2026-11-11T22:19:20.802863+00:00",
+        "ended_at_utc": "2026-11-11T22:19:20.842850+00:00",
+        "wall_seconds": 0.03999298300186638,
+        "return_code": 0,
+        "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "validation_receipt_sha256": "4f13cf71d8f983798163af771821ad99b0dbf4bb444b63bd667a316ffc905917",
+    "source_unchanged_during_recorded_final_checks": true
+  },
+  "functional_browser_checks": {
+    "project_and_run_selection_passed": 17,
+    "selection_receipt_sha256": "050f20992a4ea39488fee32911aac3eedf02619e44fd6aa1d347683e99d0a897",
+    "gallery_checks_passed": 7,
+    "gallery_wall_seconds": 1.998163192,
+    "gallery_receipt_sha256": "800d7a667bb7591f0cd1a5cbae81ef0254f5fe8c530a6e6335dd218ae0a4a582",
+    "console_errors": 0,
+    "outside_localhost_page_requests": 0,
+    "viewport_widths_px": [
+      1600,
+      390,
+      320
+    ],
+    "empty_project_does_not_reuse_prior_metrics": true,
+    "bookmarks_refresh_and_request_races_checked": true
+  },
+  "packaging": {
+    "source_commit": "5ada06cb91914864a28f4e6bdc60a19c5e94c260",
+    "wheel_sha256": "095f9bf034f15e2e6920360969dac61f5b5950758c965a5580ddfd36acc17a47",
+    "wall_seconds": 3.3406151319941273,
+    "all_bundled_assets_and_backend_match_current_source": true,
+    "asset_sha256": {
+      "swarm_control/dashboard_static/index.html": "4fd6512c043332f23b00fa8c742d2fc5b96830a38c0ee9184fbe3320595be1f3",
+      "swarm_control/dashboard_static/app.js": "fb6f98d891bea2cb69e7038a46ce800ce01a31ad93f2acf32c8b48b6186daa58",
+      "swarm_control/dashboard_static/styles.css": "e97e6a70d16c65bf00e8f0b45093e53bb4a0d6fc83ae630718999039db12cc18",
+      "swarm_control/dashboard.py": "b56816131410a4f417b387948c33b996bf8f9e45fed07b7266585eecc22ce810"
+    },
+    "runtime_data_or_secrets_bundled": false,
+    "new_runtime_dependencies": false
+  },
+  "package_receipt_sha256": "c52589f306332790c7cf9ea9bd7be7b26ae27c91c96fba0ab01bd46002fcce34",
+  "exact_head_GitHub_checks": [
+    {
+      "id": 130827624854,
+      "name": "checks",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5ada06cb91914864a28f4e6bdc60a19c5e94c260",
+      "html_url": "https://github.com/slgarza/swarm-control/actions/runs/43111274421/job/130827624854",
+      "started_at": "2026-11-11T22:22:53Z",
+      "completed_at": "2026-11-11T22:23:32Z"
+    },
+    {
+      "id": 130827600318,
+      "name": "checks",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5ada06cb91914864a28f4e6bdc60a19c5e94c260",
+      "html_url": "https://github.com/slgarza/swarm-control/actions/runs/43111267366/job/130827600318",
+      "started_at": "2026-11-11T22:22:50Z",
+      "completed_at": "2026-11-11T22:23:27Z"
+    }
+  ],
+  "exact_head_CI_status_at_export": "success; two completed trusted GitHub Actions check runs",
+  "gallery_url": "https://github.com/slgarza/swarm-control/blob/5ada06cb91914864a28f4e6bdc60a19c5e94c260/docs/DASHBOARD.md#screenshots",
+  "gallery_source_as_of_utc": "2026-11-11T22:11:43.831143+00:00",
+  "screenshots": [
+    {
+      "filename": "docs/images/dashboard-workspace-overview-2026-11-11.png",
+      "sha256": "ccf0b8e96987bc0984f6bda665c49b5162faf6e1089ac67df806722d6a690f19",
+      "bytes": 163414,
+      "width": 1600,
+      "height": 1220,
+      "caption": "Configured project and run selection; Afterimage historical observation, source 2026-11-11T22:11:43.831143+00:00. Original 100 need repair, zero validated; 56 product and two support recoveries remain provisional. T1 unknown."
+    },
+    {
+      "filename": "docs/images/dashboard-task-detail-2026-11-11.png",
+      "sha256": "e9e902f9a925092e74e251b20e1faa40dabf28f66457b84148a993870d2034df",
+      "bytes": 242850,
+      "width": 1600,
+      "height": 1220,
+      "caption": "B003 independent evidence and separate coordinator repair; original worker failure remains preserved. Historical source 2026-11-11T22:11:43.831143+00:00."
+    },
+    {
+      "filename": "docs/images/dashboard-budget-evidence-2026-11-11.png",
+      "sha256": "a7506df481deb186a0f1f2a60be130ee613f223493472c228b28a34aba054a3d",
+      "bytes": 139428,
+      "width": 1600,
+      "height": 1220,
+      "caption": "Retained admission reservations and conservative exposure ceilings are separate from unknown actual attributable invoices; historical source 2026-11-11T22:11:43.831143+00:00."
+    },
+    {
+      "filename": "docs/images/dashboard-workspace-mobile-2026-11-11.png",
+      "sha256": "9733406a45494440b2630c969036306b8ac917e73f09935a2c388e6297432d18",
+      "bytes": 54336,
+      "width": 390,
+      "height": 844,
+      "caption": "English local workspace selection at 390 pixels; actual historical Afterimage observation 2026-11-11T22:11:43.831143+00:00."
+    },
+    {
+      "filename": "docs/images/dashboard-workspace-empty-2026-11-11.png",
+      "sha256": "040ee41076c69e822b1a9d74a362a4603c7d3ac98d79f4cab4f58bca7d891289",
+      "bytes": 87744,
+      "width": 1600,
+      "height": 1220,
+      "caption": "The public swarm-control project has no run evidence in this explicitly configured catalog; no example metrics are fabricated."
+    }
+  ],
+  "observed_pilot": {
+    "original_failed_workers": 100,
+    "original_validated_workers": 0,
+    "provisional_product": 56,
+    "provisional_support": 2,
+    "T1": null,
+    "quality_acceptance": null,
+    "actual_billed_cost": null
+  },
+  "new_capabilities": [
+    "Explicit project/run catalog with private source paths and repository binding",
+    "Empty-state clearing and bookmarkable selection",
+    "Persistent shared-failure admission brakes; admitted work drains",
+    "Separate durable merge action reservations; uncertain outcomes forbid duplicate PUT",
+    "Read-only CI classification and conservative scaling advice"
+  ],
+  "new_paid_worker_runs": 0,
+  "provider_calls_for_GUI_runtime": 0,
+  "accounting_or_execution_writes_for_GUI_runtime": 0,
+  "known_failed_or_superseded_attempts": [
+    "Browser driver157 and installed Chrome140 mismatch before page load",
+    "Matching Snap browser exited before page load",
+    "An initial browser subprocess did not survive its execution cell; repeated in a retained session",
+    "Frontend initially referenced asset paths that did not match the server; corrected and verified200",
+    "Favicon request returned404; server now returns204",
+    "Visual review found duplicated currency notation and small mobile targets; corrected before final browser checks",
+    "Initial wheel command without build isolation failed because the runtime environment lacked the declared build backend; isolated declared-build tooling succeeded",
+    "Earlier successful wheel builds were superseded after legitimate frontend fixes and CSS formatting; final package was rebuilt and its asset bytes verified",
+    "The initial cross-site request guard also blocked a top-level link to the static root document; reproduced403, narrowed to permit only root navigate/document, regression verified200 while APIs/assets/embeds/foreign Origin/Host remain403.",
+    "The installed gh pr edit failed on deprecated GraphQL classic projectCards; a REST GET confirmed the prior body unchanged, then the authorized body update was applied and verified via REST PATCH.",
+    "Product-chart footer originally mixed all-task attribution counters with a separate support subtotal. Corrected before final report; verified using an actual qualified support item, without changing live data.",
+    "First English browser-copy scan found the frozen B037 task title using a language autonym. The target-owned presentation adapter now displays its English language name; original task/worker bytes and qualification remain unchanged. The failed scan is retained separately from worker failures.",
+    "An initial project-selection browser script waited on reload incorrectly; its failed private receipt is retained, then the corrected synchronization passed.",
+    "A gallery privacy assertion initially inspected hidden unselected options; it was corrected to verify rendered public selections, without publishing the private catalog.",
+    "A real empty-state header retained Snapshot available; fixed to No run evidence and verified in the final gallery.",
+    "First full operations suite failed an old assertion that the entire accounting directory remained absent. The intended separate operations journal creates that directory; the assertion now verifies that control.sqlite3 is absent and operations.sqlite3 exists. The corrected full332-test run passed.",
+    "A local post-restart diagnostic printed a nonexistent as_of key after its actual assertions passed; the diagnostic was corrected and rerun successfully."
+  ],
+  "evidence_gaps": [
+    "Original raw output of the first no-build-isolation packaging failure was not separately saved; the tool transcript and unknown duration are retained explicitly.",
+    "No exclusive human/agent attention time or attributable Codex, host, CI and shared-service invoice was measured.",
+    "Earlier superseded auxiliary GUI wheel binaries were overwritten by development builds; their logs, hashes and public source versions remain. Latest wheels are retained, and future build directories are unique."
+  ],
+  "supersedes_public_allowlist_sha256": "b55b365c0a9ab587ea28ec9bade8653aa534152932bdddb89f5b9bf2743d8d91",
+  "version_history": [
+    {
+      "source_commit": "2d1be37c2b27ff14651d28fbf1d38dcbbabe356c",
+      "source_tree": "04af0d3e5a921d84c5ae30731c699c80623fb3ab",
+      "full_unit_tests": 258,
+      "focused_dashboard_tests": 23,
+      "recorded_full_suite_seconds": 29.771162001998164,
+      "wheel_sha256": "6b00eb02a3139dfd7fc4faf001d5bc033c6e5436eec08a523e8060076cc160a6",
+      "reason": "Initial working GUI; later cross-site top-level link bug and stale documentation were corrected."
+    },
+    {
+      "source_commit": "28f0c49b3d841da040e315949b1b475887afb7dc",
+      "source_tree": "bb3244467d84d43dcd0e58f72d1b0a770194b252",
+      "full_unit_tests": 259,
+      "focused_dashboard_tests": 24,
+      "wheel_sha256": "b89e9bd9b92e73b72b3899770cc7567176b7a6805f2495df97dd2106ae690fd3",
+      "reason": "HTTP navigation guard fixed; product-chart footer subsequently corrected to exclude supporting units from both product attribution groups."
+    },
+    {
+      "source_commit": "17ac2fcd3eec30fea5b75d8a343c22ee5298eef4",
+      "source_tree": "df5ced7b66b8981a64e3fb56b661f6e7c91a5ae9",
+      "full_unit_tests": 259,
+      "focused_dashboard_tests": 24,
+      "wheel_sha256": "25c6e1febb8c84cafead28452fd3af4097829e7aa2f6e38fcc876883760d3c44",
+      "exact_head_GitHub_checks": [
+        {
+          "head_sha": "17ac2fcd3eec30fea5b75d8a343c22ee5298eef4",
+          "status": "success",
+          "url": "https://github.com/slgarza/swarm-control/actions/runs/43089854848/job/130763719897",
+          "completed_at_utc": "2026-11-11T19:44:00Z"
+        },
+        {
+          "head_sha": "17ac2fcd3eec30fea5b75d8a343c22ee5298eef4",
+          "status": "success",
+          "url": "https://github.com/slgarza/swarm-control/actions/runs/43089845850/job/130763689332",
+          "completed_at_utc": "2026-11-11T19:43:57Z"
+        }
+      ],
+      "functional_browser_checks": {
+        "passed": 21,
+        "wall_seconds": 24.718,
+        "started_at_utc": "2026-11-11T19:00:28.906+00:00",
+        "ended_at_utc": "2026-11-11T19:00:53.624+00:00",
+        "source_receipt_sha256": "b180e18eff05f0457e1b07057ebb7a4273e28911eed16fcf9d6b73f55890a9dc",
+        "console_errors": 0,
+        "outside_localhost_page_requests": 0,
+        "viewport_widths_px": [
+          1600,
+          390,
+          320
+        ],
+        "mobile_targets_at_least_44px": true,
+        "post_css_format_smoke_checks": 6,
+        "post_css_format_smoke_seconds": 1.392
+      },
+      "reason": "Historical Spanish interface with corrected product/support math; superseded by the user-requested English interface. Prior results remain historical."
+    },
+    {
+      "revision": 4,
+      "source_commit": "839d1ae5ff3014a52d79fcdb1e44771b45799662",
+      "source_tree": "b07b32a356305e804308c4bd8a7739d493835a60",
+      "full_unit_tests": 259,
+      "wheel_sha256": "eb7ebfc7c12ba5b0db603fad0a83b95a313b0851bce167d49c0890b700e57697",
+      "allowlist_sha256": "b55b365c0a9ab587ea28ec9bade8653aa534152932bdddb89f5b9bf2743d8d91",
+      "reason": "Historical English single-project viewer; superseded by registered project/run selection and operational feedback."
+    }
+  ],
+  "delivery_window_state": "CENSORED administrative window closed; unfinished delivery T1 remains null; no normal completion marker used"
+}

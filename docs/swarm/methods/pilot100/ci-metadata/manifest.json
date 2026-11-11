@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "kind": "safe_ci_metadata_method_package",
+  "destination": "docs/swarm/methods/pilot100/ci-metadata/",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "16a1b7a5d322a19ce0b841774cce09e5ba6b3dd28b6f0cd7acd4df5e5009052f",
+      "bytes": 4220
+    },
+    {
+      "path": "collect-ci-metadata.py",
+      "sha256": "56f70f652156ffcb8963fc7d841e6083e069cc954696d7b0acc02f5fd4dace38",
+      "bytes": 27414
+    },
+    {
+      "path": "export-validation.json",
+      "sha256": "715b59bca3a48300183d5e2bb31805d0a699a9b02b44054950086d1cb955cc19",
+      "bytes": 2166
+    },
+    {
+      "path": "method-history.json",
+      "sha256": "5d5db9b56af87f851e9572b9442a4d5c443b00e3ee6ecdae1c8dd62c392fd0e7",
+      "bytes": 17851
+    },
+    {
+      "path": "test-ci-metadata.py",
+      "sha256": "148ebce717c37cbcb706779616c856fa195c85ab18b8d2f909591aebc230e373",
+      "bytes": 19876
+    }
+  ],
+  "copy_scope": "Only these method files and this manifest; never private inputs, API bodies, caches, counters, invocation markers or queue state."
+}

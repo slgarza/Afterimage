@@ -1,0 +1,25 @@
+{
+  "kind": "standalone_interim_pilot_figure",
+  "as_of_utc": "2026-11-11T18:05:12.647369+00:00",
+  "source": {
+    "delivery_source_sha256": "a4189b95ed8cfb07de40077d49e59adcc1cdcb050c0c7d9c4d67160032c35848",
+    "activity_source_sha256": "7d9c11de14d63939d2e773764b047113fbe701a45eecd9c01a4fbe4efa9cab9e",
+    "plot_source_sha256": "8de470054abddbd637c304e028970e4bec9fe286dd38672805c6bc1fe5806a49",
+    "plot_inputs_sha256": "ac5e6235590ab29d3f4ebae4bf7d6d168c46fbe57e806b1ceb2b1e6bdcf21a2e",
+    "as_of_utc": "2026-11-11T18:05:12.647369+00:00",
+    "matplotlib_version": "3.10.7",
+    "final_acceptance_unknown": true,
+    "source_is_public_allowlist_only": true
+  },
+  "files": {
+    "plot-inputs-public-allowlist.json": "ac5e6235590ab29d3f4ebae4bf7d6d168c46fbe57e806b1ceb2b1e6bdcf21a2e",
+    "pilot100-progress-20261111T180512Z.png": "b0fb49c3039158c939a8bcff72e91b4d7f269573e13294714b03ce17b619ea51",
+    "pilot100-progress-20261111T180512Z.svg": "e452ec62d86e69fa0cb783741ba85f25231dbc08a2500f88c4fd7d5db680b7a3"
+  },
+  "provisional_product_modules": 17,
+  "support": 0,
+  "B003_distinct_events": 1,
+  "coding_deadline_minutes_after_T0": 31.813448549999997,
+  "no_raw_runtime_or_account_finance": true,
+  "external_operations": 0
+}

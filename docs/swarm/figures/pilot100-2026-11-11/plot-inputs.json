@@ -1,0 +1,849 @@
+{
+  "schema_version": 1,
+  "T0_utc": "2026-11-11T16:17:25.166040+00:00",
+  "as_of_utc": "2026-11-11T18:05:12.647369+00:00",
+  "asof_minutes_from_T0": 107.79135548333333,
+  "events": [
+    {
+      "task_id": "B010",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:18:58.001235+00:00",
+      "minutes_from_T0": 61.547253250000004,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B003",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:21:37.390090+00:00",
+      "minutes_from_T0": 64.20373416666666,
+      "corrective_pr_does_not_add_second_task_unit": true
+    },
+    {
+      "task_id": "B011",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:24:08.127049+00:00",
+      "minutes_from_T0": 66.71601681666667,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B014",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:26:32.912057+00:00",
+      "minutes_from_T0": 69.12910028333334,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B008",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:29:32.669876+00:00",
+      "minutes_from_T0": 72.12506393333334,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B015",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:32:46.811084+00:00",
+      "minutes_from_T0": 75.36075073333333,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B023",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:35:18.750328+00:00",
+      "minutes_from_T0": 77.89307146666667,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B026",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:38:16.651996+00:00",
+      "minutes_from_T0": 80.85809926666667,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B032",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:40:45.261958+00:00",
+      "minutes_from_T0": 83.33493196666667,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B033",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:43:30.212447+00:00",
+      "minutes_from_T0": 86.08410678333333,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B035",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:46:04.709646+00:00",
+      "minutes_from_T0": 88.6590601,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B039",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T17:49:58.086453+00:00",
+      "minutes_from_T0": 92.54867355,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B009",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:52:44.427520+00:00",
+      "minutes_from_T0": 95.32102466666667,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B030",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:55:50.467526+00:00",
+      "minutes_from_T0": 98.42169143333334,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B005",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T17:58:18.218169+00:00",
+      "minutes_from_T0": 100.88420215,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B036",
+      "category": "repaired",
+      "qualified_at_utc": "2026-11-11T18:01:04.653633+00:00",
+      "minutes_from_T0": 103.65812654999999,
+      "corrective_pr_does_not_add_second_task_unit": false
+    },
+    {
+      "task_id": "B044",
+      "category": "unchanged",
+      "qualified_at_utc": "2026-11-11T18:03:35.290826+00:00",
+      "minutes_from_T0": 106.16874643333334,
+      "corrective_pr_does_not_add_second_task_unit": false
+    }
+  ],
+  "reported_process_spans": [
+    {
+      "task_id": "B001",
+      "started_at_utc": "2026-11-11T16:19:13.950281+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.492410+00:00",
+      "start_minutes_from_T0": 1.8130706833333332,
+      "end_minutes_from_T0": 31.822106166666668
+    },
+    {
+      "task_id": "B002",
+      "started_at_utc": "2026-11-11T16:19:13.933102+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.477728+00:00",
+      "start_minutes_from_T0": 1.8127843666666665,
+      "end_minutes_from_T0": 31.821861466666668
+    },
+    {
+      "task_id": "B003",
+      "started_at_utc": "2026-11-11T16:19:13.905084+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.335961+00:00",
+      "start_minutes_from_T0": 1.8123174000000002,
+      "end_minutes_from_T0": 31.819498683333332
+    },
+    {
+      "task_id": "B004",
+      "started_at_utc": "2026-11-11T16:19:13.895409+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.120505+00:00",
+      "start_minutes_from_T0": 1.81215615,
+      "end_minutes_from_T0": 31.81590775
+    },
+    {
+      "task_id": "B005",
+      "started_at_utc": "2026-11-11T16:19:13.912260+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.486819+00:00",
+      "start_minutes_from_T0": 1.8124369999999999,
+      "end_minutes_from_T0": 31.82201298333333
+    },
+    {
+      "task_id": "B006",
+      "started_at_utc": "2026-11-11T16:19:13.894464+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.425123+00:00",
+      "start_minutes_from_T0": 1.8121404,
+      "end_minutes_from_T0": 31.820984716666665
+    },
+    {
+      "task_id": "B007",
+      "started_at_utc": "2026-11-11T16:19:13.907440+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.495579+00:00",
+      "start_minutes_from_T0": 1.8123566666666666,
+      "end_minutes_from_T0": 31.822158983333335
+    },
+    {
+      "task_id": "B008",
+      "started_at_utc": "2026-11-11T16:19:13.917146+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.119540+00:00",
+      "start_minutes_from_T0": 1.8125184333333333,
+      "end_minutes_from_T0": 31.81589166666667
+    },
+    {
+      "task_id": "B009",
+      "started_at_utc": "2026-11-11T16:19:13.932222+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.489335+00:00",
+      "start_minutes_from_T0": 1.8127697,
+      "end_minutes_from_T0": 31.822054916666666
+    },
+    {
+      "task_id": "B010",
+      "started_at_utc": "2026-11-11T16:19:13.946249+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.344493+00:00",
+      "start_minutes_from_T0": 1.8130034833333333,
+      "end_minutes_from_T0": 31.81964088333333
+    },
+    {
+      "task_id": "B011",
+      "started_at_utc": "2026-11-11T16:19:13.895963+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.173796+00:00",
+      "start_minutes_from_T0": 1.8121653833333333,
+      "end_minutes_from_T0": 31.81679593333333
+    },
+    {
+      "task_id": "B012",
+      "started_at_utc": "2026-11-11T16:19:13.895538+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.149164+00:00",
+      "start_minutes_from_T0": 1.8121583,
+      "end_minutes_from_T0": 31.8163854
+    },
+    {
+      "task_id": "B013",
+      "started_at_utc": "2026-11-11T16:19:13.933515+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.466512+00:00",
+      "start_minutes_from_T0": 1.81279125,
+      "end_minutes_from_T0": 31.821674533333333
+    },
+    {
+      "task_id": "B014",
+      "started_at_utc": "2026-11-11T16:19:13.937770+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.240249+00:00",
+      "start_minutes_from_T0": 1.8128621666666667,
+      "end_minutes_from_T0": 31.817903483333335
+    },
+    {
+      "task_id": "B015",
+      "started_at_utc": "2026-11-11T16:19:13.910270+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.192623+00:00",
+      "start_minutes_from_T0": 1.8124038333333334,
+      "end_minutes_from_T0": 31.817109716666668
+    },
+    {
+      "task_id": "B016",
+      "started_at_utc": "2026-11-11T16:19:13.910038+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.235353+00:00",
+      "start_minutes_from_T0": 1.8123999666666668,
+      "end_minutes_from_T0": 31.817821883333334
+    },
+    {
+      "task_id": "B017",
+      "started_at_utc": "2026-11-11T16:19:13.906131+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.086410+00:00",
+      "start_minutes_from_T0": 1.81233485,
+      "end_minutes_from_T0": 31.8153395
+    },
+    {
+      "task_id": "B018",
+      "started_at_utc": "2026-11-11T16:19:13.940847+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.482227+00:00",
+      "start_minutes_from_T0": 1.81291345,
+      "end_minutes_from_T0": 31.82193645
+    },
+    {
+      "task_id": "B019",
+      "started_at_utc": "2026-11-11T16:19:13.928211+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.427714+00:00",
+      "start_minutes_from_T0": 1.81270285,
+      "end_minutes_from_T0": 31.8210279
+    },
+    {
+      "task_id": "B020",
+      "started_at_utc": "2026-11-11T16:19:13.894626+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.482645+00:00",
+      "start_minutes_from_T0": 1.8121431000000001,
+      "end_minutes_from_T0": 31.821943416666667
+    },
+    {
+      "task_id": "B021",
+      "started_at_utc": "2026-11-11T16:19:13.895269+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.432661+00:00",
+      "start_minutes_from_T0": 1.8121538166666666,
+      "end_minutes_from_T0": 31.82111035
+    },
+    {
+      "task_id": "B022",
+      "started_at_utc": "2026-11-11T16:19:13.937396+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.237513+00:00",
+      "start_minutes_from_T0": 1.8128559333333334,
+      "end_minutes_from_T0": 31.817857883333332
+    },
+    {
+      "task_id": "B023",
+      "started_at_utc": "2026-11-11T16:19:13.927651+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.274125+00:00",
+      "start_minutes_from_T0": 1.8126935166666667,
+      "end_minutes_from_T0": 31.818468083333336
+    },
+    {
+      "task_id": "B024",
+      "started_at_utc": "2026-11-11T16:19:13.933694+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.435452+00:00",
+      "start_minutes_from_T0": 1.8127942333333331,
+      "end_minutes_from_T0": 31.82115686666667
+    },
+    {
+      "task_id": "B025",
+      "started_at_utc": "2026-11-11T16:19:13.893808+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.105498+00:00",
+      "start_minutes_from_T0": 1.8121294666666665,
+      "end_minutes_from_T0": 31.815657633333334
+    },
+    {
+      "task_id": "B026",
+      "started_at_utc": "2026-11-11T16:19:13.911306+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.421110+00:00",
+      "start_minutes_from_T0": 1.8124211000000001,
+      "end_minutes_from_T0": 31.820917833333333
+    },
+    {
+      "task_id": "B027",
+      "started_at_utc": "2026-11-11T16:19:13.932926+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.494752+00:00",
+      "start_minutes_from_T0": 1.8127814333333334,
+      "end_minutes_from_T0": 31.8221452
+    },
+    {
+      "task_id": "B028",
+      "started_at_utc": "2026-11-11T16:19:13.893983+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.104198+00:00",
+      "start_minutes_from_T0": 1.8121323833333334,
+      "end_minutes_from_T0": 31.815635966666665
+    },
+    {
+      "task_id": "B029",
+      "started_at_utc": "2026-11-11T16:19:13.913991+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.343344+00:00",
+      "start_minutes_from_T0": 1.81246585,
+      "end_minutes_from_T0": 31.819621733333335
+    },
+    {
+      "task_id": "B030",
+      "started_at_utc": "2026-11-11T16:19:13.936384+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.243717+00:00",
+      "start_minutes_from_T0": 1.8128390666666665,
+      "end_minutes_from_T0": 31.817961283333332
+    },
+    {
+      "task_id": "B031",
+      "started_at_utc": "2026-11-11T16:19:13.915871+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.148515+00:00",
+      "start_minutes_from_T0": 1.8124971833333334,
+      "end_minutes_from_T0": 31.816374583333335
+    },
+    {
+      "task_id": "B032",
+      "started_at_utc": "2026-11-11T16:19:13.951459+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.524318+00:00",
+      "start_minutes_from_T0": 1.8130903166666668,
+      "end_minutes_from_T0": 31.822637966666665
+    },
+    {
+      "task_id": "B033",
+      "started_at_utc": "2026-11-11T16:19:13.959591+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.425793+00:00",
+      "start_minutes_from_T0": 1.8132258499999998,
+      "end_minutes_from_T0": 31.820995883333335
+    },
+    {
+      "task_id": "B034",
+      "started_at_utc": "2026-11-11T16:19:13.941591+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.465222+00:00",
+      "start_minutes_from_T0": 1.8129258499999998,
+      "end_minutes_from_T0": 31.821653033333334
+    },
+    {
+      "task_id": "B035",
+      "started_at_utc": "2026-11-11T16:19:13.954584+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.345097+00:00",
+      "start_minutes_from_T0": 1.8131424,
+      "end_minutes_from_T0": 31.81965095
+    },
+    {
+      "task_id": "B036",
+      "started_at_utc": "2026-11-11T16:19:13.928410+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.344026+00:00",
+      "start_minutes_from_T0": 1.8127061666666668,
+      "end_minutes_from_T0": 31.819633099999997
+    },
+    {
+      "task_id": "B037",
+      "started_at_utc": "2026-11-11T16:19:13.906891+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.345833+00:00",
+      "start_minutes_from_T0": 1.8123475166666667,
+      "end_minutes_from_T0": 31.819663216666665
+    },
+    {
+      "task_id": "B038",
+      "started_at_utc": "2026-11-11T16:19:13.894795+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.174190+00:00",
+      "start_minutes_from_T0": 1.8121459166666667,
+      "end_minutes_from_T0": 31.816802499999998
+    },
+    {
+      "task_id": "B039",
+      "started_at_utc": "2026-11-11T16:19:13.912480+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.198128+00:00",
+      "start_minutes_from_T0": 1.8124406666666668,
+      "end_minutes_from_T0": 31.817201466666667
+    },
+    {
+      "task_id": "B040",
+      "started_at_utc": "2026-11-11T16:19:13.912894+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.340847+00:00",
+      "start_minutes_from_T0": 1.8124475666666666,
+      "end_minutes_from_T0": 31.819580116666668
+    },
+    {
+      "task_id": "B041",
+      "started_at_utc": "2026-11-11T16:19:13.936728+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.436357+00:00",
+      "start_minutes_from_T0": 1.8128448000000001,
+      "end_minutes_from_T0": 31.82117195
+    },
+    {
+      "task_id": "B042",
+      "started_at_utc": "2026-11-11T16:19:13.910760+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.098409+00:00",
+      "start_minutes_from_T0": 1.812412,
+      "end_minutes_from_T0": 31.815539483333335
+    },
+    {
+      "task_id": "B043",
+      "started_at_utc": "2026-11-11T16:19:13.943327+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.192037+00:00",
+      "start_minutes_from_T0": 1.8129547833333333,
+      "end_minutes_from_T0": 31.81709995
+    },
+    {
+      "task_id": "B044",
+      "started_at_utc": "2026-11-11T16:19:13.895716+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.431585+00:00",
+      "start_minutes_from_T0": 1.8121612666666667,
+      "end_minutes_from_T0": 31.821092416666666
+    },
+    {
+      "task_id": "B045",
+      "started_at_utc": "2026-11-11T16:19:13.933331+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.434965+00:00",
+      "start_minutes_from_T0": 1.8127881833333332,
+      "end_minutes_from_T0": 31.821148750000003
+    },
+    {
+      "task_id": "B046",
+      "started_at_utc": "2026-11-11T16:19:13.907864+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.161315+00:00",
+      "start_minutes_from_T0": 1.8123637333333333,
+      "end_minutes_from_T0": 31.816587916666666
+    },
+    {
+      "task_id": "B047",
+      "started_at_utc": "2026-11-11T16:19:13.950651+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.334494+00:00",
+      "start_minutes_from_T0": 1.81307685,
+      "end_minutes_from_T0": 31.819474233333334
+    },
+    {
+      "task_id": "B048",
+      "started_at_utc": "2026-11-11T16:19:13.894902+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.418031+00:00",
+      "start_minutes_from_T0": 1.8121477000000001,
+      "end_minutes_from_T0": 31.82086651666667
+    },
+    {
+      "task_id": "B049",
+      "started_at_utc": "2026-11-11T16:19:13.914425+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.415128+00:00",
+      "start_minutes_from_T0": 1.8124730833333333,
+      "end_minutes_from_T0": 31.820818133333333
+    },
+    {
+      "task_id": "B050",
+      "started_at_utc": "2026-11-11T16:19:13.905650+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.085559+00:00",
+      "start_minutes_from_T0": 1.8123268333333333,
+      "end_minutes_from_T0": 31.815325316666666
+    },
+    {
+      "task_id": "B051",
+      "started_at_utc": "2026-11-11T16:19:13.927354+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.102497+00:00",
+      "start_minutes_from_T0": 1.8126885666666666,
+      "end_minutes_from_T0": 31.815607616666668
+    },
+    {
+      "task_id": "B052",
+      "started_at_utc": "2026-11-11T16:19:13.928840+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.418414+00:00",
+      "start_minutes_from_T0": 1.8127133333333334,
+      "end_minutes_from_T0": 31.820872899999998
+    },
+    {
+      "task_id": "B053",
+      "started_at_utc": "2026-11-11T16:19:13.893587+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.422181+00:00",
+      "start_minutes_from_T0": 1.8121257833333333,
+      "end_minutes_from_T0": 31.820935683333335
+    },
+    {
+      "task_id": "B054",
+      "started_at_utc": "2026-11-11T16:19:13.893123+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.516034+00:00",
+      "start_minutes_from_T0": 1.8121180499999998,
+      "end_minutes_from_T0": 31.8224999
+    },
+    {
+      "task_id": "B055",
+      "started_at_utc": "2026-11-11T16:19:13.933863+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.432058+00:00",
+      "start_minutes_from_T0": 1.8127970500000001,
+      "end_minutes_from_T0": 31.8211003
+    },
+    {
+      "task_id": "B056",
+      "started_at_utc": "2026-11-11T16:19:13.916074+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.167991+00:00",
+      "start_minutes_from_T0": 1.8125005666666667,
+      "end_minutes_from_T0": 31.816699183333334
+    },
+    {
+      "task_id": "B057",
+      "started_at_utc": "2026-11-11T16:19:13.907640+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.434417+00:00",
+      "start_minutes_from_T0": 1.8123600000000002,
+      "end_minutes_from_T0": 31.821139616666667
+    },
+    {
+      "task_id": "B058",
+      "started_at_utc": "2026-11-11T16:19:13.930003+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.113820+00:00",
+      "start_minutes_from_T0": 1.8127327166666667,
+      "end_minutes_from_T0": 31.81579633333333
+    },
+    {
+      "task_id": "B059",
+      "started_at_utc": "2026-11-11T16:19:13.928574+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.463355+00:00",
+      "start_minutes_from_T0": 1.8127089,
+      "end_minutes_from_T0": 31.82162191666667
+    },
+    {
+      "task_id": "B060",
+      "started_at_utc": "2026-11-11T16:19:13.932732+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.273777+00:00",
+      "start_minutes_from_T0": 1.8127782000000001,
+      "end_minutes_from_T0": 31.818462283333336
+    },
+    {
+      "task_id": "B061",
+      "started_at_utc": "2026-11-11T16:19:13.911175+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.116545+00:00",
+      "start_minutes_from_T0": 1.8124189166666667,
+      "end_minutes_from_T0": 31.81584175
+    },
+    {
+      "task_id": "B062",
+      "started_at_utc": "2026-11-11T16:19:13.912032+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.478467+00:00",
+      "start_minutes_from_T0": 1.8124332,
+      "end_minutes_from_T0": 31.821873783333334
+    },
+    {
+      "task_id": "B063",
+      "started_at_utc": "2026-11-11T16:19:13.908613+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.488281+00:00",
+      "start_minutes_from_T0": 1.8123762166666666,
+      "end_minutes_from_T0": 31.822037350000002
+    },
+    {
+      "task_id": "B064",
+      "started_at_utc": "2026-11-11T16:19:13.909460+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.338146+00:00",
+      "start_minutes_from_T0": 1.8123903333333333,
+      "end_minutes_from_T0": 31.8195351
+    },
+    {
+      "task_id": "B065",
+      "started_at_utc": "2026-11-11T16:19:13.895156+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.195212+00:00",
+      "start_minutes_from_T0": 1.8121519333333334,
+      "end_minutes_from_T0": 31.817152866666667
+    },
+    {
+      "task_id": "B066",
+      "started_at_utc": "2026-11-11T16:19:13.951656+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.239782+00:00",
+      "start_minutes_from_T0": 1.8130936,
+      "end_minutes_from_T0": 31.8178957
+    },
+    {
+      "task_id": "B067",
+      "started_at_utc": "2026-11-11T16:19:13.941845+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.470011+00:00",
+      "start_minutes_from_T0": 1.8129300833333335,
+      "end_minutes_from_T0": 31.82173285
+    },
+    {
+      "task_id": "B068",
+      "started_at_utc": "2026-11-11T16:19:13.915598+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.162243+00:00",
+      "start_minutes_from_T0": 1.8124926333333333,
+      "end_minutes_from_T0": 31.816603383333334
+    },
+    {
+      "task_id": "B069",
+      "started_at_utc": "2026-11-11T16:19:13.948404+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.339568+00:00",
+      "start_minutes_from_T0": 1.8130394,
+      "end_minutes_from_T0": 31.8195588
+    },
+    {
+      "task_id": "B070",
+      "started_at_utc": "2026-11-11T16:19:13.907069+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.086782+00:00",
+      "start_minutes_from_T0": 1.8123504833333333,
+      "end_minutes_from_T0": 31.8153457
+    },
+    {
+      "task_id": "B071",
+      "started_at_utc": "2026-11-11T16:19:13.913068+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.195589+00:00",
+      "start_minutes_from_T0": 1.8124504666666668,
+      "end_minutes_from_T0": 31.817159150000002
+    },
+    {
+      "task_id": "B072",
+      "started_at_utc": "2026-11-11T16:19:13.908050+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.195932+00:00",
+      "start_minutes_from_T0": 1.8123668333333331,
+      "end_minutes_from_T0": 31.817164866666666
+    },
+    {
+      "task_id": "B073",
+      "started_at_utc": "2026-11-11T16:19:13.910547+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.236786+00:00",
+      "start_minutes_from_T0": 1.81240845,
+      "end_minutes_from_T0": 31.817845766666668
+    },
+    {
+      "task_id": "B074",
+      "started_at_utc": "2026-11-11T16:19:13.913484+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.468938+00:00",
+      "start_minutes_from_T0": 1.8124574,
+      "end_minutes_from_T0": 31.821714966666665
+    },
+    {
+      "task_id": "B075",
+      "started_at_utc": "2026-11-11T16:19:13.894312+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.088643+00:00",
+      "start_minutes_from_T0": 1.8121378666666668,
+      "end_minutes_from_T0": 31.815376716666666
+    },
+    {
+      "task_id": "B076",
+      "started_at_utc": "2026-11-11T16:19:13.897034+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.417616+00:00",
+      "start_minutes_from_T0": 1.8121832333333332,
+      "end_minutes_from_T0": 31.8208596
+    },
+    {
+      "task_id": "B077",
+      "started_at_utc": "2026-11-11T16:19:13.937993+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.367492+00:00",
+      "start_minutes_from_T0": 1.8128658833333333,
+      "end_minutes_from_T0": 31.8200242
+    },
+    {
+      "task_id": "B078",
+      "started_at_utc": "2026-11-11T16:19:13.894183+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.166772+00:00",
+      "start_minutes_from_T0": 1.8121357166666667,
+      "end_minutes_from_T0": 31.816678866666667
+    },
+    {
+      "task_id": "B079",
+      "started_at_utc": "2026-11-11T16:19:13.896165+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.239294+00:00",
+      "start_minutes_from_T0": 1.81216875,
+      "end_minutes_from_T0": 31.817887566666666
+    },
+    {
+      "task_id": "B080",
+      "started_at_utc": "2026-11-11T16:19:13.913239+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.272860+00:00",
+      "start_minutes_from_T0": 1.8124533166666665,
+      "end_minutes_from_T0": 31.818447
+    },
+    {
+      "task_id": "B081",
+      "started_at_utc": "2026-11-11T16:19:13.937238+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.486014+00:00",
+      "start_minutes_from_T0": 1.8128533,
+      "end_minutes_from_T0": 31.821999566666666
+    },
+    {
+      "task_id": "B082",
+      "started_at_utc": "2026-11-11T16:19:13.912708+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.468141+00:00",
+      "start_minutes_from_T0": 1.8124444666666666,
+      "end_minutes_from_T0": 31.821701683333334
+    },
+    {
+      "task_id": "B083",
+      "started_at_utc": "2026-11-11T16:19:13.896904+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.434046+00:00",
+      "start_minutes_from_T0": 1.8121810666666667,
+      "end_minutes_from_T0": 31.821133433333333
+    },
+    {
+      "task_id": "B084",
+      "started_at_utc": "2026-11-11T16:19:13.938196+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.338947+00:00",
+      "start_minutes_from_T0": 1.8128692666666666,
+      "end_minutes_from_T0": 31.81954845
+    },
+    {
+      "task_id": "B085",
+      "started_at_utc": "2026-11-11T16:19:13.905337+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.421538+00:00",
+      "start_minutes_from_T0": 1.8123216166666665,
+      "end_minutes_from_T0": 31.820924966666666
+    },
+    {
+      "task_id": "B086",
+      "started_at_utc": "2026-11-11T16:19:13.932011+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.194111+00:00",
+      "start_minutes_from_T0": 1.8127661833333333,
+      "end_minutes_from_T0": 31.817134516666666
+    },
+    {
+      "task_id": "B087",
+      "started_at_utc": "2026-11-11T16:19:13.928021+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.493296+00:00",
+      "start_minutes_from_T0": 1.8126996833333335,
+      "end_minutes_from_T0": 31.822120933333334
+    },
+    {
+      "task_id": "B088",
+      "started_at_utc": "2026-11-11T16:19:13.942575+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.466090+00:00",
+      "start_minutes_from_T0": 1.8129422499999999,
+      "end_minutes_from_T0": 31.8216675
+    },
+    {
+      "task_id": "B089",
+      "started_at_utc": "2026-11-11T16:19:13.917003+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.435812+00:00",
+      "start_minutes_from_T0": 1.81251605,
+      "end_minutes_from_T0": 31.82116286666667
+    },
+    {
+      "task_id": "B090",
+      "started_at_utc": "2026-11-11T16:19:13.914921+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.167162+00:00",
+      "start_minutes_from_T0": 1.8124813499999999,
+      "end_minutes_from_T0": 31.816685366666665
+    },
+    {
+      "task_id": "B091",
+      "started_at_utc": "2026-11-11T16:19:13.896549+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.480363+00:00",
+      "start_minutes_from_T0": 1.81217515,
+      "end_minutes_from_T0": 31.821905383333334
+    },
+    {
+      "task_id": "B092",
+      "started_at_utc": "2026-11-11T16:19:13.893375+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.171204+00:00",
+      "start_minutes_from_T0": 1.81212225,
+      "end_minutes_from_T0": 31.81675273333333
+    },
+    {
+      "task_id": "B093",
+      "started_at_utc": "2026-11-11T16:19:13.972953+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.419962+00:00",
+      "start_minutes_from_T0": 1.81344855,
+      "end_minutes_from_T0": 31.8208987
+    },
+    {
+      "task_id": "B094",
+      "started_at_utc": "2026-11-11T16:19:13.914270+00:00",
+      "ended_at_utc": "2026-11-11T16:41:37.310637+00:00",
+      "start_minutes_from_T0": 1.8124705,
+      "end_minutes_from_T0": 24.20240995
+    },
+    {
+      "task_id": "B095",
+      "started_at_utc": "2026-11-11T16:19:13.938771+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.273433+00:00",
+      "start_minutes_from_T0": 1.81287885,
+      "end_minutes_from_T0": 31.81845655
+    },
+    {
+      "task_id": "B096",
+      "started_at_utc": "2026-11-11T16:19:13.946027+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.466994+00:00",
+      "start_minutes_from_T0": 1.8129997833333333,
+      "end_minutes_from_T0": 31.821682566666667
+    },
+    {
+      "task_id": "B097",
+      "started_at_utc": "2026-11-11T16:19:13.916752+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.365090+00:00",
+      "start_minutes_from_T0": 1.8125118666666666,
+      "end_minutes_from_T0": 31.819984166666664
+    },
+    {
+      "task_id": "B098",
+      "started_at_utc": "2026-11-11T16:19:13.932433+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.422596+00:00",
+      "start_minutes_from_T0": 1.8127732166666666,
+      "end_minutes_from_T0": 31.820942600000002
+    },
+    {
+      "task_id": "B099",
+      "started_at_utc": "2026-11-11T16:19:13.895019+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.463914+00:00",
+      "start_minutes_from_T0": 1.8121496499999998,
+      "end_minutes_from_T0": 31.821631233333335
+    },
+    {
+      "task_id": "B100",
+      "started_at_utc": "2026-11-11T16:19:13.908261+00:00",
+      "ended_at_utc": "2026-11-11T16:49:14.173306+00:00",
+      "start_minutes_from_T0": 1.81237035,
+      "end_minutes_from_T0": 31.816787766666668
+    }
+  ],
+  "configured_coding_session_seconds": 1800,
+  "coding_deadline_from_latest_reported_start_utc": "2026-11-11T16:49:13.972953+00:00",
+  "coding_deadline_minutes_from_T0": 31.813448549999997,
+  "final_accepted_count": null,
+  "final_T1_utc": null,
+  "AFK_series": null,
+  "actual_billed_cost_usd": null,
+  "provisional_feature_total": 17,
+  "support_total": 0,
+  "source_scope": "Only currently qualified distinct task units; B003 is one event after latest corrective combined green. Historical PRs never add duplicate feature credit.",
+  "limits": [
+    "Process spans contain model/queue/idle gaps and unmeasured clock/transport effects.",
+    "Qualification timestamps are coordinator observations of recorded CI/review/tree gates, not final quality acceptance.",
+    "No CPU utilization, actual model inference concurrency, continuous useful100-agent proof, AFK baseline or billed dollars is plotted."
+  ],
+  "source_sha256": {
+    "delivery_allowlist": "a4189b95ed8cfb07de40077d49e59adcc1cdcb050c0c7d9c4d67160032c35848",
+    "activity_allowlist": "7d9c11de14d63939d2e773764b047113fbe701a45eecd9c01a4fbe4efa9cab9e",
+    "plot_source": "8de470054abddbd637c304e028970e4bec9fe286dd38672805c6bc1fe5806a49"
+  }
+}

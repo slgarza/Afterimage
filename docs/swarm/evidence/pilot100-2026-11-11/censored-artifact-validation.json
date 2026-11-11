@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "censored_artifact_clock_cohort_privacy_and_render_validation",
+  "observed_at_utc": "2026-11-11T22:22:31.342911+00:00",
+  "primary_delivery_allowlist_sha256": "560b8b58bc1572b85a948de2694d3dd42708583d06bab8af5790f322c7d8fb75",
+  "censored_sidecar_sha256": "aaf2f26680fa848c5f4bacb52cdb3b92d7c23a199c7802199da243959140061b",
+  "source_helper_sha256": "7b63c5ac465338e1f4b680ada4004d6d1be66816dbde0b6dd632135ec1f9e7ac",
+  "all100_original_artifact_hashes_verified_and_reread": true,
+  "cohort_partition": {
+    "provisional_products": 56,
+    "provisional_support": 2,
+    "published_unresolved_CI": 1,
+    "nonempty_unattempted_recovery": 4,
+    "original_empty_patches": 37
+  },
+  "all100_original_workers_needs_repair_unchanged": true,
+  "normal_finalizer_invoked": false,
+  "T1_utc": null,
+  "full_delivery_finished": false,
+  "fixed_observation_window_seconds": 21600,
+  "exact_cutoff_CI_status_known": false,
+  "observer_reserved_attempts": 77,
+  "observer_response_receipts": 77,
+  "B003_distinct_product_event_count": 1,
+  "actual_invoices_accepted_quality_and_AFK_results_unknown": true,
+  "PNG_SVG_and_plot_input_bytes_deterministic_on_this_host": true,
+  "actual_PNG_visually_reviewed_readable_and_labels_match_source": true,
+  "raw_logs_private_paths_credentials_account_finance_or_raw_response_hashes_exported": false,
+  "actual_external_operations_for_this_validation": 0,
+  "runtime_budget_dashboard_and_controller_mutations": false
+}

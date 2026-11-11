@@ -27,12 +27,20 @@ Read the [canonical Rules v1](docs/design/RULES-SPEC-v1.md),
 
 ## Status
 
-Foundation components implemented; complete gameplay and Firebase integration remain pending.
+Foundation components and separately reviewed modules are implemented; complete
+gameplay and Firebase integration remain pending.
 Use the [public swarm evidence index](docs/swarm/README.md) for the current
 demo/pilot/contest status, task issues, preparation measurements and review links.
 The [first ten-agent Modal pilot](docs/swarm/pilot10-2026-11-10.md) delivered ten
-reviewed PRs with passing CI. No Firebase project, production credentials,
-proprietary source assets, or music files belong in this repository.
+reviewed PRs with passing CI. The [100-worker pilot](docs/swarm/pilot100-2026-11-11.md)
+ran on November 11: all 100 original reports failed validation, with 63 nonempty
+patches and 37 empty patches. The six-hour observation closed **cutoff-censored**
+with recovery incomplete: 56 provisional product modules and two support tasks,
+including 22 separately attributed coordinator repairs. B096 remained unresolved
+in CI and four later nonempty candidates were not attempted in recovery. The
+completed-workload T1, 24-hour acceptance, actual attributable cost and advantage
+over a strong AFK pipeline remain unknown. No Firebase project, production
+credentials, proprietary source assets or licensed music belong in this repository.
 
 ## Local development
 
@@ -64,7 +72,9 @@ npm run build
 `npm run check` runs all four in sequence. Scope a command with, for example,
 `npm run typecheck --workspace @afterimage/engine`. Each workspace has explicit
 lint, typecheck, test, and build scripts. All four workspaces have tests;
-the completed pilot passes 291 tests. Builds write ignored `dist/` outputs.
+the historical ten-agent pilot recorded 291 passing tests. Current checks cover
+the current tree; consult their receipts rather than treating that historical
+count as a current total. Builds write ignored `dist/` outputs.
 Preview the built client with `npm run preview --workspace @afterimage/client`.
 
 Every swarm activity, including backlog preparation, implementation, review,
@@ -103,16 +113,19 @@ T01–T10 are completed and live execution is disabled. The original local `.swa
 evidence and cumulative budget ledger stay in place. Controller development and
 Python tests belong to the separate repository; this project's CI checks the game.
 
-## Next implementation backlog
+## 100-worker pilot and remaining backlog
 
-**Prepared next experiment:** [B001-B100](docs/PARALLEL100_TASKS.md) provide 100
+The executed [B001-B100 cohort](docs/PARALLEL100_TASKS.md) contains 100
 independent module tasks on one frozen source base, with exact
 [UI](docs/PILOT100_UI_CONTRACTS.md) and
 [domain](docs/PILOT100_DOMAIN_CONTRACTS.md) contracts. See the
-[preparation and launch runbook](docs/PILOT100_READY.md). The profile now opts
-into 100-worker/100-gateway capacity while live execution stays disabled and the
-original cumulative budget is preserved. No 100-agent cohort has run. These leaves
-decompose existing A scope; they do not double the feature count or connect App.
+[preparation and launch runbook](docs/PILOT100_READY.md) for the frozen protocol,
+and the [actual results, methods and limits](docs/swarm/pilot100-2026-11-11.md)
+for what happened. Observations of 100 running sandboxes and command-bearing
+sessions do not establish 100 simultaneous useful contributors or an AFK win.
+The tracked historical profile remains disabled, and the cumulative accounting
+history is preserved. These leaves consume existing A scope without duplicate
+feature credit; module delivery does not connect App.
 
 ```sh
 node tools/prepare-parallel100.mjs --require-issues

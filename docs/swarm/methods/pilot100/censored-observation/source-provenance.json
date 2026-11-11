@@ -1,0 +1,29 @@
+{
+  "kind": "actual_censored_observation_method_source_snapshot",
+  "at_utc": "2026-11-11T22:20:50.929073+00:00",
+  "recorded_worker_controller_commit": "979026cbb0d405623c30cdbf4bcf0c9e937bcf01",
+  "executed_by": "modal_deploy_readiness",
+  "authorized_by": "root",
+  "authorization_mode": "root_conditional_delegation",
+  "source_bytes_identical": true,
+  "source_export_deviations": [],
+  "observer_text_inert_not_authorized_for_replay": true,
+  "raw_or_private_inputs_exported": false,
+  "files": [
+    {
+      "file": "close-censored-observation.py",
+      "original_source_sha256": "7b63c5ac465338e1f4b680ada4004d6d1be66816dbde0b6dd632135ec1f9e7ac",
+      "exported_source_sha256": "7b63c5ac465338e1f4b680ada4004d6d1be66816dbde0b6dd632135ec1f9e7ac"
+    },
+    {
+      "file": "test-censored-observation.py",
+      "original_source_sha256": "633ec5b7c7aac3367c7310079f033bced988d5781cca1ca7016453970b204f2d",
+      "exported_source_sha256": "633ec5b7c7aac3367c7310079f033bced988d5781cca1ca7016453970b204f2d"
+    },
+    {
+      "file": "watch-b096-delegated-get.py.txt",
+      "original_source_sha256": "7a0439a867cd562f2e7721fb8c9ceaf0be0d9de2eaf3ecac37c1614b4f140ed0",
+      "exported_source_sha256": "7a0439a867cd562f2e7721fb8c9ceaf0be0d9de2eaf3ecac37c1614b4f140ed0"
+    }
+  ]
+}

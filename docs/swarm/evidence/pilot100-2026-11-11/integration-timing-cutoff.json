@@ -1,0 +1,2818 @@
+{
+  "schema_version": 1,
+  "kind": "censored_current_queue_phase_and_wait_event_observations",
+  "as_of_utc": "2026-11-11T22:18:17.365460+00:00",
+  "source_delivery_allowlist_sha256": "560b8b58bc1572b85a948de2694d3dd42708583d06bab8af5790f322c7d8fb75",
+  "source_journal_sha256": "de44e2b32c54d976acdc12bddbc3e130cfec1fc751b78f2ca9cdabab093b3354",
+  "operation_event_count": 235,
+  "phase_wall_seconds": {
+    "plan": {
+      "event_count": 59,
+      "median_seconds": 0.21618034699349664,
+      "minimum_seconds": 0.1653620520082768,
+      "maximum_seconds": 0.8244422980060335
+    },
+    "prepare": {
+      "event_count": 59,
+      "median_seconds": 63.200763353990624,
+      "minimum_seconds": 46.19007606600644,
+      "maximum_seconds": 70.72752531598962
+    },
+    "publish": {
+      "event_count": 59,
+      "median_seconds": 5.839369567009271,
+      "minimum_seconds": 4.9326358569960576,
+      "maximum_seconds": 15.12004185099795
+    },
+    "merge": {
+      "event_count": 58,
+      "median_seconds": 6.183923676493578,
+      "minimum_seconds": 5.384785236004973,
+      "maximum_seconds": 10.399844125990057
+    }
+  },
+  "operation_outcome_counts": {
+    "0": 235
+  },
+  "head_ci_wait_event_observations": [
+    {
+      "task_id": "B010",
+      "at_utc": "2026-11-11T17:17:08.690257+00:00",
+      "status": "passed",
+      "wall_seconds": 110.60917048300325,
+      "polls": 8
+    },
+    {
+      "task_id": "B003",
+      "at_utc": "2026-11-11T17:19:45.594435+00:00",
+      "status": "passed",
+      "wall_seconds": 96.98065692999808,
+      "polls": 7
+    },
+    {
+      "task_id": "B011",
+      "at_utc": "2026-11-11T17:22:41.077931+00:00",
+      "status": "passed",
+      "wall_seconds": 114.42811820100178,
+      "polls": 8
+    },
+    {
+      "task_id": "B014",
+      "at_utc": "2026-11-11T17:25:11.545188+00:00",
+      "status": "passed",
+      "wall_seconds": 81.00760633200116,
+      "polls": 6
+    },
+    {
+      "task_id": "B008",
+      "at_utc": "2026-11-11T17:28:07.954384+00:00",
+      "status": "passed",
+      "wall_seconds": 111.66298067200114,
+      "polls": 8
+    },
+    {
+      "task_id": "B015",
+      "at_utc": "2026-11-11T17:30:51.795605+00:00",
+      "status": "passed",
+      "wall_seconds": 95.71683954699256,
+      "polls": 7
+    },
+    {
+      "task_id": "B023",
+      "at_utc": "2026-11-11T17:33:50.145957+00:00",
+      "status": "passed",
+      "wall_seconds": 112.58816327400564,
+      "polls": 8
+    },
+    {
+      "task_id": "B026",
+      "at_utc": "2026-11-11T17:36:38.524047+00:00",
+      "status": "passed",
+      "wall_seconds": 96.52013060300669,
+      "polls": 7
+    },
+    {
+      "task_id": "B032",
+      "at_utc": "2026-11-11T17:38:49.013565+00:00",
+      "status": "passed",
+      "wall_seconds": 65.48007221799344,
+      "polls": 5
+    },
+    {
+      "task_id": "B033",
+      "at_utc": "2026-11-11T17:41:48.540002+00:00",
+      "status": "passed",
+      "wall_seconds": 113.17163629799325,
+      "polls": 8
+    },
+    {
+      "task_id": "B035",
+      "at_utc": "2026-11-11T17:44:49.154423+00:00",
+      "status": "passed",
+      "wall_seconds": 112.03270854000584,
+      "polls": 8
+    },
+    {
+      "task_id": "B039",
+      "at_utc": "2026-11-11T17:47:56.301694+00:00",
+      "status": "passed",
+      "wall_seconds": 112.09702247599489,
+      "polls": 8
+    },
+    {
+      "task_id": "B009",
+      "at_utc": "2026-11-11T17:51:01.124174+00:00",
+      "status": "passed",
+      "wall_seconds": 112.50075341400225,
+      "polls": 8
+    },
+    {
+      "task_id": "B030",
+      "at_utc": "2026-11-11T17:53:47.741324+00:00",
+      "status": "passed",
+      "wall_seconds": 96.38478302099975,
+      "polls": 7
+    },
+    {
+      "task_id": "B005",
+      "at_utc": "2026-11-11T17:56:23.101594+00:00",
+      "status": "passed",
+      "wall_seconds": 81.96257116599008,
+      "polls": 6
+    },
+    {
+      "task_id": "B036",
+      "at_utc": "2026-11-11T17:59:06.125384+00:00",
+      "status": "passed",
+      "wall_seconds": 97.41697844200826,
+      "polls": 7
+    },
+    {
+      "task_id": "B044",
+      "at_utc": "2026-11-11T18:02:08.596909+00:00",
+      "status": "passed",
+      "wall_seconds": 113.50442930399731,
+      "polls": 8
+    },
+    {
+      "task_id": "B048",
+      "at_utc": "2026-11-11T18:05:11.034794+00:00",
+      "status": "passed",
+      "wall_seconds": 113.2641999769985,
+      "polls": 8
+    },
+    {
+      "task_id": "B046",
+      "at_utc": "2026-11-11T18:08:13.529284+00:00",
+      "status": "passed",
+      "wall_seconds": 112.14628310600528,
+      "polls": 8
+    },
+    {
+      "task_id": "B002",
+      "at_utc": "2026-11-11T18:11:20.711368+00:00",
+      "status": "passed",
+      "wall_seconds": 112.4248881629901,
+      "polls": 8
+    },
+    {
+      "task_id": "B049",
+      "at_utc": "2026-11-11T18:14:12.436374+00:00",
+      "status": "passed",
+      "wall_seconds": 97.13886970101157,
+      "polls": 7
+    },
+    {
+      "task_id": "B004",
+      "at_utc": "2026-11-11T18:17:26.779200+00:00",
+      "status": "passed",
+      "wall_seconds": 115.4099797349918,
+      "polls": 8
+    },
+    {
+      "task_id": "B050",
+      "at_utc": "2026-11-11T18:20:35.373337+00:00",
+      "status": "passed",
+      "wall_seconds": 112.06457771400164,
+      "polls": 8
+    },
+    {
+      "task_id": "B007",
+      "at_utc": "2026-11-11T18:23:40.573279+00:00",
+      "status": "passed",
+      "wall_seconds": 113.21124738101207,
+      "polls": 8
+    },
+    {
+      "task_id": "B018",
+      "at_utc": "2026-11-11T18:26:29.340694+00:00",
+      "status": "passed",
+      "wall_seconds": 96.13742769199598,
+      "polls": 7
+    },
+    {
+      "task_id": "B053",
+      "at_utc": "2026-11-11T18:29:23.683964+00:00",
+      "status": "passed",
+      "wall_seconds": 97.67490247299429,
+      "polls": 7
+    },
+    {
+      "task_id": "B054",
+      "at_utc": "2026-11-11T18:32:49.820536+00:00",
+      "status": "passed",
+      "wall_seconds": 128.14360681899416,
+      "polls": 9
+    },
+    {
+      "task_id": "B055",
+      "at_utc": "2026-11-11T18:35:58.610720+00:00",
+      "status": "passed",
+      "wall_seconds": 112.02747907300363,
+      "polls": 8
+    },
+    {
+      "task_id": "B056",
+      "at_utc": "2026-11-11T18:39:24.891139+00:00",
+      "status": "passed",
+      "wall_seconds": 128.44718516099965,
+      "polls": 9
+    },
+    {
+      "task_id": "B057",
+      "at_utc": "2026-11-11T18:42:33.518085+00:00",
+      "status": "passed",
+      "wall_seconds": 111.88025900399953,
+      "polls": 8
+    },
+    {
+      "task_id": "B059",
+      "at_utc": "2026-11-11T18:45:42.274396+00:00",
+      "status": "passed",
+      "wall_seconds": 114.08394839300308,
+      "polls": 8
+    },
+    {
+      "task_id": "B060",
+      "at_utc": "2026-11-11T18:48:19.746541+00:00",
+      "status": "passed",
+      "wall_seconds": 80.80667145700136,
+      "polls": 6
+    },
+    {
+      "task_id": "B061",
+      "at_utc": "2026-11-11T18:52:16.463873+00:00",
+      "status": "passed",
+      "wall_seconds": 160.44141662798938,
+      "polls": 11
+    },
+    {
+      "task_id": "B062",
+      "at_utc": "2026-11-11T18:55:28.102849+00:00",
+      "status": "passed",
+      "wall_seconds": 112.6605116409919,
+      "polls": 8
+    },
+    {
+      "task_id": "B063",
+      "at_utc": "2026-11-11T18:58:39.992126+00:00",
+      "status": "passed",
+      "wall_seconds": 113.24369104999641,
+      "polls": 8
+    },
+    {
+      "task_id": "B065",
+      "at_utc": "2026-11-11T19:01:18.966489+00:00",
+      "status": "passed",
+      "wall_seconds": 81.32930732499517,
+      "polls": 6
+    },
+    {
+      "task_id": "B067",
+      "at_utc": "2026-11-11T19:04:30.570010+00:00",
+      "status": "passed",
+      "wall_seconds": 114.74970919299813,
+      "polls": 8
+    },
+    {
+      "task_id": "B068",
+      "at_utc": "2026-11-11T19:07:59.269227+00:00",
+      "status": "passed",
+      "wall_seconds": 127.48188604100142,
+      "polls": 9
+    },
+    {
+      "task_id": "B069",
+      "at_utc": "2026-11-11T19:11:01.030185+00:00",
+      "status": "passed",
+      "wall_seconds": 99.67985167600273,
+      "polls": 7
+    },
+    {
+      "task_id": "B070",
+      "at_utc": "2026-11-11T19:13:42.650503+00:00",
+      "status": "passed",
+      "wall_seconds": 81.91041250099079,
+      "polls": 6
+    },
+    {
+      "task_id": "B071",
+      "at_utc": "2026-11-11T19:17:16.825496+00:00",
+      "status": "passed",
+      "wall_seconds": 131.81312486699608,
+      "polls": 9
+    },
+    {
+      "task_id": "B072",
+      "at_utc": "2026-11-11T19:21:32.698821+00:00",
+      "status": "passed",
+      "wall_seconds": 176.8486039940035,
+      "polls": 12
+    },
+    {
+      "task_id": "B073",
+      "at_utc": "2026-11-11T19:24:45.668804+00:00",
+      "status": "passed",
+      "wall_seconds": 112.55759418400703,
+      "polls": 8
+    },
+    {
+      "task_id": "B074",
+      "at_utc": "2026-11-11T19:28:03.882386+00:00",
+      "status": "passed",
+      "wall_seconds": 118.06455240900686,
+      "polls": 8
+    },
+    {
+      "task_id": "B075",
+      "at_utc": "2026-11-11T19:31:19.469972+00:00",
+      "status": "passed",
+      "wall_seconds": 118.23482851400331,
+      "polls": 8
+    },
+    {
+      "task_id": "B076",
+      "at_utc": "2026-11-11T19:34:52.081565+00:00",
+      "status": "passed",
+      "wall_seconds": 122.03402523099794,
+      "polls": 8
+    },
+    {
+      "task_id": "B077",
+      "at_utc": "2026-11-11T19:38:12.409585+00:00",
+      "status": "passed",
+      "wall_seconds": 114.341929962,
+      "polls": 8
+    },
+    {
+      "task_id": "B078",
+      "at_utc": "2026-11-11T19:42:00.264534+00:00",
+      "status": "passed",
+      "wall_seconds": 146.23813186600455,
+      "polls": 10
+    },
+    {
+      "task_id": "B079",
+      "at_utc": "2026-11-11T19:45:18.239000+00:00",
+      "status": "passed",
+      "wall_seconds": 114.45160832999682,
+      "polls": 8
+    },
+    {
+      "task_id": "B080",
+      "at_utc": "2026-11-11T19:48:38.877227+00:00",
+      "status": "passed",
+      "wall_seconds": 113.90486954999506,
+      "polls": 8
+    },
+    {
+      "task_id": "B084",
+      "at_utc": "2026-11-11T19:51:56.059072+00:00",
+      "status": "passed",
+      "wall_seconds": 118.45699555799365,
+      "polls": 8
+    },
+    {
+      "task_id": "B085",
+      "at_utc": "2026-11-11T19:54:57.176118+00:00",
+      "status": "passed",
+      "wall_seconds": 100.09568027000932,
+      "polls": 7
+    },
+    {
+      "task_id": "B086",
+      "at_utc": "2026-11-11T19:58:12.280527+00:00",
+      "status": "passed",
+      "wall_seconds": 114.40632261800056,
+      "polls": 8
+    },
+    {
+      "task_id": "B087",
+      "at_utc": "2026-11-11T20:01:45.202545+00:00",
+      "status": "passed",
+      "wall_seconds": 131.03420926201215,
+      "polls": 9
+    },
+    {
+      "task_id": "B088",
+      "at_utc": "2026-11-11T20:05:08.897603+00:00",
+      "status": "passed",
+      "wall_seconds": 115.3720861759939,
+      "polls": 8
+    },
+    {
+      "task_id": "B089",
+      "at_utc": "2026-11-11T20:08:11.367028+00:00",
+      "status": "passed",
+      "wall_seconds": 98.12468608899508,
+      "polls": 7
+    },
+    {
+      "task_id": "B090",
+      "at_utc": "2026-11-11T20:11:42.313933+00:00",
+      "status": "passed",
+      "wall_seconds": 128.48594332300127,
+      "polls": 9
+    },
+    {
+      "task_id": "B092",
+      "at_utc": "2026-11-11T20:14:41.952884+00:00",
+      "status": "passed",
+      "wall_seconds": 98.35713817700162,
+      "polls": 7
+    },
+    {
+      "task_id": "B096",
+      "at_utc": "2026-11-11T20:31:05.018890+00:00",
+      "status": "pending",
+      "wall_seconds": 896.720253559004,
+      "polls": 56
+    }
+  ],
+  "head_wait_outcome_counts": {
+    "passed": 58,
+    "pending": 1
+  },
+  "duration_values_are_observations_not_exclusive_attention_or_runner_CPU": true,
+  "pending_wait_event_is_not_an_observed_green_result": true,
+  "duration_totals_not_asserted": true,
+  "actual_runner_queue_seconds": null,
+  "actual_API_queue_seconds": null,
+  "normal_poll_sleep_seconds": 15,
+  "API_read_latency_and_retry_delay_are_not_bounded_by_poll_sleep": true,
+  "actual_last_queue_stop_at_utc": "2026-11-11T20:31:05.027569+00:00",
+  "completed_workload_T1_utc": null,
+  "actual_billed_cost_usd": null,
+  "all_operator_phases": [
+    {
+      "task_id": "B010",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:14:22.352177+00:00",
+      "ended_at_utc": "2026-11-11T17:14:22.568205+00:00",
+      "wall_seconds": 0.21608568899682723,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "9618b61ff7293a7f70bad2646354f19d330e91103d0151d3cabf670ab5efc2e8"
+    },
+    {
+      "task_id": "B010",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:14:22.571803+00:00",
+      "ended_at_utc": "2026-11-11T17:15:12.231139+00:00",
+      "wall_seconds": 49.65937198699976,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "b69fae3a1378debec9b269de71ee838d0b246adc7db879fd16ea87a4aad1ad81"
+    },
+    {
+      "task_id": "B010",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:15:12.235252+00:00",
+      "ended_at_utc": "2026-11-11T17:15:18.074582+00:00",
+      "wall_seconds": 5.839369567009271,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "5539118ed887a22d7bab8d17530231876b323d133888db2ca48b2937d986978c"
+    },
+    {
+      "task_id": "B010",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:17:08.693979+00:00",
+      "ended_at_utc": "2026-11-11T17:17:15.090195+00:00",
+      "wall_seconds": 6.396256054009427,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "a64bdd526d81224621fd70e8d4276a02a83b7476290939de9d65b1b4b4248868"
+    },
+    {
+      "task_id": "B003",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:17:16.302547+00:00",
+      "ended_at_utc": "2026-11-11T17:17:16.468249+00:00",
+      "wall_seconds": 0.1657339020021027,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "3e1e5d146b6de098d769f3196640aedb24a4d7fa9686ce727ec1f5af4a753f96"
+    },
+    {
+      "task_id": "B003",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:17:16.472088+00:00",
+      "ended_at_utc": "2026-11-11T17:18:02.662125+00:00",
+      "wall_seconds": 46.19007606600644,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "eae55024fec5513ff29fb7724325a8ad5b96c728f7f503194208e7577739bf22"
+    },
+    {
+      "task_id": "B003",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:18:02.665298+00:00",
+      "ended_at_utc": "2026-11-11T17:18:08.607775+00:00",
+      "wall_seconds": 5.942519087999244,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "02688da562bcdfec7c0b95408a9a2f6067c021f4a7d2378e6b992c5a8c20e1b7"
+    },
+    {
+      "task_id": "B003",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:19:45.600258+00:00",
+      "ended_at_utc": "2026-11-11T17:19:51.793818+00:00",
+      "wall_seconds": 6.193598851998104,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "0d301ddd50e2478464f1c206acfc3b23aa340d3caf2d15c0be98c1290d55aa0e"
+    },
+    {
+      "task_id": "B011",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:19:53.233576+00:00",
+      "ended_at_utc": "2026-11-11T17:19:53.499937+00:00",
+      "wall_seconds": 0.26639398900442757,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "26aa90bd072bfead78df1665232e0110018e51664f882c7af429a529b5b4b52b"
+    },
+    {
+      "task_id": "B011",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:19:53.503652+00:00",
+      "ended_at_utc": "2026-11-11T17:20:40.848610+00:00",
+      "wall_seconds": 47.34500317000493,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "e3c0a0e8c35570412544fdba75483d5b032f4605d1367cb0fb7f07ef0d230b7b"
+    },
+    {
+      "task_id": "B011",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:20:40.853473+00:00",
+      "ended_at_utc": "2026-11-11T17:20:46.644410+00:00",
+      "wall_seconds": 5.790978638993693,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "9a77168214a0c15d2f117ae8f87805bd5925bf905b016e984c5b3cc7254465c7"
+    },
+    {
+      "task_id": "B011",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:22:41.081206+00:00",
+      "ended_at_utc": "2026-11-11T17:22:47.336398+00:00",
+      "wall_seconds": 6.255435750994366,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "10fa6235d85c01c3cc68c0222ad8530124b40e608fbe0cfedd2c3f3b21d7e6f1"
+    },
+    {
+      "task_id": "B014",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:22:48.999175+00:00",
+      "ended_at_utc": "2026-11-11T17:22:49.823565+00:00",
+      "wall_seconds": 0.8244422980060335,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "6e85e750348443996f3977539e6cc76ea4da645f38356237e4e70288a2edcab4"
+    },
+    {
+      "task_id": "B014",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:22:49.834319+00:00",
+      "ended_at_utc": "2026-11-11T17:23:44.841888+00:00",
+      "wall_seconds": 55.00760797900148,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "d305d568be9ebec141e8c183a58738fcc6b1b4eba4d583eb59707ac7e4cfb368"
+    },
+    {
+      "task_id": "B014",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:23:44.844377+00:00",
+      "ended_at_utc": "2026-11-11T17:23:50.531272+00:00",
+      "wall_seconds": 5.686929806994158,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "2c6801b610a2caca5c0c603d593158dd89d42d42370e8843b1a3617818ff0aa8"
+    },
+    {
+      "task_id": "B014",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:25:11.548183+00:00",
+      "ended_at_utc": "2026-11-11T17:25:17.040950+00:00",
+      "wall_seconds": 5.492805382004008,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "fe0fbabec1a66bef0f44fda07ffdb95ccdc5f9c8db2f16a429ceaeb3b8b62a45"
+    },
+    {
+      "task_id": "B008",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:25:18.038718+00:00",
+      "ended_at_utc": "2026-11-11T17:25:18.254862+00:00",
+      "wall_seconds": 0.21618034699349664,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "150c08a236b79d36dbec4a61cf398e1f12213dcac1fb3c145ac36a0d1fe65c93"
+    },
+    {
+      "task_id": "B008",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:25:18.258875+00:00",
+      "ended_at_utc": "2026-11-11T17:26:10.794210+00:00",
+      "wall_seconds": 52.535370056997635,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "8bc3f1de99cd3992c3e0d9eae2a68455dfdd42b0bfa72f0723d55f1e2da7835b"
+    },
+    {
+      "task_id": "B008",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:26:10.797899+00:00",
+      "ended_at_utc": "2026-11-11T17:26:16.283733+00:00",
+      "wall_seconds": 5.485868672010838,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "8808eeb08f27a1a902a8d5c02809e88fd12a1299f1aa6deeb269db07e2d43cee"
+    },
+    {
+      "task_id": "B008",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:28:07.956883+00:00",
+      "ended_at_utc": "2026-11-11T17:28:14.101961+00:00",
+      "wall_seconds": 6.145118405998801,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "c4d23b4cdadef77329ccd863f1117d4495b583d8bfb3e81c7867998e357af4dd"
+    },
+    {
+      "task_id": "B015",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:28:15.082625+00:00",
+      "ended_at_utc": "2026-11-11T17:28:15.399075+00:00",
+      "wall_seconds": 0.3164866609877208,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "daafe4a17628514468f5e0d34bb4d93e4a9b3326a76c2d41f0c80ae17064481c"
+    },
+    {
+      "task_id": "B015",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:28:15.401661+00:00",
+      "ended_at_utc": "2026-11-11T17:29:10.783511+00:00",
+      "wall_seconds": 55.38188263599295,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "05206e8848ff76d8b251523d09da5a60b965ebf250e8a8d8ef5d556c1c1e0056"
+    },
+    {
+      "task_id": "B015",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:29:10.787070+00:00",
+      "ended_at_utc": "2026-11-11T17:29:16.073119+00:00",
+      "wall_seconds": 5.2860849350108765,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "c559a1247075ea9866d87f3b67f898882eac1da92c013dc1f367a2e12a38b95a"
+    },
+    {
+      "task_id": "B015",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:30:51.798533+00:00",
+      "ended_at_utc": "2026-11-11T17:30:58.494902+00:00",
+      "wall_seconds": 6.696409478012356,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "5cd516c8c2e7a88ad26d39b352613d55ed120c23a454a8362ff20e031936ef73"
+    },
+    {
+      "task_id": "B023",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:30:59.478261+00:00",
+      "ended_at_utc": "2026-11-11T17:30:59.744962+00:00",
+      "wall_seconds": 0.26673555000161286,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "61038715db5266ca3d6fca36553c937d4069924737c0d0f17de3ee6cc7d2dae5"
+    },
+    {
+      "task_id": "B023",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:30:59.748767+00:00",
+      "ended_at_utc": "2026-11-11T17:31:51.511643+00:00",
+      "wall_seconds": 51.762922925001476,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "05febcb2b4505a5384a223c0cbb53c3e4d739ba0ebc23c4ba1231c13790b4b61"
+    },
+    {
+      "task_id": "B023",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:31:51.515419+00:00",
+      "ended_at_utc": "2026-11-11T17:31:57.551547+00:00",
+      "wall_seconds": 6.0361657309986185,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "0c751ee5b9413c872f71acdb3a1227f97968256ab6d818e7c2067b5f0ba0b746"
+    },
+    {
+      "task_id": "B023",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:33:50.148949+00:00",
+      "ended_at_utc": "2026-11-11T17:33:56.788457+00:00",
+      "wall_seconds": 6.639549705010722,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "b0d803e40038a746117a0dd9a148461370b58cc8639cec0f7c7e9acb3ae61288"
+    },
+    {
+      "task_id": "B026",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:33:57.722241+00:00",
+      "ended_at_utc": "2026-11-11T17:33:57.938956+00:00",
+      "wall_seconds": 0.21676349600602407,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "ef49e732cd9e4389f52acaca144dcb7e587e51c1a807c6f1a11664f4a5dafc0d"
+    },
+    {
+      "task_id": "B026",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:33:57.944009+00:00",
+      "ended_at_utc": "2026-11-11T17:34:56.417655+00:00",
+      "wall_seconds": 58.473701743991114,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "deea5242beb4f559555f7b81d5e93ec490c35bf7427e7a47b7b6a75db5484148"
+    },
+    {
+      "task_id": "B026",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:34:56.423947+00:00",
+      "ended_at_utc": "2026-11-11T17:35:01.992127+00:00",
+      "wall_seconds": 5.568239976011682,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "e89ab80eb2078925e79e01ab5b2ec5cd92535f7b7d80cd6d8da155a031fc1850"
+    },
+    {
+      "task_id": "B026",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:36:38.526218+00:00",
+      "ended_at_utc": "2026-11-11T17:36:44.562668+00:00",
+      "wall_seconds": 6.036505986994598,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "70fc04f3fdef2338eee9dca55bfb4aec38a6d400041996e10bf6a74596c72f3a"
+    },
+    {
+      "task_id": "B032",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:36:45.517355+00:00",
+      "ended_at_utc": "2026-11-11T17:36:45.783689+00:00",
+      "wall_seconds": 0.2663737980037695,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "2e1263b10e6fc80aca7cbd233833a0b599ded7f3d30ce33f1ea73830a39d45c3"
+    },
+    {
+      "task_id": "B032",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:36:45.786588+00:00",
+      "ended_at_utc": "2026-11-11T17:37:37.340876+00:00",
+      "wall_seconds": 51.55432635900797,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "3f3306a53ebff2961504f84622b139c6a22e53c62bf9ce33455852225c969b1b"
+    },
+    {
+      "task_id": "B032",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:37:37.344799+00:00",
+      "ended_at_utc": "2026-11-11T17:37:43.527473+00:00",
+      "wall_seconds": 6.1827107860008255,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "b7896276450b9104a108f62f04c9f0a7e178488ba82537b083c7c3f994cf72dd"
+    },
+    {
+      "task_id": "B032",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:38:49.016038+00:00",
+      "ended_at_utc": "2026-11-11T17:38:55.955271+00:00",
+      "wall_seconds": 6.939271765004378,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "30dc09e8f6efcd73c02ea9081f9a47373124ed5f48e43a97f6427d40818a84f9"
+    },
+    {
+      "task_id": "B033",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:38:56.967082+00:00",
+      "ended_at_utc": "2026-11-11T17:38:57.183238+00:00",
+      "wall_seconds": 0.2161916890036082,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "bf118d7792d16b1724f11ddc2451bf2e0ea83ee88cb55f75d015a3bca43af613"
+    },
+    {
+      "task_id": "B033",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:38:57.187210+00:00",
+      "ended_at_utc": "2026-11-11T17:39:48.873188+00:00",
+      "wall_seconds": 51.686013591999654,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "b5f002092a775393c050d7e5bd19da4e3c896cb62d0e7fb46a47fa78f8d81579"
+    },
+    {
+      "task_id": "B033",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:39:48.876364+00:00",
+      "ended_at_utc": "2026-11-11T17:39:55.362141+00:00",
+      "wall_seconds": 6.485815563995857,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "412e7f9a8837dda79f6d4c80d5f7a291f0839d2e12a926c50b8bb15fd53a308c"
+    },
+    {
+      "task_id": "B033",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:41:48.543167+00:00",
+      "ended_at_utc": "2026-11-11T17:41:54.828640+00:00",
+      "wall_seconds": 6.285524889986846,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "d6fca2718a73f4411e7d8caec1b1e39e31d6c68dccdd4ef505d791b852cca6c1"
+    },
+    {
+      "task_id": "B035",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:41:55.810485+00:00",
+      "ended_at_utc": "2026-11-11T17:41:56.026532+00:00",
+      "wall_seconds": 0.21608564800408203,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "ab19b2f93fc4e192d938904f6daa2e6abe5a5a7627f55d6df942be6ab8e121f5"
+    },
+    {
+      "task_id": "B035",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:41:56.029288+00:00",
+      "ended_at_utc": "2026-11-11T17:42:50.423957+00:00",
+      "wall_seconds": 54.39471064400277,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f082fec5511e3d91113f2571536b8d743cb0b6717bf235ef5674c47d61a7bef3"
+    },
+    {
+      "task_id": "B035",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:42:50.427113+00:00",
+      "ended_at_utc": "2026-11-11T17:42:57.115786+00:00",
+      "wall_seconds": 6.688710620001075,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "6257b1896069725b5f3033d34be7d18bec3fcc3ab74fb3f8919e714c06edf524"
+    },
+    {
+      "task_id": "B035",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:44:49.156520+00:00",
+      "ended_at_utc": "2026-11-11T17:44:55.994772+00:00",
+      "wall_seconds": 6.838290030995267,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "eaae417b9fec730242717fcdc5afa4aaa3eea98a80b38b23d44b39ca87ab2bfe"
+    },
+    {
+      "task_id": "B039",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:44:56.989780+00:00",
+      "ended_at_utc": "2026-11-11T17:44:57.255627+00:00",
+      "wall_seconds": 0.26588171799085103,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "0b419242c2acf78d40bc335ef4dc8da087ed06f5f4551467ea42c5fabac1aa88"
+    },
+    {
+      "task_id": "B039",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:44:57.260488+00:00",
+      "ended_at_utc": "2026-11-11T17:45:58.610861+00:00",
+      "wall_seconds": 61.35041281800659,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "d027d4ec5310a436879141443f9100c3b94e7b9662a7805137bb227462d5a0ba"
+    },
+    {
+      "task_id": "B039",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:45:58.614475+00:00",
+      "ended_at_utc": "2026-11-11T17:46:04.198843+00:00",
+      "wall_seconds": 5.584404765992076,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "2a8adf7960b168b17e8f354770fe2e1e350ae2056e42ae4fd5f4cb3a91663627"
+    },
+    {
+      "task_id": "B039",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:47:56.305814+00:00",
+      "ended_at_utc": "2026-11-11T17:48:03.382051+00:00",
+      "wall_seconds": 7.076278082997305,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "c27a430a5a10aef3ec0c65419af059e9cb5de092f915bcbb94b8da3f1a55b22a"
+    },
+    {
+      "task_id": "B009",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:48:04.335848+00:00",
+      "ended_at_utc": "2026-11-11T17:48:04.501579+00:00",
+      "wall_seconds": 0.16576260600413661,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "7ad531948c5a47f3b771207c620725883d75942edf58831f0bea86588cd41cc2"
+    },
+    {
+      "task_id": "B009",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:48:04.505042+00:00",
+      "ended_at_utc": "2026-11-11T17:49:02.679231+00:00",
+      "wall_seconds": 58.174225043010665,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "37af09817385838527a12aa43b500523ddf299506888448b6b36acdb06b02096"
+    },
+    {
+      "task_id": "B009",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:49:02.682412+00:00",
+      "ended_at_utc": "2026-11-11T17:49:08.617387+00:00",
+      "wall_seconds": 5.935014026006684,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f1a8358a8ed94dce52028f5c8622615abc0d9d20c38839bc133d18a5bbf7239d"
+    },
+    {
+      "task_id": "B009",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:51:01.127748+00:00",
+      "ended_at_utc": "2026-11-11T17:51:07.213729+00:00",
+      "wall_seconds": 6.086020718008513,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "0f883a61b6fc865e84f0c85f42145ae09ba2a56663afb036f97c2c681be602fa"
+    },
+    {
+      "task_id": "B030",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:51:08.986340+00:00",
+      "ended_at_utc": "2026-11-11T17:51:09.435252+00:00",
+      "wall_seconds": 0.4489684739965014,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "7825d28696f43635b055b240cc057433fee64f75f1f8d3d66c46895110eaba00"
+    },
+    {
+      "task_id": "B030",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:51:09.452125+00:00",
+      "ended_at_utc": "2026-11-11T17:52:05.308890+00:00",
+      "wall_seconds": 55.856809553995845,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "41ddb49510ce1ec73a32ca5e1046d4b83886bf65cc148f91dbf9a8be2871084b"
+    },
+    {
+      "task_id": "B030",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:52:05.312004+00:00",
+      "ended_at_utc": "2026-11-11T17:52:11.349584+00:00",
+      "wall_seconds": 6.037622408999596,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "00ef5724e711eec644121145e7094abc9b975cb1d4aa80439842e76c985dac2f"
+    },
+    {
+      "task_id": "B030",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:53:47.744287+00:00",
+      "ended_at_utc": "2026-11-11T17:53:53.429556+00:00",
+      "wall_seconds": 5.685308061001706,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f2c67aee10859b44a94c771fe4789563d2f2f7d32cc8740495684b1d517325d6"
+    },
+    {
+      "task_id": "B005",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:53:54.507540+00:00",
+      "ended_at_utc": "2026-11-11T17:53:54.725257+00:00",
+      "wall_seconds": 0.2177645140036475,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "fbb0fee03ed2ff49d985679a82f4d6fca1a20ac401402bc50450ee41c442381f"
+    },
+    {
+      "task_id": "B005",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:53:54.729387+00:00",
+      "ended_at_utc": "2026-11-11T17:54:56.197386+00:00",
+      "wall_seconds": 61.4680408060085,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "75db6514f4337d1fe4d66e7116fc635c4abef2e74d951e236d7d74d7d54c7136"
+    },
+    {
+      "task_id": "B005",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:54:56.199984+00:00",
+      "ended_at_utc": "2026-11-11T17:55:01.132581+00:00",
+      "wall_seconds": 4.9326358569960576,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "d7c5766b75862e651cea276d02ff7aa6824254d0a73318d1c1880eeb71bbc75e"
+    },
+    {
+      "task_id": "B005",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:56:23.104817+00:00",
+      "ended_at_utc": "2026-11-11T17:56:29.041555+00:00",
+      "wall_seconds": 5.936769979991368,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "2e98e11e7d62162578b91463b1d539f5e50901a81a8a76caded24298f88dddb2"
+    },
+    {
+      "task_id": "B036",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:56:30.062880+00:00",
+      "ended_at_utc": "2026-11-11T17:56:30.278755+00:00",
+      "wall_seconds": 0.21590879900031723,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "2b1a46932417e2dd9fbd62424481904ea25b3968eadcf413920ab62d5dcf5671"
+    },
+    {
+      "task_id": "B036",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:56:30.281947+00:00",
+      "ended_at_utc": "2026-11-11T17:57:23.214867+00:00",
+      "wall_seconds": 52.93295436100743,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "de135dd7330c5165d542eddbbcf7e622fc5026ad302439d36600125a48d14d61"
+    },
+    {
+      "task_id": "B036",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T17:57:23.218057+00:00",
+      "ended_at_utc": "2026-11-11T17:57:28.701594+00:00",
+      "wall_seconds": 5.483572754994384,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "e3031cdd3c52001575ddb5a4db9685624f137d57d6a738fc33abaef926bc48c4"
+    },
+    {
+      "task_id": "B036",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T17:59:06.127557+00:00",
+      "ended_at_utc": "2026-11-11T17:59:12.915524+00:00",
+      "wall_seconds": 6.7880011910019675,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "0abcb752b01c8fdbc401158da85d88e1276b7356eeccecf9b8eb283320b3ff09"
+    },
+    {
+      "task_id": "B044",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T17:59:14.223177+00:00",
+      "ended_at_utc": "2026-11-11T17:59:14.541587+00:00",
+      "wall_seconds": 0.3184453720023157,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "a7f76f08de711a33e252d2f848266d920f9d9224d9b1313e67512acea3fbbb60"
+    },
+    {
+      "task_id": "B044",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T17:59:14.545205+00:00",
+      "ended_at_utc": "2026-11-11T18:00:09.088447+00:00",
+      "wall_seconds": 54.543281498001306,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "52e0209b6326457bfc74a01a8c8d3b09ba5ab896df3cad6e220802f8ba0e656c"
+    },
+    {
+      "task_id": "B044",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:00:09.092346+00:00",
+      "ended_at_utc": "2026-11-11T18:00:15.084624+00:00",
+      "wall_seconds": 5.992317062002257,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "103add3c74aefbd66385561e04c9e9814ffa2c5ba3c8b8435f404c8eb455d59e"
+    },
+    {
+      "task_id": "B044",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:02:08.600063+00:00",
+      "ended_at_utc": "2026-11-11T18:02:14.635287+00:00",
+      "wall_seconds": 6.035259757001768,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "a94209b23b2002700815d42bbdf0cc74770a9d2a6232da523932e898a0f009e8"
+    },
+    {
+      "task_id": "B048",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:02:15.625308+00:00",
+      "ended_at_utc": "2026-11-11T18:02:15.841222+00:00",
+      "wall_seconds": 0.2159481030103052,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "2adc07ac4d53162cc3420b7a8c5b94839612434e5dcf6935fca8b83134f7fd67"
+    },
+    {
+      "task_id": "B048",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:02:15.844979+00:00",
+      "ended_at_utc": "2026-11-11T18:03:11.808707+00:00",
+      "wall_seconds": 55.96376594400499,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "b070bad7b06863fd69243bb601780a7b5e6f99b9d9836357134a1ec6ef32f376"
+    },
+    {
+      "task_id": "B048",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:03:11.812792+00:00",
+      "ended_at_utc": "2026-11-11T18:03:17.762855+00:00",
+      "wall_seconds": 5.950101377995452,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "cf8140523b2f16230cc29aaf5143c93e47e8c5aa09fc64889f37640795f39ff7"
+    },
+    {
+      "task_id": "B048",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:05:11.037219+00:00",
+      "ended_at_utc": "2026-11-11T18:05:16.770851+00:00",
+      "wall_seconds": 5.733666241998435,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "5f9c275af55c955261c14cb2d008fa8cb93321639a42dc2214ca65f6b5b0f18c"
+    },
+    {
+      "task_id": "B046",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:05:17.658756+00:00",
+      "ended_at_utc": "2026-11-11T18:05:17.824080+00:00",
+      "wall_seconds": 0.1653620520082768,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "2ed483f762b774aa93d2274731d34b3acf85610b6659bc2798a1c99698f82130"
+    },
+    {
+      "task_id": "B046",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:05:17.827827+00:00",
+      "ended_at_utc": "2026-11-11T18:06:15.935516+00:00",
+      "wall_seconds": 58.10772379300033,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "6ac74bb2dbd99a8e29e7786ebdb10081f7ea3a9eb125a57b04795966f7af52a1"
+    },
+    {
+      "task_id": "B046",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:06:15.938282+00:00",
+      "ended_at_utc": "2026-11-11T18:06:21.372225+00:00",
+      "wall_seconds": 5.433995403000154,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "117600d5f5996dd4dddc2c30902c9fd7287a755a8d0d4fb31e81e16e1fc16d31"
+    },
+    {
+      "task_id": "B046",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:08:13.531504+00:00",
+      "ended_at_utc": "2026-11-11T18:08:19.016055+00:00",
+      "wall_seconds": 5.484591569998884,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "ea6fe99f77c784fef152a497c374ff83940050646ed919ba3704ec0c0750ff64"
+    },
+    {
+      "task_id": "B002",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:08:20.062315+00:00",
+      "ended_at_utc": "2026-11-11T18:08:20.227862+00:00",
+      "wall_seconds": 0.16558410700235981,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "e6a5ca7ebeabac81f75d5bbfc37b1fcbeaad7ee42e189b842d7e42a53bd9adaa"
+    },
+    {
+      "task_id": "B002",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:08:20.231316+00:00",
+      "ended_at_utc": "2026-11-11T18:09:22.641838+00:00",
+      "wall_seconds": 62.41056454699719,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "60a6c2cce8ed0363f587f634d5b98802bbbd63f17e9a47b5160e35a98100fcfd"
+    },
+    {
+      "task_id": "B002",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:09:22.645202+00:00",
+      "ended_at_utc": "2026-11-11T18:09:28.279243+00:00",
+      "wall_seconds": 5.634081229000003,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "ceb81a896dba767ab89ae75334cb4408e837134299daf3030f7b7ba22189b1cf"
+    },
+    {
+      "task_id": "B002",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:11:20.714816+00:00",
+      "ended_at_utc": "2026-11-11T18:11:27.101333+00:00",
+      "wall_seconds": 6.386552316005691,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "57e4e9b1a2a8a27a04a116833c9a73661291848c0b9caf43763f90ace4f42e04"
+    },
+    {
+      "task_id": "B049",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:11:28.126437+00:00",
+      "ended_at_utc": "2026-11-11T18:11:28.392725+00:00",
+      "wall_seconds": 0.26633740299439523,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "e7556b953be0ed631a6ab439c68c7c5c1ffff6522c3581c55cbcc8355ae295bf"
+    },
+    {
+      "task_id": "B049",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:11:28.396572+00:00",
+      "ended_at_utc": "2026-11-11T18:12:29.502432+00:00",
+      "wall_seconds": 61.105894375999924,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "417982c8650a1c5807f5e528419a048015ba5fc1bddca472ee168b766febccc6"
+    },
+    {
+      "task_id": "B049",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:12:29.506847+00:00",
+      "ended_at_utc": "2026-11-11T18:12:35.290446+00:00",
+      "wall_seconds": 5.7836346219992265,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "ce41fd313b546a1e3069acc8fed71aef46bcc4d362b90c8af480073ab8bd873c"
+    },
+    {
+      "task_id": "B049",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:14:12.439486+00:00",
+      "ended_at_utc": "2026-11-11T18:14:18.124572+00:00",
+      "wall_seconds": 5.685121725007775,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "650833b033d8fa1193efdb02ab7a9b8c7e6308720d047c3a8dd45237d14f1061"
+    },
+    {
+      "task_id": "B004",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:14:19.093218+00:00",
+      "ended_at_utc": "2026-11-11T18:14:19.259019+00:00",
+      "wall_seconds": 0.16583472999627702,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "05d25a0b0eb55cc7d3c21614ffd1628b97412993b686b0fb1be995bedb804b4a"
+    },
+    {
+      "task_id": "B004",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:14:19.262741+00:00",
+      "ended_at_utc": "2026-11-11T18:15:25.923579+00:00",
+      "wall_seconds": 66.66088335298991,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "de3497727ddfe4f2d0bb050475c516716ec18461e870bbc6e53852889a80a3bf"
+    },
+    {
+      "task_id": "B004",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:15:25.927162+00:00",
+      "ended_at_utc": "2026-11-11T18:15:31.362659+00:00",
+      "wall_seconds": 5.4355458119971445,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "576c970fc22a7b86db2f077176413ce89b07e4095bb4743ec55aa777de1c48c6"
+    },
+    {
+      "task_id": "B004",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:17:26.781637+00:00",
+      "ended_at_utc": "2026-11-11T18:17:32.466204+00:00",
+      "wall_seconds": 5.68460360399331,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "592c947a15bdaa46881bdd430d3334a4805dc883a24f7251454987c82e46a864"
+    },
+    {
+      "task_id": "B050",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:17:33.504831+00:00",
+      "ended_at_utc": "2026-11-11T18:17:33.720907+00:00",
+      "wall_seconds": 0.21610994500224479,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "2acf0e50b7059081cc733f64a20411e177ce63c284eb237d04714369d898c8d1"
+    },
+    {
+      "task_id": "B050",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:17:33.724662+00:00",
+      "ended_at_utc": "2026-11-11T18:18:37.713646+00:00",
+      "wall_seconds": 63.989061264001066,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "905c9b8f4efc585404642d853206f9136d6c0b547b9fd401a4c548a6c9f765be"
+    },
+    {
+      "task_id": "B050",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:18:37.717304+00:00",
+      "ended_at_utc": "2026-11-11T18:18:43.302476+00:00",
+      "wall_seconds": 5.585210496006766,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "4ab6c5489481b8aa254f4992ca1306c4a7b138565d834ed4301b487fa2325674"
+    },
+    {
+      "task_id": "B050",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:20:35.377223+00:00",
+      "ended_at_utc": "2026-11-11T18:20:42.014181+00:00",
+      "wall_seconds": 6.636997652996797,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "ab9092cd027a0471e0e195ef605492b197520b6d8e3e920fe9bb80a3b076612d"
+    },
+    {
+      "task_id": "B007",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:20:43.060701+00:00",
+      "ended_at_utc": "2026-11-11T18:20:43.226373+00:00",
+      "wall_seconds": 0.16570620400307234,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f8fd2ef074266f2ac686faf974b2d385ade961e891b3bcdab468c4df1426f6d7"
+    },
+    {
+      "task_id": "B007",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:20:43.229900+00:00",
+      "ended_at_utc": "2026-11-11T18:21:42.269966+00:00",
+      "wall_seconds": 59.04010183700302,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "fa377f1f4b7ca2b9defd270379a61c4ebf3bff6c0a7b7398833b94a53513705f"
+    },
+    {
+      "task_id": "B007",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:21:42.272746+00:00",
+      "ended_at_utc": "2026-11-11T18:21:47.355713+00:00",
+      "wall_seconds": 5.083012614995823,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "63ac36aed0550099c185fd02b52787529cb89955d91286bb6f1eaa078bd43f88"
+    },
+    {
+      "task_id": "B007",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:23:40.576529+00:00",
+      "ended_at_utc": "2026-11-11T18:23:45.961277+00:00",
+      "wall_seconds": 5.384785236004973,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "7577ab7b6bea861a35cf3c1f6d2d93f21e53edd4d452e108cf9ffe0499bee2cb"
+    },
+    {
+      "task_id": "B018",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:23:46.994174+00:00",
+      "ended_at_utc": "2026-11-11T18:23:47.159608+00:00",
+      "wall_seconds": 0.16546978800033685,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "ba1f2c4d667e1c4d99c96cda7482503bcc9a555152dfebad737b8e0e90f35712"
+    },
+    {
+      "task_id": "B018",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:23:47.162900+00:00",
+      "ended_at_utc": "2026-11-11T18:24:47.609970+00:00",
+      "wall_seconds": 60.4471068099956,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f328aa11ccc81941529278d270d4dfad6e5bdc0cb155864f4584bf9cffe85594"
+    },
+    {
+      "task_id": "B018",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:24:47.613251+00:00",
+      "ended_at_utc": "2026-11-11T18:24:53.196832+00:00",
+      "wall_seconds": 5.583619703000295,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "106337834a58594f82c6b36aa634e539d23349540e4ca2f6874db9c15c4c0e38"
+    },
+    {
+      "task_id": "B018",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:26:29.344182+00:00",
+      "ended_at_utc": "2026-11-11T18:26:34.827389+00:00",
+      "wall_seconds": 5.483241813009954,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "49520dc2278cb001f31cf37c53813fc88bc6f6a7e668dec114f3eadb00251e07"
+    },
+    {
+      "task_id": "B053",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:26:36.025667+00:00",
+      "ended_at_utc": "2026-11-11T18:26:36.291798+00:00",
+      "wall_seconds": 0.2661658489960246,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "c6948b1b01aeb7030328845f764f9cf69dffaea423eba5fbca0801a7e2583c7a"
+    },
+    {
+      "task_id": "B053",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:26:36.296105+00:00",
+      "ended_at_utc": "2026-11-11T18:27:40.314821+00:00",
+      "wall_seconds": 64.01875218300847,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "fd274b0412cc41fc5f156f86076e9d3efae9c59047871c12ea65b084d87c42a9"
+    },
+    {
+      "task_id": "B053",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:27:40.318314+00:00",
+      "ended_at_utc": "2026-11-11T18:27:46.002364+00:00",
+      "wall_seconds": 5.684090837996337,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "aa19548671304ca82c2922aabcf0b710e938588f6d3316507bcc38008dfafe0a"
+    },
+    {
+      "task_id": "B053",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:29:23.686884+00:00",
+      "ended_at_utc": "2026-11-11T18:29:29.572076+00:00",
+      "wall_seconds": 5.885228551996988,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "4baa0824ed92ff3ea8d35becd7a34e9a7ae5b28e270f028c4f9b740133230647"
+    },
+    {
+      "task_id": "B054",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:29:30.546361+00:00",
+      "ended_at_utc": "2026-11-11T18:29:30.812308+00:00",
+      "wall_seconds": 0.26598027200088836,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "61c7864286b699227817b0ffff536b4d6df4f1ce31f7eb44671185576fb730fe"
+    },
+    {
+      "task_id": "B054",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:29:30.817495+00:00",
+      "ended_at_utc": "2026-11-11T18:30:35.078608+00:00",
+      "wall_seconds": 64.2611511189898,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "3e804df20b50a7d0877235e25a44047d31269223ac7769b3923f9633b8bda004"
+    },
+    {
+      "task_id": "B054",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:30:35.082560+00:00",
+      "ended_at_utc": "2026-11-11T18:30:41.669529+00:00",
+      "wall_seconds": 6.58700485600275,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "fa63fd085c5139abc0083f1d7e63dfb360b5e0fb4c6244c08e429318694f40a7"
+    },
+    {
+      "task_id": "B054",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:32:49.823589+00:00",
+      "ended_at_utc": "2026-11-11T18:32:56.310766+00:00",
+      "wall_seconds": 6.487213105006958,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "c693a5077401af8d1ab41b53f899995ca98f75c91dcaddd32bf6d6e450117d4a"
+    },
+    {
+      "task_id": "B055",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:32:57.360921+00:00",
+      "ended_at_utc": "2026-11-11T18:32:57.526373+00:00",
+      "wall_seconds": 0.16548880899790674,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "3b61fb8fa508a09cbf92156ac7693e668a8f145f8c6d5e14706a351b4e4b3cce"
+    },
+    {
+      "task_id": "B055",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:32:57.529270+00:00",
+      "ended_at_utc": "2026-11-11T18:34:00.842724+00:00",
+      "wall_seconds": 63.3134931329987,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f70307f141bf2966e14848e01d84597443fc021f9fab541ca7e5921c2ab9d215"
+    },
+    {
+      "task_id": "B055",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:34:00.845841+00:00",
+      "ended_at_utc": "2026-11-11T18:34:06.576773+00:00",
+      "wall_seconds": 5.730966942006489,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "3db28f6978ca3abffba45b48769229dd899e5c26a5bb2ac2e2be7d713887be04"
+    },
+    {
+      "task_id": "B055",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:35:58.613922+00:00",
+      "ended_at_utc": "2026-11-11T18:36:04.699812+00:00",
+      "wall_seconds": 6.085925801002304,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "e43e53d2427219618ce86b7b69603eecf4f04ef807fad19238024f0c2db22560"
+    },
+    {
+      "task_id": "B056",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:36:05.999087+00:00",
+      "ended_at_utc": "2026-11-11T18:36:06.164525+00:00",
+      "wall_seconds": 0.16546917500090785,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f8a04659e5a0fb34670dbf09a4b4892c57887b8c339c0d430cff800f8c49d041"
+    },
+    {
+      "task_id": "B056",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:36:06.167860+00:00",
+      "ended_at_utc": "2026-11-11T18:37:10.950599+00:00",
+      "wall_seconds": 64.78277966499445,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "281367aabbeab09720cc596aa27891d34cd1ad0dac4f85056b2923d44ea7c3c3"
+    },
+    {
+      "task_id": "B056",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:37:10.953308+00:00",
+      "ended_at_utc": "2026-11-11T18:37:16.437238+00:00",
+      "wall_seconds": 5.483964604994981,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "09a80f1f401acc7f2b28782b6da867a6deeb6f7870c90512b3a1f2b8efc690cf"
+    },
+    {
+      "task_id": "B056",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:39:24.894249+00:00",
+      "ended_at_utc": "2026-11-11T18:39:30.686370+00:00",
+      "wall_seconds": 5.792154657989158,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f742c6d7f8c967e0e5bb81aec0bfeccda8656d977f6100b5ed3dce1c9cf69860"
+    },
+    {
+      "task_id": "B057",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:39:31.683876+00:00",
+      "ended_at_utc": "2026-11-11T18:39:31.899722+00:00",
+      "wall_seconds": 0.21587985799124,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "a3519b34e4e502d64d2248934bcdfb383591878a31dcee0aaab2cd700ba96e0b"
+    },
+    {
+      "task_id": "B057",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:39:31.902957+00:00",
+      "ended_at_utc": "2026-11-11T18:40:35.090312+00:00",
+      "wall_seconds": 63.18738960499468,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "0b43a55c5dccb37b31384522efe78dd54d2b50968e9b7877045430c50978431d"
+    },
+    {
+      "task_id": "B057",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:40:35.094370+00:00",
+      "ended_at_utc": "2026-11-11T18:40:41.631341+00:00",
+      "wall_seconds": 6.537007022998296,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "6a5cb42539ec1847192f3a7dc7b34c8e33dd812869753ec71d37285e3790c9e5"
+    },
+    {
+      "task_id": "B057",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:42:33.521196+00:00",
+      "ended_at_utc": "2026-11-11T18:42:39.706354+00:00",
+      "wall_seconds": 6.185191350989044,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "0cdf30ae3aee12975e6e183c48e0293c0a22bead4d131da80e8640b0f233d681"
+    },
+    {
+      "task_id": "B059",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:42:40.641465+00:00",
+      "ended_at_utc": "2026-11-11T18:42:40.807231+00:00",
+      "wall_seconds": 0.16580202098703012,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "8e469755b4b1e3f0f71cb948316f9218ae5acfa94457ef39688e12697d53874e"
+    },
+    {
+      "task_id": "B059",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:42:40.810780+00:00",
+      "ended_at_utc": "2026-11-11T18:43:42.798976+00:00",
+      "wall_seconds": 61.9882304030034,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "e6179587030554caaa1127d9ddcea879acf1894f082552cb9cf36b426fd9635b"
+    },
+    {
+      "task_id": "B059",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:43:42.802444+00:00",
+      "ended_at_utc": "2026-11-11T18:43:48.183431+00:00",
+      "wall_seconds": 5.3810230959934415,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f9ae0810a04c9c93094744929c21997aac06d4b9f3182bb5bee4a073ca46e92b"
+    },
+    {
+      "task_id": "B059",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:45:42.278128+00:00",
+      "ended_at_utc": "2026-11-11T18:45:48.513615+00:00",
+      "wall_seconds": 6.235527319004177,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "16ae619105ee55ee46a62cbd3d245a2511486037f02b0f602bb51ca67287b80a"
+    },
+    {
+      "task_id": "B060",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:45:49.594894+00:00",
+      "ended_at_utc": "2026-11-11T18:45:49.810914+00:00",
+      "wall_seconds": 0.21605537200230174,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "4096512cb886370cfdbca10a88931f2cb4b3cd19c45aebf59accbf94243e59ee"
+    },
+    {
+      "task_id": "B060",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:45:49.815242+00:00",
+      "ended_at_utc": "2026-11-11T18:46:53.495181+00:00",
+      "wall_seconds": 63.679978375992505,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "fda2ae6d7a6cd861751f4a6c41e395b8fa62848f95ab4230ecfd2e0d19bb105c"
+    },
+    {
+      "task_id": "B060",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:46:53.498525+00:00",
+      "ended_at_utc": "2026-11-11T18:46:58.933097+00:00",
+      "wall_seconds": 5.434606748007354,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "8a8d0ade2906667ccce281e05110e5fcf5252704999892c29e8bb95c493ebf1e"
+    },
+    {
+      "task_id": "B060",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:48:19.750140+00:00",
+      "ended_at_utc": "2026-11-11T18:48:25.936939+00:00",
+      "wall_seconds": 6.186833972009481,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "aee12177abe938f5bee05b1533acd9b45df823a2a0e5bebabc69cbd67f4ddbc4"
+    },
+    {
+      "task_id": "B061",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:48:26.855980+00:00",
+      "ended_at_utc": "2026-11-11T18:48:27.122048+00:00",
+      "wall_seconds": 0.2661247939977329,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "0fd6d0f7f232e1c99e82dda0ba87ab4c8c99477b7e79fbbf6382319cc5be9a58"
+    },
+    {
+      "task_id": "B061",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:48:27.126244+00:00",
+      "ended_at_utc": "2026-11-11T18:49:30.326971+00:00",
+      "wall_seconds": 63.200763353990624,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "5cf7e39017b5aef005e6a49565465e4a98731b087eb6d8b988c8c7b8155e2245"
+    },
+    {
+      "task_id": "B061",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:49:30.330683+00:00",
+      "ended_at_utc": "2026-11-11T18:49:36.015020+00:00",
+      "wall_seconds": 5.684374087009928,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "23f5cc81fab8e8c41604d216c0bf3ded6331e58e3e815c1fa8200e382e2ca92a"
+    },
+    {
+      "task_id": "B061",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:52:16.466978+00:00",
+      "ended_at_utc": "2026-11-11T18:52:22.252838+00:00",
+      "wall_seconds": 5.785899344002246,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "92b805be8c9f3823f3b099510056dab4575d9fad7c3cc9e3bd1ebb6e57d3ac84"
+    },
+    {
+      "task_id": "B062",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:52:23.637145+00:00",
+      "ended_at_utc": "2026-11-11T18:52:23.852992+00:00",
+      "wall_seconds": 0.21588011398853268,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "4b31c139c5dcba1b5de0603f81d42babe36c655435f83444c00628fd854d14e0"
+    },
+    {
+      "task_id": "B062",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:52:23.856135+00:00",
+      "ended_at_utc": "2026-11-11T18:53:29.998352+00:00",
+      "wall_seconds": 66.14225218699721,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "ae99e39284727abc56ebc849fddf23e4e7d94c319eb15d0713b491ecd5c49b07"
+    },
+    {
+      "task_id": "B062",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:53:30.001225+00:00",
+      "ended_at_utc": "2026-11-11T18:53:35.434463+00:00",
+      "wall_seconds": 5.43328030500561,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "e38fce2070bb7b553d94343787fd6ca7c0c4e9bbda2126dde297e782d42fc600"
+    },
+    {
+      "task_id": "B062",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:55:28.105959+00:00",
+      "ended_at_utc": "2026-11-11T18:55:33.641658+00:00",
+      "wall_seconds": 5.535755182005232,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "620bfbef18ed3af46dfd1688aae4ac722edae8e7d65931364fb9b55a9db06aa6"
+    },
+    {
+      "task_id": "B063",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:55:34.694689+00:00",
+      "ended_at_utc": "2026-11-11T18:55:34.910642+00:00",
+      "wall_seconds": 0.21600646901060827,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "edc46628eb97f9f4826cbfc28feea14ed83ca447b9dd98e194d166de3ff48925"
+    },
+    {
+      "task_id": "B063",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:55:34.914305+00:00",
+      "ended_at_utc": "2026-11-11T18:56:41.154253+00:00",
+      "wall_seconds": 66.23998019399005,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "c222baf5e0313e4dbc87a19c6cab711b0110214b32efcc77d1362c7af3d42574"
+    },
+    {
+      "task_id": "B063",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:56:41.158202+00:00",
+      "ended_at_utc": "2026-11-11T18:56:46.741200+00:00",
+      "wall_seconds": 5.583039959004964,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "41290477c7ccc9f5680dc15682a7ed373158f48a90ea6cc77e34eeb2e1c1b43b"
+    },
+    {
+      "task_id": "B063",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T18:58:39.993747+00:00",
+      "ended_at_utc": "2026-11-11T18:58:45.424517+00:00",
+      "wall_seconds": 5.430809088997194,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "d5947c72698e0a7e92b363a6b06940881f826f8c48de15b682eacc9bd9f4152b"
+    },
+    {
+      "task_id": "B065",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T18:58:46.350768+00:00",
+      "ended_at_utc": "2026-11-11T18:58:46.566644+00:00",
+      "wall_seconds": 0.2159240140026668,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "d9d79c52caa410d35bd3d05ac9dd571af56de9b250fbdb0249e0fc19b17e265d"
+    },
+    {
+      "task_id": "B065",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T18:58:46.570628+00:00",
+      "ended_at_utc": "2026-11-11T18:59:51.645317+00:00",
+      "wall_seconds": 65.07472526699712,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "8ada93f8405ededc40d31cbdb277d766dcc23442c762dc2fe6f27b3449b94bb0"
+    },
+    {
+      "task_id": "B065",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T18:59:51.649456+00:00",
+      "ended_at_utc": "2026-11-11T18:59:57.630505+00:00",
+      "wall_seconds": 5.981085566003458,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "ac7ddad02c25e66e2298388e55171a010b509fcfed2c7ca68ced9f994b1b06ed"
+    },
+    {
+      "task_id": "B065",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:01:18.968122+00:00",
+      "ended_at_utc": "2026-11-11T19:01:25.157376+00:00",
+      "wall_seconds": 6.189291627990315,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "da40c665cc53f71bfa6bb8e24e5c4c23b25c9ec25404c952cc804f263fd9a827"
+    },
+    {
+      "task_id": "B067",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:01:26.211225+00:00",
+      "ended_at_utc": "2026-11-11T19:01:26.479088+00:00",
+      "wall_seconds": 0.26791386200056877,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "29d4cb765f7abf4611e6a75fea3680fa168fbc178c266a16cf0dc2c20373b8d2"
+    },
+    {
+      "task_id": "B067",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:01:26.483761+00:00",
+      "ended_at_utc": "2026-11-11T19:02:29.372462+00:00",
+      "wall_seconds": 62.888744180003414,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "7d5eded9efeadaa84c2333f540d1599b119b3aff6428f3d2bb52c629af670b89"
+    },
+    {
+      "task_id": "B067",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:02:29.376799+00:00",
+      "ended_at_utc": "2026-11-11T19:02:35.812913+00:00",
+      "wall_seconds": 6.4361486790003255,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "9b4d211d6c6bfa177963dce99f888980327f805010db5feb336622a60a0b2b8f"
+    },
+    {
+      "task_id": "B067",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:04:30.573547+00:00",
+      "ended_at_utc": "2026-11-11T19:04:36.759275+00:00",
+      "wall_seconds": 6.185764130990719,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "5324496a842bd9d0eff60a5788e39ec7962b69fda62b10d93c8c8bca838df49a"
+    },
+    {
+      "task_id": "B068",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:04:41.167532+00:00",
+      "ended_at_utc": "2026-11-11T19:04:41.383515+00:00",
+      "wall_seconds": 0.21602028100460302,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "d4f310c194449e23774eb7008a84680e3f089b44040a5923dba609b4421a9879"
+    },
+    {
+      "task_id": "B068",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:04:41.387233+00:00",
+      "ended_at_utc": "2026-11-11T19:05:44.187562+00:00",
+      "wall_seconds": 62.800359813001705,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "5eb53e75fdd2a10fae629483f0e04bbb35ad0408db9b1032bcedf3f9d46ef59c"
+    },
+    {
+      "task_id": "B068",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:05:44.191014+00:00",
+      "ended_at_utc": "2026-11-11T19:05:51.780006+00:00",
+      "wall_seconds": 7.589028850998147,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "be8a3332c9dc8b1cc6a7361af7f45a98857bef13b251f36035cbfe9c1046c998"
+    },
+    {
+      "task_id": "B068",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:07:59.272692+00:00",
+      "ended_at_utc": "2026-11-11T19:08:05.056993+00:00",
+      "wall_seconds": 5.784335288000875,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "d19c3f176262e1e5a51083858db6a93d504dde84a0fb58734edebd5b346b8136"
+    },
+    {
+      "task_id": "B069",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:08:06.473897+00:00",
+      "ended_at_utc": "2026-11-11T19:08:06.689571+00:00",
+      "wall_seconds": 0.21571219399629626,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "6211f8703fd4614f80afa5c03ec2b62e6cf9e06301a9bd2f8ed2bfe1d59c2e2b"
+    },
+    {
+      "task_id": "B069",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:08:06.693319+00:00",
+      "ended_at_utc": "2026-11-11T19:09:11.391093+00:00",
+      "wall_seconds": 64.69781752499694,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "0516c3c09c8ae8ab838bf833828853d7a0cbf04a39a4314976b344cf0f78ba06"
+    },
+    {
+      "task_id": "B069",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:09:11.395212+00:00",
+      "ended_at_utc": "2026-11-11T19:09:21.343233+00:00",
+      "wall_seconds": 9.948058002002654,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f43b3578457efb8117786bad8b3e3c377548d364160f5180eb95fbb30253ab34"
+    },
+    {
+      "task_id": "B069",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:11:01.032650+00:00",
+      "ended_at_utc": "2026-11-11T19:11:06.716838+00:00",
+      "wall_seconds": 5.684228498997982,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "4d873dc715b40d501979ed381031609a72c9d150faacbb0e7fd98790c33fd27e"
+    },
+    {
+      "task_id": "B070",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:11:09.251461+00:00",
+      "ended_at_utc": "2026-11-11T19:11:09.467316+00:00",
+      "wall_seconds": 0.21589023200795054,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "993af5e4c640cf31e20ad59b486b0568e477600273b72ee997a9e5ed1663df74"
+    },
+    {
+      "task_id": "B070",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:11:09.471430+00:00",
+      "ended_at_utc": "2026-11-11T19:12:15.347263+00:00",
+      "wall_seconds": 65.8758707090019,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "55be0e664f616a0d1ea392e4e371ec8dcdc892106cad8f05d56808bd87e0f9af"
+    },
+    {
+      "task_id": "B070",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:12:15.350705+00:00",
+      "ended_at_utc": "2026-11-11T19:12:20.733321+00:00",
+      "wall_seconds": 5.382650942003238,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "efc075310f4318b9655777e15e076c7f544cfb114fbe720f90eb8d33711d177b"
+    },
+    {
+      "task_id": "B070",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:13:42.653054+00:00",
+      "ended_at_utc": "2026-11-11T19:13:50.965110+00:00",
+      "wall_seconds": 8.312100541996188,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "145767ea3f21a9c1a4aa8f325aa3e5380bb1ebf94bce7850a62681821cbc9c8c"
+    },
+    {
+      "task_id": "B071",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:13:52.408275+00:00",
+      "ended_at_utc": "2026-11-11T19:13:52.675436+00:00",
+      "wall_seconds": 0.26720197999384254,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "8c783d80ce61aa176cc56b6eb89db9a35519990124d8c68877d4f7f1e33b3de5"
+    },
+    {
+      "task_id": "B071",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:13:52.679282+00:00",
+      "ended_at_utc": "2026-11-11T19:14:58.362768+00:00",
+      "wall_seconds": 65.68351927299227,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "36de26c31b238c3b8800ce1d917f88260589fef4b78a3c6466d4ec314d82e325"
+    },
+    {
+      "task_id": "B071",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:14:58.366399+00:00",
+      "ended_at_utc": "2026-11-11T19:15:05.006394+00:00",
+      "wall_seconds": 6.640032246999908,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f8c0f4715b386730e19709053f8e14af2e7086e22e9679756fdd6980ff6c3182"
+    },
+    {
+      "task_id": "B071",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:17:16.830234+00:00",
+      "ended_at_utc": "2026-11-11T19:17:22.715800+00:00",
+      "wall_seconds": 5.885602274007397,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "8d3d56759338c34c64cad2fe930751a05c3f3b75c56bb985a7b76aebfae4f202"
+    },
+    {
+      "task_id": "B072",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:17:24.109806+00:00",
+      "ended_at_utc": "2026-11-11T19:17:24.376050+00:00",
+      "wall_seconds": 0.2662796630029334,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "6f0ef8481d3b0c449f002579a94c7087eeaeaac014d119f5ddf775937775644b"
+    },
+    {
+      "task_id": "B072",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:17:24.379874+00:00",
+      "ended_at_utc": "2026-11-11T19:18:30.305911+00:00",
+      "wall_seconds": 65.92607365000003,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "bf1921b6b982cef528792e8176832f082b283db828d5638ba34aa61d21600178"
+    },
+    {
+      "task_id": "B072",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:18:30.309745+00:00",
+      "ended_at_utc": "2026-11-11T19:18:35.842722+00:00",
+      "wall_seconds": 5.533011688996339,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "d62bdf026c0ec7fbff972854e6e2b6fa4eb31f5406a0c44d485e4216dd759848"
+    },
+    {
+      "task_id": "B072",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:21:32.701837+00:00",
+      "ended_at_utc": "2026-11-11T19:21:40.040829+00:00",
+      "wall_seconds": 7.339031997005804,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "778fd016129fb5d14db15a0ba1de9d7375af012e23b7f9a5e6279a96b12d6dbb"
+    },
+    {
+      "task_id": "B073",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:21:41.044437+00:00",
+      "ended_at_utc": "2026-11-11T19:21:41.260303+00:00",
+      "wall_seconds": 0.2159020240069367,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "5cbb39b80443dc6e17e4d5e21f79cc97c8301d3ed5f0390abd0386c8f571e475"
+    },
+    {
+      "task_id": "B073",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:21:41.263600+00:00",
+      "ended_at_utc": "2026-11-11T19:22:46.913878+00:00",
+      "wall_seconds": 65.65031643799739,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "041074fbbb09e3b311f325ea9ae3e7325e5f2630172254240eab4adfc02fd6e9"
+    },
+    {
+      "task_id": "B073",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:22:46.917348+00:00",
+      "ended_at_utc": "2026-11-11T19:22:53.104023+00:00",
+      "wall_seconds": 6.186711043003015,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "e080e5fb9dbccd243ff63c4a94abd1cfe129faa058152285e4ca7ba005d83855"
+    },
+    {
+      "task_id": "B073",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:24:45.672272+00:00",
+      "ended_at_utc": "2026-11-11T19:24:51.854891+00:00",
+      "wall_seconds": 6.182656001998112,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "38b2e81633041b19081017536900f9e37edd805d20505a350c7f373f55edb0b8"
+    },
+    {
+      "task_id": "B074",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:24:53.097206+00:00",
+      "ended_at_utc": "2026-11-11T19:24:53.313586+00:00",
+      "wall_seconds": 0.216416562005179,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "a588d76fa23970fd366dc1636e04bfdbfcd3ee1b017ee649293a0b80465235e7"
+    },
+    {
+      "task_id": "B074",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:24:53.317499+00:00",
+      "ended_at_utc": "2026-11-11T19:26:00.575798+00:00",
+      "wall_seconds": 67.25834054900042,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "963d393184d1b01ca50463af8b6f8d0034008e6356945cea6c0cb6e3031a4dde"
+    },
+    {
+      "task_id": "B074",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:26:00.578803+00:00",
+      "ended_at_utc": "2026-11-11T19:26:05.809839+00:00",
+      "wall_seconds": 5.2310720550012775,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "1e647a49de0eb3896da1c5f2bd1e84a36243be73a2366463d04e890bc0f630ea"
+    },
+    {
+      "task_id": "B074",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:28:03.885708+00:00",
+      "ended_at_utc": "2026-11-11T19:28:09.968750+00:00",
+      "wall_seconds": 6.083079673000611,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "b189059d73cbd8f43a75b51232d2380ad60181002974e58e6cb7cd22c6b99b3f"
+    },
+    {
+      "task_id": "B075",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:28:10.886972+00:00",
+      "ended_at_utc": "2026-11-11T19:28:11.102697+00:00",
+      "wall_seconds": 0.21576001300127245,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f40ef871ceecc8723a119ee9ca9fa622c1b244a9aec47797e98c308cec0b02a1"
+    },
+    {
+      "task_id": "B075",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:28:11.105584+00:00",
+      "ended_at_utc": "2026-11-11T19:29:13.685452+00:00",
+      "wall_seconds": 62.57989871199243,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "aa149c4a1a187d070f636d4339268a71da14fde8b79bfc0e9876839ae73f43b2"
+    },
+    {
+      "task_id": "B075",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:29:13.689262+00:00",
+      "ended_at_utc": "2026-11-11T19:29:21.227215+00:00",
+      "wall_seconds": 7.537992091005435,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "98753cfc7db167356efd0762b43a6a0886e75dc2df4494b299c952c66d72e21a"
+    },
+    {
+      "task_id": "B075",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:31:19.472989+00:00",
+      "ended_at_utc": "2026-11-11T19:31:28.417503+00:00",
+      "wall_seconds": 8.944550197003991,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "555eec12f67d92318ed503cee56a5379b0ae24cfdc4875e772fc638f80b76db2"
+    },
+    {
+      "task_id": "B076",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:31:29.426947+00:00",
+      "ended_at_utc": "2026-11-11T19:31:29.642873+00:00",
+      "wall_seconds": 0.21596242301166058,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "7a42ac1b1bba11572bae594447eb432fa140702cc24bc3e7914ef7a8ece22b68"
+    },
+    {
+      "task_id": "B076",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:31:29.646197+00:00",
+      "ended_at_utc": "2026-11-11T19:32:34.917236+00:00",
+      "wall_seconds": 65.27107323700329,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "5ed7d956e91e4473e9c38c60d3496d82a2bfe4e49ebfa133ea2f10c4d21de1dc"
+    },
+    {
+      "task_id": "B076",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:32:34.920982+00:00",
+      "ended_at_utc": "2026-11-11T19:32:50.040989+00:00",
+      "wall_seconds": 15.12004185099795,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "62d26d34ad45eb66efa894d5967d7949fed8053b4b66a354c3043d4cdaf45b4a"
+    },
+    {
+      "task_id": "B076",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:34:52.084834+00:00",
+      "ended_at_utc": "2026-11-11T19:35:00.577576+00:00",
+      "wall_seconds": 8.492779135995079,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "846969d12449d7e3218e1de7e3665b2f8fb5e5871854fd99994b57d361736408"
+    },
+    {
+      "task_id": "B077",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:35:01.660820+00:00",
+      "ended_at_utc": "2026-11-11T19:35:01.926911+00:00",
+      "wall_seconds": 0.2661320609913673,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "2687cf91972b46d8536beb915f013e166a1fa9dc17fb58eca925bb99b2269245"
+    },
+    {
+      "task_id": "B077",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:35:01.930623+00:00",
+      "ended_at_utc": "2026-11-11T19:36:08.107293+00:00",
+      "wall_seconds": 66.17670646999613,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "768af0bc190a2ab03c2cff5aa6634f30a5bc9f7c96a819e2240988bf4c968455"
+    },
+    {
+      "task_id": "B077",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:36:08.112649+00:00",
+      "ended_at_utc": "2026-11-11T19:36:18.060631+00:00",
+      "wall_seconds": 9.94802145299036,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "d59db1197e0683d8efdbd0720ef76c65f6d9c4f49f28cb98d6e6423b47a1b031"
+    },
+    {
+      "task_id": "B077",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:38:12.412641+00:00",
+      "ended_at_utc": "2026-11-11T19:38:19.800082+00:00",
+      "wall_seconds": 7.387479388999054,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "762499d9ff06e57ba35027e5fda3748610f08127b9833dec912664c760a4e863"
+    },
+    {
+      "task_id": "B078",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:38:20.922465+00:00",
+      "ended_at_utc": "2026-11-11T19:38:21.188567+00:00",
+      "wall_seconds": 0.2661380019999342,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "4dd42189f149838cf1d4e76882cce031acf60507113ef8a66a94fcdb8758a919"
+    },
+    {
+      "task_id": "B078",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:38:21.192269+00:00",
+      "ended_at_utc": "2026-11-11T19:39:26.223767+00:00",
+      "wall_seconds": 65.03153565399407,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "27ba8ee4c8e0445f83b9547396a5554fe37e4b5b784fa870fe03fe84f352b99e"
+    },
+    {
+      "task_id": "B078",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:39:26.227924+00:00",
+      "ended_at_utc": "2026-11-11T19:39:34.018561+00:00",
+      "wall_seconds": 7.790674948002561,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "bb94316359a460755638638260ae01da7e5cae0da2f9a5fe4286a656f60718a4"
+    },
+    {
+      "task_id": "B078",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:42:00.268019+00:00",
+      "ended_at_utc": "2026-11-11T19:42:10.667826+00:00",
+      "wall_seconds": 10.399844125990057,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "b55f496322c2089af59dc0207fed9bec09cd9219c77a0f035aa59ed070c58391"
+    },
+    {
+      "task_id": "B079",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:42:11.727875+00:00",
+      "ended_at_utc": "2026-11-11T19:42:11.944070+00:00",
+      "wall_seconds": 0.21622963401023299,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "8f066ecece56e06e01c14815f4e4eacd0d6c2cca893ac80a2a1bf8f514227f85"
+    },
+    {
+      "task_id": "B079",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:42:11.946369+00:00",
+      "ended_at_utc": "2026-11-11T19:43:17.837977+00:00",
+      "wall_seconds": 65.89165117300581,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f88d1953d5e389fcb120ead2e449cae7f0d008434a7eae2758256ee9856194d6"
+    },
+    {
+      "task_id": "B079",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:43:17.842487+00:00",
+      "ended_at_utc": "2026-11-11T19:43:23.778383+00:00",
+      "wall_seconds": 5.935930816995096,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "cd42e81d00527cc95f9e8fadb5d4b9ff8f520c949d7dc97b2e540d9720f1da5a"
+    },
+    {
+      "task_id": "B079",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:45:18.242372+00:00",
+      "ended_at_utc": "2026-11-11T19:45:26.083382+00:00",
+      "wall_seconds": 7.84104790299898,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "8abfb7291c977e7e665a82d813fecdaaa9c58bd914fd546b09c7706bf5d042d6"
+    },
+    {
+      "task_id": "B080",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:45:28.129281+00:00",
+      "ended_at_utc": "2026-11-11T19:45:28.396383+00:00",
+      "wall_seconds": 0.2671351020107977,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "227ddf6a6df169bfcb70c52ae7777c01560fdddad8b222c6e79501974e2bf7e5"
+    },
+    {
+      "task_id": "B080",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:45:28.400028+00:00",
+      "ended_at_utc": "2026-11-11T19:46:37.120829+00:00",
+      "wall_seconds": 68.72083707001002,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "26b11f469b4518a21ecf605939f435087ccdca34aeea6fc96c83092e464d58a4"
+    },
+    {
+      "task_id": "B080",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:46:37.124128+00:00",
+      "ended_at_utc": "2026-11-11T19:46:44.964892+00:00",
+      "wall_seconds": 7.840798689998337,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "38125376e2074c944d43ac27dd3b67d48624fdec47a11dc28458cbc63b7fb534"
+    },
+    {
+      "task_id": "B080",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:48:38.880403+00:00",
+      "ended_at_utc": "2026-11-11T19:48:45.365046+00:00",
+      "wall_seconds": 6.4846762329980265,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "ec98e3fb47d0e2c521205666150721b59e6a7a00b70956c3822d6350b8fab7d6"
+    },
+    {
+      "task_id": "B084",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:48:46.296958+00:00",
+      "ended_at_utc": "2026-11-11T19:48:46.462776+00:00",
+      "wall_seconds": 0.16585452599974815,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "22f6600524b058089b76f55fe3ba8aefad49affdc6fb1ce0c7b4e955fe4d476f"
+    },
+    {
+      "task_id": "B084",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:48:46.466233+00:00",
+      "ended_at_utc": "2026-11-11T19:49:48.848882+00:00",
+      "wall_seconds": 62.38268416200299,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "8632daf88a81b55444d9138c5a3cfa2ebf6c36ab0c41535e29ee312df7f6199a"
+    },
+    {
+      "task_id": "B084",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:49:48.852280+00:00",
+      "ended_at_utc": "2026-11-11T19:49:57.593455+00:00",
+      "wall_seconds": 8.741209578001872,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "2fc93c8e7a60869f9beeaac04c5ec04e5fbf20dbc614137fb596832f945756f9"
+    },
+    {
+      "task_id": "B084",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:51:56.061752+00:00",
+      "ended_at_utc": "2026-11-11T19:52:01.592664+00:00",
+      "wall_seconds": 5.530965073994594,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "dcdc120bb94eb45fd138e08511f0dd47360df600c622c66008b766e67a66dd1d"
+    },
+    {
+      "task_id": "B085",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:52:02.633253+00:00",
+      "ended_at_utc": "2026-11-11T19:52:02.849058+00:00",
+      "wall_seconds": 0.2158425149973482,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "fddc77d035c9a26313cbca908ad5adc34a4c71ca5be67afd3d707ccd3ecba2b9"
+    },
+    {
+      "task_id": "B085",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:52:02.853335+00:00",
+      "ended_at_utc": "2026-11-11T19:53:09.978442+00:00",
+      "wall_seconds": 67.12514401599765,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "0f186fa6ddeb161eac41666aa944519b1abf630c96666f694aa9c2ba18aa7c54"
+    },
+    {
+      "task_id": "B085",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:53:09.981401+00:00",
+      "ended_at_utc": "2026-11-11T19:53:17.072938+00:00",
+      "wall_seconds": 7.091571352008032,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "065a40d7f1a525ba5ff42f1a3d68bdd44018ac03b265ec98e3c6ae6bb5a698d8"
+    },
+    {
+      "task_id": "B085",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:54:57.179051+00:00",
+      "ended_at_utc": "2026-11-11T19:55:04.818397+00:00",
+      "wall_seconds": 7.6393802810052875,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "d2a0e49b4540865c904c572ba4043bd464476421b02d0209b3cf594b49938141"
+    },
+    {
+      "task_id": "B086",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:55:06.163753+00:00",
+      "ended_at_utc": "2026-11-11T19:55:06.429780+00:00",
+      "wall_seconds": 0.2660604999982752,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "318f277d5c3be96e8b0d3dcab1b1c98dd0437412b3b9ed4d1d88f6fca2f50556"
+    },
+    {
+      "task_id": "B086",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:55:06.433705+00:00",
+      "ended_at_utc": "2026-11-11T19:56:11.979198+00:00",
+      "wall_seconds": 65.54552600999887,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "386a6b30cc12d417e98a4182f84ad71ba98b45604f734f0f0d37cef4fda5a53c"
+    },
+    {
+      "task_id": "B086",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:56:11.982452+00:00",
+      "ended_at_utc": "2026-11-11T19:56:17.866749+00:00",
+      "wall_seconds": 5.884340310993139,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "652e9b1a4eca9473cf623e0a803e84da3e1f9c1d44a8b4732dbf463e737b6c23"
+    },
+    {
+      "task_id": "B086",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T19:58:12.283820+00:00",
+      "ended_at_utc": "2026-11-11T19:58:18.118927+00:00",
+      "wall_seconds": 5.835141827003099,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "605392ec66696fd3153e252804a1ef00c8206e06e9d353e0380fbadc2bcba51c"
+    },
+    {
+      "task_id": "B087",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T19:58:19.170375+00:00",
+      "ended_at_utc": "2026-11-11T19:58:19.336232+00:00",
+      "wall_seconds": 0.1658913389983354,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "5385eef92dbcbaedf326ccaaaf1654fd71ba4b4f724b30e8a1cc0a93476be135"
+    },
+    {
+      "task_id": "B087",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T19:58:19.339840+00:00",
+      "ended_at_utc": "2026-11-11T19:59:28.925567+00:00",
+      "wall_seconds": 69.58576165599516,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "b73e674be949629a73bb486adfd7575b425476292bc2bbf659dd1fea04388f33"
+    },
+    {
+      "task_id": "B087",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T19:59:28.928450+00:00",
+      "ended_at_utc": "2026-11-11T19:59:34.160644+00:00",
+      "wall_seconds": 5.2322433210065356,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "077aa8dbd747b873f7a6204758b4fb72c3952c4ed1188cfdd36af3e15fbce033"
+    },
+    {
+      "task_id": "B087",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T20:01:45.205502+00:00",
+      "ended_at_utc": "2026-11-11T20:01:53.347372+00:00",
+      "wall_seconds": 8.14190891799808,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "9acf4f06931e606faea9b741da7dd1ad07f1ceedbc50c9acac234c1fb524a556"
+    },
+    {
+      "task_id": "B088",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T20:01:54.518562+00:00",
+      "ended_at_utc": "2026-11-11T20:01:54.784654+00:00",
+      "wall_seconds": 0.26614467801118735,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "20c16fab29bb0d23633a9b1a4391ffc2a7b3026e75979bdb644f6fdba70b8e62"
+    },
+    {
+      "task_id": "B088",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T20:01:54.791600+00:00",
+      "ended_at_utc": "2026-11-11T20:03:04.919726+00:00",
+      "wall_seconds": 70.12816603200918,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "f4b363f8b8fd58a38395d28f997612b037a707887462134d78304b2bcd4d0c2b"
+    },
+    {
+      "task_id": "B088",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T20:03:04.923936+00:00",
+      "ended_at_utc": "2026-11-11T20:03:13.517877+00:00",
+      "wall_seconds": 8.593982190999668,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "b565b71b260488f86a2ef8a9b75a99ff3091dce5078db2fd9b4510d0d2af4b78"
+    },
+    {
+      "task_id": "B088",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T20:05:08.901016+00:00",
+      "ended_at_utc": "2026-11-11T20:05:14.889330+00:00",
+      "wall_seconds": 5.988352339001722,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "ff1fd3553b5ea780983637b6064964ddf42a93f2619a2db238799177744e8680"
+    },
+    {
+      "task_id": "B089",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T20:05:15.844603+00:00",
+      "ended_at_utc": "2026-11-11T20:05:16.060881+00:00",
+      "wall_seconds": 0.21631355299905408,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "5b00331531fb11de8c33e6fc1644cd98beeca79939d4e4c28c26e5ee71bfa72f"
+    },
+    {
+      "task_id": "B089",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T20:05:16.063792+00:00",
+      "ended_at_utc": "2026-11-11T20:06:26.791281+00:00",
+      "wall_seconds": 70.72752531598962,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "eda627ffc635537571ae95e416c5316c1faff563441f61d8f8a3841c66e88e32"
+    },
+    {
+      "task_id": "B089",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T20:06:26.794784+00:00",
+      "ended_at_utc": "2026-11-11T20:06:33.234321+00:00",
+      "wall_seconds": 6.439572743998724,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "818ba8c65ca8d0974e42f29310ab06104d164418ea0593bac3093d5825f1af95"
+    },
+    {
+      "task_id": "B089",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T20:08:11.370346+00:00",
+      "ended_at_utc": "2026-11-11T20:08:16.955889+00:00",
+      "wall_seconds": 5.585582099010935,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "bce43db5fa0e60df489ba0c3375d281cbfa3e0e23938c6a6bdb7f23130c961e8"
+    },
+    {
+      "task_id": "B090",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T20:08:17.897226+00:00",
+      "ended_at_utc": "2026-11-11T20:08:18.163693+00:00",
+      "wall_seconds": 0.26650271999824326,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "1e41376927879a808eb5c3bd8df8a7e99501e5be5a1dd0e2485bbedc00a925ac"
+    },
+    {
+      "task_id": "B090",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T20:08:18.166750+00:00",
+      "ended_at_utc": "2026-11-11T20:09:28.125355+00:00",
+      "wall_seconds": 69.95864396300749,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "532f1f2f5e8f3356c8686c8eeb4117999b18f357d231b0912e8bb1bf8a46261b"
+    },
+    {
+      "task_id": "B090",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T20:09:28.129311+00:00",
+      "ended_at_utc": "2026-11-11T20:09:33.819946+00:00",
+      "wall_seconds": 5.690676124009769,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "0296e746c276a604fa9ffe2243e2316a4684f465793450d42dca195111598ebc"
+    },
+    {
+      "task_id": "B090",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T20:11:42.317131+00:00",
+      "ended_at_utc": "2026-11-11T20:11:48.001428+00:00",
+      "wall_seconds": 5.684335018013371,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "782361b6fe71f34fae537565af202836028b48b24d87a217b331148418deccaf"
+    },
+    {
+      "task_id": "B092",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T20:11:48.927363+00:00",
+      "ended_at_utc": "2026-11-11T20:11:49.194266+00:00",
+      "wall_seconds": 0.2669370009971317,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "3a915ce58b0ffb3bd613b7762ff4899afe35ee9fd217cea61d8495c93b6451de"
+    },
+    {
+      "task_id": "B092",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T20:11:49.198330+00:00",
+      "ended_at_utc": "2026-11-11T20:12:57.999039+00:00",
+      "wall_seconds": 68.80074390899972,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "cd156a12607a17a429b5d401c0e46c28ff632b1c4016c4a58146d5d5eb69ff32"
+    },
+    {
+      "task_id": "B092",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T20:12:58.003162+00:00",
+      "ended_at_utc": "2026-11-11T20:13:03.587143+00:00",
+      "wall_seconds": 5.584019519999856,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "e1fd4ff5c8051365871f43f8ffd0643c1ca15b859b288c2fc8c3d8dc33839b70"
+    },
+    {
+      "task_id": "B092",
+      "operation": "merge",
+      "started_at_utc": "2026-11-11T20:14:41.954820+00:00",
+      "ended_at_utc": "2026-11-11T20:14:49.093401+00:00",
+      "wall_seconds": 7.13861948599515,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "480e366bad5100f1f5d97afb99aeb5f3e2afe46e079471da901acceb2d6cf7ce"
+    },
+    {
+      "task_id": "B096",
+      "operation": "plan",
+      "started_at_utc": "2026-11-11T20:14:52.808548+00:00",
+      "ended_at_utc": "2026-11-11T20:14:53.074398+00:00",
+      "wall_seconds": 0.2658857180067571,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "a6ac125575973a9af86e48bb79de8e2139bd67d12cea0acfc559fefa8696d89f"
+    },
+    {
+      "task_id": "B096",
+      "operation": "prepare",
+      "started_at_utc": "2026-11-11T20:14:53.078167+00:00",
+      "ended_at_utc": "2026-11-11T20:16:01.851244+00:00",
+      "wall_seconds": 68.7731133250054,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "8e9031a4e533ff196746245dc0f0d986ed52dedd43a134532e2d3af6d762e63b"
+    },
+    {
+      "task_id": "B096",
+      "operation": "publish",
+      "started_at_utc": "2026-11-11T20:16:01.855291+00:00",
+      "ended_at_utc": "2026-11-11T20:16:08.290919+00:00",
+      "wall_seconds": 6.4356616900040535,
+      "return_code": 0,
+      "child_started": true,
+      "output_sha256": "4b8197bcf1bce6b1e0c5885035aaf0d73167b576db6e7553d9bfd2adf199906e"
+    }
+  ]
+}

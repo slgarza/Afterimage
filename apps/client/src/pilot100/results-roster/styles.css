@@ -1,0 +1,27 @@
+.results-roster {
+  color: #f0f0f0;
+  background: #1b1b1b;
+  border: 1px solid rgba(255, 255, 255, .26);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  overflow-wrap: anywhere;
+  font-family: inherit;
+}
+
+.results-roster__list {
+  margin: 0;
+  padding-inline-start: 1.5rem;
+}
+
+.results-roster__list > li {
+  background: rgba(255, 255, 255, .08);
+  border-radius: .5rem;
+  padding: .75rem;
+  margin-block: .5rem;
+}
+
+.results-roster__detail {
+  display: block;
+  color: #a6a6a6;
+  margin-block: .25rem 0;
+}

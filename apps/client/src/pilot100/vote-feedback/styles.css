@@ -1,0 +1,29 @@
+.vote-feedback {
+  color: #f0f0f0;
+  background: #1b1b1b;
+  background: linear-gradient(rgb(255 255 255 / 4%), rgb(255 255 255 / 4%)), #1b1b1b;
+  border: 1px solid rgb(255 255 255 / 26%);
+  border-radius: 1rem;
+  padding: 1rem;
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.vote-feedback p {
+  margin: 0;
+}
+
+.vote-feedback p + p {
+  margin-top: 0.5rem;
+}
+
+.vote-feedback__status {
+  font-weight: 600;
+}
+
+.vote-feedback__draw {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(255 255 255 / 26%);
+}
